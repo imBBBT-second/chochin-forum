@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>초친 포럼 (홈)</title>
+    <style>
+      @font-face {
+        font-family: Paperlogy1;
+        src: url('font - paperlogy/Paperlogy-1.ttf') format('truetype');
+      }
+
+      @font-face {
+        font-family: Paperlogy2;
+        src: url('font - paperlogy/Paperlogy-2.ttf') format('truetype');
+      }
+
+      @font-face {
+        font-family: Paperlogy3;
+        src: url('font - paperlogy/Paperlogy-3.ttf') format('truetype');
+      }
+
+      @font-face {
+        font-family: Paperlogy4;
+        src: url('font - paperlogy/Paperlogy-4.ttf') format('truetype');
+      }
+
+      @font-face {
+        font-family: Paperlogy5;
+        src: url('font - paperlogy/Paperlogy-5.ttf') format('truetype');
+      }
+
+      @font-face {
+        font-family: Paperlogy6;
+        src: url('font - paperlogy/Paperlogy-6.ttf') format('truetype');
+      }
+
+      @font-face {
+        font-family: Paperlogy7;
+        src: url('font - paperlogy/Paperlogy-7.ttf') format('truetype');
+      }
+
+      @font-face {
+        font-family: Paperlogy8;
+        src: url('font - paperlogy/Paperlogy-8.ttf') format('truetype');
+      }
+
+      @font-face {
+        font-family: Paperlogy9;
+        src: url('font - paperlogy/Paperlogy-9.ttf') format('truetype');
+      }
+
+      body {
+        background-color: #323232;
+      }
+
+      h1 {
+        font-family: Paperlogy7;
+        font-size: 170px;
+        color: #ffffff;
+        text-align: center;
+      }
+
+      h2 {
+        font-family: Paperlogy6;
+        font-size: 70px;
+        color: #ffffff;
+        text-align: center;
+      }
+
+      h3 {
+        font-family: Paperlogy5;
+        font-size: 50px;
+        color: #ffffff;
+        text-align: center;
+      }
+
+      h4 {
+        font-family: Paperlogy3;
+        font-size: 40px;
+        color: #a0a0a0;
+        text-align: center;
+      }
+
+      p {
+        font-family: Paperlogy2;
+        color: #c8c8c8;
+        text-align: center;
+      }
+
+      button {
+        font-family: Paperlogy5;
+      }
+
+      html,
+      body {
+        height: 100vh;
+      }
+
+      /* 상단 버튼 */
+      .header-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5vw;
+        padding: 2vh 0;
+        flex-wrap: wrap;
+      }
+
+      .header-btn-wrapper {
+        width: 400px; /* 원하는 고정 너비로 맞춰 (필요하면 숫자 조절) */
+        display: flex;
+        justify-content: center;
+      }
+
+      .header-btn {
+        background-color: #323232;
+        color: white;
+        font-size: clamp(2rem, 5vw, 5rem);
+        cursor: pointer;
+        padding: 1.5vh 0; /* 좌우 패딩 없애고 위아래만 */
+        border: none;
+        border-radius: 10px;
+        width: 100%; /* wrapper 안에서 꽉 차게 */
+        transition: background-color 0.25s ease, color 0.25s ease;
+        font-family: Paperlogy5;
+      }
+
+      .header-btn:hover {
+        background-color: #fff;
+        color: #323232;
+      }
+
+      .divider {
+        border: 2px solid white;
+        width: 100%;
+        height: 0;
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 상단 버튼 컨테이너 -->
+    <div class="header-container">
+      <a
+        href="home.html"
+        class="header-btn-wrapper"
+        style="text-decoration: none"
+      >
+        <button class="header-btn" style="font-family: Paperlogy9">홈</button>
+      </a>
+
+      <a
+        href="level.html"
+        class="header-btn-wrapper"
+        style="text-decoration: none"
+      >
+        <button class="header-btn">레벨</button>
+      </a>
+
+      <div class="header-btn-wrapper">
+        <button class="header-btn">하디스트</button>
+      </div>
+    </div>
+
+    <!-- 구분선 -->
+    <div class="divider"></div>
+
+    <h1 style="position: relative; bottom: 100px">초친 포럼</h1>
+    <p style="font-size: 40px; position: relative; bottom: 175px">
+      Version : ALPHA v1.0
+    </p>
+    <div style="position: relative; bottom: 160px">
+      <h2 style="border: 4px solid #ffffff; width: 1375px; margin: 0 auto">
+        이 포럼은 초친 멤버들끼리 경쟁하는 곳입니다.
+      </h2>
+      <p style="font-size: 30px; position: relative; bottom: 15px">
+        초친 멤버들 중 Geometry Dash를 플레이하는 멤버들끼리 서로 경쟁하며
+        레벨의 순위를 매기는 곳입니다.
+      </p>
+      <p style="font-size: 30px; position: relative; bottom: 40px">
+        자신의 커스텀 레벨과 하디스트 레벨을 구분하여 순위를 매깁니다.
+      </p>
+    </div>
+
+    <div
+      style="
+        width: 1500px;
+        height: 250px;
+        background-color: #323339;
+        border: 5px solid #5e68ef;
+        margin: 0 auto;
+        position: relative;
+        bottom: 100px;
+      "
+    >
+      <h3 style="position: relative; bottom: 40px">초친 디스코드 서버</h3>
+      <p
+        style="font-size: 25px; position: relative; bottom: 80px; right: 200px"
+      >
+        초친 멤버들이 소통하는 디스코드 서버입니다.
+        <span style="position: relative; left: 350px"
+          >초친 포럼 디스코드 서버입니다.</span
+        >
+      </p>
+      <a
+        text-decoration:
+        none;
+        href="https://discord.gg/dRJJpDED3d"
+        target="_blank"
+      >
+        <button
+          style="
+            background-color: #5e68ef;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            margin: 0 auto;
+            width: 275px;
+            height: 75px;
+            position: relative;
+            bottom: 80px;
+            left: 225px;
+            border: none;
+            border-radius: 10px;
+            transition: transform 0.25s cubic-bezier(0.25, 1, 0.75, 1);
+          "
+          onmouseover="this.style.transform='scale(1.1)';"
+          onmouseout="this.style.transform='scale(1)';"
+        >
+          <img
+            src="Discord.png"
+            style="
+              width: 75px;
+              height: 75px;
+              position: relative;
+              right: 2px;
+              bottom: 2px;
+            "
+          />
+          <span style="position: relative; bottom: 24px; right: 5px"
+            >소통 서버</span
+          >
+        </button>
+      </a>
+      <a href="https://discord.gg/pmfZnMCc37" target="_blank">
+        <button
+          style="
+            background-color: #5e68ef;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            margin: 0 auto;
+            width: 275px;
+            height: 75px;
+            position: relative;
+            bottom: 80px;
+            left: 725px;
+            border: none;
+            border-radius: 10px;
+            transition: transform 0.25s cubic-bezier(0.25, 1, 0.75, 1);
+          "
+          onmouseover="this.style.transform='scale(1.1)';"
+          onmouseout="this.style.transform='scale(1)';"
+        >
+          <img
+            src="Discord.png"
+            style="
+              width: 75px;
+              height: 75px;
+              position: relative;
+              right: 2px;
+              bottom: 2px;
+            "
+          />
+          <span style="position: relative; bottom: 24px; right: 5px"
+            >포럼 서버</span
+          >
+        </button>
+      </a>
+      <div
+        style="
+          width: 0px;
+          height: 130px;
+          border: 2px solid #ffffff;
+          margin: 0 auto;
+          position: relative;
+          bottom: 210px;
+        "
+      ></div>
+    </div>
+    <div style="position: relative; bottom: 00px">
+      <h4>크레딧</h4>
+      <p
+        style="
+          font-size: 30px;
+          color: #808080;
+          position: relative;
+          bottom: 40px;
+        "
+      >
+        제작 : 초코, 앞티
+      </p>
+    </div>
+  </body>
+</html>
