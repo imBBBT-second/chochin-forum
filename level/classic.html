@@ -466,11 +466,21 @@
           document.querySelector('.item').classList.add('selected');
         }
       });
+
+      setTimeout(() => {
+        video.style.display = 'block';
+
+      // ⭐ 강제로 레이아웃 업데이트 → 영상 높이를 반영해서 아래 요소들이 밀려남
+      const wrapper = document.querySelector('.video-wrapper');
+      wrapper.style.height = wrapper.offsetHeight + 'px';
+      requestAnimationFrame(() => (wrapper.style.height = ''));
+    }, 50);
     </script>
 
     <h4>크레딧</h4>
     <p style="font-size: 30px; color: #808080">제작 : 초코, 앞티</p>
   </body>
 </html>
+
 
 
