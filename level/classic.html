@@ -230,6 +230,22 @@
         display: none;
       }
 
+      .video-wrapper {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%; /* 16:9 비율 */
+      }
+
+      .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+
       .detail-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -272,7 +288,10 @@
         <div class="detail-title" id="detailTitle"></div>
         <p id="detailCreator" style="font-size: 200%"></p>
 
-        <iframe id="detailVideo" frameborder="0" allowfullscreen></iframe>
+        <div class="video-wrapper">
+          <iframe id="detailVideo" src="" allowfullscreen></iframe>
+        </div>
+
 
         <div id="detailDescription" class="detail-grid"></div>
         <div id="detailFP" style="margin-top: 20px"></div>
@@ -452,5 +471,6 @@
     <p style="font-size: 30px; color: #808080">제작 : 초코, 앞티</p>
   </body>
 </html>
+
 
 
