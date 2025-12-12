@@ -4,6 +4,7 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0" />
     <meta charset="UTF-8" />
     <title>초친 포럼 (레벨 - 클래식)</title>
+
     <style>
       html,
       body {
@@ -16,6 +17,7 @@
         display: flex;
         flex-direction: column;
       }
+
       * {
         margin: 0;
         padding: 0;
@@ -63,24 +65,6 @@
         font-family: Paperlogy7;
         font-size: 170px;
         color: #fff;
-        text-align: center;
-      }
-      h2 {
-        font-family: Paperlogy6;
-        font-size: 70px;
-        color: #fff;
-        text-align: center;
-      }
-      h3 {
-        font-family: Paperlogy5;
-        font-size: 50px;
-        color: #fff;
-        text-align: center;
-      }
-      h4 {
-        font-family: Paperlogy3;
-        font-size: 40px;
-        color: #a0a0a0;
         text-align: center;
       }
       p {
@@ -222,16 +206,19 @@
         transform-origin: center;
       }
 
+      /* ★ 영상이 항상 layout에 자리 차지하게 변경됨 */
       #detailVideo {
-        margin: 20px 0;
-        border-radius: 12px;
-        display: none;
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
       }
 
       .video-wrapper {
         position: relative;
         width: 100%;
         padding-top: 56.25%; /* 16:9 비율 */
+        margin-bottom: 20px; /* 아래 요소와 간격 확보 */
       }
 
       .video-wrapper iframe {
@@ -240,9 +227,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        border: none;
       }
-
 
       .detail-grid {
         display: grid;
@@ -287,12 +272,8 @@
         <p id="detailCreator" style="font-size: 200%"></p>
 
         <div class="video-wrapper">
-          <iframe
-            allowfullscreen
-            id="detailVideo"
-          ></iframe>
+          <iframe allowfullscreen id="detailVideo"></iframe>
         </div>
-
 
         <div id="detailDescription" class="detail-grid"></div>
         <div id="detailFP" style="margin-top: 20px"></div>
@@ -344,17 +325,11 @@
 
         const video = document.getElementById('detailVideo');
 
-        /* ---- 👍 수정된 iframe 로딩 방식 ---- */
         if (item.video) {
           video.src = item.video;
-          setTimeout(() => {
-            video.style.display = 'block';
-          }, 50);
         } else {
-          video.style.display = 'none';
           video.src = '';
         }
-        /* ------------------------------------ */
 
         if (item.details) {
           for (const key in item.details) {
@@ -381,7 +356,7 @@
 
           item.fp.forEach((fp, idx) => {
             const fpItem = document.createElement('p');
-            fpItem.innerHTML = `<span style="font-size:150%; color: #c8c8c8; font-family:Paperlogy3;">${fpsLabels[idx]} : ${fp}개</span>`;
+            fpItem.innerHTML = `<span style="font-size:150%; color: #c8c8c8; font-family: Paperlogy3;">${fpsLabels[idx]} : ${fp}개</span>`;
             fpBox.appendChild(fpItem);
           });
         } else {
@@ -472,13 +447,3 @@
     <p style="font-size: 30px; color: #808080">제작 : 초코, 앞티</p>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
