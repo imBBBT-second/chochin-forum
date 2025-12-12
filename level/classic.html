@@ -59,12 +59,6 @@
         src: url('font - paperlogy/Paperlogy-9.ttf') format('truetype');
       }
 
-      body {
-        background-color: #323232;
-        display: flex;
-        flex-direction: column;
-      }
-
       h1 {
         font-family: Paperlogy7;
         font-size: 170px;
@@ -94,9 +88,6 @@
         color: #c8c8c8;
         text-align: center;
       }
-      button {
-        font-family: Paperlogy5;
-      }
 
       .header-container {
         display: flex;
@@ -124,11 +115,6 @@
         width: 100%;
         transition: background-color 0.25s ease, color 0.25s ease;
         font-family: Paperlogy5;
-      }
-
-      .header-btn:hover {
-        background-color: #fff;
-        color: #323232;
       }
 
       .divider {
@@ -166,11 +152,6 @@
         box-sizing: border-box;
       }
 
-      .button-wrapper {
-        flex: 1;
-        overflow-y: auto;
-      }
-
       .item {
         display: flex;
         align-items: center;
@@ -178,11 +159,6 @@
         padding: 1% 0;
         cursor: pointer;
         border-bottom: 1px solid #c0c0c0;
-      }
-
-      .item:hover {
-        background: #808080;
-        transition: 0.1s;
       }
 
       .rank {
@@ -247,8 +223,10 @@
         transform-origin: center;
       }
 
+      /* 수정됨: video → iframe */
       #detailVideo {
         width: 100%;
+        height: 400px;
         margin: 20px 0;
         border-radius: 12px;
         display: none;
@@ -259,95 +237,16 @@
         grid-template-columns: 1fr 1fr;
         gap: 12px 16px;
       }
-
-      .detail-grid p {
-        background: #606060;
-        padding: 10px;
-        border-radius: 8px;
-        font-family: Paperlogy3;
-        font-size: 1rem !important;
-        color: #fff;
-        line-height: 1.4 !important;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        text-align: center;
-      }
-
-      .detail-wrapper {
-        display: flex;
-        gap: 2%;
-        flex: 1;
-      }
-
-      .item.selected {
-        background: #808080 !important;
-      }
-
-      #detailClears p {
-        text-align: left !important;
-        margin: 5px 0 !important;
-      }
-
-      .text-ellipsis {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      @media (max-width: 1200px) {
-        .main-container {
-          flex-direction: column;
-          gap: 1%;
-        }
-
-        .container,
-        .detail-panel {
-          width: 100% !important;
-          height: auto;
-          min-height: 300px;
-        }
-
-        .detail-panel.clears-panel {
-          width: 100% !important;
-        }
-
-        .detail-wrapper {
-          flex-direction: column;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .header-container {
-          gap: 2vw;
-        }
-
-        .detail-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .container {
-          width: 100%;
-        }
-      }
     </style>
   </head>
 
   <body>
     <div class="header-container">
-      <a
-        href="../index.html"
-        class="header-btn-wrapper"
-        style="text-decoration: none"
-      >
+      <a href="../index.html" class="header-btn-wrapper" style="text-decoration: none">
         <button class="header-btn">홈</button>
       </a>
 
-      <a
-        href="../level.html"
-        class="header-btn-wrapper"
-        style="text-decoration: none"
-      >
+      <a href="../level.html" class="header-btn-wrapper" style="text-decoration: none">
         <button class="header-btn" style="font-family: Paperlogy9">레벨</button>
       </a>
 
@@ -374,36 +273,27 @@
       <div class="detail-panel">
         <div class="detail-title" id="detailTitle"></div>
         <p id="detailCreator" style="font-size: 200%"></p>
+
+        <!-- iframe으로 수정 -->
         <iframe
           id="detailVideo"
-          style="width:100%; height:400px; border-radius:12px; display:none;"
           frameborder="0"
           allowfullscreen
         ></iframe>
+
         <div id="detailDescription" class="detail-grid"></div>
         <div id="detailFP" style="margin-top: 20px"></div>
+
         <h4 style="font-size: 100%; padding-top: 10px">
           ※ 프레임 퍼펙트는 정확하지 않습니다 ※
         </h4>
       </div>
 
       <div class="detail-panel clears-panel">
-        <div
-          style="
-            height: 3.7vw;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          "
-        >
-          <span style="font-family: Paperlogy9; font-size: 2.5vw"
-            >클리어 명단</span
-          >
+        <div style="height: 3.7vw; display: flex; justify-content: center; align-items: center;">
+          <span style="font-family: Paperlogy9; font-size: 2.5vw">클리어 명단</span>
         </div>
-        <div
-          id="detailClears"
-          style="margin-top: 20px; overflow-y: auto; flex: 1"
-        ></div>
+        <div id="detailClears" style="margin-top: 20px; overflow-y: auto; flex: 1"></div>
       </div>
     </div>
 
@@ -440,14 +330,15 @@
         box.innerHTML = '';
 
         const video = document.getElementById('detailVideo');
-        const videoSrc = document.getElementById('detailVideoSrc');
+
+        /* iframe 방식 */
         if (item.video) {
-          video.src = item.video; // item.video에는 YouTube embed 링크 넣기
+          video.src = item.video; // YouTube embed URL
           video.style.display = 'block';
         } else {
           video.style.display = 'none';
+          video.src = '';
         }
-
 
         if (item.details) {
           for (const key in item.details) {
@@ -465,13 +356,14 @@
 
         const fpBox = document.getElementById('detailFP');
         fpBox.innerHTML = '';
-        if (item['fp'] && item['fp'].length > 0) {
+        if (item.fp && item.fp.length > 0) {
           const fpsLabels = ['30fps', '60fps', '120fps', '240fps', '?'];
           const fpTitle = document.createElement('p');
           fpTitle.innerHTML =
             '<span style="font-size:200%; font-family:Paperlogy7">프레임 퍼펙트 상세 정보</span>';
           fpBox.appendChild(fpTitle);
-          item['fp'].forEach((fp, idx) => {
+
+          item.fp.forEach((fp, idx) => {
             const fpItem = document.createElement('p');
             fpItem.innerHTML = `<span style="font-size:150%; color: #c8c8c8; font-family:Paperlogy3;">${fpsLabels[idx]} : ${fp}개</span>`;
             fpBox.appendChild(fpItem);
@@ -481,19 +373,13 @@
             '<p style="font-size:150%;color:#aaa;">프레임 퍼펙트 없음</p>';
         }
 
-        if (item['fp_note']) {
-          const note = document.createElement('p');
-          note.innerHTML = `<span style="font-size:150%; font-family:Paperlogy3; color:#c8c8c8;"><b>FP 비고</b> : </span><span style="font-size:120%; font-family:Paperlogy3; color:#c8c8c8;">${item['fp_note']}</span>`;
-          fpBox.appendChild(note);
-        }
-
         const clearBox = document.getElementById('detailClears');
         clearBox.innerHTML = '';
 
         if (item.clears && item.clears.length > 0) {
           item.clears.forEach((clear, idx) => {
             const rank = idx + 1;
-            let rankColor = '#ffffff';
+            let rankColor = '#fff';
             if (rank === 1) rankColor = '#ffd700';
             else if (rank === 2) rankColor = '#87ceeb';
             else if (rank === 3) rankColor = '#cd853f';
@@ -502,13 +388,13 @@
             clearItem.style.margin = '8px 0';
 
             clearItem.innerHTML = `
-      <span style="font-size:300%; font-family: Paperlogy7; color:${rankColor}; margin-right: 10px;">
-        ${rank}
-      </span>
-      <span style="font-size:180%; font-family: Paperlogy5; color:#fff;">
-        ${clear}
-      </span>
-    `;
+              <span style="font-size:300%; font-family: Paperlogy7; color:${rankColor}; margin-right: 10px;">
+                ${rank}
+              </span>
+              <span style="font-size:180%; font-family: Paperlogy5; color:#fff;">
+                ${clear}
+              </span>
+            `;
 
             clearBox.appendChild(clearItem);
           });
@@ -543,9 +429,7 @@
             </div>
           `;
           div.addEventListener('click', () => {
-            document
-              .querySelectorAll('.item')
-              .forEach((i) => i.classList.remove('selected'));
+            document.querySelectorAll('.item').forEach((i) => i.classList.remove('selected'));
             div.classList.add('selected');
             showDetail(item);
           });
@@ -565,9 +449,8 @@
         }
       });
     </script>
+
     <h4>크레딧</h4>
     <p style="font-size: 30px; color: #808080">제작 : 초코, 앞티</p>
   </body>
 </html>
-
-
