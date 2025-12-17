@@ -216,6 +216,59 @@ input {
   overflow-y: auto;
 }
 
+.detail-header {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.detail-title {
+  font-family: Paperlogy9;
+  font-size: 3.2rem;
+  color: #fff;
+}
+
+.detail-creator {
+  font-family: Paperlogy4;
+  font-size: 1.6rem;
+  color: #c8c8c8;
+}
+
+.detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.info-section,
+.graph-section,
+.tag-section {
+  background: #444;
+  padding: 14px;
+  border-radius: 10px;
+}
+
+.info-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-family: Paperlogy3;
+  font-size: 1rem;
+  color: #c8c8c8;
+}
+
+.info-row span {
+  min-width: 45%;
+}
+
+.fp-warning {
+  text-align: center;
+  font-family: Paperlogy2;
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-top: 10px;
+}
+
+  
 /* ===== Bar Graph ===== */
 .bar-row {
   display:flex;
@@ -276,18 +329,35 @@ input {
 
   <!-- Detail -->
   <div class="detail-panel">
-    <div class="detail-header">
-      <div class="detail-title" id="detailTitle"></div>
-      <p id="detailCreator"></p>
-    </div>
-  
 
-    <div class="video-wrapper">
-      <iframe id="detailVideo" allowfullscreen></iframe>
-    </div>
-
-    <div id="detailDescription"></div>
+  <!-- 제목 / 제작자 -->
+  <div class="detail-header">
+    <div id="detailTitle" class="detail-title"></div>
+    <div id="detailCreator" class="detail-creator"></div>
   </div>
+
+  <!-- 영상 -->
+  <div class="video-wrapper">
+    <iframe id="detailVideo" allowfullscreen></iframe>
+  </div>
+
+  <!-- 상세 정보 -->
+  <div class="detail-content">
+
+    <!-- 텍스트 정보 -->
+    <div id="infoSection" class="info-section"></div>
+
+    <!-- 그래프 -->
+    <div id="graphSection" class="graph-section"></div>
+
+    <!-- 태그 -->
+    <div id="tagSection" class="tag-section"></div>
+
+  </div>
+
+  <p class="fp-warning">※ 프레임 퍼펙트는 정확하지 않습니다 ※</p>
+</div>
+
 
   <!-- Clears -->
   <div class="detail-panel clears-panel">
@@ -340,44 +410,48 @@ function drawRatioGraph(targetId, data) {
 
 
 function showDetail(item) {
-  detailTitle.textContent = item.title;
-  detailCreator.textContent =
+  // 제목
+  document.getElementById('detailTitle').textContent = item.title;
+
+  // 제작자
+  document.getElementById('detailCreator').textContent =
     item.creator === item.verifier
       ? `by ${item.creator}`
       : `by ${item.creator} / Verified by ${item.verifier}`;
 
-  detailVideo.src = item.video || '';
-  detailDescription.innerHTML = '';
+  // 영상
+  document.getElementById('detailVideo').src = item.video || '';
 
-  if (item.gameplay) {
-  addSection(
-    '게임플레이',
-    `
-    <div class="info-row">
-      <p>주 게임모드 : ${item.gameplay.mainMode}</p>
-    </div>
+  // 텍스트 정보
+  const info = document.getElementById('infoSection');
+  info.innerHTML = '';
 
-    <div class="graph-box" id="modeGraph"></div>
-    <div class="graph-box" id="speedGraph"></div>
-    `
-  );
-
-  drawRatioGraph('modeGraph', item.gameplay.modeRatio);
-  drawRatioGraph('speedGraph', item.gameplay.speedRatio);
-}
-
-  if (item.framePerfect) {
-    addSection('프레임 퍼펙트',
-      Object.entries(item.framePerfect.fps || {})
-        .map(([k,v]) => barRow(`${k}fps`, (v / item.framePerfect.total)*100))
-        .join('')
-    );
+  if (item.map) {
+    info.innerHTML += `
+      <div class="info-row">
+        <span>맵 ID : ${item.map.mapId}</span>
+        <span>길이 : ${item.map.length}</span>
+        <span>오브젝트 수 : ${item.map.objects?.toLocaleString()}</span>
+        <span>업로드 날짜 : ${item.map.uploadDate}</span>
+      </div>
+    `;
   }
 
-  detailClears.innerHTML = item.clears?.length
-    ? item.clears.map((c,i)=>`<p>${i+1}. ${c}</p>`).join('')
-    : '<p style="color:#aaa;text-align:center">클리어 없음</p>';
+  if (item.song) {
+    info.innerHTML += `
+      <div class="info-row">
+        <span>노래 이름 : ${item.song.name}</span>
+        <span>작곡가 : ${item.song.artist}</span>
+        <span>노래 ID : ${item.song.id}</span>
+      </div>
+    `;
+  }
+
+  // 그래프 / 태그는 다음 단계에서
+  document.getElementById('graphSection').innerHTML = '';
+  document.getElementById('tagSection').innerHTML = '';
 }
+
 
 
 fetch('classic.json')
@@ -397,6 +471,7 @@ fetch('classic.json')
 
 </body>
 </html>
+
 
 
 
