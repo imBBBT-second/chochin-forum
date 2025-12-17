@@ -4,7 +4,7 @@
       "id": 1,
       "title": "chocubed",
       "creator": "Light",
-      "video": "https://www.youtube.com/embed/uAdPOykEd1k",
+      "video": "https://www.youtube.com/embed/Q9i2t7wWckw",
       "verifier": "Light",
       "map": {
         "mapId": 126886071,
@@ -40,7 +40,7 @@
         }
       },
       "tags": ["Wave", "4x", "Short", "None-Effect"],
-      "clears": []
+      "clears": ["Timo"]
     },
     {
       "id": 2,
@@ -106,6 +106,7 @@
     }
   ]
 }
+
 
 
 
