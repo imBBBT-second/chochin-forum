@@ -4,131 +4,34 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0" />
     <meta charset="UTF-8" />
     <title>초친 포럼 (레벨 - 클래식)</title>
+
     <style>
-      html,
-      body {
+      html, body {
         min-height: 100vh;
-        height: 100%;
         margin: 0;
-        padding: 0;
-        box-sizing: border-box;
         background-color: #323232;
         display: flex;
         flex-direction: column;
       }
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+      * { box-sizing: border-box; }
 
-      @font-face {
-        font-family: Paperlogy1;
-        src: url('font - paperlogy/Paperlogy-1.ttf') format('truetype');
-      }
-      @font-face {
-        font-family: Paperlogy2;
-        src: url('font - paperlogy/Paperlogy-2.ttf') format('truetype');
-      }
-      @font-face {
-        font-family: Paperlogy3;
-        src: url('font - paperlogy/Paperlogy-3.ttf') format('truetype');
-      }
-      @font-face {
-        font-family: Paperlogy4;
-        src: url('font - paperlogy/Paperlogy-4.ttf') format('truetype');
-      }
-      @font-face {
-        font-family: Paperlogy5;
-        src: url('font - paperlogy/Paperlogy-5.ttf') format('truetype');
-      }
-      @font-face {
-        font-family: Paperlogy6;
-        src: url('font - paperlogy/Paperlogy-6.ttf') format('truetype');
-      }
-      @font-face {
-        font-family: Paperlogy7;
-        src: url('font - paperlogy/Paperlogy-7.ttf') format('truetype');
-      }
-      @font-face {
-        font-family: Paperlogy8;
-        src: url('font - paperlogy/Paperlogy-8.ttf') format('truetype');
-      }
-      @font-face {
-        font-family: Paperlogy9;
-        src: url('font - paperlogy/Paperlogy-9.ttf') format('truetype');
-      }
+      @font-face { font-family: Paperlogy2; src: url('font - paperlogy/Paperlogy-2.ttf'); }
+      @font-face { font-family: Paperlogy3; src: url('font - paperlogy/Paperlogy-3.ttf'); }
+      @font-face { font-family: Paperlogy5; src: url('font - paperlogy/Paperlogy-5.ttf'); }
+      @font-face { font-family: Paperlogy6; src: url('font - paperlogy/Paperlogy-6.ttf'); }
+      @font-face { font-family: Paperlogy7; src: url('font - paperlogy/Paperlogy-7.ttf'); }
+      @font-face { font-family: Paperlogy9; src: url('font - paperlogy/Paperlogy-9.ttf'); }
 
-      h1 {
-        font-family: Paperlogy7;
-        font-size: 170px;
-        color: #fff;
-        text-align: center;
-      }
-      h2 {
-        font-family: Paperlogy6;
-        font-size: 70px;
-        color: #fff;
-        text-align: center;
-      }
-      h3 {
-        font-family: Paperlogy5;
-        font-size: 50px;
-        color: #fff;
-        text-align: center;
-      }
-      h4 {
-        font-family: Paperlogy3;
-        font-size: 40px;
-        color: #a0a0a0;
-        text-align: center;
-      }
-      p {
-        font-family: Paperlogy2;
-        color: #c8c8c8;
-        text-align: center;
-      }
+      h1 { font-family: Paperlogy7; font-size: 170px; color: #fff; text-align: center; }
+      h4 { font-family: Paperlogy3; color: #aaa; text-align: center; }
 
-      .header-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 5vw;
-        padding: 2vh 0;
-        flex-wrap: wrap;
-      }
-
-      .header-btn-wrapper {
-        width: 400px;
-        display: flex;
-        justify-content: center;
-      }
-
-      .header-btn {
-        background-color: #323232;
-        color: white;
-        font-size: clamp(2rem, 5vw, 5rem);
-        cursor: pointer;
-        padding: 1.5vh 0;
-        border: none;
-        border-radius: 10px;
-        width: 100%;
-        transition: background-color 0.25s ease, color 0.25s ease;
-        font-family: Paperlogy5;
-      }
-
-      .divider {
-        border: 2px solid white;
-        width: 100%;
-        margin: 10px 0;
-      }
+      .divider { border: 2px solid white; margin: 10px 0; }
 
       .main-container {
         display: flex;
         gap: 2%;
         padding: 2%;
         flex: 1;
-        min-height: 800px;
       }
 
       .container {
@@ -137,329 +40,202 @@
         padding: 1.5%;
         border-radius: 10px;
         overflow-y: auto;
-        display: flex;
-        flex-direction: column;
-      }
-
-      input {
-        width: 100%;
-        padding: 1%;
-        margin-bottom: 2%;
-        border: none;
-        border-radius: 8px;
-        font-size: 18px;
       }
 
       .item {
         display: flex;
-        align-items: center;
-        gap: 1%;
-        padding: 1% 0;
+        padding: 10px;
+        border-bottom: 1px solid #777;
         cursor: pointer;
-        border-bottom: 1px solid #c0c0c0;
       }
 
       .rank {
+        width: 15%;
+        font-family: Paperlogy7;
         color: #fff;
-        width: 10%;
-        font-family: Paperlogy8;
-        font-size: 2vw;
         text-align: center;
       }
 
-      .info {
-        flex: 1;
-      }
-
-      .title {
-        font-family: Paperlogy5;
-        font-size: 1.7vw;
-        color: #fff;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      .creator {
-        font-family: Paperlogy3;
-        font-size: 0.9vw;
-        color: #e0e0e0;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
+      .title { font-family: Paperlogy5; color: #fff; }
+      .creator { font-family: Paperlogy3; color: #ccc; font-size: 14px; }
 
       .detail-panel {
         flex: 1;
         background: #505050;
         padding: 2%;
         border-radius: 10px;
-        color: white;
         overflow-y: auto;
-        display: flex;
-        flex-direction: column;
       }
 
-      .detail-panel.clears-panel {
-        width: 25%;
-        flex: none;
-        flex-shrink: 0;
-      }
-
-      .detail-title {
-        height: 3.7vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 1rem;
-      }
-
-      .detail-title-inner {
-        white-space: nowrap;
-        font-family: Paperlogy9;
-        font-size: 3vw;
-        transform-origin: center;
-      }
-
-      /* ✨ 16:9 비율 고정 */
       .video-wrapper {
         position: relative;
         width: 100%;
-        padding-top: 56.25%; /* 16:9 */
+        padding-top: 56.25%;
         margin-bottom: 15px;
       }
 
       .video-wrapper iframe {
         position: absolute;
-        top: 0;
-        left: 0;
+        inset: 0;
         width: 100%;
         height: 100%;
         border: none;
-        display: block;
       }
 
       .detail-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 12px 16px;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .section {
+        grid-column: 1 / -1;
+        background: #444;
+        padding: 12px;
+        border-radius: 8px;
+      }
+
+      .section-title {
+        font-family: Paperlogy6;
+        font-size: 22px;
+        margin-bottom: 8px;
+        color: #fff;
+      }
+
+      .tag {
+        display: inline-block;
+        background: #666;
+        padding: 4px 8px;
+        border-radius: 6px;
+        margin: 3px;
+        font-size: 14px;
       }
     </style>
   </head>
 
   <body>
-    <div class="header-container">
-      <a href="../index.html" class="header-btn-wrapper" style="text-decoration: none">
-        <button class="header-btn">홈</button>
-      </a>
-
-      <a href="../level.html" class="header-btn-wrapper" style="text-decoration: none">
-        <button class="header-btn" style="font-family: Paperlogy9">레벨</button>
-      </a>
-
-      <div class="header-btn-wrapper">
-        <button class="header-btn">하디스트</button>
-      </div>
-    </div>
-
+    <h1>Classic</h1>
     <div class="divider"></div>
-
-    <div style="height: 25%; text-align: center; margin-top: 20px">
-      <h1>Classic</h1>
-      <p style="font-size: 32px">
-        초친 멤버들이 만든 레벨들 중 20초 이상의 레벨들을 모아놓은 곳입니다.
-      </p>
-    </div>
 
     <div class="main-container">
       <div class="container">
-        <input id="search" type="text" placeholder="검색" />
-        <div id="list" class="button-wrapper"></div>
+        <input id="search" placeholder="검색" style="width:100%; padding:8px" />
+        <div id="list"></div>
       </div>
 
       <div class="detail-panel">
-        <div class="detail-title" id="detailTitle"></div>
-        <p id="detailCreator" style="font-size: 200%; position: relative; bottom: 10px;"></p>
+        <h2 id="detailTitle" style="text-align:center; color:white;"></h2>
+        <p id="detailCreator" style="text-align:center; color:#ddd;"></p>
 
         <div class="video-wrapper">
-          <iframe allowfullscreen id="detailVideo"></iframe>
+          <iframe id="detailVideo" allowfullscreen></iframe>
         </div>
 
         <div id="detailDescription" class="detail-grid"></div>
-        <div id="detailFP" style="margin-top: 20px"></div>
 
-        <h4 style="font-size: 100%; padding-top: 10px">
-          ※ 프레임 퍼펙트는 정확하지 않습니다 ※
-        </h4>
-      </div>
-
-      <div class="detail-panel clears-panel">
-        <div style="height: 3.7vw; display: flex; justify-content: center; align-items: center;">
-          <span style="font-family: Paperlogy9; font-size: 2.5vw">클리어 명단</span>
-        </div>
-        <div id="detailClears" style="margin-top: 20px; overflow-y: auto; flex: 1"></div>
+        <p style="font-size:90%; color:#aaa; text-align:center;">
+          ※ 프레임 퍼펙트 수치는 참고용이야
+        </p>
       </div>
     </div>
 
     <script>
       let demonData = [];
 
-      function setDetailTitle(text) {
-        const container = document.getElementById('detailTitle');
-        container.innerHTML = `<span class="detail-title-inner">${text}</span>`;
-        const inner = container.querySelector('.detail-title-inner');
-        const maxWidth = container.clientWidth;
-        const realWidth = inner.scrollWidth;
-        let scale = maxWidth / realWidth;
-        if (scale > 1) scale = 1;
-        inner.style.transform = 'scale(' + scale + ')';
-      }
-
-      function setDetailDescriptionScale(row, text) {
-        row.innerHTML = `<span class="detail-text-inner">${text}</span>`;
-        const inner = row.querySelector('.detail-text-inner');
-        const maxWidth = row.clientWidth;
-        const realWidth = inner.scrollWidth;
-        let scale = maxWidth / realWidth;
-        if (scale > 1) scale = 1;
-        inner.style.transform = 'scale(' + scale + ')';
+      function addSection(container, title, html) {
+        const div = document.createElement('div');
+        div.className = 'section';
+        div.innerHTML = `<div class="section-title">${title}</div>${html}`;
+        container.appendChild(div);
       }
 
       function showDetail(item) {
-        setDetailTitle(item.title);
-        const creatorText =
-        item.creator === item.verifier
-          ? `by ${item.creator}`
-          : `by ${item.creator} / Verified by ${item.verifier}`;
+        document.getElementById('detailTitle').textContent = item.title;
+        document.getElementById('detailCreator').textContent =
+          item.creator === item.verifier
+            ? `by ${item.creator}`
+            : `by ${item.creator} / Verified by ${item.verifier}`;
 
-        document.getElementById('detailCreator').textContent = creatorText;
-
+        document.getElementById('detailVideo').src = item.video || '';
 
         const box = document.getElementById('detailDescription');
         box.innerHTML = '';
 
-        const video = document.getElementById('detailVideo');
-        video.src = item.video || '';
-
-        if (item.details) {
-          for (const key in item.details) {
-            const value = item.details[key];
-            const row = document.createElement('p');
-            setDetailDescriptionScale(
-              row,
-              `<span style="font-size:150%;"><b>${key}</b> : ${value}</span>`
-            );
-            box.appendChild(row);
-          }
-        } else {
-          box.innerHTML = '<p style="font-size:300%;color:red;">정보 없음</p>';
+        if (item.map) {
+          addSection(box, '맵 정보', `
+            <p>맵 ID : ${item.map.mapId}</p>
+            <p>길이 : ${item.map.length}</p>
+            <p>오브젝트 수 : ${item.map.objects.toLocaleString()}</p>
+            <p>업로드 날짜 : ${item.map.uploadDate}</p>
+          `);
         }
 
-        const fpBox = document.getElementById('detailFP');
-        fpBox.innerHTML = '';
-        if (item.fp && item.fp.length > 0) {
-          const fpsLabels = ['30fps', '60fps', '120fps', '240fps', '?'];
-          const fpTitle = document.createElement('p');
-          fpTitle.innerHTML =
-            '<span style="font-size:200%; font-family:Paperlogy7">프레임 퍼펙트 상세 정보</span>';
-          fpBox.appendChild(fpTitle);
-
-          item.fp.forEach((fp, idx) => {
-            const fpItem = document.createElement('p');
-            fpItem.innerHTML = `<span style="font-size:150%; color: #c8c8c8; font-family:Paperlogy3;">${fpsLabels[idx]} : ${fp}개</span>`;
-            fpBox.appendChild(fpItem);
-          });
-        } else {
-          fpBox.innerHTML =
-            '<p style="font-size:150%;color:#aaa;">프레임 퍼펙트 없음</p>';
+        if (item.song) {
+          addSection(box, '노래 정보', `
+            <p>노래 이름 : ${item.song.name}</p>
+            <p>작곡가 : ${item.song.artist}</p>
+            <p>노래 ID : ${item.song.id}</p>
+          `);
         }
 
-        const clearBox = document.getElementById('detailClears');
-        clearBox.innerHTML = '';
+        if (item.gameplay) {
+          addSection(box, '게임플레이', `
+            <p>주 게임모드 : ${item.gameplay.mainMode}</p>
+            ${Object.entries(item.gameplay.modeRatio || {}).map(([k,v])=>`<p>${k} : ${v}%</p>`).join('')}
+            ${Object.entries(item.gameplay.speedRatio || {}).map(([k,v])=>`<p>${k} 속도 : ${v}%</p>`).join('')}
+          `);
+        }
 
-        if (item.clears && item.clears.length > 0) {
-          item.clears.forEach((clear, idx) => {
-            const rank = idx + 1;
-            let rankColor = '#fff';
-            if (rank === 1) rankColor = '#ffd700';
-            else if (rank === 2) rankColor = '#87ceeb';
-            else if (rank === 3) rankColor = '#cd853f';
+        if (item.framePerfect) {
+          const fps = item.framePerfect.fps;
+          addSection(box, '프레임 퍼펙트', `
+            <p>총 FP : ${item.framePerfect.total}</p>
+            <p>30 FPS : ${fps[30] ?? 0}</p>
+            <p>60 FPS : ${fps[60] ?? 0}</p>
+            <p>120 FPS : ${fps[120] ?? 0}</p>
+            <p>240 FPS : ${fps[240] ?? 0}</p>
+          `);
+        }
 
-            const clearItem = document.createElement('p');
-            clearItem.style.margin = '8px 0';
-
-            clearItem.innerHTML = `
-              <span style="font-size:300%; font-family: Paperlogy7; color:${rankColor}; margin-right: 10px;">
-                ${rank}
-              </span>
-              <span style="font-size:180%; font-family: Paperlogy5; color:#fff;">
-                ${clear}
-              </span>
-            `;
-
-            clearBox.appendChild(clearItem);
-          });
-        } else {
-          clearBox.innerHTML =
-            '<p style="font-size:200%; color:#aaa; text-align:center !important;">클리어 없음</p>';
+        if (item.tags) {
+          addSection(
+            box,
+            '태그',
+            item.tags.map(t => `<span class="tag">#${t}</span>`).join('')
+          );
         }
       }
-
-      fetch('classic.json')
-        .then((res) => res.json())
-        .then((json) => {
-          demonData = json.buttons;
-          generateList(demonData);
-          if (demonData.length > 0) {
-            showDetail(demonData[0]);
-            document.querySelector('.item').classList.add('selected');
-          }
-        });
 
       function generateList(data) {
         const list = document.getElementById('list');
         list.innerHTML = '';
-        data.forEach((item) => {
+        data.forEach(item => {
           const div = document.createElement('div');
           div.className = 'item';
           div.innerHTML = `
             <div class="rank">${item.id}</div>
-            <div class="info">
+            <div>
               <div class="title">${item.title}</div>
               <div class="creator">by ${item.creator}</div>
             </div>
           `;
-          div.addEventListener('click', () => {
-            document.querySelectorAll('.item').forEach((i) =>
-              i.classList.remove('selected')
-            );
-            div.classList.add('selected');
-            showDetail(item);
-          });
+          div.onclick = () => showDetail(item);
           list.appendChild(div);
         });
       }
 
-      document.getElementById('search').addEventListener('input', () => {
-        const text = search.value.toLowerCase();
-        const filtered = demonData.filter((d) =>
-          d.title.toLowerCase().includes(text)
-        );
-        generateList(filtered);
-        if (filtered.length > 0) {
-          showDetail(filtered[0]);
-          document.querySelector('.item').classList.add('selected');
-        }
-      });
-    </script>
+      fetch('classic.json')
+        .then(r => r.json())
+        .then(j => {
+          demonData = j.buttons;
+          generateList(demonData);
+          if (demonData.length) showDetail(demonData[0]);
+        });
 
-    <h4>크레딧</h4>
-    <p style="font-size: 30px; color: #808080">제작 : 초코, 앞티</p>
+      search.oninput = () => {
+        const t = search.value.toLowerCase();
+        generateList(demonData.filter(d => d.title.toLowerCase().includes(t)));
+      };
+    </script>
   </body>
 </html>
-
-
-
-
-
-
