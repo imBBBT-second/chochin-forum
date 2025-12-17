@@ -4,7 +4,7 @@
       "id": 1,
       "title": "chocubed",
       "creator": "Light",
-      "video": "classic_video/chocubed.mp4",
+      "video": "https://www.youtube.com/embed/uAdPOykEd1k",
       "verifier": "Light",
       "map": {
         "mapId": 126886071,
@@ -110,6 +110,7 @@
     }
   ]
 }
+
 
 
 
