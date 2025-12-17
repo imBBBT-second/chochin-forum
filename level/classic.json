@@ -2,7 +2,7 @@
   "buttons": [
     {
       "id": 1,
-      "title": "Chocubed",
+      "title": "chocubed",
       "creator": "Light",
       "video": "classic_video/chocubed.mp4",
       "verifier": "Light",
@@ -35,7 +35,7 @@
     },
     {
       "id": 3,
-      "title": "Nullscube",
+      "title": "nullscube",
       "creator": "Timo",
       "video": "https://www.youtube.com/embed/WBCF7mMq_2s",
       "verifier": "Timo",
@@ -85,6 +85,7 @@
     }
   ]
 }
+
 
 
 
