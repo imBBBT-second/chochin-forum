@@ -463,6 +463,19 @@ if (item.framePerfect) {
   );
 }
 
+  const tag = document.getElementById('tagSection');
+
+if (item.tags && item.tags.length > 0) {
+  tag.style.display = 'block';
+  tag.innerHTML = `
+    <div class="graph-title">태그</div>
+    ${item.tags.map(t => `<span class="tag">#${t}</span>`).join('')}
+  `;
+} else {
+  tag.style.display = 'none';
+  tag.innerHTML = '';
+}
+
 }
 
 
@@ -484,6 +497,7 @@ fetch('classic.json')
 
 </body>
 </html>
+
 
 
 
