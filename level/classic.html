@@ -324,11 +324,21 @@ function showDetail(item) {
   detailDescription.innerHTML = '';
 
   if (item.gameplay) {
-    addSection('게임플레이',
-      Object.entries(item.gameplay.modeRatio || {}).map(([k,v])=>barRow(k,v)).join('') +
-      Object.entries(item.gameplay.speedRatio || {}).map(([k,v])=>barRow(k,v)).join('')
-    );
-  }
+  addSection(
+    '게임플레이',
+    `
+    <div class="info-row">
+      <p>주 게임모드 : ${item.gameplay.mainMode}</p>
+    </div>
+
+    <div class="graph-box" id="modeGraph"></div>
+    <div class="graph-box" id="speedGraph"></div>
+    `
+  );
+
+  drawRatioGraph('modeGraph', item.gameplay.modeRatio);
+  drawRatioGraph('speedGraph', item.gameplay.speedRatio);
+}
 
   if (item.framePerfect) {
     addSection('프레임 퍼펙트',
@@ -342,6 +352,25 @@ function showDetail(item) {
     ? item.clears.map((c,i)=>`<p>${i+1}. ${c}</p>`).join('')
     : '<p style="color:#aaa;text-align:center">클리어 없음</p>';
 }
+
+function drawRatioGraph(targetId, data) {
+  const box = document.getElementById(targetId);
+  box.innerHTML = '';
+
+  Object.entries(data || {}).forEach(([key, value]) => {
+    const row = document.createElement('div');
+    row.className = 'bar-row';
+    row.innerHTML = `
+      <span>${key}</span>
+      <div class="bar">
+        <div class="bar-fill" style="width:${value}%"></div>
+      </div>
+      <span>${value}%</span>
+    `;
+    box.appendChild(row);
+  });
+}
+
 
 fetch('classic.json')
   .then(r=>r.json())
@@ -360,6 +389,7 @@ fetch('classic.json')
 
 </body>
 </html>
+
 
 
 
