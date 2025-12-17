@@ -390,12 +390,18 @@ input {
 let demonData = [];
   
 function addSection(title, html) {
-  detailDescription.innerHTML += `
-    <div class="section">
-      <div class="section-title">${title}</div>
-      ${html}
-    </div>`;
+  const box = document.getElementById('detailDescription');
+
+  const div = document.createElement('div');
+  div.className = 'section';
+  div.innerHTML = `
+    <div class="section-title">${title}</div>
+    ${html}
+  `;
+
+  box.appendChild(div);
 }
+
 
 function makeRatioGraph(title, data, suffix = '%') {
   if (!data || Object.keys(data).length === 0) return '';
@@ -482,11 +488,12 @@ if (item.framePerfect) {
 
   const tag = document.getElementById('tagSection');
 
-if (item.tags)
+if (item.tags && item.tags.length > 0) {
   addSection(
     '태그',
-    item.tags.map(t => `<span class="tag">#${t}</span>`).join('')
+    item.tags.map(t => `<span class="tag">${t}</span>`).join('')
   );
+}
 
 }
 
@@ -509,6 +516,7 @@ fetch('classic.json')
 
 </body>
 </html>
+
 
 
 
