@@ -2,6 +2,39 @@
   "buttons": [
     {
       "id": 1,
+      "title": "Chocubed",
+      "creator": "Light",
+      "video": "classic_video/chocubed.mp4",
+      "verifier": "Light",
+      "details": {
+        "맵 ID": "126886071",
+        "길이": "0m 24s",
+        "노래": "EspiDev - Parfait",
+        "노래 ID": "763176",
+        "오브젝트 수": "1930",
+        "프레임 퍼펙트 수": "30"
+      },
+      "fp": ["21", "9"],
+      "clears": []
+    },
+    {
+      "id": 2,
+      "title": "BOOBAWAVEBA",
+      "creator": "Choco",
+      "video": "https://www.youtube.com/embed/NCW_519mfoc",
+      "verifier": "Choco",
+      "details": {
+        "맵 ID": "129453627",
+        "길이": "0m 28s",
+        "노래": "nandinanubis - Portial To The Other Side (Feat. Hatsune Miku)",
+        "노래 ID": "941913",
+        "오브젝트 수": "1431",
+        "프레임 퍼펙트 수": "?"
+      },
+      "fp": ["?"]
+    },
+    {
+      "id": 3,
       "title": "Nullscube",
       "creator": "Timo",
       "video": "https://www.youtube.com/embed/WBCF7mMq_2s",
@@ -18,23 +51,7 @@
       "clears": []
     },
     {
-      "id": 2,
-      "title": "chocubed",
-      "creator": "Light",
-      "video": "classic_video/chocubed.mp4",
-      "verifier": "Light",
-      "details": {
-        "맵 ID": "126886071",
-        "길이": "0m 24s",
-        "노래": "EspiDev - Parfait",
-        "노래 ID": "763176",
-        "오브젝트 수": "1930",
-        "프레임 퍼펙트 수": "30"
-      },
-      "fp": ["21", "9"]
-    },
-    {
-      "id": 3,
+      "id": 4,
       "title": "Reaper Wave",
       "creator": "Timo",
       "video": "https://www.youtube.com/embed/Zo14uVzdCaY",
@@ -51,7 +68,7 @@
       "fp": ["9", "2"]
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "Stereo Madness EX",
       "creator": "Choco",
       "video": "classic_video/stereo_madness_ex.mp4",
@@ -63,26 +80,10 @@
         "노래 ID": "(R) 0",
         "오브젝트 수": "3598",
         "프레임 퍼펙트 수": "0"
-      }
-    },
-    {
-      "id": 5,
-      "title": "Trolled",
-      "creator": "Light",
-      "video": "classic_video/trolled.mp4",
-      "verifier": "Light",
-      "details": {
-        "맵 ID": "85636626",
-        "길이": "0m 36s",
-        "노래": "AntonyC - Youve Been Trolled",
-        "노래 ID": "477402",
-        "오브젝트 수": "553",
-        "프레임 퍼펙트 수": "1"
-      },
-      "fp": ["0", "1"]
     }
   ]
 }
+
 
 
 
