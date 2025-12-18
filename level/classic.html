@@ -586,6 +586,7 @@ function showDetail(item, element) {
   // element가 있을 때만 active 처리
   if (element) {
     element.classList.add('active');
+  }
   /* 제목 */
   document.getElementById('detailTitle').textContent = item.title;
 
@@ -720,7 +721,7 @@ fetch('classic.json')
           <div class="creator">by ${d.creator}</div>
         </div>
       `;
-      div.onclick = () => showDetail(d);
+      div.onclick = () => showDetail(d, div);
       list.appendChild(div);
     });
 
@@ -731,6 +732,7 @@ fetch('classic.json')
 
 </body>
 </html>
+
 
 
 
