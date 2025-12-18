@@ -1,2 +1,2 @@
-# chochin-forum.github.io
-chochin-forum
+# 초친 포럼
+초친 포럼의 공식 사이트입니다.
