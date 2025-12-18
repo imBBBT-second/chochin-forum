@@ -145,19 +145,29 @@ input {
     color 0.15s ease;
 }
 
-/* 마우스 올렸을 때 */
 .item:hover {
   background-color: #ffffff;
 }
 
-/* hover 시 내부 텍스트를 검은색으로 */
 .item:hover .title,
 .item:hover .creator,
 .item:hover .rank {
   color: #000000;
 }
 
-  
+
+/* 선택된 버튼 */
+.item.active {
+  background-color: #ffffff;
+}
+
+/* 선택된 버튼 텍스트 */
+.item.active .title,
+.item.active .creator,
+.item.active .rank {
+  color: #000000;
+}
+
 /* ===== Center Detail ===== */
 .detail-panel {
   flex:1;
@@ -568,7 +578,13 @@ function makeFramePerfectGraph(framePerfect) {
 
 
   
-function showDetail(item) {
+function showDetail(item, element) {
+  // 기존 active 제거
+  document.querySelectorAll('.item.active')
+    .forEach(el => el.classList.remove('active'));
+
+  // 현재 클릭된 버튼 active 추가
+  element.classList.add('active');
   /* 제목 */
   document.getElementById('detailTitle').textContent = item.title;
 
@@ -714,6 +730,7 @@ fetch('classic.json')
 
 </body>
 </html>
+
 
 
 
