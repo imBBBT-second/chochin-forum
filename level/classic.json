@@ -48,6 +48,37 @@
       "creator": "Choco",
       "video": "https://www.youtube.com/embed/NCW_519mfoc",
       "verifier": "Choco",
+      "map": {
+        "mapId": 129453627,
+        "length": "0m 28s",
+        "objects": 1431,
+        "uploadDate": "2025-12-14"
+      },
+      "song": {
+        "name": "Portal To The Other Side (feat. Hatsune Miku)",
+        "artist": "nandinanubis",
+        "id": 941913
+      },
+      "gameplay": {
+        "mainMode": "Wave",
+        "modeRatio": {
+          "Wave": 100
+        },
+        "speedRatio": {
+          "1x": 97.86,
+          "4x": 2.14
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Wave", "1x", "Short", "Memory"],
       "clears": []
     },
     {
@@ -90,6 +121,7 @@
     }
   ]
 }
+
 
 
 
