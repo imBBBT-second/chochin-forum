@@ -387,6 +387,26 @@ input {
   color: #b0b0b0;
 }
 
+/* === 클리어 순위 강조 === */
+.clear-row.rank-1 .clear-rank,
+.clear-row.rank-1 .clear-player {
+  color: #ffd700;
+  font-family: Paperlogy6;
+}
+
+.clear-row.rank-2 .clear-rank,
+.clear-row.rank-2 .clear-player {
+  color: #c0c0c0;
+  font-family: Paperlogy5;
+}
+
+.clear-row.rank-3 .clear-rank,
+.clear-row.rank-3 .clear-player {
+  color: #cd7f32;
+  font-family: Paperlogy5;
+}
+
+
 
 </style>
 </head>
@@ -620,13 +640,14 @@ function showDetail(item) {
       item.tags.map(t => `<span class="tag">${t}</span>`).join('')
     );
   }
+  
   const clearBox = document.getElementById('detailClears');
   clearBox.innerHTML = '';
 
   if (item.clears && item.clears.length > 0) {
     item.clears.forEach((c, i) => {
       const row = document.createElement('div');
-      row.className = 'clear-row';
+      row.className = `clear-row rank-${i + 1}`;
       row.innerHTML = `
         <div class="clear-rank">#${i + 1}</div>
         <div class="clear-player">${c.player}</div>
@@ -670,4 +691,5 @@ fetch('classic.json')
 
 </body>
 </html>
+
 
