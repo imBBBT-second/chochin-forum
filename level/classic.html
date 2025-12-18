@@ -426,6 +426,31 @@ function makeRatioGraph(title, data, suffix = '%') {
   `;
 }
 
+function makeFramePerfectGraph(framePerfect) {
+  if (!framePerfect || !framePerfect.fps || framePerfect.total === 0) return '';
+
+  const total = framePerfect.total;
+
+  return `
+    <div class="graph-box">
+      <div class="graph-title">프레임 퍼펙트 (FPS)</div>
+      ${Object.entries(framePerfect.fps).map(([fps, count]) => {
+        const ratio = (count / total * 100).toFixed(1);
+        return `
+          <div class="graph-row">
+            <div class="graph-label">${fps} FPS</div>
+            <div class="graph-bar-bg">
+              <div class="graph-bar" style="width:${ratio}%"></div>
+            </div>
+            <div class="graph-value">${count}</div>
+          </div>
+        `;
+      }).join('')}
+    </div>
+  `;
+}
+
+  
 function showDetail(item) {
   /* 제목 */
   document.getElementById('detailTitle').textContent = item.title;
@@ -481,12 +506,9 @@ function showDetail(item) {
   }
 
   if (item.framePerfect) {
-    graph.innerHTML += makeRatioGraph(
-      '프레임 퍼펙트',
-      item.framePerfect.fps,
-      ''
-    );
-  }
+      graph.innerHTML += makeFramePerfectGraph(item.framePerfect);
+    }
+
 
   /* 태그 */
   if (item.tags && item.tags.length > 0) {
@@ -527,6 +549,7 @@ fetch('classic.json')
 
 </body>
 </html>
+
 
 
 
