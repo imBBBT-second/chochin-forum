@@ -552,18 +552,33 @@ function showDetail(item) {
     const total = item.framePerfect.total || 0;
     const fps = item.framePerfect.fps || {};
 
+    // 막대용 비율 계산
     const ratio = {};
     Object.entries(fps).forEach(([k, v]) => {
       ratio[k] = total > 0 ? ((v / total) * 100).toFixed(1) : 0;
     });
 
-    graph.innerHTML += makeRatioGraph(
-      '프레임 퍼펙트 (FPS)',
-      ratio,
-      '%',
-      total
-    );
+    // 그래프 생성 (막대는 ratio, 표시는 개수)
+    graph.innerHTML += `
+      <div class="graph-box">
+        <div class="graph-title">
+          프레임 퍼펙트 (FPS)
+         <span class="graph-total">(Total : ${total})</span>
+        </div>
+  
+        ${Object.entries(fps).map(([k, v]) => `
+          <div class="graph-row">
+            <div class="graph-label">${k}</div>
+            <div class="graph-bar-bg">
+              <div class="graph-bar" data-key="${k}" style="width:${ratio[k]}%"></div>
+            </div>
+            <div class="graph-value">${v}</div>
+          </div>
+        `).join('')}
+      </div>
+    `;
   }
+
 
 
 
@@ -606,6 +621,7 @@ fetch('classic.json')
 
 </body>
 </html>
+
 
 
 
