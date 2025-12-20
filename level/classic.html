@@ -149,6 +149,22 @@ input {
   color: #000000;
 }
 
+.tag-group {
+  margin-bottom: 10px;
+}
+
+.tag-group-title {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-bottom: 6px;
+}
+
+.tag-group-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
   
 /* ===== List Item ===== */
 .item {
@@ -549,6 +565,13 @@ input {
 </div>
 
 <script>
+const TAG_GROUPS = {
+  '게임모드': ['Cube', 'Ship', 'Ball', 'UFO', 'Wave', 'Robot', 'Spider', 'Swing'],
+  '속도': ['0.5x', '1x', '2x', '3x', '4x'],
+  '특징': ['Memory', 'Timing', 'Learny', 'Gimmick', 'XL'],
+};
+
+
 const selectedTags = new Set();
 let demonData = [];
 
@@ -712,7 +735,11 @@ function showDetail(item, element) {
           </div>
         `).join('')}
       </div>
-    `;
+    `
+    if (item.tags && item.tags.length > 0) {
+  addSection('태그', renderTagGroups(item.tags));
+}
+;
   }
 
 
@@ -801,35 +828,65 @@ fetch('classic.json')
 
 
   function initTagFilter(data) {
-    const tagBox = document.getElementById('tagFilter');
-    tagBox.innerHTML = '';
+  const tagBox = document.getElementById('tagFilter');
+  tagBox.innerHTML = '';
 
-    const allTags = new Set();
-    data.forEach(d => (d.tags || []).forEach(t => allTags.add(t)));
+  Object.entries(TAG_GROUPS).forEach(([group, values]) => {
+    const groupDiv = document.createElement('div');
+    groupDiv.className = 'tag-filter-group';
 
-    [...allTags].sort().forEach(tag => {
+    groupDiv.innerHTML = `<div class="tag-filter-title">${group}</div>`;
+
+    values.forEach(tag => {
       const el = document.createElement('span');
       el.className = 'tag';
       el.textContent = tag;
 
       el.onclick = () => {
         el.classList.toggle('active');
-
-        if (selectedTags.has(tag)) selectedTags.delete(tag);
-        else selectedTags.add(tag);
-
+        selectedTags.has(tag)
+          ? selectedTags.delete(tag)
+          : selectedTags.add(tag);
         applyFilter();
       };
 
-      tagBox.appendChild(el);
+      groupDiv.appendChild(el);
+    });
+
+    tagBox.appendChild(groupDiv);
   });
 }
+
+
+function renderTagGroups(tags) {
+  if (!tags || tags.length === 0) return '';
+
+  let html = '';
+
+  Object.entries(TAG_GROUPS).forEach(([group, values]) => {
+    const matched = tags.filter(t => values.includes(t));
+    if (matched.length === 0) return;
+
+    html += `
+      <div class="tag-group">
+        <div class="tag-group-title">${group}</div>
+        <div class="tag-group-tags">
+          ${matched.map(t => `<span class="tag">${t}</span>`).join('')}
+        </div>
+      </div>
+    `;
+  });
+
+  return html;
+}
+
 
 </script>
 
 
 </body>
 </html>
+
 
 
 
