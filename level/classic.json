@@ -118,6 +118,272 @@
       },
       "tags": ["Cube", "1x", "Short", "Physical", "One-Mode", "Full-Effect"],
       "clears": []
+    },
+    {
+      "id": 4,
+      "title": "Reaper Wave",
+      "creator": "Timo",
+      "video": "https://www.youtube.com/embed/Zo14uVzdCaY",
+      "verifier": "Timo",
+      "map": {
+        "mapId": 110122641,
+        "length": "0m 33s",
+        "objects": 1326,
+        "uploadDate": "2024-09-14"
+      },
+      "song": {
+        "name": "[Silent Hill Dupstep]*",
+        "artist": "Solkrieg",
+        "id": 509014
+      },
+      "gameplay": {
+        "mainMode": "Any-Mode",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Any-Mode", "Any-Speed", "Medium", "Physical", "None-Effect"],
+      "clears": []
+    },
+    {
+      "id": 5,
+      "title": "Stereo Madness EX",
+      "creator": "Choco",
+      "video": "-",
+      "verifier": "Timo",
+      "map": {
+        "mapId": 118253574,
+        "length": "0m 50s",
+        "objects": 3594,
+        "uploadDate": "2025-05-02"
+      },
+      "song": {
+        "name": "Stereo Madness*",
+        "artist": "ForeverBound",
+        "id": 0
+      },
+      "gameplay": {
+        "mainMode": "Any-Mode",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Any-Mode", "1x", "Medium", "Memory", "Physical", "Low-Effect"],
+      "clears": []
+    },
+    {
+      "id": 6,
+      "title": "Trolled",
+      "creator": "Light",
+      "video": "-",
+      "verifier": "Light",
+      "map": {
+        "mapId": 85646626,
+        "length": "0m 36s",
+        "objects": 553,
+        "uploadDate": "2022-11-13"
+      },
+      "song": {
+        "name": "Youve been Trolled",
+        "artist": "AntonyC",
+        "id": 477402
+      },
+      "gameplay": {
+        "mainMode": "Any-mode",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 1,
+        "fps": {
+          "30": 0,
+          "60": 1,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Any-Mode", "1x", "Medium", "Memory", "Low-Effect"],
+      "clears": []
+    },
+    {
+      "id": 7,
+      "title": "JPA EP8",
+      "creator": "Choco",
+      "video": "-",
+      "verifier": "Choco",
+      "map": {
+        "mapId": 86335155,
+        "length": "2m 11s",
+        "objects": 7467,
+        "uploadDate": "2022-12-03"
+      },
+      "song": {
+        "name": "Stardust",
+        "artist": "Geoxor",
+        "id": 864327
+      },
+      "gameplay": {
+        "mainMode": "Cube",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Cube", "3x", "XL", "Gimmick", "Physical", "Luck", "Low-Effect"],
+      "clears": []
+    },
+    {
+      "id": 8,
+      "title": "JPA EP4",
+      "creator": "Choco",
+      "video": "-",
+      "verifier": "Choco",
+      "map": {
+        "mapId": 84951046,
+        "length": "1m 28s",
+        "objects": 2064,
+        "uploadDate": "2022-10-24"
+      },
+      "song": {
+        "name": "Hexagon Force",
+        "artist": "Waterflame",
+        "id": 15
+      },
+      "gameplay": {
+        "mainMode": "Any-Mode",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Cube", "Dual", "2x", "Long", "Memory", "Physical", "None-Effect"],
+      "clears": []
+    },
+    {
+      "id": 9,
+      "title": "JPA EP5",
+      "creator": "Choco",
+      "video": "-",
+      "verifier": "Choco",
+      "map": {
+        "mapId": 85596521,
+        "length": "1m 36s",
+        "objects": 9344,
+        "uploadDate": "2022-11-12"
+      },
+      "song": {
+        "name": "-Final Battle-",
+        "artist": "Waterflame",
+        "id": 598349
+      },
+      "gameplay": {
+        "mainMode": "Any-Mode",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Any-Mode", "4x", "Long", "Physical", "Low-Effect"],
+      "clears": []
+    },
+    {
+      "id": 10,
+      "title": "JPA EP1",
+      "creator": "Choco",
+      "video": "-",
+      "verifier": "Choco",
+      "map": {
+        "mapId": 84244031,
+        "length": "1m 39s",
+        "objects": 3054,
+        "uploadDate": "2022-10-02"
+      },
+      "song": {
+        "name": "Theory of Everthing",
+        "artist": "DJ-Nate",
+        "id": 11
+      },
+      "gameplay": {
+        "mainMode": "Any-Mode",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Any-Mode", "Dual", "1x", "Long", "Physical", "None-Effect"],
+      "clears": []
     }
   ]
 }
