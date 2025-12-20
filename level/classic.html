@@ -296,19 +296,22 @@ input {
 
 .item {
   display: flex;
+  align-items: flex-start;
   padding: 0.9rem 0.5rem;
   gap: 0.8rem;
   border-bottom: 1px solid #777;
   cursor: pointer;
   transition: background-color 0.15s ease, color 0.15s ease;
+  min-height: fit-content;
 }
 
 .rank {
   font-family: Paperlogy9;
   font-size: clamp(2rem, 3.2vw, 3.2rem);
-  width: clamp(2rem, 3.2vw, 3.2rem);
+  min-width: clamp(2rem, 3.2vw, 3.2rem);
   text-align: center;
   color: #ffffff;
+  flex-shrink: 0;
 }
 
 .title {
@@ -316,6 +319,8 @@ input {
   font-size: clamp(1.4rem, 2.4vw, 2.4rem);
   line-height: 1.3;
   color: #ffffff;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .creator {
@@ -682,9 +687,15 @@ input {
 
 <body>
 <div class="header-container">
-  <a href="../index.html" class="header-btn-wrapper" style="text-decoration: none"><button class="header-btn">홈</button></a>
-  <a href="../level.html" class="header-btn-wrapper" style="text-decoration: none"><button class="header-btn" style="font-family:Paperlogy9">레벨</button></a>
-  <a href="../hardest.html" class="header-btn-wrapper" style="text-decoration: none"><button class="header-btn">하디스트</button></a>
+  <a href="../index.html" class="header-btn-wrapper">
+    <button class="header-btn">홈</button>
+  </a>
+  <a href="../level.html" class="header-btn-wrapper">
+    <button class="header-btn">레벨</button>
+  </a>
+  <a href="../hardest.html" class="header-btn-wrapper">
+    <button class="header-btn">하디스트</button>
+  </a>
 </div>
 
 <div class="divider"></div>
@@ -728,17 +739,17 @@ input {
   </div>
 
   <div class="detail-panel clears-panel">
-    <div style="font-family:Paperlogy9;font-size:3.2rem;text-align:center;color:white;">기록 명단</div>
+    <div style="font-family:Paperlogy9;font-size:3.2rem;text-align:center;color:white;">클리어 명단</div>
     <div id="detailClears"></div>
   </div>
 </div>
 
 <script>
 const TAG_GROUPS = {
-  '주 게임모드': ['Cube', 'Ship', 'Ball', 'UFO', 'Wave', 'Robot', 'Spider', 'Swing', 'Any-Mode', 'Dual', 'Mirror'],
-  '속도': ['0.5x', '1x', '2x', '3x', '4x', 'Any-Speed', 'Speed-Mode'],
-  '길이': ['Short', 'Medium', 'Long', 'XL', 'XXL', 'XXXL'],
-  '성격': ['Memory', 'Sync', 'Gimmick', 'Physical', 'Luck', 'Learny'],
+  '주 게임모드': ['Cube', 'Ship', 'Ball', 'UFO', 'Wave', 'Robot', 'Spider', 'Swing', 'Any-Mode'],
+  '속도': ['0.5x', '1x', '2x', '3x', '4x', 'Any-Speed'],
+  '길이': ['Short', 'Medium', 'Long', 'XL'],
+  '성격': ['Memory', 'Sync', 'Gimmick', 'Physical'],
   '특이사항': ['None-Effect', 'Low-Effect', 'Full-Effect', 'One-Mode'],
 };
 
@@ -854,14 +865,12 @@ function showDetail(item, element) {
       row.innerHTML = `
         <div class="clear-rank">#${i + 1}</div>
         <div class="clear-player">${c.player}</div>
-        <div class="clear-percent">${c.percent}%</div>
         <div class="clear-date">${c.date}</div>
       `;
-
       clearBox.appendChild(row);
     });
   } else {
-    clearBox.innerHTML = `<p style="text-align:center; color:#aaa; font-size: 1.6rem;">기 없음</p>`;
+    clearBox.innerHTML = `<p style="text-align:center; color:#aaa; font-size: 1.6rem;">클리어 없음</p>`;
   }
 }
 
@@ -958,6 +967,3 @@ function renderTagGroups(tags) {
 </script>
 </body>
 </html>
-
-
-
