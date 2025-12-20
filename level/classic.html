@@ -728,7 +728,7 @@ input {
   </div>
 
   <div class="detail-panel clears-panel">
-    <div style="font-family:Paperlogy9;font-size:3.2rem;text-align:center;color:white;">클리어 명단</div>
+    <div style="font-family:Paperlogy9;font-size:3.2rem;text-align:center;color:white;">기록록 명단 명단</d
     <div id="detailClears"></div>
   </div>
 </div>
@@ -854,12 +854,14 @@ function showDetail(item, element) {
       row.innerHTML = `
         <div class="clear-rank">#${i + 1}</div>
         <div class="clear-player">${c.player}</div>
+        <div class="clear-percent">${c.percent}%</div>
         <div class="clear-date">${c.date}</div>
       `;
+
       clearBox.appendChild(row);
     });
   } else {
-    clearBox.innerHTML = `<p style="text-align:center; color:#aaa; font-size: 1.6rem;">클리어 없음</p>`;
+    clearBox.innerHTML = `<p style="text-align:center; color:#aaa; font-size: 1.6rem;">기 없음</p>`;
   }
 }
 
@@ -956,4 +958,5 @@ function renderTagGroups(tags) {
 </script>
 </body>
 </html>
+
 
