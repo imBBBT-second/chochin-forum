@@ -110,24 +110,28 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 1400px) {
   .main-container {
     flex-direction: column;
+    min-height: auto;
   }
   
   .container, .detail-panel, .detail-panel.clears-panel {
-    flex: 1 1 auto;
+    flex: 0 0 auto;
     max-width: 100%;
     min-height: auto;
   }
   
   .container {
     order: 1;
+    min-height: 400px;
   }
   
   .detail-panel {
     order: 2;
+    min-height: 800px;
   }
   
   .detail-panel.clears-panel {
     order: 3;
+    min-height: 400px;
   }
 }
 
