@@ -549,12 +549,12 @@ input {
 </div>
 
 <script>
+const selectedTags = new Set();
 let demonData = [];
 
 /* 태그 섹션용 */
 function addSection(title, html) {
   const box = document.getElementById('detailDescription');
-  box.innerHTML = '';
 
   const div = document.createElement('div');
   div.className = 'section';
@@ -565,6 +565,7 @@ function addSection(title, html) {
 
   box.appendChild(div);
 }
+
 
 /* 그래프 생성 */
 function makeRatioGraph(title, data, suffix = '%', totalValue = null) {
@@ -619,9 +620,9 @@ function makeFramePerfectGraph(framePerfect) {
   `;
 }
 
-
   
 function showDetail(item, element) {
+  document.getElementById('detailDescription').innerHTML = '';
   // active 제거
   document.querySelectorAll('.item.active')
     .forEach(el => el.classList.remove('active'));
@@ -745,51 +746,59 @@ function showDetail(item, element) {
   }
   
 }
-/* 리스트 생성 */
+
+function generateList(data) {
+  const list = document.getElementById('list');
+  list.innerHTML = '';
+
+  data.forEach(d => {
+    const div = document.createElement('div');
+    div.className = 'item';
+    div.innerHTML = `
+      <div class="rank">${d.id}</div>
+      <div>
+        <div class="title">${d.title}</div>
+        <div class="creator">by ${d.creator}</div>
+      </div>
+    `;
+
+    div.onclick = () => showDetail(d, div);
+    list.appendChild(div);
+  });
+}
+
+  
 fetch('classic.json')
   .then(r => r.json())
   .then(j => {
     demonData = j.buttons;
     initTagFilter(demonData);
+    generateList(demonData);
 
-    const list = document.getElementById('list');
-    list.innerHTML = '';
-
-    demonData.forEach(d => {
-      const div = document.createElement('div');
-      div.className = 'item';
-      div.innerHTML = `
-        <div class="rank">${d.id}</div>
-        <div>
-          <div class="title">${d.title}</div>
-          <div class="creator">by ${d.creator}</div>
-        </div>
-      `;
-      div.onclick = () => showDetail(d, div);
-      list.appendChild(div);
-    });
-
-    if (demonData.length > 0) showDetail(demonData[0]);
+    if (demonData.length > 0) {
+      showDetail(demonData[0]);
+    }
   });
 
+
   function applyFilter() {
-    const text = search.value.toLowerCase();
+  const text = search.value.toLowerCase();
 
-    filteredData = demonData.filter(item => {
-      const textMatch = item.title.toLowerCase().includes(text);
-      const tagMatch = [...selectedTags].every(tag =>
-        item.tags?.includes(tag)
-      );
+  const filteredData = demonData.filter(item => {
+    const textMatch = item.title.toLowerCase().includes(text);
+    const tagMatch = [...selectedTags].every(tag =>
+      item.tags?.includes(tag)
+    );
+    return textMatch && tagMatch;
+  });
 
-      return textMatch && tagMatch;
-    });
+  generateList(filteredData);
 
-    generateList(filteredData);
-
-    if (filteredData.length > 0) {
-      showDetail(filteredData[0]);
-    }
+  if (filteredData.length > 0) {
+    showDetail(filteredData[0]);
   }
+}
+
 
   function initTagFilter(data) {
     const tagBox = document.getElementById('tagFilter');
@@ -821,6 +830,7 @@ fetch('classic.json')
 
 </body>
 </html>
+
 
 
 
