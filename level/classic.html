@@ -617,36 +617,6 @@ function makeRatioGraph(title, data, suffix = '%', totalValue = null) {
     </div>
   `;
 }
-
-
-function makeFramePerfectGraph(framePerfect) {
-  if (!framePerfect || !framePerfect.fps || framePerfect.total === 0) return '';
-
-  const total = framePerfect.total;
-
-  return `
-    <div class="graph-box">
-      <div class="graph-title">
-        프레임 퍼펙트 (FPS)
-        <span class="graph-total">Total : ${total}</span>
-      </div>
-
-      ${Object.entries(framePerfect.fps).map(([fps, count]) => {
-        const ratio = (count / total * 100).toFixed(1);
-        return `
-          <div class="graph-row">
-            <div class="graph-label">${fps} FPS</div>
-            <div class="graph-bar-bg">
-              <div class="graph-bar" style="width:${ratio}%"></div>
-            </div>
-            <div class="graph-value">${count}</div>
-          </div>
-        `;
-      }).join('')}
-    </div>
-  `;
-}
-
   
 function showDetail(item, element) {
   document.getElementById('detailDescription').innerHTML = '';
@@ -740,7 +710,7 @@ function showDetail(item, element) {
         `).join('')}
       </div>
     `
-};
+;
   
   /* 태그 */
   if (item.tags && item.tags.length > 0) {
@@ -765,6 +735,7 @@ function showDetail(item, element) {
     clearBox.innerHTML =
       `<p style="text-align:center; color:#aaa">클리어 없음</p>`;
   }
+}
 
 function generateList(data) {
   const list = document.getElementById('list');
@@ -878,3 +849,4 @@ function renderTagGroups(tags) {
 
 </body>
 </html>
+
