@@ -618,6 +618,45 @@ input {
   font-family: Paperlogy5;
 }
 
+#detailHeader {
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+#detailTitle {
+  font-size: 34px;
+  font-weight: 800;
+}
+
+#detailSubtitle {
+  margin-top: 4px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+#modeShortcut {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  font-size: 14px;
+}
+
+#modeShortcut .mode {
+  color: #aaa;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#modeShortcut .mode:hover {
+  color: #fff;
+}
+
+#modeShortcut .mode.active {
+  color: #fff;
+  font-weight: 700;
+  cursor: default;
+}
 
 
 </style>
@@ -634,8 +673,17 @@ input {
 <div class="divider"></div>
 
 
-<h1 style="font-size: 12.8rem;">Classic</h1>
-<p style="font-size: 1.6rem; text-align: center; position: relative; bottom: 10%;">초친 멤버들이 만든 레벨들 중 20초 이상의 레벨들을 모아놓은 곳입니다.</p>
+<div id="detailHeader">
+  <div id="detailTitle">Classic</div>
+  <div id="detailSubtitle">초친 멤버들이 만든 맵들 중 20초 이상의 레벨을 모아놓은 곳입니다.</div>
+
+  <div id="modeShortcut">
+    <span class="mode active">Classic</span>
+    <a href="challenge.html" class="mode">Challenge</a>
+    <a href="platformer.html" class="mode">Platformer</a>
+  </div>
+</div>
+
 
 <div class="main-container">
   <!-- Left -->
@@ -1000,6 +1048,7 @@ return `
 
 </body>
 </html>
+
 
 
 
