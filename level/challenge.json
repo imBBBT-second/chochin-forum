@@ -113,8 +113,275 @@
       },
       "tags": ["Wave", "3x", "Tiny", "Physical", "Low-Effect", "No-Clear"],
       "clears": []
+    },
+    {
+      "id": 4,
+      "title": "Jiter Click 2",
+      "creator": "Timo",
+      "video": "-",
+      "verifier": "Timo",
+      "map": {
+        "mapId": 121229320,
+        "length": "3s",
+        "objects": 59,
+        "uploadDate": "2025-06-18"
+      },
+      "song": {
+        "name": "YE",
+        "artist": "ephixa",
+        "id": 791974
+      },
+      "gameplay": {
+        "mainMode": "Wave",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Wave", "1x", "Tiny", "Spam", "None-Effect", "No-Clear"],
+      "clears": []
+    },
+    {
+      "id": 5,
+      "title": "Furry Wave",
+      "creator": "Timo",
+      "video": "-",
+      "verifier": "Timo",
+      "map": {
+        "mapId": 120821190,
+        "length": "9s",
+        "objects": 784,
+        "uploadDate": "2025-06-12"
+      },
+      "song": {
+        "name": "Violence...",
+        "artist": "ChristianMossuto",
+        "id": "NONG"
+      },
+      "gameplay": {
+        "mainMode": "Wave",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Wave", "2x", "Tiny", "Physical", "None-Effect", "No-Clear"],
+      "clears": []
+    },
+    {
+      "id": 6,
+      "title": "Funny Duel",
+      "creator": "Timo",
+      "video": "-",
+      "verifier": "Timo",
+      "map": {
+        "mapId": 125058978,
+        "length": "5s",
+        "objects": 505,
+        "uploadDate": "2025-08-23"
+      },
+      "song": {
+        "name": "1077",
+        "artist": "BoomKitty",
+        "id": 566004
+      },
+      "gameplay": {
+        "mainMode": "Any-Mode",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Any-Mode", "Duel", "3x", "Tiny", "Physical", "Sync", "None-Effect", "No-Clear"],
+      "clears": []
+    },
+    {
+      "id": 7,
+      "title": "Cube Cafe",
+      "creator": "Timo",
+      "video": "-",
+      "verifier": "Timo",
+      "map": {
+        "mapId": 121632308,
+        "length": "11s",
+        "objects": 505,
+        "uploadDate": "2025-06-24"
+      },
+      "song": {
+        "name": "My Ordinart Life",
+        "artist": "The Living Tombstone",
+        "id": 815245
+      },
+      "gameplay": {
+        "mainMode": "Cube",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Cube", "1x", "4x", "Tiny", "Physical", "Sync", "Low-Effect", "No-Clear", "One-Mode"],
+      "clears": []
+    },
+    {
+      "id": "8",
+      "title": "JP Challenge 1",
+      "creator": "Choco",
+      "video": "-",
+      "verifier": "Choco",
+      "map": {
+        "mapId": 86185234,
+        "length": "18s",
+        "objects": 605,
+        "uploadDate": "2022-11-28"
+      },
+      "song": {
+        "name": "Ocean of Stars",
+        "artist": "Geoplex",
+        "id": 537202
+      },
+      "gameplay": {
+        "mainMode": "Any-Mode",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Any-Mode", "1x", "Short", "Physical", "None-Effect", "No-Clear"],
+      "clears": []
+    },
+    {
+      "id": "9",
+      "title": "JP Challenge 4",
+      "creator": "Choco",
+      "video": "-",
+      "verifier": "Choco",
+      "map": {
+        "mapId": 87109950,
+        "length": "3s",
+        "objects": 87,
+        "uploadDate": "2022-12-26"
+      },
+      "song": {
+        "name": "Stereo Madness",
+        "artist": "ForeverBound",
+        "id": 0
+      },
+      "gameplay": {
+        "mainMode": "Cube",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Cube", "1x", "Tiny", "Physical", "None-Effect", "No-Clear", "One-Mode"],
+      "clears": []
+    },
+    {
+      "id": "10",
+      "title": "Swimming Wave",
+      "creator": "Choco",
+      "video": "-",
+      "verifier": "Choco",
+      "map": {
+        "mapId": "123589746",
+        "length": "7s",
+        "objects": 639,
+        "uploadDate": "2025-07-26"
+      },
+      "song": {
+        "name": "FirePower",
+        "artist": "Teminite",
+        "id": 987714
+      },
+      "gameplay": {
+        "mainMode": "Wave",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Wave", "1x", "Tiny", "Physical", "None-Effect", "No-Clear"],
+      "clears": []
     }
   ]
 }
+
 
 
