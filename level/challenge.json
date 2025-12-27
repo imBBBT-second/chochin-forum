@@ -42,7 +42,7 @@
       "id": 2,
       "title": "B!TCH",
       "creator": "Choco",
-      "video": "-",
+      "video": "https://www.youtube.com/embed/NCW_519mfoc",
       "verifier": "Choco",
       "map": {
         "mapId": 129446657,
@@ -80,7 +80,7 @@
       "id": 3,
       "title": "Blink",
       "creator": "Choco",
-      "video": "-",
+      "video": "https://www.youtube.com/embed/xa4XmXWQfZY",
       "verifier": "Choco",
       "map": {
         "mapId": 129210712,
@@ -458,6 +458,7 @@
     }
   ]
 }
+
 
 
 
