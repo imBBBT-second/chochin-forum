@@ -197,44 +197,6 @@
     },
     {
       "id": 6,
-      "title": "Trolled",
-      "creator": "Light",
-      "video": "-",
-      "verifier": "Light",
-      "map": {
-        "mapId": 85646626,
-        "length": "0m 36s",
-        "objects": 553,
-        "uploadDate": "2022-11-13"
-      },
-      "song": {
-        "name": "Youve been Trolled",
-        "artist": "AntonyC",
-        "id": 477402
-      },
-      "gameplay": {
-        "mainMode": "Any-mode",
-        "modeRatio": {
-          "Cube": 100
-        },
-        "speedRatio": {
-          "1x": 100
-        }
-      },
-      "framePerfect": {
-        "total": 1,
-        "fps": {
-          "30": 0,
-          "60": 1,
-          "120": 0,
-          "240": 0
-        }
-      },
-      "tags": ["Any-Mode", "1x", "Medium", "Memory", "Low-Effect", "No-Clear"],
-      "clears": []
-    },
-    {
-      "id": 7,
       "title": "JPA EP8",
       "creator": "Choco",
       "video": "-",
@@ -269,6 +231,44 @@
         }
       },
       "tags": ["Cube", "3x", "XL", "Gimmick", "Physical", "Luck", "Low-Effect", "No-Clear"],
+      "clears": []
+    },
+    {
+      "id": 7,
+      "title": "Trolled",
+      "creator": "Light",
+      "video": "-",
+      "verifier": "Light",
+      "map": {
+        "mapId": 85646626,
+        "length": "0m 36s",
+        "objects": 553,
+        "uploadDate": "2022-11-13"
+      },
+      "song": {
+        "name": "Youve been Trolled",
+        "artist": "AntonyC",
+        "id": 477402
+      },
+      "gameplay": {
+        "mainMode": "Any-mode",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 1,
+        "fps": {
+          "30": 0,
+          "60": 1,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Any-Mode", "1x", "Medium", "Memory", "Low-Effect", "No-Clear"],
       "clears": []
     },
     {
@@ -384,9 +384,162 @@
       },
       "tags": ["Any-Mode", "Dual", "1x", "Long", "Physical", "None-Effect", "No-Clear"],
       "clears": []
+    },
+    {
+      "id": 11,
+      "title": "JPA EP7",
+      "creator": "Choco",
+      "video": "-",
+      "verifier": "Choco",
+      "map": {
+        "mapId": 86204427,
+        "length": "2m 35s",
+        "objects": 5115,
+        "uploadDate": "2022-11-29"
+      },
+      "song": {
+        "name": "Thundaga (FL Core)",
+        "artist": "Garlagan",
+        "id": 465848
+      },
+      "gameplay": {
+        "mainMode": "Any-Mode",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Any-Mode", "2x", "XL", "XXL", "Physical", "None-Effect", "No-Clear"],
+      "clears": []
+    },
+    {
+      "id": 12,
+      "title": "JPA EP2",
+      "creator": "Choco",
+      "video": "-",
+      "verifier": "Choco",
+      "map": {
+        "mapId": 84536046,
+        "length": "1m 33s",
+        "objects": 3025,
+        "uploadDate": "2022-10-11"
+      },
+      "song": {
+        "name": "Theory of Everthing 2",
+        "artist": "DJ-Nate",
+        "id": 17
+      },
+      "gameplay": {
+        "mainMode": "Any-Mode",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Any-Mode", "1x", "2x", "Long", "Physical", "None-Effect", "No-Clear"],
+      "clears": []
+    },
+    {
+      "id": 13,
+      "title": "LT EP7",
+      "creator": "Light",
+      "video": "-",
+      "verifier": "Light",
+      "map": {
+        "mapId": 85837732,
+        "length": "1m 37s",
+        "objects": 2815,
+        "uploadDate": "2022-11-19"
+      },
+      "song": {
+        "name": "-Final Battle-",
+        "artist": "Waterflame",
+        "id": 598349
+      },
+      "gameplay": {
+        "mainMode": "Any-Mode",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Any-Mode", "Dual", "Boss", "1x", "Long", "Physical", "Luck", "Low-Effect", "No-Clear"],
+      "clears": []
+    },
+    {
+      "id": 14,
+      "title": "LT EP2",
+      "creator": "Light",
+      "video": "-",
+      "verifier": "Light",
+      "map": {
+        "mapId": 84729138,
+        "length": "1m 2s",
+        "objects": 2387,
+        "uploadDate": "2022-10-17"
+      },
+      "song": {
+        "name": "At the Speed of Light",
+        "artist": "Dimrain47",
+        "id": 467339
+      },
+      "gameplay": {
+        "mainMode": "Ship",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Ship", "1x", "Long", "Physical", "None-Effect", "No-Clear"],
+      "clears": []
     }
   ]
 }
+
 
 
 
