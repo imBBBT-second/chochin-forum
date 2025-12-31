@@ -1199,6 +1199,17 @@ function addLevel() {
   if (required.some(isEmpty)) {
     alert("모든 정보를 입력해야 레벨을 추가할 수 있어.");
     return;
+
+    const modeRatio = collectRatio('devModeRatio');
+    const speedRatio = collectRatio('devSpeedRatio');
+
+    if (
+      Object.keys(modeRatio).length === 0 ||
+      Object.keys(speedRatio).length === 0
+    ) {
+      alert('게임 모드 비율과 속도 비율은 반드시 입력해야 해.');
+      return;
+    }
   }
 
   // 태그 체크
@@ -1353,33 +1364,22 @@ function initModeRatioEditor() {
     box.appendChild(row);
   });
 }
-
-function collectRatio(containerId) {
-  const result = {};
-  document
-    .querySelectorAll(`#${containerId} input`)
-    .forEach(input => {
-      const v = Number(input.value);
-      if (v > 0) result[input.dataset.key] = v;
-    });
-  return result;
-}
-
-const modeRatio = collectRatio('devModeRatio');
-const speedRatio = collectRatio('devSpeedRatio');
-
-if (
-  Object.keys(modeRatio).length === 0 ||
-  Object.keys(speedRatio).length === 0
-) {
-  alert('게임 모드 비율과 속도 비율은 반드시 입력해야 해.');
-  return;
-}
-
+  
+  function collectRatio(containerId) {
+    const result = {};
+    document
+      .querySelectorAll(`#${containerId} input`)
+      .forEach(input => {
+        const v = Number(input.value);
+        if (v > 0) result[input.dataset.key] = v;
+      });
+    return result;
+  }
 
 </script>
 </body>
 </html>
+
 
 
 
