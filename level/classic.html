@@ -708,6 +708,72 @@ input {
   font-weight: 600;
   cursor: default;
 }
+
+#devPanel {
+  position: fixed;
+  top: 0;
+  right: -420px;
+  width: 420px;
+  height: 100%;
+  background: #2e2e2e;
+  color: white;
+  z-index: 9999;
+  transition: right 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  border-left: 2px solid #555;
+}
+
+#devPanel.open {
+  right: 0;
+}
+
+.dev-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  font-family: Paperlogy7;
+  font-size: 1.4rem;
+  background: #222;
+}
+
+.dev-header button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.dev-section {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dev-section h3 {
+  margin: 0 0 8px;
+  font-family: Paperlogy6;
+}
+
+.dev-section input {
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+}
+
+.dev-section button {
+  margin-top: 8px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-family: Paperlogy6;
+  font-size: 1rem;
+  cursor: pointer;
+}
 </style>
 </head>
 
@@ -772,6 +838,25 @@ input {
   <div class="detail-panel clears-panel">
     <div style="font-family:Paperlogy9;font-size:3.2rem;text-align:center;color:white;">기록 명단</div>
     <div id="detailClears"></div>
+  </div>
+</div>
+  
+<!-- 개발자 패널 -->
+<div id="devPanel">
+  <div class="dev-header">
+    <span>개발자 패널</span>
+    <button onclick="closeDevPanel()">✕</button>
+  </div>
+
+  <div class="dev-section">
+    <h3>레벨 추가</h3>
+
+    <input id="dev-title" placeholder="레벨 이름" />
+    <input id="dev-creator" placeholder="제작자" />
+    <input id="dev-verifier" placeholder="검증자" />
+    <input id="dev-video" placeholder="영상 URL" />
+
+    <button onclick="addLevel()">추가</button>
   </div>
 </div>
 
@@ -1011,9 +1096,57 @@ function renderTagGroups(tags) {
   });
   return `<div class="tag-group-container">${groupsHtml}</div>`;
 }
+
+const DEV_PASSWORD = "1234"; // 나중에 꼭 바꿔
+
+document.addEventListener("keydown", e => {
+  if (e.ctrlKey && e.shiftKey && e.key === "D") {
+    const pw = prompt("개발자 비밀번호");
+    if (pw === DEV_PASSWORD) {
+      document.getElementById("devPanel").classList.add("open");
+    } else {
+      alert("접근 거부");
+    }
+  }
+});
+
+function closeDevPanel() {
+  document.getElementById("devPanel").classList.remove("open");
+}
+
+function addLevel() {
+  const title = document.getElementById("dev-title").value.trim();
+  const creator = document.getElementById("dev-creator").value.trim();
+  const verifier = document.getElementById("dev-verifier").value.trim();
+  const video = document.getElementById("dev-video").value.trim();
+
+  if (!title || !creator) {
+    alert("필수 항목이 비어 있음");
+    return;
+  }
+
+  const newLevel = {
+    id: demonData.length + 1,
+    title,
+    creator,
+    verifier: verifier || creator,
+    video,
+    tags: [],
+    clears: []
+  };
+
+  demonData.push(newLevel);
+
+  generateList(demonData);
+  showDetail(newLevel);
+
+  alert("레벨 추가 완료");
+}
+
 </script>
 </body>
 </html>
+
 
 
 
