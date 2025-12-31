@@ -841,24 +841,47 @@ input {
   </div>
 </div>
   
-<!-- 개발자 패널 -->
-<div id="devPanel">
-  <div class="dev-header">
-    <span>개발자 패널</span>
-    <button onclick="closeDevPanel()">✕</button>
-  </div>
-
-  <div class="dev-section">
-    <h3>레벨 추가</h3>
-
-    <input id="dev-title" placeholder="레벨 이름" />
-    <input id="dev-creator" placeholder="제작자" />
-    <input id="dev-verifier" placeholder="검증자" />
-    <input id="dev-video" placeholder="영상 URL" />
-
-    <button onclick="addLevel()">추가</button>
-  </div>
+<div class="dev-section">
+  <h3>레벨 기본 정보</h3>
+  <input id="dev-title" placeholder="레벨 이름" />
+  <input id="dev-creator" placeholder="제작자" />
+  <input id="dev-verifier" placeholder="검증자 (없으면 제작자)" />
+  <input id="dev-video" placeholder="영상 URL" />
 </div>
+
+<div class="dev-section">
+  <h3>맵 정보</h3>
+  <input id="dev-mapId" placeholder="맵 ID" />
+  <input id="dev-length" placeholder="길이 (예: Long)" />
+  <input id="dev-objects" placeholder="오브젝트 수" />
+  <input id="dev-uploadDate" placeholder="업로드 날짜 (YYYY-MM-DD)" />
+</div>
+
+<div class="dev-section">
+  <h3>노래 정보</h3>
+  <input id="dev-songName" placeholder="노래 이름" />
+  <input id="dev-songArtist" placeholder="작곡가" />
+  <input id="dev-songId" placeholder="노래 ID" />
+</div>
+
+<div class="dev-section">
+  <h3>프레임 퍼펙트</h3>
+  <input id="dev-fp-total" placeholder="Total" />
+  <input id="dev-fp-30" placeholder="30 FPS" />
+  <input id="dev-fp-60" placeholder="60 FPS" />
+  <input id="dev-fp-120" placeholder="120 FPS" />
+  <input id="dev-fp-240" placeholder="240 FPS" />
+</div>
+
+<div class="dev-section">
+  <h3>태그</h3>
+  <div id="dev-tag-select"></div>
+</div>
+
+<div class="dev-section">
+  <button onclick="addFullLevel()">레벨 추가</button>
+</div>
+
 
 <script>
 const TAG_GROUPS = {
@@ -1143,9 +1166,85 @@ function addLevel() {
   alert("레벨 추가 완료");
 }
 
+function initDevTagSelector() {
+  const box = document.getElementById("dev-tag-select");
+  box.innerHTML = "";
+
+  Object.entries(TAG_GROUPS).forEach(([group, tags]) => {
+    const wrap = document.createElement("div");
+    wrap.style.marginBottom = "8px";
+
+    wrap.innerHTML = `<strong>${group}</strong><br>`;
+
+    tags.forEach(tag => {
+      const el = document.createElement("span");
+      el.className = "tag";
+      el.textContent = tag;
+      el.onclick = () => el.classList.toggle("active");
+      wrap.appendChild(el);
+    });
+
+    box.appendChild(wrap);
+  });
+}
+
+  function addFullLevel() {
+  const get = id => document.getElementById(id)?.value?.trim();
+
+  const tags = [...document.querySelectorAll("#dev-tag-select .tag.active")]
+    .map(t => t.textContent);
+
+  const newLevel = {
+    id: demonData.length + 1,
+    title: get("dev-title"),
+    creator: get("dev-creator"),
+    verifier: get("dev-verifier") || get("dev-creator"),
+    video: get("dev-video"),
+
+    map: {
+      mapId: get("dev-mapId"),
+      length: get("dev-length"),
+      objects: Number(get("dev-objects")) || 0,
+      uploadDate: get("dev-uploadDate"),
+    },
+
+    song: {
+      name: get("dev-songName"),
+      artist: get("dev-songArtist"),
+      id: get("dev-songId"),
+    },
+
+    gameplay: {
+      modeRatio: {},
+      speedRatio: {},
+    },
+
+    framePerfect: {
+      total: Number(get("dev-fp-total")) || 0,
+      fps: {
+        30: Number(get("dev-fp-30")) || 0,
+        60: Number(get("dev-fp-60")) || 0,
+        120: Number(get("dev-fp-120")) || 0,
+        240: Number(get("dev-fp-240")) || 0,
+      }
+    },
+
+    tags,
+    clears: []
+  };
+
+  demonData.push(newLevel);
+  generateList(demonData);
+  showDetail(newLevel);
+
+  alert("모든 정보 포함 레벨 추가 완료");
+}
+
+
 </script>
 </body>
 </html>
+
 
 
 
