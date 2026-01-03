@@ -944,6 +944,7 @@ const DEV_PASSWORD = '6974'; // 원하는 비밀번호로 바꿔
 
 const selectedTags = new Set();
 let demonData = [];
+const devSelectedTags = new Set();
 
 function addSection(title, html) {
   const box = document.getElementById('detailDescription');
@@ -1184,6 +1185,10 @@ function setDevMode(mode) {
 function renderDevPanel() {
   const box = document.getElementById('devContent');
   box.innerHTML = '';
+  
+  document
+  .querySelector(`.dev-tabs button[data-mode="${devMode}"]`)
+  ?.classList.add('active');
 
   if (devMode === 'add') {
     box.innerHTML = `
@@ -1290,10 +1295,16 @@ function renderDevTagSelector() {
   const creator = document.getElementById('dev-creator').value.trim();
   const verifier = document.getElementById('dev-verifier').value.trim();
   
-  if (!title || !creator || !verifier || devSelectedTags.size === 0) {
-    alert('모든 정보를 입력해야 레벨을 추가할 수 있어!');
-    return;
-  }
+  if (
+  !title || !creator || !verifier ||
+  !document.getElementById('dev-map-id').value ||
+  !document.getElementById('dev-map-length').value ||
+  devSelectedTags.size === 0
+) {
+  alert('모든 정보를 입력해야 레벨을 추가할 수 있어!');
+  return;
+}
+
 
 function collectRatio(prefix) {
   const result = {};
@@ -1329,7 +1340,6 @@ function collectRatio(prefix) {
       speedRatio: collectRatio('speed')
     },
     tags: [...devSelectedTags],
-    gameplay: { modeRatio: {}, speedRatio: {} },
     framePerfect: { total: 0, fps: {} },
     clears: []
   };
@@ -1441,10 +1451,11 @@ function submitEditLevel(index) {
 
   const level = demonData[index];
 
-  level.title = dev-title.value.trim();
-  level.creator = dev-creator.value.trim();
-  level.verifier = dev-verifier.value.trim();
-  level.video = dev-video.value.trim();
+  level.title = document.getElementById('dev-title').value.trim();
+  level.creator = document.getElementById('dev-creator').value.trim();
+  level.verifier = document.getElementById('dev-verifier').value.trim();
+  level.video = document.getElementById('dev-video').value.trim();
+
 
   level.map = {
     mapId: dev-map-id.value,
@@ -1493,6 +1504,7 @@ function requestDevPassword() {
 </script>
 </body>
 </html>
+
 
 
 
