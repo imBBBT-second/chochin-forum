@@ -1291,13 +1291,92 @@ function setDevMode(mode) {
   document.querySelectorAll('.dev-tabs button').forEach(b => {
     b.classList.toggle('active', b.dataset.mode === mode);
   });
-  document.getElementById('devContent').innerHTML =
-    `<div style="color:#aaa">아직 ${mode} 모드는 미구현 상태야</div>`;
+
+  if (mode === 'add') {
+    document.getElementById('devContent').innerHTML = renderAddLevelUI();
+  } else {
+    document.getElementById('devContent').innerHTML =
+      `<div style="color:#aaa">아직 ${mode} 모드는 미구현 상태야</div>`;
+  }
+}
+
+
+function renderAddLevelUI() {
+  devSelectedTags.clear();
+
+  return `
+    <div class="dev-section-title">기본 정보</div>
+    <input id="dev-title" placeholder="레벨 제목">
+    <input id="dev-creator" placeholder="제작자">
+    <input id="dev-verifier" placeholder="검증자">
+    <input id="dev-video" placeholder="영상 URL">
+
+    <div class="dev-section-title">맵 정보</div>
+    <input id="dev-map-id" placeholder="맵 ID">
+    <input id="dev-map-length" placeholder="길이 (Short / Long 등)">
+    <input id="dev-map-objects" placeholder="오브젝트 수" type="number">
+    <input id="dev-map-date" placeholder="업로드 날짜 (YYYY-MM-DD)">
+
+    <div class="dev-section-title">노래 정보</div>
+    <input id="dev-song-name" placeholder="노래 이름">
+    <input id="dev-song-artist" placeholder="작곡가">
+    <input id="dev-song-id" placeholder="노래 ID">
+
+    <div class="dev-section-title">태그</div>
+    ${renderDevTagSelector()}
+
+    <div class="dev-section-title">게임플레이 비율</div>
+    ${renderRatioInputs('게임모드 비율', TAG_GROUPS['주 게임모드'], 'mode')}
+    ${renderRatioInputs('속도 비율', TAG_GROUPS['속도'], 'speed')}
+
+    <button onclick="submitAddLevel()" style="
+      margin-top:16px;
+      padding:10px;
+      font-family:Paperlogy6;
+      font-size:1rem;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+    ">레벨 추가</button>
+  `;
+}
+
+function renderDevTagSelector() {
+  return Object.entries(TAG_GROUPS).map(([group, tags]) => `
+    <div class="dev-tag-title">${group}</div>
+    <div style="display:flex;flex-wrap:wrap;gap:6px">
+      ${tags.map(tag => `
+        <span class="dev-tag" onclick="toggleDevTag(this,'${tag}')">${tag}</span>
+      `).join('')}
+    </div>
+  `).join('');
+}
+
+function submitAddLevel() {
+  const title = document.getElementById('dev-title').value.trim();
+  const creator = document.getElementById('dev-creator').value.trim();
+
+  if (!title || !creator || devSelectedTags.size === 0) {
+    alert('필수 정보가 비어있어!');
+    return;
+  }
+
+  console.log('레벨 추가 테스트');
+  console.log({
+    title,
+    creator,
+    tags: [...devSelectedTags],
+    modeRatio: collectRatio('mode'),
+    speedRatio: collectRatio('speed'),
+  });
+
+  alert('콘솔 로그 확인해봐 👀');
 }
 
 </script>
 </body>
 </html>
+
 
 
 
