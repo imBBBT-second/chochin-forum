@@ -1224,6 +1224,33 @@ function renderDevPanel() {
       </div>
     `;
   }
+  
+  if (devMode === 'edit') {
+  box.innerHTML = `
+    <div class="dev-content">
+
+      <div class="dev-section-title">수정할 레벨 선택</div>
+      <select id="dev-edit-select" style="width:100%;padding:8px;border-radius:8px">
+        ${demonData.map((d, i) =>
+          `<option value="${i}">${d.id}. ${d.title}</option>`
+        ).join('')}
+      </select>
+
+      <div id="devEditForm"></div>
+
+    </div>
+  `;
+
+  document
+    .getElementById('dev-edit-select')
+    .addEventListener('change', e => {
+      loadEditLevel(e.target.value);
+    });
+
+  // 기본 첫 레벨 로드
+  loadEditLevel(0);
+}
+
 }
 
 function renderTagSelector() {
@@ -1339,9 +1366,97 @@ function renderRatioInputs(title, keys, prefix) {
   `;
 }
 
+function loadEditLevel(index) {
+  const level = demonData[index];
+  const form = document.getElementById('devEditForm');
 
-function updateSliderValue(slider) {
-  slider.nextElementSibling.textContent = slider.value + '%';
+  devSelectedTags.clear();
+
+  form.innerHTML = `
+    <div class="dev-section-title">기본 정보</div>
+    <input id="dev-title" value="${level.title}">
+    <input id="dev-creator" value="${level.creator}">
+    <input id="dev-verifier" value="${level.verifier}">
+    <input id="dev-video" value="${level.video || ''}">
+
+    <div class="dev-section-title">맵 정보</div>
+    <input id="dev-map-id" value="${level.map?.mapId || ''}">
+    <input id="dev-map-length" value="${level.map?.length || ''}">
+    <input id="dev-map-objects" value="${level.map?.objects || ''}">
+    <input id="dev-map-date" value="${level.map?.uploadDate || ''}">
+
+    <div class="dev-section-title">노래 정보</div>
+    <input id="dev-song-name" value="${level.song?.name || ''}">
+    <input id="dev-song-artist" value="${level.song?.artist || ''}">
+    <input id="dev-song-id" value="${level.song?.id || ''}">
+
+    <div class="dev-section-title">태그</div>
+    ${renderEditTagSelector(level.tags)}
+
+    <button onclick="submitEditLevel(${index})"
+      class="mode-btn"
+      style="width:100%;margin-top:16px">
+      수정 내용 저장
+    </button>
+  `;
+}
+
+function renderEditTagSelector(existingTags = []) {
+  let html = '';
+
+  Object.entries(TAG_GROUPS).forEach(([group, tags]) => {
+    html += `
+      <div class="dev-section-title">${group}</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px">
+        ${tags.map(t => {
+          const active = existingTags.includes(t);
+          if (active) devSelectedTags.add(t);
+          return `
+            <span class="tag ${active ? 'active' : ''}"
+              onclick="toggleDevTag(this,'${t}')">
+              ${t}
+            </span>
+          `;
+        }).join('')}
+      </div>
+    `;
+  });
+
+  return html;
+}
+
+function submitEditLevel(index) {
+  if (devSelectedTags.size === 0) {
+    alert('태그는 최소 1개 이상 필요해!');
+    return;
+  }
+
+  const level = demonData[index];
+
+  level.title = dev-title.value.trim();
+  level.creator = dev-creator.value.trim();
+  level.verifier = dev-verifier.value.trim();
+  level.video = dev-video.value.trim();
+
+  level.map = {
+    mapId: dev-map-id.value,
+    length: dev-map-length.value,
+    objects: Number(dev-map-objects.value),
+    uploadDate: dev-map-date.value,
+  };
+
+  level.song = {
+    name: dev-song-name.value,
+    artist: dev-song-artist.value,
+    id: dev-song-id.value,
+  };
+
+  level.tags = [...devSelectedTags];
+
+  generateList(demonData);
+  showDetail(level);
+
+  alert('레벨 정보가 수정됐어! ✨');
 }
 
 function requestDevPassword() {
@@ -1359,9 +1474,3 @@ function requestDevPassword() {
 </script>
 </body>
 </html>
-
-
-
-
-
-
