@@ -1306,7 +1306,7 @@ function renderAddLevelUI() {
 
   return `
     <div class="dev-section-title">기본 정보</div>
-    <input id="dev-rank" type="number" placeholder="순">
+    <input id="dev-rank" type="number" placeholder="순위">
     <input id="dev-title" placeholder="레벨 제목">
     <input id="dev-creator" placeholder="제작자">
     <input id="dev-verifier" placeholder="검증자">
@@ -1408,9 +1408,114 @@ function insertLevelWithRank(newItem) {
   alert('레벨이 추가됐어!');
 }
 
+let editingLevel = null;
+
+function openEditLevel() {
+  const panel = document.getElementById('devPanel');
+  panel.innerHTML = `
+    <h2>레벨 수정</h2>
+
+    <select id="edit-level-select">
+      <option value="">레벨 선택</option>
+      ${demonData.map(d => `
+        <option value="${d.id}">#${d.id} ${d.title}</option>
+      `).join('')}
+    </select>
+
+    <div id="edit-form"></div>
+  `;
+
+  document
+    .getElementById('edit-level-select')
+    .addEventListener('change', onSelectEditLevel);
+}
+
+function onSelectEditLevel(e) {
+  const id = Number(e.target.value);
+  editingLevel = demonData.find(d => d.id === id);
+  if (!editingLevel) return;
+
+  document.getElementById('edit-form').innerHTML = `
+    <input id="edit-title" value="${editingLevel.title}">
+    <input id="edit-creator" value="${editingLevel.creator}">
+    <input id="edit-rank" type="number" value="${editingLevel.id}">
+
+    <div id="edit-tags"></div>
+
+    <button onclick="submitEditLevel()">저장</button>
+  `;
+
+  renderEditTags(editingLevel.tags);
+}
+
+let editSelectedTags = new Set();
+
+function renderEditTags(currentTags) {
+  editSelectedTags = new Set(currentTags);
+
+  const box = document.getElementById('edit-tags');
+  box.innerHTML = '';
+
+  Object.entries(TAG_GROUPS).forEach(([group, tags]) => {
+    box.innerHTML += `
+      <div class="tag-group">
+        <div class="tag-group-title">${group}</div>
+        <div class="tag-group-tags">
+          ${tags.map(t => `
+            <span class="tag ${editSelectedTags.has(t) ? 'active' : ''}"
+              onclick="toggleEditTag(this, '${t}')">${t}</span>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  });
+}
+
+function toggleEditTag(el, tag) {
+  el.classList.toggle('active');
+  editSelectedTags.has(tag)
+    ? editSelectedTags.delete(tag)
+    : editSelectedTags.add(tag);
+}
+  
+function submitEditLevel() {
+  if (!editingLevel) return;
+
+  const newRank = Number(document.getElementById('edit-rank').value);
+
+  if (!newRank || editSelectedTags.size === 0) {
+    alert('필수 정보가 비어있어!');
+    return;
+  }
+
+  // 순위 변경 처리
+  if (newRank !== editingLevel.id) {
+    demonData.forEach(d => {
+      if (d !== editingLevel) {
+        if (d.id >= newRank && d.id < editingLevel.id) d.id++;
+        if (d.id <= newRank && d.id > editingLevel.id) d.id--;
+      }
+    });
+    editingLevel.id = newRank;
+  }
+
+  // 기본 정보 수정
+  editingLevel.title = document.getElementById('edit-title').value.trim();
+  editingLevel.creator = document.getElementById('edit-creator').value.trim();
+  editingLevel.tags = [...editSelectedTags];
+
+  demonData.sort((a, b) => a.id - b.id);
+
+  generateList(demonData);
+  showDetail(editingLevel);
+
+  alert('수정 완료!');
+}
+
 </script>
 </body>
 </html>
+
 
 
 
