@@ -1401,29 +1401,7 @@ function loadEditLevel(index) {
   `;
 }
 
-function renderEditTagSelector(existingTags = []) {
-  let html = '';
 
-  Object.entries(TAG_GROUPS).forEach(([group, tags]) => {
-    html += `
-      <div class="dev-section-title">${group}</div>
-      <div style="display:flex;flex-wrap:wrap;gap:6px">
-        ${tags.map(t => {
-          const active = existingTags.includes(t);
-          if (active) devSelectedTags.add(t);
-          return `
-            <span class="tag ${active ? 'active' : ''}"
-              onclick="toggleDevTag(this,'${t}')">
-              ${t}
-            </span>
-          `;
-        }).join('')}
-      </div>
-    `;
-  });
-
-  return html;
-}
 
 function submitEditLevel(index) {
   if (devSelectedTags.size === 0) {
@@ -1474,3 +1452,4 @@ function requestDevPassword() {
 </script>
 </body>
 </html>
+
