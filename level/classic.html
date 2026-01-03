@@ -1085,247 +1085,7 @@ function showDetail(item, element) {
         : playerName;
       
       row.innerHTML = `
-        <div class="clear-rank">#${i + 1}</div>
-        <div class="clear-player">${playerHtml}</div>
-        <div class="clear-percent ${percentClass}">${c.percent}%</div>
-        <div class="clear-date">${c.date}</div>
-      `;
-      clearBox.appendChild(row);
-    });
-  } else {
-    clearBox.innerHTML = `<p style="text-align:center; color:#aaa; font-size: 1.6rem;">기록 없음</p>`;
-  }
-}
-
-function generateList(data) {
-  const list = document.getElementById('list');
-  list.innerHTML = '';
-  data.forEach(d => {
-    const div = document.createElement('div');
-    div.className = 'item';
-    div.innerHTML = `
-      <div class="rank">${d.id}</div>
-      <div>
-        <div class="title">${d.title}</div>
-        <div class="creator">by ${d.creator}</div>
-      </div>
-    `;
-    div.onclick = () => showDetail(d, div);
-    list.appendChild(div);
-  });
-}
-
-fetch('classic.json')
-  .then(r => r.json())
-  .then(j => {
-    demonData = j.buttons;
-    initTagFilter(demonData);
-    generateList(demonData);
-    if (demonData.length > 0) showDetail(demonData[0]);
-  });
-
-function applyFilter() {
-  const text = search.value.toLowerCase();
-  const filteredData = demonData.filter(item => {
-    const textMatch = item.title.toLowerCase().includes(text);
-    const tagMatch = [...selectedTags].every(tag => item.tags?.includes(tag));
-    return textMatch && tagMatch;
-  });
-  generateList(filteredData);
-  if (filteredData.length > 0) showDetail(filteredData[0]);
-}
-
-function initTagFilter() {
-  const tagBox = document.getElementById('tagFilter');
-  tagBox.innerHTML = '';
-
-  Object.entries(TAG_GROUPS).forEach(([groupName, tags]) => {
-    const groupDiv = document.createElement('div');
-    groupDiv.className = 'tag-filter-group';
-
-    const header = document.createElement('div');
-    header.className = 'tag-filter-header';
-    header.innerHTML = `<span>${groupName}</span><span class="arrow">▼</span>`;
-
-    const list = document.createElement('div');
-    list.className = 'tag-filter-list';
-
-    tags.forEach(tag => {
-      const el = document.createElement('span');
-      el.className = 'tag';
-      el.textContent = tag;
-      el.onclick = (e) => {
-        e.stopPropagation();
-        el.classList.toggle('active');
-        selectedTags.has(tag) ? selectedTags.delete(tag) : selectedTags.add(tag);
-        applyFilter();
-      };
-      list.appendChild(el);
-    });
-
-    header.onclick = () => groupDiv.classList.toggle('open');
-    groupDiv.appendChild(header);
-    groupDiv.appendChild(list);
-    tagBox.appendChild(groupDiv);
-  });
-}
-
-function renderTagGroups(tags) {
-  if (!tags || tags.length === 0) return '';
-  let groupsHtml = '';
-  Object.entries(TAG_GROUPS).forEach(([group, values]) => {
-    const matched = tags.filter(t => values.includes(t));
-    if (!matched.length) return;
-    groupsHtml += `
-      <div class="tag-group">
-        <div class="tag-group-title">${group}</div>
-        <div class="tag-group-tags">
-          ${matched.map(t => `<span class="tag">${t}</span>`).join('')}
-        </div>
-      </div>
-    `;
-  });
-  return `<div class="tag-group-container">${groupsHtml}</div>`;
-}
-
-let devMode = 'add';
-
-function openDevPanel() {
-  document.getElementById('devPanel').classList.add('open');
-  renderDevPanel();
-}
-
-function closeDevPanel() {
-  document.getElementById('devPanel').classList.remove('open');
-}
-
-function setDevMode(mode) {
-  devMode = mode;
-  document.querySelectorAll('.dev-tabs button').forEach(b => b.classList.remove('active'));
-  event.target.classList.add('active');
-  renderDevPanel();
-}
-
-function renderDevPanel() {
-  const box = document.getElementById('devContent');
-  box.innerHTML = '';
-  
-  document
-  .querySelector(`.dev-tabs button[data-mode="${devMode}"]`)
-  ?.classList.add('active');
-
-  if (devMode === 'add') {
-    box.innerHTML = `
-      <div class="dev-content">
-
-        <div class="dev-section-title">기본 정보</div>
-        <input id="dev-title" placeholder="레벨 이름">
-        <input id="dev-creator" placeholder="제작자">
-        <input id="dev-verifier" placeholder="검증자">
-        <input id="dev-video" placeholder="유튜브 영상 URL">
-
-        <div class="dev-section-title">맵 정보</div>
-        <input id="dev-map-id" placeholder="맵 ID">
-        <input id="dev-map-length" placeholder="길이 (0m 0s)">
-        <input id="dev-map-objects" placeholder="오브젝트 수">
-        <input id="dev-map-date" placeholder="업로드 날짜 (YYYY-MM-DD)">
-
-        <div class="dev-section-title">노래 정보</div>
-        <input id="dev-song-name" placeholder="노래 이름">
-        <input id="dev-song-artist" placeholder="작곡가">
-        <input id="dev-song-id" placeholder="노래 ID">
-        
-        ${renderRatioInputs(
-          '게임모드 비율',
-          ['Cube','Ship','Ball','UFO','Wave','Robot','Spider','Swing'],
-          'mode'
-        )}
-
-        ${renderRatioInputs(
-          '속도 비율',
-          ['0.5x','1x','2x','3x','4x'],
-          'speed'
-        )}
-
-        <div class="dev-section-title">태그</div>
-        <div id="devTagBox"></div>
-      
-        <button onclick="submitNewLevel()" class="mode-btn" style="width:100%;margin-top:16px">
-          레벨 추가
-        </button>
-      </div>
-    `;
-     renderDevTagSelector();
-  }
-  
-  if (devMode === 'edit') {
-  box.innerHTML = `
-    <div class="dev-content">
-
-      <div class="dev-section-title">수정할 레벨 선택</div>
-      <select id="dev-edit-select" style="width:100%;padding:8px;border-radius:8px">
-        ${demonData.map((d, i) =>
-          `<option value="${i}">${d.id}. ${d.title}</option>`
-        ).join('')}
-      </select>
-
-      <div id="devEditForm"></div>
-
-    </div>
-  `;
-
-  document
-    .getElementById('dev-edit-select')
-    .addEventListener('change', e => {
-      loadEditLevel(e.target.value);
-    });
-
-  // 기본 첫 레벨 로드
-  loadEditLevel(0);
-}
-
-}
-
-function renderDevTagSelector() {
-  const box = document.getElementById('devTagBox');
-  box.innerHTML = '';
-
-  Object.entries(TAG_GROUPS).forEach(([group, tags]) => {
-    const groupDiv = document.createElement('div');
-    groupDiv.className = 'dev-tag-group';
-
-    groupDiv.innerHTML = `<div class="dev-tag-title">${group}</div>`;
-
-    const tagWrap = document.createElement('div');
-    tagWrap.style.display = 'flex';
-    tagWrap.style.flexWrap = 'wrap';
-    tagWrap.style.gap = '6px';
-
-    tags.forEach(tag => {
-      const span = document.createElement('span');
-      span.className = 'dev-tag';
-      span.textContent = tag;
-      span.onclick = () => toggleDevTag(span, tag);
-      tagWrap.appendChild(span);
-    });
-
-    groupDiv.appendChild(tagWrap);
-    box.appendChild(groupDiv);
-  });
-}
-
-  function submitNewLevel() {
-  const title = document.getElementById('dev-title').value.trim();
-  const creator = document.getElementById('dev-creator').value.trim();
-  const verifier = document.getElementById('dev-verifier').value.trim();
-  
-  if (
-  !title || !creator || !verifier ||
-  !document.getElementById('dev-map-id').value ||
-  !document.getElementById('dev-map-length').value ||
-  devSelectedTags.size === 0
-) {
-  alert('모든 정보를 입력해야 레벨을 추가할 수 있어!');
+        <div class="clear-rank">#${i + 1}</div>`;
   return;
 }
 
@@ -1349,28 +1109,7 @@ function collectRatio(prefix) {
     verifier,
     video: document.getElementById('dev-video').value.trim(),
     map: {
-      mapId: document.getElementById('dev-map-id').value,
-      length: document.getElementById('dev-map-length').value,
-      objects: Number(document.getElementById('dev-map-objects').value),
-      uploadDate: document.getElementById('dev-map-date').value,
-    },
-    song: {
-      name: document.getElementById('dev-song-name').value,
-      artist: document.getElementById('dev-song-artist').value,
-      id: document.getElementById('dev-song-id').value,
-    },
-    gameplay: {
-      modeRatio: collectRatio('mode'),
-      speedRatio: collectRatio('speed')
-    },
-    tags: [...devSelectedTags],
-    framePerfect: { total: 0, fps: {} },
-    clears: []
-  };
-
-  demonData.push(newLevel);
-  generateList(demonData);
-  alert('레벨이 추가되었어!');
+      m료');
 }
 
 document.addEventListener('keydown', e => {
@@ -1416,6 +1155,8 @@ function loadEditLevel(index) {
 
   form.innerHTML = `
     <div class="dev-section-title">기본 정보</div>
+    <input id="dev-id" type="number" min="1" value="${level.id}" placeholder="순위 (ID)">
+    
     <input id="dev-title" value="${level.title}">
     <input id="dev-creator" value="${level.creator}">
     <input id="dev-verifier" value="${level.verifier}">
@@ -1468,18 +1209,21 @@ function renderEditTagSelector(existingTags = []) {
 }
 
 function submitEditLevel(index) {
-  if (devSelectedTags.size === 0) {
-    alert('태그는 최소 1개 이상 필요해!');
+  const newRank = Number(document.getElementById('dev-id').value);
+
+  if (!newRank || newRank < 1) {
+    alert('순위는 1 이상의 숫자여야 해!');
     return;
   }
 
-  const level = demonData[index];
+  // 레벨 이동 + 밀어내기
+  const level = moveLevelToRank(index, newRank);
 
-  level.title = document.getElementById('dev-title').value.trim();
-  level.creator = document.getElementById('dev-creator').value.trim();
-  level.verifier = document.getElementById('dev-verifier').value.trim();
-  level.video = document.getElementById('dev-video').value.trim();
-
+  // 나머지 정보 수정
+  level.title = dev-title.value.trim();
+  level.creator = dev-creator.value.trim();
+  level.verifier = dev-verifier.value.trim();
+  level.video = dev-video.value.trim();
 
   level.map = {
     mapId: dev-map-id.value,
@@ -1496,11 +1240,13 @@ function submitEditLevel(index) {
 
   level.tags = [...devSelectedTags];
 
+  // UI 갱신
   generateList(demonData);
   showDetail(level);
 
-  alert('레벨 정보가 수정됐어! ✨');
+  alert('레벨 정보 변경 완');
 }
+
 
 function toggleDevTag(el, tag) {
   el.classList.toggle('active');
@@ -1510,6 +1256,24 @@ function toggleDevTag(el, tag) {
   } else {
     devSelectedTags.add(tag);
   }
+}
+
+function moveLevelToRank(levelIndex, newRank) {
+  // 현재 레벨 꺼내기
+  const level = demonData.splice(levelIndex, 1)[0];
+
+  // 배열 index는 0부터라서 -1
+  const targetIndex = Math.max(0, Math.min(newRank - 1, demonData.length));
+
+  // 새 위치에 삽입
+  demonData.splice(targetIndex, 0, level);
+
+  // 순위 재정렬
+  demonData.forEach((d, i) => {
+    d.id = i + 1;
+  });
+
+  return level;
 }
 
 
@@ -1528,6 +1292,7 @@ function requestDevPassword() {
 </script>
 </body>
 </html>
+
 
 
 
