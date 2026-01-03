@@ -813,32 +813,30 @@ input {
 #devContent::-webkit-scrollbar-track {
   background: #2f2f2f;
 }
-
-.dev-slider-row {
+  
+.dev-ratio-row {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 8px;
 }
 
-.dev-slider-label {
+.dev-ratio-label {
   width: 80px;
   font-family: Paperlogy4;
   color: #ddd;
   font-size: 0.9rem;
 }
 
-.dev-slider {
-  flex: 1;
-}
-
-.dev-slider-value {
-  width: 48px;
-  text-align: right;
+.dev-ratio-input {
+  width: 80px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  border: none;
   font-family: Paperlogy5;
-  color: #fff;
   font-size: 0.9rem;
 }
+
 
 </style>
 </head>
@@ -1205,22 +1203,19 @@ function renderDevPanel() {
         <input id="dev-song-name" placeholder="노래 이름">
         <input id="dev-song-artist" placeholder="작곡가">
         <input id="dev-song-id" placeholder="노래 ID">
-
-        ${renderRatioSliders(
+        
+        ${renderRatioInputs(
           '게임모드 비율',
           ['Cube','Ship','Ball','UFO','Wave','Robot','Spider','Swing'],
           'mode'
         )}
 
-        ${renderRatioSliders(
+        ${renderRatioInputs(
           '속도 비율',
           ['0.5x','1x','2x','3x','4x'],
           'speed'
         )}
-
-        <div class="dev-section-title">태그</div>
-        ${renderTagSelector()}
-
+        
         <button onclick="submitNewLevel()" class="mode-btn" style="width:100%;margin-top:16px">
           레벨 추가
         </button>
@@ -1264,12 +1259,15 @@ function toggleDevTag(el, tag) {
 function collectRatio(prefix) {
   const result = {};
   document.querySelectorAll(`input[data-prefix="${prefix}"]`)
-    .forEach(slider => {
-      const v = Number(slider.value);
-      if (v > 0) result[slider.dataset.key] = v;
+    .forEach(input => {
+      const v = Number(input.value);
+      if (!isNaN(v) && v > 0) {
+        result[input.dataset.key] = v;
+      }
     });
   return result;
 }
+
 
     
   const newLevel = {
@@ -1312,28 +1310,29 @@ document.addEventListener('keydown', e => {
       : openDevPanel();
   }
 });
-
-  function renderRatioSliders(title, keys, prefix) {
+  
+function renderRatioInputs(title, keys, prefix) {
   return `
     <div class="dev-section-title">${title}</div>
     ${keys.map(k => `
-      <div class="dev-slider-row">
-        <div class="dev-slider-label">${k}</div>
+      <div class="dev-ratio-row">
+        <div class="dev-ratio-label">${k}</div>
         <input
-          type="range"
+          type="number"
           min="0"
           max="100"
-          value="0"
-          class="dev-slider"
+          value=""
+          placeholder="0~100"
+          class="dev-ratio-input"
           data-key="${k}"
           data-prefix="${prefix}"
-          oninput="updateSliderValue(this)"
         >
-        <div class="dev-slider-value">0%</div>
+        <span style="color:#aaa">%</span>
       </div>
     `).join('')}
   `;
 }
+
 
 function updateSliderValue(slider) {
   slider.nextElementSibling.textContent = slider.value + '%';
@@ -1343,6 +1342,7 @@ function updateSliderValue(slider) {
 </script>
 </body>
 </html>
+
 
 
 
