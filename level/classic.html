@@ -1105,16 +1105,6 @@ document.addEventListener('keydown', e => {
   }
 });
 
-
-function openDevPanel() {
-  const panel = document.getElementById('devPanel');
-  panel.classList.add('open');
-
-  initDevTagSelector();
-  initModeRatioEditor();
-  initSpeedRatioEditor();
-}
-
 let devMode = 'add';
 
 function openDevPanel() {
@@ -1233,6 +1223,7 @@ function toggleDevTag(el, tag) {
 </script>
 </body>
 </html>
+
 
 
 
