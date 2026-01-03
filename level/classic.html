@@ -949,6 +949,7 @@ input {
 
 
 <script>
+  
 const TAG_GROUPS = {
   '주 게임모드': ['Cube', 'Ship', 'Ball', 'UFO', 'Wave', 'Robot', 'Spider', 'Swing', 'Any-Mode'],
   '속도': ['0.5x', '1x', '2x', '3x', '4x', 'Any-Speed'],
@@ -970,6 +971,42 @@ const selectedTags = new Set();
 let demonData = [];
 const devSelectedTags = new Set();
 
+demonData = [
+  {
+    id: 1,
+    title: 'Test Level',
+    creator: 'imBBBT',
+    verifier: 'imBBBT',
+    video: '',
+    map: {
+      mapId: '123456',
+      length: 'Long',
+      objects: 12345,
+      uploadDate: '2025-01-01',
+    },
+    song: {
+      name: 'Test Song',
+      artist: 'Test Artist',
+      id: '987654',
+    },
+    gameplay: {
+      modeRatio: { Cube: 50, Ship: 50 },
+      speedRatio: { '1x': 70, '2x': 30 },
+    },
+    framePerfect: {
+      total: 10,
+      fps: { 60: 6, 120: 4 },
+    },
+    tags: ['Cube', '1x', 'Long'],
+    clears: [
+      { player: 'imBBBT', percent: 100, date: '2025-01-02' },
+    ],
+  }
+];
+
+generateList(demonData);
+showDetail(demonData[0]);
+  
 function addSection(title, html) {
   const box = document.getElementById('detailDescription');
   const div = document.createElement('div');
@@ -1123,7 +1160,7 @@ function collectRatio(prefix) {
     });
   return result;
 }
-    
+  /*  
   const newLevel = {
     id: demonData.length + 1,
     title,
@@ -1132,7 +1169,7 @@ function collectRatio(prefix) {
     video: document.getElementById('dev-video').value.trim(),
     map: {
       m료');
-}
+}*/
 
 document.addEventListener('keydown', e => {
   if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'e') {
@@ -1170,41 +1207,9 @@ function renderRatioInputs(title, keys, prefix) {
 }
 
 function loadEditLevel(index) {
-  const level = demonData[index];
-  const for류'';
-    return;
-  }
-
-  // 레벨 이동 + 밀어내기
-  const level = moveLevelToRank(index, newRank);
-
-  // 나머지 정보 수정
-  level.title = dev-title.value.trim();
-  level.creator = dev-creator.value.trim();
-  level.verifier = dev-verifier.value.trim();
-  level.video = dev-video.value.trim();
-
-  level.map = {
-    mapId: dev-map-id.value,
-    length: dev-map-length.value,
-    objects: Number(dev-map-objects.value),
-    uploadDate: dev-map-date.value,
-  };
-
-  level.song = {
-    name: dev-song-name.value,
-    artist: dev-song-artist.value,
-    id: dev-song-id.value,
-  };
-
-  level.tags = [...devSelectedTags];
-
-  // UI 갱신
-  generateList(demonData);
-  showDetail(level);
-
-  alert('레벨 정보 변경 완');
+  // TODO: 나중에 구현
 }
+
 
 
 function toggleDevTag(el, tag) {
@@ -1247,10 +1252,53 @@ function requestDevPassword() {
     alert('비밀번호가 틀렸어!');
   }
 }
+function renderTagGroups(tags) {
+  return `
+    <div class="tag-group-container">
+      ${tags.map(t => `<span class="tag">${t}</span>`).join('')}
+    </div>
+  `;
+}
+
+function generateList(data) {
+  const list = document.getElementById('list');
+  list.innerHTML = '';
+
+  data.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.className = 'item';
+    div.innerHTML = `
+      <div class="rank">#${i + 1}</div>
+      <div>
+        <div class="title">${item.title}</div>
+        <div class="creator">${item.creator}</div>
+      </div>
+    `;
+    div.onclick = () => showDetail(item, div);
+    list.appendChild(div);
+  });
+}
+
+function openDevPanel() {
+  document.getElementById('devPanel').classList.add('open');
+}
+
+function closeDevPanel() {
+  document.getElementById('devPanel').classList.remove('open');
+}
+
+function setDevMode(mode) {
+  document.querySelectorAll('.dev-tabs button').forEach(b => {
+    b.classList.toggle('active', b.dataset.mode === mode);
+  });
+  document.getElementById('devContent').innerHTML =
+    `<div style="color:#aaa">아직 ${mode} 모드는 미구현 상태야</div>`;
+}
 
 </script>
 </body>
 </html>
+
 
 
 
