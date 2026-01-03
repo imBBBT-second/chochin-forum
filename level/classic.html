@@ -1099,6 +1099,13 @@ function renderTagGroups(tags) {
   return `<div class="tag-group-container">${groupsHtml}</div>`;
 }
 
+document.addEventListener('keydown', e => {
+  if (e.ctrlKey && e.shiftKey && e.key === 'E') {
+    openDevPanel();
+  }
+});
+
+
 function openDevPanel() {
   const panel = document.getElementById('devPanel');
   panel.classList.add('open');
@@ -1226,6 +1233,7 @@ function toggleDevTag(el, tag) {
 </script>
 </body>
 </html>
+
 
 
 
