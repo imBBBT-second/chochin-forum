@@ -1085,8 +1085,8 @@ function showDetail(item, element) {
         : playerName;
       
       row.innerHTML = `
-        <div class="clear-rank">#${i + 1}</div>`);
-  return;
+        <div class="clear-rank">#${i + 1}</div>`;
+  return);
 }
 
 
@@ -1149,70 +1149,7 @@ function renderRatioInputs(title, keys, prefix) {
 
 function loadEditLevel(index) {
   const level = demonData[index];
-  const form = document.getElementById('devEditForm');
-
-  devSelectedTags.clear();
-
-  form.innerHTML = `
-    <div class="dev-section-title">기본 정보</div>
-    <input id="dev-id" type="number" min="1" value="${level.id}" placeholder="순위 (ID)">
-    
-    <input id="dev-title" value="${level.title}">
-    <input id="dev-creator" value="${level.creator}">
-    <input id="dev-verifier" value="${level.verifier}">
-    <input id="dev-video" value="${level.video || ''}">
-
-    <div class="dev-section-title">맵 정보</div>
-    <input id="dev-map-id" value="${level.map?.mapId || ''}">
-    <input id="dev-map-length" value="${level.map?.length || ''}">
-    <input id="dev-map-objects" value="${level.map?.objects || ''}">
-    <input id="dev-map-date" value="${level.map?.uploadDate || ''}">
-
-    <div class="dev-section-title">노래 정보</div>
-    <input id="dev-song-name" value="${level.song?.name || ''}">
-    <input id="dev-song-artist" value="${level.song?.artist || ''}">
-    <input id="dev-song-id" value="${level.song?.id || ''}">
-
-    <div class="dev-section-title">태그</div>
-    ${renderEditTagSelector(level.tags)}
-
-    <button onclick="submitEditLevel(${index})"
-      class="mode-btn"
-      style="width:100%;margin-top:16px">
-      수정 내용 저장
-    </button>
-  `;
-}
-
-function renderEditTagSelector(existingTags = []) {
-  let html = '';
-
-  Object.entries(TAG_GROUPS).forEach(([group, tags]) => {
-    html += `
-      <div class="dev-section-title">${group}</div>
-      <div style="display:flex;flex-wrap:wrap;gap:6px">
-        ${tags.map(t => {
-          const active = existingTags.includes(t);
-          if (active) devSelectedTags.add(t);
-          return `
-            <span class="dev-tag ${active ? 'active' : ''}"
-              onclick="toggleDevTag(this,'${t}')">
-              ${t}
-            </span>
-          `;
-        }).join('')}
-      </div>
-    `;
-  });
-
-  return html;
-}
-
-function submitEditLevel(index) {
-  const newRank = Number(document.getElementById('dev-id').value);
-
-  if (!newRank || newRank < 1) {
-    alert('순위는 1 이상의 숫자여야 해!');
+  const for류'';
     return;
   }
 
@@ -1292,6 +1229,7 @@ function requestDevPassword() {
 </script>
 </body>
 </html>
+
 
 
 
