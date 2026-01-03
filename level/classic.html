@@ -1282,16 +1282,6 @@ function renderDevTagSelector() {
   });
 }
 
-
-const devSelectedTags = new Set();
-
-function toggleDevTag(el, tag) {
-  el.classList.toggle('active');
-  devSelectedTags.has(tag)
-    ? devSelectedTags.delete(tag)
-    : devSelectedTags.add(tag);
-}
-
   function submitNewLevel() {
   const title = document.getElementById('dev-title').value.trim();
   const creator = document.getElementById('dev-creator').value.trim();
@@ -1502,5 +1492,6 @@ function requestDevPassword() {
 </script>
 </body>
 </html>
+
 
 
