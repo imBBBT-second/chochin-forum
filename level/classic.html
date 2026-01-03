@@ -814,6 +814,32 @@ input {
   background: #2f2f2f;
 }
 
+.dev-slider-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.dev-slider-label {
+  width: 80px;
+  font-family: Paperlogy4;
+  color: #ddd;
+  font-size: 0.9rem;
+}
+
+.dev-slider {
+  flex: 1;
+}
+
+.dev-slider-value {
+  width: 48px;
+  text-align: right;
+  font-family: Paperlogy5;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
 </style>
 </head>
 
@@ -1180,6 +1206,18 @@ function renderDevPanel() {
         <input id="dev-song-artist" placeholder="작곡가">
         <input id="dev-song-id" placeholder="노래 ID">
 
+        ${renderRatioSliders(
+          '게임모드 비율',
+          ['Cube','Ship','Ball','UFO','Wave','Robot','Spider','Swing'],
+          'mode'
+        )}
+
+        ${renderRatioSliders(
+          '속도 비율',
+          ['0.5x','1x','2x','3x','4x'],
+          'speed'
+        )}
+
         <div class="dev-section-title">태그</div>
         ${renderTagSelector()}
 
@@ -1217,12 +1255,23 @@ function toggleDevTag(el, tag) {
   const title = document.getElementById('dev-title').value.trim();
   const creator = document.getElementById('dev-creator').value.trim();
   const verifier = document.getElementById('dev-verifier').value.trim();
-
+  
   if (!title || !creator || !verifier || devSelectedTags.size === 0) {
     alert('모든 정보를 입력해야 레벨을 추가할 수 있어!');
     return;
   }
 
+function collectRatio(prefix) {
+  const result = {};
+  document.querySelectorAll(`input[data-prefix="${prefix}"]`)
+    .forEach(slider => {
+      const v = Number(slider.value);
+      if (v > 0) result[slider.dataset.key] = v;
+    });
+  return result;
+}
+
+    
   const newLevel = {
     id: demonData.length + 1,
     title,
@@ -1239,6 +1288,10 @@ function toggleDevTag(el, tag) {
       name: document.getElementById('dev-song-name').value,
       artist: document.getElementById('dev-song-artist').value,
       id: document.getElementById('dev-song-id').value,
+    },
+    gameplay: {
+      modeRatio: collectRatio('mode'),
+      speedRatio: collectRatio('speed')
     },
     tags: [...devSelectedTags],
     gameplay: { modeRatio: {}, speedRatio: {} },
@@ -1260,10 +1313,37 @@ document.addEventListener('keydown', e => {
   }
 });
 
+  function renderRatioSliders(title, keys, prefix) {
+  return `
+    <div class="dev-section-title">${title}</div>
+    ${keys.map(k => `
+      <div class="dev-slider-row">
+        <div class="dev-slider-label">${k}</div>
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value="0"
+          class="dev-slider"
+          data-key="${k}"
+          data-prefix="${prefix}"
+          oninput="updateSliderValue(this)"
+        >
+        <div class="dev-slider-value">0%</div>
+      </div>
+    `).join('')}
+  `;
+}
+
+function updateSliderValue(slider) {
+  slider.nextElementSibling.textContent = slider.value + '%';
+}
+
 
 </script>
 </body>
 </html>
+
 
 
 
