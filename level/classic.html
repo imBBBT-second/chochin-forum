@@ -1223,6 +1223,7 @@ function renderDevPanel() {
         </button>
       </div>
     `;
+     renderDevTagSelector();
   }
   
   if (devMode === 'edit') {
@@ -1253,18 +1254,34 @@ function renderDevPanel() {
 
 }
 
-function renderTagSelector() {
-  let html = '';
+function renderDevTagSelector() {
+  const box = document.getElementById('devTagBox');
+  box.innerHTML = '';
+
   Object.entries(TAG_GROUPS).forEach(([group, tags]) => {
-    html += `
-      <div class="dev-section-title">${group}</div>
-      <div style="display:flex;flex-wrap:wrap;gap:6px">
-        ${tags.map(t => `<span class="tag" onclick="toggleDevTag(this,'${t}')">${t}</span>`).join('')}
-      </div>
-    `;
+    const groupDiv = document.createElement('div');
+    groupDiv.className = 'dev-tag-group';
+
+    groupDiv.innerHTML = `<div class="dev-tag-title">${group}</div>`;
+
+    const tagWrap = document.createElement('div');
+    tagWrap.style.display = 'flex';
+    tagWrap.style.flexWrap = 'wrap';
+    tagWrap.style.gap = '6px';
+
+    tags.forEach(tag => {
+      const span = document.createElement('span');
+      span.className = 'tag';
+      span.textContent = tag;
+      span.onclick = () => toggleDevTag(span, tag);
+      tagWrap.appendChild(span);
+    });
+
+    groupDiv.appendChild(tagWrap);
+    box.appendChild(groupDiv);
   });
-  return html;
 }
+
 
 const devSelectedTags = new Set();
 
@@ -1296,8 +1313,6 @@ function collectRatio(prefix) {
     });
   return result;
 }
-
-
     
   const newLevel = {
     id: demonData.length + 1,
@@ -1401,7 +1416,29 @@ function loadEditLevel(index) {
   `;
 }
 
+function renderEditTagSelector(existingTags = []) {
+  let html = '';
 
+  Object.entries(TAG_GROUPS).forEach(([group, tags]) => {
+    html += `
+      <div class="dev-section-title">${group}</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px">
+        ${tags.map(t => {
+          const active = existingTags.includes(t);
+          if (active) devSelectedTags.add(t);
+          return `
+            <span class="tag ${active ? 'active' : ''}"
+              onclick="toggleDevTag(this,'${t}')">
+              ${t}
+            </span>
+          `;
+        }).join('')}
+      </div>
+    `;
+  });
+
+  return html;
+}
 
 function submitEditLevel(index) {
   if (devSelectedTags.size === 0) {
@@ -1437,6 +1474,19 @@ function submitEditLevel(index) {
   alert('레벨 정보가 수정됐어! ✨');
 }
 
+const devSelectedTags = new Set();
+
+function toggleDevTag(el, tag) {
+  el.classList.toggle('active');
+
+  if (devSelectedTags.has(tag)) {
+    devSelectedTags.delete(tag);
+  } else {
+    devSelectedTags.add(tag);
+  }
+}
+
+
 function requestDevPassword() {
   const input = prompt('개발자 비밀번호를 입력해줘');
 
@@ -1452,4 +1502,5 @@ function requestDevPassword() {
 </script>
 </body>
 </html>
+
 
