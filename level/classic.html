@@ -905,7 +905,7 @@ input {
   </div>
 </div>
 
- <div id="devPanel" class="dev-panel">
+ <div class="dev-panel" id="devPanel">
   <div class="dev-panel-header">
   개발자 패널
   <button onclick="closeDevPanel()">✕</button>
@@ -939,6 +939,8 @@ const PLAYER_YOUTUBE = {
   'Light': 'https://www.youtube.com/@CC_Light722',
   'Timo': 'https://www.youtube.com/@SNIPER_Timo',
 };
+
+const DEV_PASSWORD = '6974'; // 원하는 비밀번호로 바꿔
 
 const selectedTags = new Set();
 let demonData = [];
@@ -1305,11 +1307,15 @@ function collectRatio(prefix) {
 document.addEventListener('keydown', e => {
   if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'e') {
     const panel = document.getElementById('devPanel');
-    panel.classList.contains('open')
-      ? closeDevPanel()
-      : openDevPanel();
+
+    if (panel.classList.contains('open')) {
+      closeDevPanel();
+    } else {
+      requestDevPassword();
+    }
   }
 });
+
   
 function renderRatioInputs(title, keys, prefix) {
   return `
@@ -1338,10 +1344,22 @@ function updateSliderValue(slider) {
   slider.nextElementSibling.textContent = slider.value + '%';
 }
 
+function requestDevPassword() {
+  const input = prompt('개발자 비밀번호를 입력해줘');
+
+  if (input === null) return; // 취소
+
+  if (input === DEV_PASSWORD) {
+    openDevPanel();
+  } else {
+    alert('비밀번호가 틀렸어!');
+  }
+}
 
 </script>
 </body>
 </html>
+
 
 
 
