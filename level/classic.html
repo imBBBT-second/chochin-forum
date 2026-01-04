@@ -858,6 +858,11 @@ input {
 .dev-form-row span {
   font-family: Paperlogy4;
   color: #c8c8c8;
+
+.dev-form {
+  display: flex;
+  flex-direction: column;
+}
 }
 
 </style>
@@ -1245,22 +1250,25 @@ function renderDevHome() {
   const box = document.getElementById('devContent');
   box.innerHTML = `
     <div class="section">
-      <div class="section-title">레벨 추가</div>
+      <div class="dev-title">레벨 추가</div>
+  
+      <div class="dev-form-row">
+        <span>순위</span>
+        <input id="add-rank">
+      </div>
 
-      <div class="dev-form-row"><span>순위</span><input id="add-rank"></div>
-      <div class="dev-form-row"><span>제목</span><input id="add-title"></div>
-      <div class="dev-form-row"><span>제작자</span><input id="add-creator"></div>
-      <div class="dev-form-row"><span>검증자</span><input id="add-verifier"></div>
-      <div class="dev-form-row"><span>영상</span><input id="add-video"></div>
+      <div class="dev-form-row">
+        <span>제목</span>
+        <input id="add-title">
+      </div>
 
-      <div id="add-tags"></div>
-
-      <div class="header-container">
-        <button class="header-btn" onclick="submitAddLevel()">추가</button>
-        <button class="header-btn" onclick="renderDevHome()">뒤로</button>
+      <div class="dev-form-row">
+        <span>제작자</span>
+        <input id="add-creator">
       </div>
     </div>
   `;
+
 
   document.getElementById('add-tags').innerHTML =
     `<div class="section-title">태그</div>` + renderEditableTags([]);
@@ -1397,6 +1405,7 @@ function submitAddLevel() {
 </script>
 </body>
 </html>
+
 
 
 
