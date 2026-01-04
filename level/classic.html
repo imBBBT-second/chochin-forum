@@ -1,193 +1,574 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="user-scalable=no, initial-scale=1.0" />
-  <title>초친 포럼 (레벨 - 클래식)</title>
-  <style>
-    /* --- 기초 설정 --- */
-    html, body {
-      height: 100%;
-      margin: 0;
-      background: #323232;
-      display: flex;
-      flex-direction: column;
-      overflow-x: hidden;
-    }
-    * { box-sizing: border-box; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0" />
+<title>초친 포럼 (레벨 - 클래식)</title>
 
-    @font-face { font-family: 'Paperlogy'; src: url('font - paperlogy/Paperlogy-5.ttf'); } /* 폰트 경로는 환경에 맞게 수정 필요 */
-    
-    body { font-family: 'Paperlogy', sans-serif; }
-    h1 { color: white; font-size: 170px; text-align: center; margin: 20px 0; }
-    p, span { color: #c8c8c8; }
-    a { color: inherit; text-decoration: none; }
+<style>
+/* --- 기본 설정 --- */
+html, body {
+  height: 100%;
+  margin: 0;
+  background: #323232;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+* { box-sizing: border-box; }
 
-    /* --- 헤더 --- */
-    .header-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      padding: 2vh 0;
-      flex-wrap: wrap;
-    }
-    .header-btn {
-      background-color: #323232;
-      color: white;
-      font-size: clamp(1rem, 2vw, 1.5rem);
-      cursor: pointer;
-      padding: 10px 30px;
-      border: 1px solid white;
-      border-radius: 10px;
-      transition: 0.25s;
-    }
-    .header-btn:hover, .header-btn.active {
-      background-color: #fff;
-      color: #323232;
-    }
-    .divider { border: 1px solid white; width: 100%; margin-bottom: 20px; }
+/* 폰트 설정 (경로 유지) */
+@font-face { font-family: Paperlogy1; src: url('font - paperlogy/Paperlogy-1.ttf'); }
+@font-face { font-family: Paperlogy2; src: url('font - paperlogy/Paperlogy-2.ttf'); }
+@font-face { font-family: Paperlogy3; src: url('font - paperlogy/Paperlogy-3.ttf'); }
+@font-face { font-family: Paperlogy4; src: url('font - paperlogy/Paperlogy-4.ttf'); }
+@font-face { font-family: Paperlogy5; src: url('font - paperlogy/Paperlogy-5.ttf'); }
+@font-face { font-family: Paperlogy6; src: url('font - paperlogy/Paperlogy-6.ttf'); }
+@font-face { font-family: Paperlogy7; src: url('font - paperlogy/Paperlogy-7.ttf'); }
+@font-face { font-family: Paperlogy8; src: url('font - paperlogy/Paperlogy-8.ttf'); }
+@font-face { font-family: Paperlogy9; src: url('font - paperlogy/Paperlogy-9.ttf'); }
 
-    /* --- 메인 레이아웃 --- */
-    .main-container {
-      flex: 1;
-      display: flex;
-      gap: 20px;
-      padding: 20px;
-    }
-    .container, .detail-panel, .clears-panel {
-      background: #404040;
-      border-radius: 10px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-    }
-    .container { flex: 1; max-width: 300px; }
-    .detail-panel { flex: 2; background: #505050; overflow-y: auto; }
-    .clears-panel { flex: 1; max-width: 350px; }
+h1 { font-family: Paperlogy7; color: white; font-size: 170px; text-align: center; }
+h4 { font-family: Paperlogy3; color: #a0a0a0; text-align: center; }
+p, span { font-family: Paperlogy2; color: #c8c8c8; }
+a { color: inherit; text-decoration: none; }
 
-    /* 리스트 아이템 */
-    .item {
-      padding: 15px;
-      border-bottom: 1px solid #666;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-    .item:hover, .item.active { background: #fff; color: #000; }
-    .item:hover *, .item.active * { color: #000; }
-    .rank { font-size: 2rem; font-weight: bold; width: 40px; }
-    .title { font-size: 1.2rem; font-weight: bold; }
+/* --- 헤더 영역 --- */
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5vw;
+  padding: 2vh 0;
+  flex-wrap: wrap;
+}
+.header-btn-wrapper {
+  width: min(400px, 90vw);
+  display: flex;
+  justify-content: center;
+}
+.header-btn {
+  background-color: #323232;
+  color: white;
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  cursor: pointer;
+  padding: 1.5vh 0;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  font-family: Paperlogy5;
+}
+.header-btn:hover {
+  background-color: #fff;
+  color: #323232;
+}
+.divider {
+  border: 2px solid white;
+  width: 100%;
+  height: 0;
+  margin: 6px 0;
+}
 
-    /* 상세 페이지 구성 */
-    .detail-header { text-align: center; margin-bottom: 20px; }
-    .detail-title { font-size: 3rem; color: #fff; margin: 0; }
-    .video-wrapper { position: relative; padding-top: 56.25%; margin-bottom: 20px; }
-    .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 8px; }
-    
-    .section { background: #444; border-radius: 8px; padding: 15px; margin-bottom: 15px; }
-    .section-title { font-size: 1.2rem; color: #fff; margin-bottom: 10px; border-left: 4px solid #6fa8ff; padding-left: 10px; }
-    
-    /* 그래프 스타일 */
-    .graph-box { margin-bottom: 15px; }
-    .graph-row { display: flex; align-items: center; gap: 10px; margin: 5px 0; }
-    .graph-label { width: 80px; font-size: 0.9rem; }
-    .graph-bar-bg { flex: 1; background: #333; height: 12px; border-radius: 6px; overflow: hidden; }
-    .graph-bar { height: 100%; background: #6fa8ff; }
-    .graph-value { width: 40px; text-align: right; font-size: 0.8rem; }
+/* --- 메인 컨테이너 레이아웃 --- */
+.main-container {
+  flex: 1;
+  display: flex;
+  gap: 2%;
+  padding: 1.2%;
+  min-height: 1000px;
+}
+.container, .detail-panel, .detail-panel.clears-panel {
+  min-height: 900px;
+}
+/* 패널 공통 스타일 */
+.container, .detail-panel.clears-panel {
+  background: #404040;
+  border-radius: 10px;
+  padding: 1.5%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.container {
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+.detail-panel {
+  flex: 0 0 50%;
+  max-width: 50%;
+  background: #505050;
+  border-radius: 10px;
+  padding: 1.5%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.detail-panel.clears-panel {
+  flex: 0 0 25%;
+  max-width: 25%;
+}
 
-    /* 태그 스타일 */
-    .tag {
-      display: inline-block;
-      background: #666;
-      padding: 4px 10px;
-      border-radius: 15px;
-      margin: 2px;
-      font-size: 0.8rem;
-      cursor: pointer;
-    }
-    .tag.active { background: #fff; color: #000; }
+/* 반응형 미디어 쿼리 */
+@media (max-width: 1400px) {
+  .main-container {
+    flex-direction: column;
+    min-height: auto;
+  }
+  .container, .detail-panel, .detail-panel.clears-panel {
+    flex: 0 0 auto;
+    max-width: 100%;
+    min-height: auto;
+  }
+  .container { order: 1; min-height: 400px; }
+  .detail-panel { order: 2; min-height: 800px; }
+  .detail-panel.clears-panel { order: 3; min-height: 400px; }
+}
 
-    /* 개발자 패널 */
-    .dev-panel {
-      position: fixed;
-      top: 0; right: -500px;
-      width: 450px; height: 100%;
-      background: #252525;
-      box-shadow: -5px 0 15px rgba(0,0,0,0.5);
-      transition: 0.3s;
-      z-index: 1000;
-      padding: 20px;
-      overflow-y: auto;
-      color: white;
-    }
-    .dev-panel.open { right: 0; }
-    .dev-input { width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 4px; border: none; }
-    
-    @media (max-width: 1000px) {
-      .main-container { flex-direction: column; }
-      .container, .detail-panel, .clears-panel { max-width: 100%; }
-    }
-  </style>
+/* --- 검색 및 리스트 --- */
+input {
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+.tag-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.item {
+  display: flex;
+  align-items: flex-start;
+  padding: 0.9rem 0.5rem;
+  gap: 0.8rem;
+  border-bottom: 1px solid #777;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  min-height: fit-content;
+}
+.item:hover, .item.active { background-color: #ffffff; }
+.item:hover .title, .item:hover .creator, .item:hover .rank,
+.item.active .title, .item.active .creator, .item.active .rank {
+  color: #000000;
+}
+.rank {
+  font-family: Paperlogy9;
+  font-size: clamp(2rem, 3.2vw, 3.2rem);
+  min-width: clamp(2rem, 3.2vw, 3.2rem);
+  text-align: center;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+.title {
+  font-family: Paperlogy7;
+  font-size: clamp(1.4rem, 2.4vw, 2.4rem);
+  line-height: 1.3;
+  color: #ffffff;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.creator {
+  font-family: Paperlogy4;
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  color: #d0d0d0;
+}
+
+/* --- 상세 정보 --- */
+.detail-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 10px;
+}
+#detailCreator {
+  font-family: Paperlogy4;
+  font-size: clamp(1rem, 1.6vw, 1.6rem);
+  color: #c8c8c8;
+  margin-top: 4px;
+}
+.detail-title {
+  font-family: Paperlogy9;
+  font-size: clamp(2.4rem, 4.8vw, 4.8rem);
+  color: #ffffff;
+  line-height: 1.1;
+  text-align: center;
+  white-space: normal;
+  word-break: keep-all;
+  margin-bottom: 6px;
+}
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+}
+.video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.section {
+  background: #444;
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 12px;
+}
+.section-title {
+  font-family: Paperlogy6;
+  font-size: 22px;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.info-section, .graph-section, .tag-section {
+  background: #444;
+  padding: 14px;
+  border-radius: 10px;
+}
+.info-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-family: Paperlogy3;
+  font-size: 1rem;
+  color: #c8c8c8;
+}
+.info-row span { min-width: 45%; }
+.fp-warning {
+  text-align: center;
+  font-family: Paperlogy2;
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-top: 10px;
+}
+
+/* --- 그래프 --- */
+.graph-box { margin-bottom: 14px; }
+.graph-title {
+  font-family: Paperlogy6;
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.graph-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0;
+}
+.graph-label {
+  width: 90px;
+  font-family: Paperlogy3;
+  font-size: 0.9rem;
+  color: #c8c8c8;
+  flex-shrink: 0;
+}
+.graph-bar-bg {
+  flex: 1;
+  background: #333;
+  border-radius: 6px;
+  overflow: hidden;
+  height: 16px;
+}
+.graph-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #6fa8ff, #9bd0ff);
+  border-radius: 6px;
+}
+.graph-value {
+  width: 50px;
+  text-align: right;
+  font-family: Paperlogy4;
+  font-size: 0.9rem;
+  color: #c8c8c8;
+}
+.graph-total { margin-left: 8px; font-size: 0.85rem; color: #ccc; font-family: Paperlogy3; }
+
+/* 그래프 색상 데이터 속성 */
+.graph-bar[data-key="Cube"] { background: #00ff00; }
+.graph-bar[data-key="Ship"] { background: #ff00ff; }
+.graph-bar[data-key="Ball"] { background: #ff0000; }
+.graph-bar[data-key="UFO"] { background: #ff9900; }
+.graph-bar[data-key="Wave"] { background: #66ccff; }
+.graph-bar[data-key="Robot"] { background: #ffffff; }
+.graph-bar[data-key="Spider"] { background: #9900ff; }
+.graph-bar[data-key="Swing"] { background: #ffff00; }
+.graph-bar[data-key="0.5x"] { background: #ffff00; }
+.graph-bar[data-key="1x"] { background: #66ccff; }
+.graph-bar[data-key="2x"] { background: #00ff00; }
+.graph-bar[data-key="3x"] { background: #ff66cc; }
+.graph-bar[data-key="4x"] { background: #ff0000; }
+
+/* --- 태그 --- */
+.tag-group-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 4px;
+}
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #5f5f5f;
+  color: #ffffff;
+  font-family: Paperlogy4;
+  font-size: 1rem;
+  padding: 6px 14px;
+  border-radius: 12px;
+  margin: 4px 6px 4px 0;
+  white-space: nowrap;
+}
+
+/* --- 기록 명단 (Clears) --- */
+.clears-panel { color: #e0e0e0; }
+.clear-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6vw;
+  padding: 6px 4px;
+  font-family: Paperlogy3;
+  font-size: clamp(0.9rem, 1.1vw, 1.1vw);
+  color: #e0e0e0;
+}
+.clear-rank {
+  font-family: Paperlogy6;
+  color: #ffffff;
+  min-width: clamp(2rem, 3.5vw, 3.5vw);
+  flex-shrink: 0;
+}
+.clear-player {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #ffffff;
+  font-family: Paperlogy5;
+}
+.clear-player-link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.clear-player-link:hover { color: #66ccff; text-decoration: underline; }
+.clear-percent {
+  font-family: Paperlogy4;
+  color: #c8c8c8;
+  min-width: clamp(3rem, 4vw, 4vw);
+  text-align: right;
+  flex-shrink: 0;
+}
+.clear-percent.full { color: #ffcc00; font-family: Paperlogy6; }
+.clear-date {
+  font-family: Paperlogy2;
+  font-size: clamp(0.8rem, 0.95vw, 0.95vw);
+  color: #b0b0b0;
+  flex-shrink: 0;
+}
+/* 1~3위 색상 */
+.clear-row.rank-1 .clear-rank { color: #ffe066; font-family: Paperlogy6; }
+.clear-row.rank-2 .clear-rank { color: #e6e6e6; font-family: Paperlogy5; }
+.clear-row.rank-3 .clear-rank { color: #ffb266; font-family: Paperlogy5; }
+
+/* --- 상단 타이틀 --- */
+#detailHeader {
+  text-align: center;
+  margin-bottom: 64px;
+}
+#headerTitle {
+  font-family: Paperlogy7;
+  font-size: clamp(80px, 10vw, 170px);
+  color: #fff;
+  text-align: center;
+  margin: 20px 0;
+}
+#detailSubtitle {
+  margin-top: 4px;
+  color: #aaa;
+  font-family: Paperlogy3;
+  font-size: clamp(22px, 2.8vw, 32px);
+}
+#modeShortcut {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+.mode-btn {
+  background: transparent;
+  border: 1.5px solid #fff;
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-family: Paperlogy7;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.mode-btn:hover { background: #fff; color: #000; }
+.mode-btn.active { background: #fff; color: #000; font-weight: 600; cursor: default; }
+
+/* --- 개발자 패널 (Dev Panel) --- */
+.dev-panel {
+  position: fixed;
+  top: 0;
+  right: -480px;
+  width: 480px;
+  height: 100%;
+  background: #2f2f2f;
+  box-shadow: -4px 0 16px rgba(0,0,0,0.4);
+  transition: right 0.3s ease;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+}
+.dev-panel.open { right: 0; }
+.dev-content {
+  padding: 14px;
+  overflow-y: auto;
+  flex: 1;
+}
+.dev-content::-webkit-scrollbar { width: 8px; }
+.dev-content::-webkit-scrollbar-thumb { background: #666; border-radius: 4px; }
+.dev-block {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+.dev-label {
+  display: block;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  letter-spacing: -0.3px;
+  font-family: Paperlogy4;
+}
+.dev-content input, .dev-content select {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  font-family: Paperlogy5;
+}
+.dev-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.dev-tag-list .tag {
+  background: #555;
+  cursor: pointer;
+  user-select: none;
+}
+.dev-tag-list .tag.active {
+  background: #fff;
+  color: #000;
+}
+</style>
 </head>
-<body>
 
+<body>
 <div class="header-container">
-  <button class="header-btn" onclick="location.href='index.html'">홈</button>
-  <button class="header-btn active">Classic</button>
-  <button class="header-btn" onclick="location.href='challenge.html'">Challenge</button>
-  <button class="header-btn" onclick="location.href='platformer.html'">Platformer</button>
+  <a href="../index.html" class="header-btn-wrapper">
+    <button class="header-btn">홈</button>
+  </a>
+  <a href="../level.html" class="header-btn-wrapper">
+    <button class="header-btn">레벨</button>
+  </a>
+  <div class="header-btn-wrapper">
+    <a href="../mappack.html" class="header-btn-wrapper">
+      <button class="header-btn">맵 팩</button>
+    </a>
+  </div>
+  <div class="header-btn-wrapper">
+    <button class="header-btn">하디스트</button>
+  </div>
 </div>
 
 <div class="divider"></div>
 
+<div id="detailHeader">
+  <div id="headerTitle">Classic</div>
+  <div id="detailSubtitle">초친 멤버들이 만든 맵들 중 20초 이상의 레벨을 모아놓은 곳입니다.</div>
+  <div style="margin-top:70px;"></div>
+  <div id="detailSubtitle">&lt;레벨 리스트 바로가기&gt;</div>
+  <div id="modeShortcut">
+    <button class="mode-btn active">Classic</button>
+    <button class="mode-btn" onclick="location.href='challenge.html'">Challenge</button>
+    <button class="mode-btn" onclick="location.href='platformer.html'">Platformer</button>
+  </div>
+</div>
+
 <div class="main-container">
   <div class="container">
-    <input type="text" id="search" class="dev-input" placeholder="검색..." oninput="filterList()">
-    <div id="list" style="overflow-y: auto;"></div>
+    <input id="search" placeholder="검색" />
+    <div id="tagFilter" class="tag-filter"></div>
+    <div id="list" style="overflow-y:auto"></div>
   </div>
 
   <div class="detail-panel">
     <div class="detail-header">
-      <h2 id="detailTitle" class="detail-title">레벨을 선택해줘</h2>
-      <div id="detailCreator"></div>
+      <div id="detailTitle" class="detail-title"></div>
+      <div id="detailCreator" class="detail-creator"></div>
     </div>
+
     <div class="video-wrapper">
-      <iframe id="detailVideo" src="" allowfullscreen></iframe>
+      <iframe id="detailVideo" allowfullscreen></iframe>
     </div>
-    <div id="detailContent">
-      <div id="infoSection" class="section"></div>
-      <div id="graphSection" class="section"></div>
-      <div id="tagSection" class="section"></div>
+
+    <div class="detail-content">
+      <div id="infoSection" class="info-section"></div>
+      <div id="graphSection" class="graph-section"></div>
+      <div id="detailDescription"></div>
     </div>
+
+    <p class="fp-warning">※ 프레임 퍼펙트는 정확하지 않습니다 ※</p>
   </div>
 
-  <div class="clears-panel">
-    <h3 style="text-align: center;">기록 명단</h3>
+  <div class="detail-panel clears-panel">
+    <div style="font-family:Paperlogy9;font-size:3.2rem;text-align:center;color:white;">기록 명단</div>
     <div id="detailClears"></div>
   </div>
 </div>
 
 <div id="devPanel" class="dev-panel">
-  <h3>개발자 패널</h3>
-  <hr>
-  <div id="devContent">
-    </div>
-  <div style="margin-top: 20px; display: flex; gap: 10px;">
-    <button class="header-btn" onclick="saveLevel()">저장</button>
-    <button class="header-btn" onclick="closeDevPanel()">닫기</button>
+  <div class="detail-header" style="margin-top: 20px;">
+    <div class="detail-title" style="font-size: 2.5rem;">개발자 패널</div>
   </div>
+  <div id="devContent" class="dev-content"></div>
 </div>
 
 <script>
-/* --- 데이터 및 상수 --- */
+/* ================= 데이터 및 상수 ================= */
 const TAG_GROUPS = {
-  '주 게임모드': ['Cube', 'Ship', 'Ball', 'UFO', 'Wave', 'Robot', 'Spider', 'Swing'],
-  '속도': ['0.5x', '1x', '2x', '3x', '4x'],
-  '길이': ['Short', 'Medium', 'Long', 'XL'],
-  '성격': ['Memory', 'Sync', 'Gimmick', 'Physical', 'Spam']
+  '주 게임모드': ['Cube', 'Ship', 'Ball', 'UFO', 'Wave', 'Robot', 'Spider', 'Swing', 'Any-Mode'],
+  '속도': ['0.5x', '1x', '2x', '3x', '4x', 'Any-Speed'],
+  '길이': ['Short', 'Medium', 'Long', 'XL', 'XXL', 'XXXL'],
+  '성격': ['Memory', 'Sync', 'Gimmick', 'Physical', 'Spam', 'Learny', 'Boss'],
+  '특이사항': ['None-Effect', 'Low-Effect', 'Full-Effect', 'One-Mode'],
 };
+
+const PLAYER_YOUTUBE = {
+  'imBBBT': 'https://www.youtube.com/@imBBBT',
+  'Choco': 'https://www.youtube.com/@초코5768',
+  'Light': 'https://www.youtube.com/@CC_Light722',
+  'Timo': 'https://www.youtube.com/@SNIPER_Timo',
+};
+
+const DEV_PASSWORD = '6974'; // 비밀번호
 
 let demonData = [
   {
@@ -195,158 +576,417 @@ let demonData = [
     title: 'Test Level',
     creator: 'imBBBT',
     verifier: 'imBBBT',
-    video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    map: { mapId: '123456', length: 'Long', objects: 12345, uploadDate: '2025-01-01' },
-    song: { name: 'Test Song', artist: 'Test Artist', id: '987654' },
-    gameplay: { modeRatio: { Cube: 50, Ship: 50 }, speedRatio: { '1x': 100 } },
+    video: '',
+    map: {
+      mapId: '123456',
+      length: 'Long',
+      objects: 12345,
+      uploadDate: '2025-01-01',
+    },
+    song: {
+      name: 'Test Song',
+      artist: 'Test Artist',
+      id: '987654',
+    },
+    gameplay: {
+      modeRatio: { Cube: 50, Ship: 50 },
+      speedRatio: { '1x': 70, '2x': 30 },
+    },
+    framePerfect: {
+      total: 10,
+      fps: { 60: 6, 120: 4 },
+    },
     tags: ['Cube', '1x', 'Long'],
-    clears: [{ player: 'imBBBT', percent: 100, date: '2025-01-02' }]
+    clears: [
+      { player: 'imBBBT', percent: 100, date: '2025-01-02' },
+    ],
   }
 ];
 
-let selectedDevTags = new Set();
-let editingId = null;
+// 개발자 모드용 변수
+let devSelectedTags = new Set();
+let editingLevelId = null; 
 
-/* --- 리스트 렌더링 --- */
+/* ================= 초기화 및 렌더링 ================= */
+// 페이지 로드 시 실행
+generateList(demonData);
+if (demonData.length > 0) {
+  showDetail(demonData[0]);
+}
+
+// 리스트 생성
 function generateList(data) {
-  const listEl = document.getElementById('list');
-  listEl.innerHTML = '';
-  data.forEach((item, index) => {
+  const list = document.getElementById('list');
+  list.innerHTML = '';
+
+  data.forEach((item, i) => {
     const div = document.createElement('div');
     div.className = 'item';
-    div.innerHTML = `<div class="rank">#${item.id}</div><div><div class="title">${item.title}</div><div class="creator">${item.creator}</div></div>`;
+    div.innerHTML = `
+      <div class="rank">#${item.id}</div>
+      <div>
+        <div class="title">${item.title}</div>
+        <div class="creator">${item.creator}</div>
+      </div>
+    `;
     div.onclick = () => showDetail(item, div);
-    listEl.appendChild(div);
+    list.appendChild(div);
   });
 }
 
-function filterList() {
-  const query = document.getElementById('search').value.toLowerCase();
-  const filtered = demonData.filter(d => d.title.toLowerCase().includes(query) || d.creator.toLowerCase().includes(query));
-  generateList(filtered);
-}
+// 상세 정보 표시
+function showDetail(item, element) {
+  // 활성화 스타일 처리
+  document.getElementById('detailDescription').innerHTML = '';
+  document.querySelectorAll('.item.active').forEach(el => el.classList.remove('active'));
+  if (element) element.classList.add('active');
 
-/* --- 상세 정보 보기 --- */
-function showDetail(item, el) {
-  document.querySelectorAll('.item').forEach(i => i.classList.remove('active'));
-  if(el) el.classList.add('active');
-
+  // 제목 및 기본 정보
   document.getElementById('detailTitle').textContent = item.title;
-  document.getElementById('detailCreator').textContent = `by ${item.creator} / Verified by ${item.verifier}`;
-  document.getElementById('detailVideo').src = item.video;
+  document.getElementById('detailCreator').textContent =
+    item.creator === item.verifier
+      ? `by ${item.creator}`
+      : `by ${item.creator} / Verified by ${item.verifier}`;
 
-  // 정보 섹션
-  document.getElementById('infoSection').innerHTML = `
-    <div class="section-title">정보</div>
-    <p>ID: ${item.map.mapId} | 길이: ${item.map.length} | 오브젝트: ${item.map.objects.toLocaleString()}</p>
-    <p>Song: ${item.song.name} - ${item.song.artist} (${item.song.id})</p>
-  `;
+  document.getElementById('detailVideo').src = item.video || '';
+
+  // 상세 정보 섹션
+  const info = document.getElementById('infoSection');
+  info.innerHTML = '';
+  if (item.map) {
+    info.innerHTML += `
+      <div class="info-row">
+        <span>맵 ID : ${item.map.mapId || '-'}</span>
+        <span>길이 : ${item.map.length || '-'}</span>
+        <span>오브젝트 : ${item.map.objects?.toLocaleString() || '0'}</span>
+        <span>날짜 : ${item.map.uploadDate || '-'}</span>
+      </div>
+    `;
+  }
+  if (item.song) {
+    info.innerHTML += `
+      <div class="info-row">
+        <span>노래 : ${item.song.name || '-'}</span>
+        <span>작곡가 : ${item.song.artist || '-'}</span>
+        <span>ID : ${item.song.id || '-'}</span>
+      </div>
+    `;
+  }
+
+  // 그래프 섹션
+  const graph = document.getElementById('graphSection');
+  graph.innerHTML = '';
+  if (item.gameplay) {
+    graph.innerHTML += makeRatioGraph('게임모드 비율', item.gameplay.modeRatio);
+    graph.innerHTML += makeRatioGraph('속도 비율', item.gameplay.speedRatio);
+  }
+
+  // FPS 그래프
+  if (item.framePerfect) {
+    const total = item.framePerfect.total || 0;
+    const fps = item.framePerfect.fps || {};
+    const ratio = {};
+    Object.entries(fps).forEach(([k, v]) => {
+      ratio[k] = total > 0 ? ((v / total) * 100).toFixed(1) : 0;
+    });
+
+    graph.innerHTML += `
+      <div class="graph-box">
+        <div class="graph-title">
+          프레임 퍼펙트 (FPS)
+          <span class="graph-total">(Total : ${total})</span>
+        </div>
+        ${Object.entries(fps).map(([k, v]) => `
+          <div class="graph-row">
+            <div class="graph-label">${k}</div>
+            <div class="graph-bar-bg">
+              <div class="graph-bar" data-key="${k}" style="width:${ratio[k]}%"></div>
+            </div>
+            <div class="graph-value">${v}</div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
 
   // 태그 섹션
-  document.getElementById('tagSection').innerHTML = `<div class="section-title">태그</div>` + 
-    item.tags.map(t => `<span class="tag">${t}</span>`).join('');
+  if (item.tags?.length) {
+    addSection('태그', renderTagGroups(item.tags));
+  }
 
-  // 기록 섹션
-  const clearEl = document.getElementById('detailClears');
-  clearEl.innerHTML = item.clears.map((c, i) => `
-    <div style="padding: 5px 0; border-bottom: 1px solid #555;">
-      #${i+1} <b>${c.player}</b> - ${c.percent}% (${c.date})
-    </div>
-  `).join('');
+  // 기록 명단
+  const clearBox = document.getElementById('detailClears');
+  clearBox.innerHTML = '';
+  if (item.clears?.length) {
+    item.clears.forEach((c, i) => {
+      const row = document.createElement('div');
+      row.className = `clear-row rank-${i + 1}`;
+      const percentClass = c.percent === 100 ? 'full' : '';
+      const youtube = PLAYER_YOUTUBE[c.player];
+      const playerHTML = youtube
+        ? `<a href="${youtube}" target="_blank" class="clear-player-link">${c.player}</a>`
+        : c.player;
+
+      row.innerHTML = `
+        <div class="clear-rank">#${i + 1}</div>
+        <div class="clear-player">${playerHTML}</div>
+        <div class="clear-percent ${percentClass}">${c.percent}%</div>
+        <div class="clear-date">${c.date || ''}</div>
+      `;
+      clearBox.appendChild(row);
+    });
+  }
 }
 
-/* --- 개발자 모드 --- */
+// Helper: 섹션 추가
+function addSection(title, html) {
+  const box = document.getElementById('detailDescription');
+  const div = document.createElement('div');
+  div.className = 'section';
+  div.innerHTML = `<div class="section-title">${title}</div>${html}`;
+  box.appendChild(div);
+}
+
+// Helper: 그래프 HTML 생성
+function makeRatioGraph(title, data, suffix = '%', totalValue = null) {
+  if (!data || Object.keys(data).length === 0) return '';
+  return `
+    <div class="graph-box">
+      <div class="graph-title">
+        ${title}
+        ${totalValue !== null ? `<span class="graph-total">(Total : ${totalValue})</span>` : ''}
+      </div>
+      ${Object.entries(data).map(([k, v]) => `
+        <div class="graph-row">
+          <div class="graph-label">${k}</div>
+          <div class="graph-bar-bg">
+            <div class="graph-bar" data-key="${k}" style="width:${v}%"></div>
+          </div>
+          <div class="graph-value">${v}${suffix}</div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+// Helper: 태그 그룹 HTML
+function renderTagGroups(tags) {
+  if (!tags || tags.length === 0) return '';
+  return `
+    <div class="tag-group-container">
+      ${tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+    </div>
+  `;
+}
+
+/* ================= 개발자 패널 로직 ================= */
+// 단축키 리스너 (Ctrl + Shift + E)
 document.addEventListener('keydown', e => {
   if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'e') {
-    const pw = prompt('비밀번호를 입력해');
-    if (pw === '6974') openDevPanel();
+    const panel = document.getElementById('devPanel');
+    if (panel.classList.contains('open')) {
+      closeDevPanel();
+    } else {
+      const pw = prompt('개발자 비밀번호 입력');
+      if (pw === DEV_PASSWORD) {
+        panel.classList.add('open');
+        renderDevHome();
+      } else if (pw !== null) {
+        alert('비밀번호가 틀렸어.');
+      }
+    }
   }
 });
-
-function openDevPanel(mode = 'add', id = null) {
-  editingId = id;
-  const panel = document.getElementById('devPanel');
-  const content = document.getElementById('devContent');
-  panel.classList.add('open');
-  
-  const data = id ? demonData.find(d => d.id === id) : null;
-  selectedDevTags = data ? new Set(data.tags) : new Set();
-
-  content.innerHTML = `
-    <label>순위 (Rank)</label>
-    <input id="devRank" type="number" class="dev-input" value="${data ? data.id : demonData.length + 1}">
-    <label>제목</label>
-    <input id="devTitle" class="dev-input" value="${data ? data.title : ''}">
-    <label>제작자</label>
-    <input id="devCreator" class="dev-input" value="${data ? data.creator : ''}">
-    <label>검증자</label>
-    <input id="devVerifier" class="dev-input" value="${data ? data.verifier : ''}">
-    <label>영상 주소 (Embed)</label>
-    <input id="devVideo" class="dev-input" value="${data ? data.video : ''}">
-    
-    <div class="section-title" style="margin-top:15px">태그 선택</div>
-    <div id="devTagArea"></div>
-  `;
-  renderDevTags();
-}
-
-function renderDevTags() {
-  const area = document.getElementById('devTagArea');
-  area.innerHTML = '';
-  Object.entries(TAG_GROUPS).forEach(([group, tags]) => {
-    const groupDiv = document.createElement('div');
-    groupDiv.innerHTML = `<div style="font-size:0.8rem; margin: 10px 0 5px;">${group}</div>`;
-    tags.forEach(t => {
-      const span = document.createElement('span');
-      span.className = `tag ${selectedDevTags.has(t) ? 'active' : ''}`;
-      span.textContent = t;
-      span.onclick = () => {
-        if(selectedDevTags.has(t)) selectedDevTags.delete(t);
-        else selectedDevTags.add(t);
-        renderDevTags();
-      };
-      groupDiv.appendChild(span);
-    });
-    area.appendChild(groupDiv);
-  });
-}
-
-function saveLevel() {
-  const newLevel = {
-    id: parseInt(document.getElementById('devRank').value),
-    title: document.getElementById('devTitle').value,
-    creator: document.getElementById('devCreator').value,
-    verifier: document.getElementById('devVerifier').value,
-    video: document.getElementById('devVideo').value,
-    tags: Array.from(selectedDevTags),
-    map: { mapId: '-', length: '-', objects: 0, uploadDate: '-' },
-    song: { name: '-', artist: '-', id: '-' },
-    clears: []
-  };
-
-  if(editingId) {
-    const idx = demonData.findIndex(d => d.id === editingId);
-    demonData[idx] = newLevel;
-  } else {
-    demonData.push(newLevel);
-  }
-
-  // 순위 정렬
-  demonData.sort((a, b) => a.id - b.id);
-  // ID 재부여 (중복 방지)
-  demonData.forEach((d, i) => d.id = i + 1);
-
-  generateList(demonData);
-  closeDevPanel();
-  alert('저장 완료!');
-}
 
 function closeDevPanel() {
   document.getElementById('devPanel').classList.remove('open');
 }
 
-// 초기 실행
-generateList(demonData);
+function renderDevHome() {
+  const box = document.getElementById('devContent');
+  box.innerHTML = `
+    <div class="section">
+      <div class="section-title">메뉴 선택</div>
+      <div class="header-container" style="gap:10px; padding:0;">
+        <button class="header-btn" onclick="renderAddLevel()">레벨 추가</button>
+        <button class="header-btn" onclick="renderEditSelector()">레벨 수정</button>
+      </div>
+      <div style="margin-top:20px; text-align:center;">
+        <button class="header-btn" onclick="closeDevPanel()" style="width:auto; padding:10px 30px;">닫기</button>
+      </div>
+    </div>
+  `;
+}
+
+// --- 레벨 추가 화면 ---
+function renderAddLevel() {
+  editingLevelId = null; // 신규 추가 모드
+  devSelectedTags.clear();
+  renderLevelForm('레벨 추가');
+}
+
+// --- 레벨 수정 화면 (선택) ---
+function renderEditSelector() {
+  const box = document.getElementById('devContent');
+  box.innerHTML = `
+    <div class="section">
+      <div class="section-title">레벨 수정</div>
+      <select id="edit-select" onchange="startEditLevel(this.value)" style="font-size:1.2rem; padding:10px;">
+        <option value="">수정할 레벨 선택</option>
+        ${demonData.map(d => `<option value="${d.id}">#${d.id} ${d.title}</option>`).join('')}
+      </select>
+      <button class="header-btn" onclick="renderDevHome()" style="margin-top:20px;">뒤로가기</button>
+    </div>
+  `;
+}
+
+function startEditLevel(id) {
+  if (!id) return;
+  const d = demonData.find(x => x.id == id);
+  if (!d) return;
+
+  editingLevelId = Number(id);
+  devSelectedTags = new Set(d.tags); // 기존 태그 불러오기
+  renderLevelForm('레벨 수정', d);
+}
+
+// --- 공통 폼 렌더링 ---
+function renderLevelForm(modeTitle, data = null) {
+  const box = document.getElementById('devContent');
+  
+  // 기존 데이터가 있으면 채워넣기
+  const val = (key, nested) => {
+    if (!data) return '';
+    if (nested && data[nested]) return data[nested][key] || '';
+    return data[key] || '';
+  };
+
+  box.innerHTML = `
+    <div class="section">
+      <div class="section-title">${modeTitle}</div>
+      
+      <div class="dev-block">
+        <div class="dev-label">순위 (Rank)</div>
+        <input id="form-rank" type="number" value="${data ? data.id : demonData.length + 1}">
+      </div>
+
+      <div class="dev-block">
+        <div class="dev-label">기본 정보</div>
+        <input id="form-title" placeholder="제목" value="${val('title')}">
+        <input id="form-creator" placeholder="제작자" value="${val('creator')}">
+        <input id="form-verifier" placeholder="검증자" value="${val('verifier')}">
+        <input id="form-video" placeholder="영상 URL" value="${val('video')}">
+      </div>
+
+      <div class="dev-block">
+        <div class="dev-label">맵 상세</div>
+        <input id="form-mapId" placeholder="맵 ID" value="${val('mapId', 'map')}">
+        <input id="form-length" placeholder="길이 (Long, XL..)" value="${val('length', 'map')}">
+        <input id="form-objects" type="number" placeholder="오브젝트 수" value="${val('objects', 'map')}">
+        <input id="form-date" placeholder="업로드 날짜" value="${val('uploadDate', 'map')}">
+      </div>
+
+      <div class="dev-block">
+        <div class="dev-label">태그 선택</div>
+        <div id="devTagSelector"></div>
+      </div>
+
+      <div class="header-container" style="gap:10px; padding:10px 0;">
+        <button class="header-btn" onclick="submitLevelForm()">저장</button>
+        <button class="header-btn" onclick="renderDevHome()">취소</button>
+      </div>
+    </div>
+  `;
+  
+  renderDevTagSelector();
+}
+
+function renderDevTagSelector() {
+  const container = document.getElementById('devTagSelector');
+  container.innerHTML = '';
+
+  Object.entries(TAG_GROUPS).forEach(([groupName, tags]) => {
+    const groupDiv = document.createElement('div');
+    groupDiv.style.marginBottom = '10px';
+    groupDiv.innerHTML = `<div style="color:#ddd; margin-bottom:4px; font-size:0.9rem;">${groupName}</div>`;
+    
+    const listDiv = document.createElement('div');
+    listDiv.className = 'dev-tag-list';
+    
+    tags.forEach(tag => {
+      const span = document.createElement('span');
+      span.className = 'tag';
+      if (devSelectedTags.has(tag)) span.classList.add('active');
+      span.textContent = tag;
+      span.onclick = () => {
+        if (devSelectedTags.has(tag)) devSelectedTags.delete(tag);
+        else devSelectedTags.add(tag);
+        renderDevTagSelector(); // 재렌더링으로 상태 반영
+      };
+      listDiv.appendChild(span);
+    });
+    groupDiv.appendChild(listDiv);
+    container.appendChild(groupDiv);
+  });
+}
+
+// --- 저장 로직 ---
+function submitLevelForm() {
+  const rank = Number(document.getElementById('form-rank').value);
+  const title = document.getElementById('form-title').value.trim();
+  const creator = document.getElementById('form-creator').value.trim();
+  
+  if (!rank || !title || !creator) {
+    alert('순위, 제목, 제작자는 필수야!');
+    return;
+  }
+
+  const newLevel = {
+    id: rank, // 임시 ID (나중에 재정렬)
+    title: title,
+    creator: creator,
+    verifier: document.getElementById('form-verifier').value.trim(),
+    video: document.getElementById('form-video').value.trim(),
+    map: {
+      mapId: document.getElementById('form-mapId').value,
+      length: document.getElementById('form-length').value,
+      objects: Number(document.getElementById('form-objects').value),
+      uploadDate: document.getElementById('form-date').value,
+    },
+    song: { name: '', artist: '', id: '' }, // 노래 정보는 폼에서 생략했지만 구조 유지
+    gameplay: { modeRatio: {}, speedRatio: {} }, // 기본값
+    framePerfect: null,
+    tags: [...devSelectedTags],
+    clears: []
+  };
+
+  // 기존 데이터가 있다면 clears 등 유지하고 싶은 데이터 병합 가능
+  if (editingLevelId !== null) {
+    // 수정 모드: 기존 항목 제거하고 새 위치에 삽입 준비
+    const oldIdx = demonData.findIndex(d => d.id === editingLevelId);
+    if (oldIdx > -1) {
+      newLevel.clears = demonData[oldIdx].clears; // 기존 기록 유지
+      newLevel.gameplay = demonData[oldIdx].gameplay;
+      newLevel.song = demonData[oldIdx].song;
+      demonData.splice(oldIdx, 1);
+    }
+  }
+
+  // 원하는 순위(인덱스)에 삽입
+  // rank는 1부터 시작하므로 인덱스는 rank-1
+  const targetIdx = Math.max(0, Math.min(rank - 1, demonData.length));
+  demonData.splice(targetIdx, 0, newLevel);
+
+  // 전체 ID 재정렬
+  demonData.forEach((d, i) => d.id = i + 1);
+
+  // UI 갱신
+  generateList(demonData);
+  showDetail(newLevel);
+  alert('저장 완료했어! ✅');
+  renderDevHome();
+}
+
 </script>
 </body>
 </html>
