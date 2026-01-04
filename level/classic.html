@@ -887,6 +887,36 @@ function renderLevelForm(modeTitle, data = null) {
       </div>
 
       <div class="dev-block">
+        <div class="dev-label">노래 정보</div>
+        <input id="form-song-name" placeholder="노래 이름" value="${data?.song?.name || ''}">
+        <input id="form-song-artist" placeholder="작곡가" value="${data?.song?.artist || ''}">
+        <input id="form-song-id" placeholder="노래 ID" value="${data?.song?.id || ''}">
+      </div>
+
+      <div class="dev-block">
+        <div class="dev-label">게임모드 비율 (%)</div>
+        ${TAG_GROUPS['주 게임모드'].map(m => `
+          <div style="display:flex; gap:8px; align-items:center;">
+            <span style="width:80px;">${m}</span>
+            <input type="number" min="0" max="100"
+              id="mode-${m}"
+              value="${data?.gameplay?.modeRatio?.[m] ?? ''}">
+          </div>
+        `).join('')}
+      </div>
+
+      <div class="dev-block">
+        <div class="dev-label">프레임 퍼펙트</div>
+        <input id="fp-total" type="number" placeholder="총 FP 수" value="${data?.framePerfect?.total || ''}">
+        <div style="display:flex; gap:8px;">
+          <input id="fp-60" type="number" placeholder="60FPS" value="${data?.framePerfect?.fps?.[60] || ''}">
+          <input id="fp-120" type="number" placeholder="120FPS" value="${data?.framePerfect?.fps?.[120] || ''}">
+          <input id="fp-240" type="number" placeholder="240FPS" value="${data?.framePerfect?.fps?.[240] || ''}">
+        </div>
+      </div>
+
+
+      <div class="dev-block">
         <div class="dev-label">태그 선택</div>
         <div id="devTagSelector"></div>
       </div>
@@ -941,8 +971,27 @@ function submitLevelForm() {
     return;
   }
 
+  const modeRatio = {};
+  TAG_GROUPS['주 게임모드'].forEach(m => {
+    const v = Number(document.getElementById(`mode-${m}`)?.value);
+    if (v > 0) modeRatio[m] = v;
+  });
+
+  const speedRatio = {};
+  TAG_GROUPS['속도'].forEach(s => {
+    const v = Number(document.getElementById(`speed-${s}`)?.value);
+    if (v > 0) speedRatio[s] = v;
+  });
+
+  const fpTotal = Number(document.getElementById('fp-total')?.value);
+  const fps = {};
+  [60, 120, 240].forEach(f => {
+    const v = Number(document.getElementById(`fp-${f}`)?.value);
+    if (v > 0) fps[f] = v;
+  });
+  
   const newLevel = {
-    id: rank, // 임시 ID (나중에 재정렬)
+    id: rank,
     title: title,
     creator: creator,
     verifier: document.getElementById('form-verifier').value.trim(),
@@ -953,12 +1002,13 @@ function submitLevelForm() {
       objects: Number(document.getElementById('form-objects').value),
       uploadDate: document.getElementById('form-date').value,
     },
-    song: { name: '', artist: '', id: '' }, // 노래 정보는 폼에서 생략했지만 구조 유지
-    gameplay: { modeRatio: {}, speedRatio: {} }, // 기본값
+    song: { name: '', artist: '', id: '' },
+    gameplay: { modeRatio: {}, speedRatio: {} },
     framePerfect: null,
     tags: [...devSelectedTags],
     clears: []
   };
+
 
   // 기존 데이터가 있다면 clears 등 유지하고 싶은 데이터 병합 가능
   if (editingLevelId !== null) {
@@ -990,3 +1040,4 @@ function submitLevelForm() {
 </script>
 </body>
 </html>
+
