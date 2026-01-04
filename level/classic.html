@@ -929,20 +929,13 @@ input {
   </div>
 </div>
 
- <div class="dev-panel" id="devPanel">
-  <div class="dev-panel-header">
-  개발자 패널
-  <button onclick="closeDevPanel()">✕</button>
-</div>
-
-
-  <div class="dev-tabs">
-    <button data-mode="add" onclick="setDevMode('add')">레벨 추가</button>
-    <button onclick="openEditLevel()">레벨 수정</button>
-    <button data-mode="clear" onclick="setDevMode('clear')">클리어 등록</button>
+ <div id="devPanel" class="detail-panel" style="display:none">
+  <div class="detail-header">
+    <div class="detail-title">Developer Panel</div>
+    <div id="devModeDesc">Classic / Developer</div>
   </div>
 
-  <div id="devContent"></div>
+  <div id="devContent" class="detail-content"></div>
 </div>
 
 </div>
@@ -1278,243 +1271,116 @@ function generateList(data) {
     list.appendChild(div);
   });
 }
-
+  
 function openDevPanel() {
-  document.getElementById('devPanel').classList.add('open');
+  document.getElementById('devPanel').style.display = 'flex';
 }
 
 function closeDevPanel() {
-  document.getElementById('devPanel').classList.remove('open');
+  document.getElementById('devPanel').style.display = 'none';
 }
+  
+function renderDevHome() {
+  const box = document.getElementById('devContent');
+  box.innerHTML = `
+    <div class="section">
+      <div class="section-title">개발자 메뉴</div>
 
-function setDevMode(mode) {
-  document.querySelectorAll('.dev-tabs button').forEach(b => {
-    b.classList.toggle('active', b.dataset.mode === mode);
-  });
-
-  if (mode === 'add') {
-    document.getElementById('devContent').innerHTML = renderAddLevelUI();
-  } else {
-    document.getElementById('devContent').innerHTML =
-      `<div style="color:#aaa">아직 ${mode} 모드는 미구현 상태야</div>`;
-  }
-}
-
-
-function renderAddLevelUI() {
-  devSelectedTags.clear();
-
-  return `
-    <div class="dev-section-title">기본 정보</div>
-    <input id="dev-rank" type="number" placeholder="순위">
-    <input id="dev-title" placeholder="레벨 제목">
-    <input id="dev-creator" placeholder="제작자">
-    <input id="dev-verifier" placeholder="검증자">
-    <input id="dev-video" placeholder="영상 URL">
-
-    <div class="dev-section-title">맵 정보</div>
-    <input id="dev-map-id" placeholder="맵 ID">
-    <input id="dev-map-length" placeholder="길이 (Short / Long 등)">
-    <input id="dev-map-objects" placeholder="오브젝트 수" type="number">
-    <input id="dev-map-date" placeholder="업로드 날짜 (YYYY-MM-DD)">
-
-    <div class="dev-section-title">노래 정보</div>
-    <input id="dev-song-name" placeholder="노래 이름">
-    <input id="dev-song-artist" placeholder="작곡가">
-    <input id="dev-song-id" placeholder="노래 ID">
-
-    <div class="dev-section-title">태그</div>
-    ${renderDevTagSelector()}
-
-    <div class="dev-section-title">게임플레이 비율</div>
-    ${renderRatioInputs('게임모드 비율', TAG_GROUPS['주 게임모드'], 'mode')}
-    ${renderRatioInputs('속도 비율', TAG_GROUPS['속도'], 'speed')}
-
-    <button onclick="submitAddLevel()" style="
-      margin-top:16px;
-      padding:10px;
-      font-family:Paperlogy6;
-      font-size:1rem;
-      border:none;
-      border-radius:8px;
-      cursor:pointer;
-    ">레벨 추가</button>
-  `;
-}
-
-function renderDevTagSelector() {
-  return Object.entries(TAG_GROUPS).map(([group, tags]) => `
-    <div class="dev-tag-title">${group}</div>
-    <div style="display:flex;flex-wrap:wrap;gap:6px">
-      ${tags.map(tag => `
-        <span class="dev-tag" onclick="toggleDevTag(this,'${tag}')">${tag}</span>
-      `).join('')}
+      <div class="header-container">
+        <button class="header-btn" onclick="renderAddLevel()">레벨 추가</button>
+        <button class="header-btn" onclick="renderEditLevel()">레벨 수정</button>
+        <button class="header-btn" onclick="renderAddClear()">클리어 등록</button>
+      </div>
     </div>
-  `).join('');
+  `;
 }
 
-function submitAddLevel() {
-  const title = document.getElementById('dev-title').value.trim();
-  const creator = document.getElementById('dev-creator').value.trim();
-  const rank = parseInt(document.getElementById('dev-rank').value, 10);
+  function renderAddLevel() {
+  const box = document.getElementById('devContent');
+  box.innerHTML = `
+    <div class="section">
+      <div class="section-title">레벨 추가</div>
 
-  if (!title || !creator || !rank || devSelectedTags.size === 0) {
-    alert('필수 정보가 비어있어!');
-    return;
-  }
+      <div class="info-row"><span>순위</span><input id="add-rank"></div>
+      <div class="info-row"><span>제목</span><input id="add-title"></div>
+      <div class="info-row"><span>제작자</span><input id="add-creator"></div>
+      <div class="info-row"><span>검증자</span><input id="add-verifier"></div>
+      <div class="info-row"><span>영상</span><input id="add-video"></div>
 
-  const newItem = {
-    id: rank,
-    title,
-    creator,
-    verifier: creator,
-    video: document.getElementById('dev-video').value.trim(),
-    tags: [...devSelectedTags],
-    map: {
-      mapId: document.getElementById('dev-map-id').value,
-      length: document.getElementById('dev-map-length').value,
-      objects: Number(document.getElementById('dev-map-objects').value),
-      uploadDate: document.getElementById('dev-map-date').value,
-    },
-    song: {
-      name: document.getElementById('dev-song-name').value,
-      artist: document.getElementById('dev-song-artist').value,
-      id: document.getElementById('dev-song-id').value,
-    },
-    gameplay: {
-      modeRatio: collectRatio('mode'),
-      speedRatio: collectRatio('speed'),
-    },
-    clears: [],
-  };
+      <div id="add-tags"></div>
 
-  insertLevelWithRank(newItem);
-}
-
-function insertLevelWithRank(newItem) {
-  demonData.forEach(d => {
-    if (d.id >= newItem.id) {
-      d.id += 1;
-    }
-  });
-
-  demonData.push(newItem);
-
-  demonData.sort((a, b) => a.id - b.id);
-
-  generateList(demonData);
-  showDetail(newItem);
-
-  alert('레벨이 추가됐어!');
-}
-
-let editingLevel = null;
-
-function openEditLevel() {
-  const panel = document.getElementById('devPanel');
-  panel.innerHTML = `
-    <h2>레벨 수정</h2>
-
-    <select id="edit-level-select">
-      <option value="">레벨 선택</option>
-      ${demonData.map(d => `
-        <option value="${d.id}">#${d.id} ${d.title}</option>
-      `).join('')}
-    </select>
-
-    <div id="edit-form"></div>
+      <div class="header-container">
+        <button class="header-btn" onclick="submitAddLevel()">추가</button>
+        <button class="header-btn" onclick="renderDevHome()">뒤로</button>
+      </div>
+    </div>
   `;
 
-  document
-    .getElementById('edit-level-select')
-    .addEventListener('change', onSelectEditLevel);
+  document.getElementById('add-tags').innerHTML =
+    `<div class="section-title">태그</div>` + renderEditableTags([]);
 }
 
-function onSelectEditLevel(e) {
-  const id = Number(e.target.value);
-  editingLevel = demonData.find(d => d.id === id);
-  if (!editingLevel) return;
-
-  document.getElementById('edit-form').innerHTML = `
-    <input id="edit-title" value="${editingLevel.title}">
-    <input id="edit-creator" value="${editingLevel.creator}">
-    <input id="edit-rank" type="number" value="${editingLevel.id}">
-
-    <div id="edit-tags"></div>
-
-    <button onclick="submitEditLevel()">저장</button>
-  `;
-
-  renderEditTags(editingLevel.tags);
-}
-
-let editSelectedTags = new Set();
-
-function renderEditTags(currentTags) {
-  editSelectedTags = new Set(currentTags);
-
-  const box = document.getElementById('edit-tags');
-  box.innerHTML = '';
-
+function renderEditableTags(selected = []) {
+  let html = '<div class="tag-group-container">';
   Object.entries(TAG_GROUPS).forEach(([group, tags]) => {
-    box.innerHTML += `
+    html += `
       <div class="tag-group">
         <div class="tag-group-title">${group}</div>
         <div class="tag-group-tags">
-          ${tags.map(t => `
-            <span class="tag ${editSelectedTags.has(t) ? 'active' : ''}"
-              onclick="toggleEditTag(this, '${t}')">${t}</span>
-          `).join('')}
+          ${tags.map(t =>
+            `<span class="tag ${selected.includes(t) ? 'active' : ''}"
+              onclick="this.classList.toggle('active')">${t}</span>`
+          ).join('')}
         </div>
       </div>
     `;
   });
+  html += '</div>';
+  return html;
 }
 
-function toggleEditTag(el, tag) {
-  el.classList.toggle('active');
-  editSelectedTags.has(tag)
-    ? editSelectedTags.delete(tag)
-    : editSelectedTags.add(tag);
+function renderEditLevel() {
+  const box = document.getElementById('devContent');
+  box.innerHTML = `
+    <div class="section">
+      <div class="section-title">레벨 수정</div>
+
+      <div class="info-row">
+        <select id="edit-select" onchange="loadEditLevel()">
+          <option value="">레벨 선택</option>
+          ${demonData.map(d =>
+            `<option value="${d.id}">#${d.id} ${d.title}</option>`
+          ).join('')}
+        </select>
+      </div>
+
+      <div id="edit-form"></div>
+    </div>
+  `;
 }
-  
-function submitEditLevel() {
-  if (!editingLevel) return;
 
-  const newRank = Number(document.getElementById('edit-rank').value);
+function loadEditLevel() {
+  const id = document.getElementById('edit-select').value;
+  const d = demonData.find(x => x.id == id);
+  if (!d) return;
 
-  if (!newRank || editSelectedTags.size === 0) {
-    alert('필수 정보가 비어있어!');
-    return;
-  }
+  document.getElementById('edit-form').innerHTML = `
+    <div class="info-row"><span>제목</span><input id="edit-title" value="${d.title}"></div>
+    <div class="info-row"><span>제작자</span><input id="edit-creator" value="${d.creator}"></div>
 
-  // 순위 변경 처리
-  if (newRank !== editingLevel.id) {
-    demonData.forEach(d => {
-      if (d !== editingLevel) {
-        if (d.id >= newRank && d.id < editingLevel.id) d.id++;
-        if (d.id <= newRank && d.id > editingLevel.id) d.id--;
-      }
-    });
-    editingLevel.id = newRank;
-  }
+    <div class="section-title">태그</div>
+    ${renderEditableTags(d.tags)}
 
-  // 기본 정보 수정
-  editingLevel.title = document.getElementById('edit-title').value.trim();
-  editingLevel.creator = document.getElementById('edit-creator').value.trim();
-  editingLevel.tags = [...editSelectedTags];
-
-  demonData.sort((a, b) => a.id - b.id);
-
-  generateList(demonData);
-  showDetail(editingLevel);
-
-  alert('수정 완료!');
+    <div class="header-container">
+      <button class="header-btn" onclick="submitEditLevel(${id})">저장</button>
+    </div>
+  `;
 }
 
 </script>
 </body>
 </html>
+
 
 
 
