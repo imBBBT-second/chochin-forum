@@ -1022,10 +1022,21 @@ const devSelectedTags = new Set();
 let devMode = 'add'; // 'add' | 'edit'
 let editingLevelIndex = null;
 
+const titleInput = document.getElementById('devTitle');
+const creatorInput = document.getElementById('devCreator');
+const verifierInput = document.getElementById('devVerifier');
+const videoInput = document.getElementById('devVideo');
+const rankInput = document.getElementById('devRank');
+
 const mapIdInput = document.getElementById('devMapId');
 const mapLengthInput = document.getElementById('devMapLength');
 const mapObjectsInput = document.getElementById('devMapObjects');
 const mapDateInput = document.getElementById('devMapDate');
+
+const songNameInput = document.getElementById('devSongName');
+const songArtistInput = document.getElementById('devSongArtist');
+const songIdInput = document.getElementById('devSongId');
+
 
 demonData = [
   {
@@ -1342,6 +1353,50 @@ function renderDevHome() {
         <input id="add-video">
       </div>
 
+      <div class="dev-section">
+  <div class="dev-section-title">맵 정보</div>
+
+  <div class="dev-row">
+    <div class="dev-label">맵 ID</div>
+    <input id="devMapId" placeholder="12345678">
+  </div>
+
+  <div class="dev-row">
+    <div class="dev-label">길이</div>
+    <input id="devMapLength" placeholder="Short / Long / XL">
+  </div>
+
+  <div class="dev-row">
+    <div class="dev-label">오브젝트 수</div>
+    <input id="devMapObjects" type="number">
+  </div>
+
+  <div class="dev-row">
+    <div class="dev-label">업로드 날짜</div>
+    <input id="devMapDate" placeholder="YYYY-MM-DD">
+  </div>
+</div>
+
+<div class="dev-section">
+  <div class="dev-section-title">노래 정보</div>
+
+  <div class="dev-row">
+    <div class="dev-label">노래 이름</div>
+    <input id="devSongName" placeholder="Song Name">
+  </div>
+
+  <div class="dev-row">
+    <div class="dev-label">작곡가</div>
+    <input id="devSongArtist" placeholder="Artist">
+  </div>
+
+  <div class="dev-row">
+    <div class="dev-label">노래 ID</div>
+    <input id="devSongId" placeholder="Song ID">
+  </div>
+</div>
+
+      
       <div class="dev-section">
         <div class="dev-label">게임 모드 비율 (%)</div>
         <div id="devModeRatio"></div>
@@ -1693,17 +1748,20 @@ devEditBtn.onclick = () => {
 }
 
   function loadLevelToForm(item) {
-  titleInput.value = item.title;
-  creatorInput.value = item.creator;
-  verifierInput.value = item.verifier;
+  titleInput.value = item.title || '';
+  creatorInput.value = item.creator || '';
+  verifierInput.value = item.verifier || '';
   videoInput.value = item.video || '';
-  rankInput.value = item.id;
+  rankInput.value = item.id || '';
 
-  /* 맵 정보 */
   mapIdInput.value = item.map?.mapId || '';
   mapLengthInput.value = item.map?.length || '';
   mapObjectsInput.value = item.map?.objects || '';
   mapDateInput.value = item.map?.uploadDate || '';
+
+  songNameInput.value = item.song?.name || '';
+  songArtistInput.value = item.song?.artist || '';
+  songIdInput.value = item.song?.id || '';
 
   /* 태그 */
   selectedDevTags.clear();
@@ -1804,6 +1862,7 @@ devEditBtn.onclick = () => {
 </script>
 </body>
 </html>
+
 
 
 
