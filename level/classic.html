@@ -1022,6 +1022,11 @@ const devSelectedTags = new Set();
 let devMode = 'add'; // 'add' | 'edit'
 let editingLevelIndex = null;
 
+const mapIdInput = document.getElementById('devMapId');
+const mapLengthInput = document.getElementById('devMapLength');
+const mapObjectsInput = document.getElementById('devMapObjects');
+const mapDateInput = document.getElementById('devMapDate');
+
 demonData = [
   {
     id: 1,
@@ -1685,21 +1690,25 @@ devEditBtn.onclick = () => {
   creatorInput.value = item.creator;
   verifierInput.value = item.verifier;
   videoInput.value = item.video || '';
-
   rankInput.value = item.id;
+
+  /* 맵 정보 */
+  mapIdInput.value = item.map?.mapId || '';
+  mapLengthInput.value = item.map?.length || '';
+  mapObjectsInput.value = item.map?.objects || '';
+  mapDateInput.value = item.map?.uploadDate || '';
 
   /* 태그 */
   selectedDevTags.clear();
   item.tags?.forEach(t => selectedDevTags.add(t));
   renderDevTagSelector();
 
-  /* 게임모드 / 속도 */
+  /* 비율 */
   setRatioInputs(item.gameplay?.modeRatio || {});
   setSpeedInputs(item.gameplay?.speedRatio || {});
-
-  /* 프레임 퍼펙트 */
   setFramePerfectInputs(item.framePerfect?.fps || {});
 }
+
 
   saveLevelBtn.onclick = () => {
   if (!validateDevForm()) return;
@@ -1738,8 +1747,56 @@ devEditBtn.onclick = () => {
   clearFramePerfectInputs();
 }
 
+  function buildLevelObjectFromForm() {
+  return {
+    id: Number(rankInput.value),
+    title: titleInput.value,
+    creator: creatorInput.value,
+    verifier: verifierInput.value,
+    video: videoInput.value,
+
+    map: {
+      mapId: mapIdInput.value,
+      length: mapLengthInput.value,
+      objects: Number(mapObjectsInput.value),
+      uploadDate: mapDateInput.value,
+    },
+
+    tags: [...selectedDevTags],
+
+    gameplay: {
+      modeRatio: getModeRatioValues(),
+      speedRatio: getSpeedRatioValues(),
+    },
+
+    framePerfect: {
+      fps: getFramePerfectValues(),
+      total: Object.values(getFramePerfectValues()).reduce((a, b) => a + b, 0),
+    },
+
+    clears: []
+  };
+}
+
+  function validateDevForm() {
+  if (
+    !titleInput.value ||
+    !creatorInput.value ||
+    !verifierInput.value ||
+    !mapIdInput.value ||
+    !mapLengthInput.value ||
+    !mapDateInput.value ||
+    selectedDevTags.size === 0
+  ) {
+    alert('모든 정보를 입력해야 해!');
+    return false;
+  }
+  return true;
+}
+
 </script>
 </body>
 </html>
+
 
 
