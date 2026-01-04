@@ -1889,10 +1889,20 @@ function applyEditLevel() {
   renderDevHome();
 }
 
+function renderTagGroups(tags) {
+  if (!tags || tags.length === 0) return '';
+
+  return `
+    <div class="tag-group-container">
+      ${tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+    </div>
+  `;
+}
 
 </script>
 </body>
 </html>
+
 
 
 
