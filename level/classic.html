@@ -833,6 +833,7 @@ function renderDevHome() {
       <div class="header-container" style="gap:10px; padding:0;">
         <button class="header-btn" onclick="renderAddLevel()">레벨 추가</button>
         <button class="header-btn" onclick="renderEditSelector()">레벨 수정</button>
+        <button class="header-btn" onclick="renderReachManager()">도달 기록</button>
       </div>
       <div style="margin-top:20px; text-align:center;">
         <button class="header-btn" onclick="closeDevPanel()" style="width:auto; padding:10px 30px;">닫기</button>
@@ -1060,52 +1061,21 @@ function submitLevelForm() {
   renderDevHome();
 }
 
-/* 도달 기록 */
-const reachBox = document.getElementById('detailReaches');
-reachBox.innerHTML = '';
+function renderReachManager() {
+  const box = document.getElementById('devContent');
+  box.innerHTML = `
+    <div class="section">
+      <div class="section-title">도달 기록 관리</div>
 
-if (item.reaches && item.reaches.length > 0) {
-  const sorted = [...item.reaches].sort((a, b) => b.percent - a.percent);
+      <p style="color:#ccc;">
+        여기에 레벨 선택 + 도달 기록 관리 UI가 들어갈 예정이야 🙂
+      </p>
 
-  sorted.forEach(r => {
-    const row = document.createElement('div');
-    row.className = 'reach-row';
-
-    row.innerHTML = `
-      <div class="reach-percent">${r.percent}%</div>
-      <div class="reach-player">${r.player}</div>
-      <div class="reach-date">${r.date}</div>
-    `;
-
-    reachBox.appendChild(row);
-  });
-} else {
-  reachBox.innerHTML =
-    `<p style="text-align:center; color:#aaa">도달 기록 없음</p>`;
-}
-
-function addReachRecord(level) {
-  const player = document.getElementById('reach-player').value.trim();
-  const percent = Number(document.getElementById('reach-percent').value);
-  const date = document.getElementById('reach-date').value;
-
-  if (!player || !percent || percent <= 0 || percent >= 100 || !date) {
-    alert('도달 기록 정보를 올바르게 입력해줘');
-    return;
-  }
-
-  if (!level.reaches) level.reaches = [];
-
-  const prev = level.reaches.find(r => r.player === player);
-  if (prev && prev.percent >= percent) {
-    alert('기존 기록보다 낮아');
-    return;
-  }
-
-  level.reaches = level.reaches.filter(r => r.player !== player);
-
-  level.reaches.push({ player, percent, date });
-  level.reaches.sort((a, b) => b.percent - a.percent);
+      <button class="header-btn" onclick="renderDevHome()" style="margin-top:20px;">
+        뒤로가기
+      </button>
+    </div>
+  `;
 }
 
 </script>
