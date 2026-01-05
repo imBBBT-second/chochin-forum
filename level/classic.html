@@ -626,38 +626,7 @@ const PLAYER_YOUTUBE = {
 
 const DEV_PASSWORD = '6974'; // 비밀번호
 
-let demonData = [
-  {
-    id: 1,
-    title: 'Test Level',
-    creator: 'imBBBT',
-    verifier: 'imBBBT',
-    video: '',
-    map: {
-      mapId: '123456',
-      length: 'Long',
-      objects: 12345,
-      uploadDate: '2025-01-01',
-    },
-    song: {
-      name: 'Test Song',
-      artist: 'Test Artist',
-      id: '987654',
-    },
-    gameplay: {
-      modeRatio: { Cube: 50, Ship: 50 },
-      speedRatio: { '1x': 70, '2x': 30 },
-    },
-    framePerfect: {
-      total: 10,
-      fps: { 60: 6, 120: 4 },
-    },
-    tags: ['Cube', '1x', 'Long'],
-    clears: [
-      { player: 'imBBBT', percent: 100, date: '2025-01-02' },
-    ],
-  }
-];
+let demonData = [];
 
 // 개발자 모드용 변수
 let devSelectedTags = new Set();
@@ -1188,4 +1157,5 @@ function submitReach(levelId) {
 </script>
 </body>
 </html>
+
 
