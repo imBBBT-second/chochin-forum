@@ -1101,24 +1101,22 @@ function renderReachManager() {
     <div class="section">
       <div class="section-title">도달 기록 관리</div>
 
-      <div class="dev-block">
-        <div class="dev-label">레벨 선택</div>
-        <select id="reach-level-select" onchange="renderReachList(this.value)">
-          <option value="">레벨 선택</option>
-          ${demonData.map(d => `
-            <option value="${d.id}">#${d.id} ${d.title}</option>
-          `).join('')}
-        </select>
-      </div>
+      <select id="reach-level-select"
+        onchange="renderReachForm(this.value)"
+        style="font-size:1.1rem; padding:10px;">
+        <option value="">레벨 선택</option>
+        ${demonData.map(d =>
+          `<option value="${d.id}">#${d.id} ${d.title}</option>`
+        ).join('')}
+      </select>
 
-      <div id="reachContent"></div>
-
-      <div style="margin-top:20px;">
-        <button class="header-btn" onclick="renderDevHome()">뒤로가기</button>
-      </div>
+      <button class="header-btn"
+        style="margin-top:20px;"
+        onclick="renderDevHome()">뒤로가기</button>
     </div>
   `;
 }
+
 
 function renderReachList(levelId) {
   const box = document.getElementById('reachContent');
@@ -1157,18 +1155,74 @@ function renderReachList(levelId) {
   `;
 }
 
+function renderReachForm(levelId) {
+  if (!levelId) return;
+
+  const level = demonData.find(d => d.id == levelId);
+  if (!level) return;
+
+  const box = document.getElementById('devContent');
+
+  box.innerHTML = `
+    <div class="section">
+      <div class="section-title">
+        #${level.id} ${level.title}
+      </div>
+
+      <div class="dev-block">
+        <div class="dev-label">닉네임</div>
+        <input id="reach-player" placeholder="플레이어 이름">
+      </div>
+
+      <div class="dev-block">
+        <div class="dev-label">도달 퍼센트</div>
+        <input id="reach-percent" type="number" min="0" max="100" placeholder="0 ~ 100">
+      </div>
+
+      <div class="dev-block">
+        <div class="dev-label">날짜</div>
+        <input id="reach-date" placeholder="YYYY-MM-DD">
+      </div>
+
+      <div class="header-container" style="gap:10px;">
+        <button class="header-btn"
+          onclick="submitReach(${level.id})">추가</button>
+        <button class="header-btn"
+          onclick="renderReachManager()">취소</button>
+      </div>
+    </div>
+  `;
+}
+
+function submitReach(levelId) {
+  const player = document.getElementById('reach-player').value.trim();
+  const percent = Number(document.getElementById('reach-percent').value);
+  const date = document.getElementById('reach-date').value.trim();
+
+  if (!player || isNaN(percent) || percent < 0 || percent > 100 || !date) {
+    alert('모든 값을 올바르게 입력해줘!');
+    return;
+  }
+
+  const level = demonData.find(d => d.id === levelId);
+  if (!level) return;
+
+  level.clears.push({ player, percent, date });
+
+  // 정렬 규칙
+  level.clears.sort((a, b) => {
+    if (b.percent !== a.percent) return b.percent - a.percent;
+    return new Date(a.date) - new Date(b.date);
+  });
+
+  generateList(demonData);
+  showDetail(level);
+
+  alert('도달 기록 추가 완료! 🎉');
+  renderReachManager();
+}
 
 
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
