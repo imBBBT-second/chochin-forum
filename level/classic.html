@@ -1117,44 +1117,6 @@ function renderReachManager() {
   `;
 }
 
-
-function renderReachList(levelId) {
-  const box = document.getElementById('reachContent');
-  if (!levelId) {
-    box.innerHTML = '';
-    return;
-  }
-
-  const level = demonData.find(d => d.id == levelId);
-  if (!level) return;
-
-  const clears = level.clears || [];
-
-  box.innerHTML = `
-    <div class="section" style="margin-top:14px;">
-      <div class="section-title">
-        #${level.id} ${level.title}
-      </div>
-
-      <div id="reach-list">
-        ${clears.length === 0
-          ? `<p style="color:#aaa;">아직 도달 기록이 없어.</p>`
-          : clears.map((c, i) => `
-            <div class="clear-row">
-              <div class="clear-rank">#${i + 1}</div>
-              <div class="clear-player">${c.player}</div>
-              <div class="clear-percent ${c.percent === 100 ? 'full' : ''}">
-                ${c.percent}%
-              </div>
-              <div class="clear-date">${c.date || ''}</div>
-            </div>
-          `).join('')
-        }
-      </div>
-    </div>
-  `;
-}
-
 function renderReachForm(levelId) {
   if (!levelId) return;
 
@@ -1226,3 +1188,4 @@ function submitReach(levelId) {
 </script>
 </body>
 </html>
+
