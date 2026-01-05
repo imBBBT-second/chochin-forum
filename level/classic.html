@@ -502,12 +502,21 @@ input {
 }
 
 .clear-player {
-  flex: 1 1 auto;   /* 늘어날 수 있게 */
-  min-width: 0;     /* ⭐ 이게 핵심 */
+  flex: 1 1 auto;
+  min-width: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.clear-percent {
+  min-width: 48px;
+}
+
+.clear-date {
+  min-width: 70px;
+}
+
 
 </style>
 </head>
@@ -1138,6 +1147,7 @@ function renderReachList(levelId) {
 </script>
 </body>
 </html>
+
 
 
 
