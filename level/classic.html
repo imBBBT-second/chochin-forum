@@ -597,6 +597,7 @@ input {
   <div class="detail-panel clears-panel">
     <div style="font-family:Paperlogy9;font-size:3.2rem;text-align:center;color:white;">기록 명단</div>
     <div id="detailClears"></div>
+    <div id="historyBox" style="margin-top:20px;"></div>
   </div>
 </div>
 
@@ -605,6 +606,7 @@ input {
     <div class="detail-title" style="font-size: 2.5rem;">개발자 패널</div>
   </div>
   <div id="devContent" class="dev-content"></div>
+  <button class="header-btn" onclick="exportJson()">JSON 저장</button>
 </div>
 
 <script>
@@ -626,7 +628,17 @@ const PLAYER_YOUTUBE = {
 
 const DEV_PASSWORD = '6974'; // 비밀번호
 
+let changeHistory = [];
 let demonData = [];
+
+fetch('classic.json')
+  .then(r => r.json())
+  .then(j => {
+    demonData = j.buttons || j;
+    generateList(demonData);
+    if (demonData.length > 0) showDetail(demonData[0]);
+  });
+
 
 // 개발자 모드용 변수
 let devSelectedTags = new Set();
@@ -1153,9 +1165,118 @@ function submitReach(levelId) {
   renderReachManager();
 }
 
+function exportJson() {
+  const data = {
+    buttons: demonData
+  };
+
+  const json = JSON.stringify(data, null, 2);
+  const blob = new Blob([json], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'classic.json';
+  a.click();
+
+  URL.revokeObjectURL(url);
+}
+
+function nowString() {
+  const d = new Date();
+  const pad = n => n.toString().padStart(2, '0');
+  return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+}
+
+function addHistory(type, levelTitle, detail) {
+  changeHistory.unshift({
+    time: nowString(),
+    type,
+    title: levelTitle,
+    detail
+  });
+
+  renderHistory();
+}
+
+function renderHistory() {
+  const box = document.getElementById('historyBox');
+  if (!box) return;
+
+  box.innerHTML = `
+    <div style="font-family:Paperlogy9;font-size:2.4rem;text-align:center;color:white;">
+      변경 이력
+    </div>
+    ${changeHistory.slice(0, 30).map(h => `
+      <div style="margin-top:6px;font-family:Paperlogy3;font-size:0.95rem;color:#ccc;">
+        <span style="color:#aaa;">${h.time}</span> |
+        <b>${h.title}</b> |
+        ${h.detail}
+      </div>
+    `).join('')}
+  `;
+}
+
+function getRankSnapshot() {
+  const snap = {};
+  demonData.forEach(d => {
+    snap[d.title] = d.id;
+  });
+  return snap;
+}
+
+const beforeRank = getRankSnapshot();
+
+const afterRank = getRankSnapshot();
+
+// 신규 등재 감지
+if (!beforeRank[newLevel.title]) {
+  addHistory(
+    'add',
+    newLevel.title,
+    `${newLevel.title} 등재`
+  );
+}
+
+// 기존 레벨 순위 변동 감지
+Object.keys(afterRank).forEach(title => {
+  if (!beforeRank[title]) return;
+
+  const before = beforeRank[title];
+  const after = afterRank[title];
+
+  if (before !== after) {
+    const target = demonData.find(d => d.title === title);
+    if (!target) return;
+
+    const reason = editingLevelId
+      ? `${title} 재평가`
+      : `${newLevel.title} 등재`;
+
+    addHistory(
+      'rank-change',
+      title,
+      reason
+    );
+  }
+});
+
+addHistory(
+  'reach',
+  level.title,
+  `${player} ${percent}% 도달 기록 추가`
+);
+
+function historyColor(type) {
+  if (type === 'add') return '#6fff6f';
+  if (type === 'rank-change') return '#6fa8ff';
+  if (type === 'reach') return '#ffcc66';
+  return '#ccc';
+}
 
 </script>
 </body>
 </html>
+
 
 
