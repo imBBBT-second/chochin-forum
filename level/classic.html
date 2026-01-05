@@ -664,7 +664,7 @@ function generateList(data) {
     const div = document.createElement('div');
     div.className = 'item';
     div.innerHTML = `
-      <div class="rank">#${item.id}</div>
+      <div class="rank">${item.id}</div>
       <div>
         <div class="title">${item.title}</div>
         <div class="creator">${item.creator}</div>
@@ -769,7 +769,7 @@ function showDetail(item, element) {
         : c.player;
 
       row.innerHTML = `
-        <div class="clear-rank">#${i + 1}</div>
+        <div class="clear-rank">${i + 1}</div>
         <div class="clear-player">${playerHTML}</div>
         <div class="clear-percent ${percentClass}">${c.percent}%</div>
         <div class="clear-date">${c.date || ''}</div>
@@ -1147,6 +1147,7 @@ function renderReachList(levelId) {
 </script>
 </body>
 </html>
+
 
 
 
