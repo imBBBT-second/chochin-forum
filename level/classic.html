@@ -500,6 +500,15 @@ input {
   background: #fff;
   color: #000;
 }
+
+.clear-player {
+  flex: 1 1 auto;   /* 늘어날 수 있게 */
+  min-width: 0;     /* ⭐ 이게 핵심 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 </style>
 </head>
 
@@ -1129,6 +1138,7 @@ function renderReachList(levelId) {
 </script>
 </body>
 </html>
+
 
 
 
