@@ -72,11 +72,11 @@ a { color: inherit; text-decoration: none; }
 
 /* --- 메인 컨테이너 레이아웃 --- */
 .main-container {
-  flex: 1;
   display: flex;
   gap: 2%;
   padding: 1.2%;
-  align-items: stretch; /* 핵심 */
+  align-items: stretch;
+  min-height: 800px; /* 최소 높이 확보 */
 }
   
 /* 패널 공통 스타일 */
@@ -88,18 +88,10 @@ a { color: inherit; text-decoration: none; }
   padding: 1.5%;
   display: flex;
   flex-direction: column;
-  height: 100%;          /* 핵심 */
+  height: auto;
   overflow: hidden;
 }
 
-.container, .detail-panel.clears-panel {
-  background: #404040;
-  border-radius: 10px;
-  padding: 1.5%;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
 .container {
   flex: 0 0 25%;
   max-width: 25%;
@@ -119,18 +111,14 @@ a { color: inherit; text-decoration: none; }
   max-width: 25%;
 }
 
-.container {
-  flex: 1 1 25%;
-}
-
-.detail-panel {
-  flex: 1 1 50%;
-  background: #505050;
-  overflow-y: auto;
-}
-
-.detail-panel.clears-panel {
-  flex: 1 1 25%;
+/* --- [수정됨] 하단 히스토리 패널 --- */
+.history-panel {
+  width: 97.6%; /* 좌우 패딩 고려 */
+  margin: 0 auto 40px auto;
+  background: #3a3a3a;
+  border-radius: 10px;
+  padding: 20px;
+  min-height: 200px;
 }
 
 /* 반응형 미디어 쿼리 */
@@ -138,15 +126,15 @@ a { color: inherit; text-decoration: none; }
   .main-container {
     flex-direction: column;
   }
-
   .container,
   .detail-panel,
   .detail-panel.clears-panel {
     width: 100%;
-    height: auto;
+    max-width: 100%;
+    margin-bottom: 20px;
+    height: 600px;
   }
 }
-
 
 /* --- 검색 및 리스트 --- */
 input {
@@ -500,39 +488,6 @@ input {
   background: #fff;
   color: #000;
 }
-
-.clear-player {
-  flex: 1 1 auto;
-  min-width: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.clear-percent {
-  min-width: 48px;
-}
-
-.clear-date {
-  min-width: 70px;
-}
-
-.clear-row {
-  display: flex;
-  align-items: center;
-  gap: 0.4vw;
-}
-
-.clear-rank {
-  min-width: 2.2rem;
-  text-align: right;
-}
-
-.clear-player {
-  flex: 1 1 auto;
-  min-width: 0;
-}
-
 </style>
 </head>
 
@@ -580,25 +535,25 @@ input {
       <div id="detailTitle" class="detail-title"></div>
       <div id="detailCreator" class="detail-creator"></div>
     </div>
-
     <div class="video-wrapper">
       <iframe id="detailVideo" allowfullscreen></iframe>
     </div>
-
     <div class="detail-content">
       <div id="infoSection" class="info-section"></div>
       <div id="graphSection" class="graph-section"></div>
       <div id="detailDescription"></div>
     </div>
-
     <p class="fp-warning">※ 프레임 퍼펙트는 정확하지 않습니다 ※</p>
   </div>
 
   <div class="detail-panel clears-panel">
     <div style="font-family:Paperlogy9;font-size:3.2rem;text-align:center;color:white;">기록 명단</div>
     <div id="detailClears"></div>
-    <div id="historyBox" style="margin-top:20px;"></div>
   </div>
+</div>
+
+<div class="history-panel">
+  <div id="historyBox"></div>
 </div>
 
 <div id="devPanel" class="dev-panel">
@@ -631,12 +586,25 @@ const DEV_PASSWORD = '6974'; // 비밀번호
 let changeHistory = [];
 let demonData = [];
 
+// 데이터 로드
 fetch('classic.json')
   .then(r => r.json())
   .then(j => {
-    demonData = j.buttons || j;
+    // classic.json 구조에 따라 유연하게 로드
+    demonData = j.levels || j.buttons || j || [];
+    changeHistory = j.history || [];
+    
+    // 로드 후 렌더링
     generateList(demonData);
+    renderHistory();
     if (demonData.length > 0) showDetail(demonData[0]);
+  })
+  .catch(err => {
+    console.error('JSON 로드 실패 또는 파일 없음', err);
+    // 더미 데이터 (테스트용)
+    if(demonData.length === 0) {
+       demonData = []; // 빈 배열
+    }
   });
 
 
@@ -645,12 +613,6 @@ let devSelectedTags = new Set();
 let editingLevelId = null; 
 
 /* ================= 초기화 및 렌더링 ================= */
-// 페이지 로드 시 실행
-generateList(demonData);
-if (demonData.length > 0) {
-  showDetail(demonData[0]);
-}
-
 // 리스트 생성
 function generateList(data) {
   const list = document.getElementById('list');
@@ -1047,33 +1009,38 @@ function submitLevelForm() {
     clears: []
   };
 
-
-  // 기존 데이터가 있다면 clears 등 유지하고 싶은 데이터 병합 가능
+  // [수정됨] 변경 이력 및 데이터 병합 로직을 함수 내부로 통합
   if (editingLevelId !== null) {
-    // 수정 모드: 기존 항목 제거하고 새 위치에 삽입 준비
+    // 수정 모드
     const oldIdx = demonData.findIndex(d => d.id === editingLevelId);
     if (oldIdx > -1) {
-      newLevel.clears = demonData[oldIdx].clears; // 기존 기록 유지
+      // 기존 기록 유지
+      newLevel.clears = demonData[oldIdx].clears; 
       newLevel.gameplay = demonData[oldIdx].gameplay;
       newLevel.song = demonData[oldIdx].song;
-      demonData.splice(oldIdx, 1);
+      
+      demonData.splice(oldIdx, 1); // 기존 삭제
+      addHistory('rank-change', title, '레벨 정보 수정/순위 변경');
     }
+  } else {
+    // 신규 추가
+    addHistory('add', title, `${title} 레벨이 새로 추가됨`);
   }
 
   // 원하는 순위(인덱스)에 삽입
-  // rank는 1부터 시작하므로 인덱스는 rank-1
   const targetIdx = Math.max(0, Math.min(rank - 1, demonData.length));
   demonData.splice(targetIdx, 0, newLevel);
 
   // 전체 ID 재정렬
   demonData.forEach((d, i) => d.id = i + 1);
 
-  // UI 갱신
+  // UI 갱신 및 저장
   generateList(demonData);
   showDetail(newLevel);
+  saveClassicJSON();
+
   alert('저장 완료했어! ✅');
   renderDevHome();
-  saveClassicJSON();
 }
   
 function renderReachManager() {
@@ -1125,7 +1092,7 @@ function renderReachForm(levelId) {
 
       <div class="dev-block">
         <div class="dev-label">날짜</div>
-        <input id="reach-date" placeholder="YYYY-MM-DD">
+        <input id="reach-date" placeholder="YYYY-MM-DD" value="${new Date().toISOString().split('T')[0]}">
       </div>
 
       <div class="header-container" style="gap:10px;">
@@ -1159,8 +1126,12 @@ function submitReach(levelId) {
     return new Date(a.date) - new Date(b.date);
   });
 
+  // [수정됨] 히스토리 추가 로직 통합
+  addHistory('reach', level.title, `${player} ${percent}% 도달 기록 추가`);
+
   generateList(demonData);
   showDetail(level);
+  saveClassicJSON(); // 저장
 
   alert('도달 기록 추가 완료! 🎉');
   renderReachManager();
@@ -1168,7 +1139,8 @@ function submitReach(levelId) {
 
 function exportJson() {
   const data = {
-    buttons: demonData
+    levels: demonData,
+    history: changeHistory
   };
 
   const json = JSON.stringify(data, null, 2);
@@ -1211,62 +1183,12 @@ function renderHistory() {
     ${changeHistory.slice(0, 30).map(h => `
       <div style="margin-top:6px;font-family:Paperlogy3;font-size:0.95rem;color:#ccc;">
         <span style="color:#aaa;">${h.time}</span> |
-        <b>${h.title}</b> |
+        <b style="color:${historyColor(h.type)}">${h.title}</b> |
         ${h.detail}
       </div>
     `).join('')}
   `;
 }
-
-function getRankSnapshot() {
-  const snap = {};
-  demonData.forEach(d => {
-    snap[d.title] = d.id;
-  });
-  return snap;
-}
-
-const beforeRank = getRankSnapshot();
-
-const afterRank = getRankSnapshot();
-
-// 신규 등재 감지
-if (!beforeRank[newLevel.title]) {
-  addHistory(
-    'add',
-    newLevel.title,
-    `${newLevel.title} 등재`
-  );
-}
-
-// 기존 레벨 순위 변동 감지
-Object.keys(afterRank).forEach(title => {
-  if (!beforeRank[title]) return;
-
-  const before = beforeRank[title];
-  const after = afterRank[title];
-
-  if (before !== after) {
-    const target = demonData.find(d => d.title === title);
-    if (!target) return;
-
-    const reason = editingLevelId
-      ? `${title} 재평가`
-      : `${newLevel.title} 등재`;
-
-    addHistory(
-      'rank-change',
-      title,
-      reason
-    );
-  }
-});
-
-addHistory(
-  'reach',
-  level.title,
-  `${player} ${percent}% 도달 기록 추가`
-);
 
 function historyColor(type) {
   if (type === 'add') return '#6fff6f';
@@ -1275,47 +1197,23 @@ function historyColor(type) {
   return '#ccc';
 }
 
-async function loadClassicJSON() {
-  const res = await fetch('classic.json');
-  const json = await res.json();
-
-  demonData = json.levels || [];
-  changeHistory = json.history || [];
-
-  generateList(demonData);
-  if (demonData.length > 0) showDetail(demonData[0]);
-  renderHistory();
-}
-
+// [수정됨] 서버 저장 로직 (실패시 무시하도록 try/catch 처리)
 async function saveClassicJSON() {
-  const data = {
-    levels: demonData,
-    history: changeHistory
-  };
-
-  await fetch('classic.json', {
-    method: 'PUT', // 또는 POST (서버 방식에 따라)
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data, null, 2)
-  });
+  try {
+    const data = {
+      levels: demonData,
+      history: changeHistory
+    };
+  
+    await fetch('classic.json', {
+      method: 'PUT', // 서버 환경에 맞춰 변경
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data, null, 2)
+    });
+  } catch(e) {
+    console.warn('서버 저장 실패 (로컬 환경일 수 있음)');
+  }
 }
-
-function addHistory(type, levelTitle, detail) {
-  changeHistory.unshift({
-    time: nowString(),
-    type,
-    title: levelTitle,
-    detail
-  });
-
-  renderHistory();
-  saveClassicJSON(); // ⭐ 자동 저장
-}
-
 </script>
 </body>
 </html>
-
-
-
-
