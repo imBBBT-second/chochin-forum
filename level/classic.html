@@ -17,7 +17,7 @@ html, body {
 }
 * { box-sizing: border-box; }
 
-/* 폰트 설정 (경로 유지) */
+/* 폰트 설정 */
 @font-face { font-family: Paperlogy1; src: url('font - paperlogy/Paperlogy-1.ttf'); }
 @font-face { font-family: Paperlogy2; src: url('font - paperlogy/Paperlogy-2.ttf'); }
 @font-face { font-family: Paperlogy3; src: url('font - paperlogy/Paperlogy-3.ttf'); }
@@ -70,50 +70,49 @@ a { color: inherit; text-decoration: none; }
   margin: 6px 0;
 }
 
-/* --- 메인 컨테이너 레이아웃 --- */
+/* --- 메인 컨테이너 레이아웃 (수정됨) --- */
 .main-container {
   display: flex;
-  gap: 2%;
-  padding: 1.2%;
+  gap: 20px;       /* 갭을 고정 픽셀로 변경하여 안정성 확보 (원하면 %로 변경 가능) */
+  padding: 20px;
   align-items: stretch;
-  min-height: 800px; /* 최소 높이 확보 */
+  min-height: 800px;
 }
   
 /* 패널 공통 스타일 */
 .container,
-.detail-panel,
-.detail-panel.clears-panel {
+.detail-panel {
   background: #404040;
   border-radius: 10px;
-  padding: 1.5%;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  height: auto;
   overflow: hidden;
 }
 
+/* 왼쪽 패널 (리스트) */
 .container {
-  flex: 0 0 25%;
-  max-width: 25%;
-}
-.detail-panel {
-  flex: 0 0 50%;
-  max-width: 50%;
-  background: #505050;
-  border-radius: 10px;
-  padding: 1.5%;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-}
-.detail-panel.clears-panel {
-  flex: 0 0 25%;
-  max-width: 25%;
+  flex: 1;        /* 비율 1 */
+  min-width: 0;   /* 내용 넘침 방지 */
 }
 
-/* --- [수정됨] 하단 히스토리 패널 --- */
+/* 가운데 패널 (상세) */
+.detail-panel {
+  flex: 2;        /* 비율 2 (왼쪽보다 2배 넓음) */
+  background: #505050;
+  overflow-y: auto;
+  min-width: 0;
+}
+
+/* 오른쪽 패널 (기록) - detail-panel 스타일을 덮어씀 */
+.detail-panel.clears-panel {
+  flex: 1;        /* 비율 1 */
+  background: #404040; /* 배경색 다시 원래대로 */
+}
+
+/* 하단 히스토리 패널 */
 .history-panel {
-  width: 97.6%; /* 좌우 패딩 고려 */
+  width: calc(100% - 40px); /* 좌우 패딩 고려 */
   margin: 0 auto 40px auto;
   background: #3a3a3a;
   border-radius: 10px;
@@ -130,9 +129,9 @@ a { color: inherit; text-decoration: none; }
   .detail-panel,
   .detail-panel.clears-panel {
     width: 100%;
-    max-width: 100%;
     margin-bottom: 20px;
     height: 600px;
+    flex: none; /* 반응형에서는 비율 해제 */
   }
 }
 
