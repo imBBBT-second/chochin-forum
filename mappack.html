@@ -6,7 +6,7 @@
 <title>초친 포럼 (맵 팩)</title>
 
 <style>
-/* --- 기본 설정 (유지) --- */
+/* --- 기본 설정 --- */
 html, body {
   height: 100%;
   margin: 0;
@@ -31,7 +31,7 @@ html, body {
 h1 { font-family: Paperlogy7; color: white; font-size: 170px; text-align: center; }
 a { color: inherit; text-decoration: none; }
 
-/* --- 헤더 영역 (유지) --- */
+/* --- 헤더 영역 --- */
 .header-container {
   display: flex;
   justify-content: center;
@@ -68,7 +68,7 @@ a { color: inherit; text-decoration: none; }
   margin: 6px 0;
 }
 
-/* --- 메인 컨테이너 (비율 1:2:1 적용) --- */
+/* --- 메인 컨테이너 --- */
 .main-container {
   display: flex;
   gap: 20px;
@@ -93,7 +93,7 @@ a { color: inherit; text-decoration: none; }
   min-width: 0;
 }
 
-/* 중앙: 팩 상세 정보 (넓게) */
+/* 중앙: 팩 상세 정보 */
 .detail-panel {
   flex: 2;
   background: #505050;
@@ -136,22 +136,23 @@ a { color: inherit; text-decoration: none; }
 .item:hover, .item.active { background-color: #ffffff; }
 .item:hover *, .item.active * { color: #000000 !important; }
 
+/* [수정됨] 팩 티어 색상은 JS에서 제어하므로 기본 색상은 제거 */
 .pack-tier {
   font-family: Paperlogy9;
   font-size: 1.8rem;
-  color: #ffcc00; /* 팩 티어 색상 */
-  min-width: 50px;
+  min-width: 60px; /* 너비 약간 확보 */
   text-align: center;
+  /* 글자 가독성을 위한 그림자 */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5); 
 }
 .title { font-family: Paperlogy7; font-size: 1.4rem; color: #fff; }
 .creator { font-family: Paperlogy4; font-size: 0.9rem; color: #d0d0d0; }
 
-/* --- 중앙 패널: 맵 팩 전용 스타일 --- */
+/* --- 중앙 패널 스타일 --- */
 .detail-header { text-align: center; margin-bottom: 20px; }
 .pack-title { font-family: Paperlogy9; font-size: 3rem; color: #fff; margin-bottom: 5px; }
 .pack-subtitle { font-family: Paperlogy4; font-size: 1.1rem; color: #aaa; }
 
-/* 수록곡 리스트 */
 .pack-content-box {
   background: #444;
   border-radius: 10px;
@@ -281,11 +282,22 @@ a { color: inherit; text-decoration: none; }
 </div>
 
 <script>
-/* ================= 데이터 및 로직 ================= */
+/* ================= 데이터 및 설정 ================= */
 const DEV_PASSWORD = '6974';
+
+// [핵심] 티어별 색상 설정 (원하는 색으로 수정 가능)
+const TIER_COLORS = {
+  "Tier 1": "#00ffff", // Cyan
+  "Tier 2": "#00ff00", // Green
+  "Tier 3": "#ffff00", // Yellow
+  "Tier 4": "#ffaa00", // Orange
+  "Tier 5": "#ff0000", // Red
+  "Tier 6": "#ff00ff", // Purple
+  "Unrated": "#888888" // Gray
+};
+
 let packData = [];
 let changeHistory = [];
-let editingPackId = null;
 
 // 데이터 로드
 fetch('mappack.json')
@@ -305,12 +317,10 @@ fetch('mappack.json')
         creator: "Admin",
         description: "초보자를 위한 기초 레벨 모음입니다.",
         levels: [
-          { name: "Step One", author: "User A", link: "https://youtu.be/..." },
+          { name: "Step One", author: "User A", link: "" },
           { name: "Jump Jump", author: "User B", link: "" }
         ],
-        clears: [
-          { player: "Newbie", date: "2024-12-14" }
-        ]
+        clears: []
       }
     ];
     initPage();
@@ -322,15 +332,19 @@ function initPage() {
   if(packData.length > 0) showPackDetail(packData[0]);
 }
 
-// 리스트 렌더링
+// 리스트 렌더링 (티어 색상 적용)
 function renderList(data) {
   const list = document.getElementById('packList');
   list.innerHTML = '';
   data.forEach(pack => {
     const div = document.createElement('div');
     div.className = 'item';
+    
+    // 티어 색상 가져오기 (없으면 흰색 기본)
+    const tierColor = TIER_COLORS[pack.tier] || "#ffffff";
+
     div.innerHTML = `
-      <div class="pack-tier">${pack.tier}</div>
+      <div class="pack-tier" style="color: ${tierColor}">${pack.tier}</div>
       <div>
         <div class="title">${pack.title}</div>
         <div class="creator">by ${pack.creator}</div>
@@ -347,14 +361,20 @@ function showPackDetail(pack, el) {
   document.querySelectorAll('.item.active').forEach(i => i.classList.remove('active'));
   if(el) el.classList.add('active');
 
+  const tierColor = TIER_COLORS[pack.tier] || "#ffffff";
+
   const content = document.getElementById('packDetailContent');
   content.innerHTML = `
     <div class="detail-header">
       <div class="pack-title">${pack.title}</div>
       <div class="pack-subtitle">${pack.description}</div>
       <div style="margin-top:10px;">
-        <span style="background:#444; padding:5px 10px; border-radius:5px;">${pack.tier}</span>
-        <span style="background:#444; padding:5px 10px; border-radius:5px; margin-left:5px;">Levels: ${pack.levels.length}</span>
+        <span style="background:#333; padding:5px 12px; border-radius:15px; border: 1px solid ${tierColor}; color: ${tierColor}; font-weight:bold;">
+          ${pack.tier}
+        </span>
+        <span style="background:#444; padding:5px 12px; border-radius:15px; margin-left:5px; color:#ddd;">
+          Levels: ${pack.levels.length}
+        </span>
       </div>
     </div>
 
@@ -419,8 +439,12 @@ function renderAddPack() {
   box.innerHTML = `
     <div class="dev-label">팩 제목</div>
     <input id="p-title" class="dev-input">
-    <div class="dev-label">티어 (Tier)</div>
-    <input id="p-tier" class="dev-input">
+    
+    <div class="dev-label">티어 (예: Tier 1)</div>
+    <select id="p-tier" class="dev-input">
+      ${Object.keys(TIER_COLORS).map(k => `<option value="${k}">${k}</option>`).join('')}
+    </select>
+
     <div class="dev-label">설명</div>
     <input id="p-desc" class="dev-input">
     <div class="dev-label">레벨 목록 (JSON 형식)</div>
@@ -509,7 +533,7 @@ function exportJson() {
   a.click();
 }
 
-// 자동 저장 (서버 환경 가정)
+// 자동 저장
 async function saveMapPackJSON() {
   try {
     await fetch('mappack.json', {
