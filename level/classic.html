@@ -598,13 +598,13 @@ fetch('classic.json')
     renderHistory();
     if (demonData.length > 0) showDetail(demonData[0]);
   })
+  .then(checkURLParameter();)
   .catch(err => {
     console.error('JSON 로드 실패 또는 파일 없음', err);
     // 더미 데이터 (테스트용)
     if(demonData.length === 0) {
        demonData = []; // 빈 배열
     }
-    checkURLParameter();
   });
 
 function checkURLParameter() {
@@ -1241,5 +1241,6 @@ async function saveClassicJSON() {
 </script>
 </body>
 </html>
+
 
 
