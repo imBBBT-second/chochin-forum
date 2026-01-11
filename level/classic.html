@@ -585,6 +585,31 @@ const DEV_PASSWORD = '6974'; // 비밀번호
 let changeHistory = [];
 let demonData = [];
 
+function checkURLParameter() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const targetId = urlParams.get('id');
+  
+  if (targetId && demonData) {
+    // demonData에서 해당 ID를 가진 레벨 찾기
+    const targetLevel = demonData.find(d => String(d.id) === String(targetId));
+    if (targetLevel) {
+      // 리스트에서 해당 레벨 아이템 엘리먼트 찾기 (이동 후 강조를 위해)
+      const items = document.querySelectorAll('.item');
+      let targetEl = null;
+      items.forEach(el => {
+        // 아이템 렌더링 시 data-id 등을 심어두면 찾기 편해. 
+        // 여기선 제목 등으로 유추하거나 리스트 순서로 찾아야 할 수도 있어.
+      });
+
+      // 상세 정보 표시 함수 호출
+      showDetail(targetLevel); 
+      
+      // 스크롤 이동 (상세보기 패널로)
+      document.querySelector('.detail-panel').scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+}
+
 // 데이터 로드
 fetch('classic.json')
   .then(r => r.json())
@@ -1216,3 +1241,4 @@ async function saveClassicJSON() {
 </script>
 </body>
 </html>
+
