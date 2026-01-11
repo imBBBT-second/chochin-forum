@@ -255,13 +255,14 @@ let changeHistory = [];
 // [수정] level/classic.json 경로에서 데이터를 가져옴
 Promise.all([
   fetch('mappack.json').then(r => r.json()).catch(() => ({ packs: [], history: [] })),
-  fetch('level/classic.json').then(r => r.json()).catch(() => ({ buttons: [] }))
+  fetch('level/classic.json').then(r => r.json()).catch(() => ({ buttons: [] })) // levels 대신 buttons
 ]).then(([packJson, levelJson]) => {
   packData = packJson.packs || [];
   changeHistory = packJson.history || [];
-  classicLevelData = levelJson.levels || [];
+  classicLevelData = levelJson.buttons || []; // 이 부분을 buttons로 변경!
   
   initPage();
+});
 }).catch(err => {
   console.error("데이터 로딩 실패:", err);
   document.getElementById('packDetailContent').innerHTML = "데이터 로드 오류";
@@ -294,17 +295,19 @@ function renderList(data) {
 
 // [핵심] classicLevelData를 검색해서 이동
 function goToLevelAuto(levelName, author) {
-  // classic.json의 title 필드와 creator 필드를 비교 (공백/대소문자 무시)
+  // classicLevelData(json의 buttons 배열)에서 찾기
   const target = classicLevelData.find(l => 
     l.title.trim().toLowerCase() === levelName.trim().toLowerCase() &&
     l.creator.trim().toLowerCase() === author.trim().toLowerCase()
   );
 
   if (target && target.id) {
-    // 요청하신 경로: level/classic.html?id=ID
     window.location.href = `level/classic.html?id=${target.id}`;
   } else {
-    alert(`'${levelName}' 레벨을 classic.json에서 찾을 수 없습니다.`);
+    // 찾지 못했을 때 디버깅을 위해 콘솔에 데이터를 찍어볼 수 있어
+    console.log("검색 중인 레벨:", levelName, author);
+    console.log("대상 데이터 리스트:", classicLevelData);
+    alert(`'${levelName}' 레벨을 찾을 수 없습니다. (제작자: ${author})`);
   }
 }
 
