@@ -1,0 +1,33 @@
+{
+  "packs": [
+    {
+      "id": "pack 1",
+      "title": "Treasure Pack",
+      "tier": "Tier 1",
+      "description": "엣날 라이트가 만든 레벨을 해보세요!",
+      "levels": [
+        {
+          "name": "LT EP2",
+          "author": "Light"
+        },
+        {
+          "name": "LT EP7",
+          "author": "Light"
+        },
+        {
+          "name": "Trolled",
+          "author": "Light"
+        }
+      ],
+      "clears": [
+      ]
+    }
+  ],
+  "history": [
+    {
+      "time": "2026-01-11",
+      "type": "팩 추가",
+      "detail": ""
+    }
+  ]
+}
