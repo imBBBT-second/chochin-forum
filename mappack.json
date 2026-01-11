@@ -24,7 +24,7 @@
     },
     {
       "id": "pack 2",
-      "title": "Adventure Pack",
+      "title": "Adventure Pack I",
       "tier": "Tier 1",
       "description": "초코의 JPA 시리즈를 해보세요!",
       "levels": [
@@ -38,6 +38,94 @@
         },
         {
           "name": "JPA EP1",
+          "author": "Choco"
+        }
+      ],
+      "clears": [
+      ]
+    },
+    {
+      "id": "pack 3",
+      "title": "Adventure Pack II",
+      "tier": "Tier 1",
+      "description": "초코의 또 다른 JPA 시리즈를 해보세요!",
+      "levels": [
+        {
+          "name": "JPA EP5",
+          "author": "Choco"
+        },
+        {
+          "name": "JPA EP4",
+          "author": "Choco"
+        },
+        {
+          "name": "JPA EP8",
+          "author": "Choco"
+        }
+      ],
+      "clears": [
+      ]
+    },
+    {
+      "id": "pack 4",
+      "title": "Troll Pack",
+      "tier": "Tier 2",
+      "description": "찌끄레기같은 맵들을 쳐 즐겨보세요!",
+      "levels": [
+        {
+          "name": "Trolled",
+          "author": "Light"
+        },
+        {
+          "name": "Stereo Madness EX",
+          "author": "Choco"
+        }
+      ],
+      "clears": [
+      ]
+    },
+    {
+      "id": "pack 5",
+      "title": "Wave Pack",
+      "tier": "Tier 3",
+      "description": "웨이브 원툴인 맵들을 해보세요!",
+      "levels": [
+        {
+          "name": "chocubed",
+          "author": "Light"
+        },
+        {
+          "name": "BOOBAWAVEBA",
+          "author": "Choco"
+        },
+        {
+          "name": "Reaper Wave",
+          "author": "Timo"
+        }
+      ],
+      "clears": [
+      ]
+    },
+    {
+      "id": "pack 6",
+      "title": "Inspired Pack",
+      "tier": "Tier 3",
+      "description": "다른 맵들을 모티브로 만들어진 맵들을 해보세요!",
+      "levels": [
+        {
+          "name": "chocubed",
+          "author": "Light"
+        },
+        {
+          "name": "BOOBAWAVEBA",
+          "author": "Choco"
+        },
+        {
+          "name": "nullscube",
+          "author": "Timo"
+        },
+        {
+          "name": "Stereo Madness EX",
           "author": "Choco"
         }
       ],
