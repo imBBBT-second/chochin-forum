@@ -585,6 +585,28 @@ const DEV_PASSWORD = '6974'; // 비밀번호
 let changeHistory = [];
 let demonData = [];
 
+// 데이터 로드
+fetch('classic.json')
+  .then(r => r.json())
+  .then(j => {
+    // classic.json 구조에 따라 유연하게 로드
+    demonData = j.levels || j.buttons || j || [];
+    changeHistory = j.history || [];
+    
+    // 로드 후 렌더링
+    generateList(demonData);
+    renderHistory();
+    if (demonData.length > 0) showDetail(demonData[0]);
+  })
+  .catch(err => {
+    console.error('JSON 로드 실패 또는 파일 없음', err);
+    // 더미 데이터 (테스트용)
+    if(demonData.length === 0) {
+       demonData = []; // 빈 배열
+    }
+    checkURLParameter();
+  });
+
 function checkURLParameter() {
   const urlParams = new URLSearchParams(window.location.search);
   const targetId = urlParams.get('id');
@@ -609,28 +631,6 @@ function checkURLParameter() {
     }
   }
 }
-
-// 데이터 로드
-fetch('classic.json')
-  .then(r => r.json())
-  .then(j => {
-    // classic.json 구조에 따라 유연하게 로드
-    demonData = j.levels || j.buttons || j || [];
-    changeHistory = j.history || [];
-    
-    // 로드 후 렌더링
-    generateList(demonData);
-    renderHistory();
-    if (demonData.length > 0) showDetail(demonData[0]);
-  })
-  .catch(err => {
-    console.error('JSON 로드 실패 또는 파일 없음', err);
-    // 더미 데이터 (테스트용)
-    if(demonData.length === 0) {
-       demonData = []; // 빈 배열
-    }
-  });
-
 
 // 개발자 모드용 변수
 let devSelectedTags = new Set();
@@ -1241,4 +1241,5 @@ async function saveClassicJSON() {
 </script>
 </body>
 </html>
+
 
