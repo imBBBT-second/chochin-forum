@@ -1251,16 +1251,24 @@ async function saveClassicJSON() {
     console.warn('서버 저장 실패 (로컬 환경일 수 있음)');
   }
 }
+
+function updateFilter() {
+  const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+
+  // 제목뿐만 아니라 태그 배열도 검색 대상에 포함하도록 수정
+  filteredLevels = allLevels.filter(lvl => {
+    const titleMatch = lvl.title.toLowerCase().includes(searchTerm);
+    
+    // tags 배열 안에 검색어가 포함되어 있는지 확인
+    const tagMatch = lvl.tags && lvl.tags.some(tag => 
+      tag.toLowerCase().includes(searchTerm)
+    );
+
+    return titleMatch || tagMatch;
+  });
+
+  renderButtons();
+}
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
