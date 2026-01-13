@@ -17,6 +17,12 @@ html, body {
 }
 * { box-sizing: border-box; }
 
+/* [수정] 모든 링크의 파란색 밑줄 제거 */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 /* 폰트 설정 */
 @font-face { font-family: Paperlogy1; src: url('font - paperlogy/Paperlogy-1.ttf'); }
 @font-face { font-family: Paperlogy2; src: url('font - paperlogy/Paperlogy-2.ttf'); }
@@ -28,7 +34,7 @@ html, body {
 @font-face { font-family: Paperlogy8; src: url('font - paperlogy/Paperlogy-8.ttf'); }
 @font-face { font-family: Paperlogy9; src: url('font - paperlogy/Paperlogy-9.ttf'); }
 
-/* --- [수정됨] 계정 바 스타일 (Mappack과 통일) --- */
+/* --- 계정 바 스타일 --- */
 .auth-bar {
   background: #202020;
   padding: 10px 20px;
@@ -192,7 +198,6 @@ input#search {
   color: #000000;
 }
 
-/* 클리어 시 초록색 강조 */
 .item.cleared {
   background-color: #2e4a2e !important;
   border-left: 6px solid #4f9;
@@ -492,7 +497,6 @@ input#search {
 </div>
 
 <script>
-// --- 전역 변수 ---
 const TAG_GROUPS = {
   '주 게임모드': ['Cube', 'Ship', 'Ball', 'UFO', 'Wave', 'Robot', 'Spider', 'Swing', 'Any-Mode'],
   '속도': ['0.5x', '1x', '2x', '3x', '4x', 'Any-Speed'],
@@ -522,7 +526,6 @@ let changeHistory = [];
 let filteredData = [];
 let currentUser = localStorage.getItem('currentUser') || null;
 
-// --- 초기화 ---
 window.onload = function() {
   fetch('classic.json')
     .then(r => r.json())
@@ -531,7 +534,10 @@ window.onload = function() {
       changeHistory = j.history || [];
       filteredData = [...demonData];
       
-      if(currentUser) document.getElementById('userStatus').innerText = `접속 계정: ${currentUser}`;
+      // [수정] 닉네임 표시 로직 순서 조정
+      if(currentUser) {
+        document.getElementById('userStatus').innerText = `접속 계정: ${currentUser}`;
+      }
       
       renderTagFilterButtons();
       generateList(filteredData);
@@ -541,17 +547,16 @@ window.onload = function() {
     })
     .catch(err => {
       console.error(err);
-      document.getElementById('list').innerHTML = `<div style="color:white;text-align:center;">데이터 로드 실패</div>`;
+      document.getElementById('list').innerHTML = `<div style="color:white;text-align:center;padding:20px;">데이터를 불러오는 데 실패했습니다.</div>`;
     });
 };
 
-// --- 계정 및 클리어 체크 ---
 function login() {
   const name = prompt("본인의 닉네임을 입력해줘 (클리어 명단/검증자와 일치해야 함):");
   if (!name) return;
 
   currentUser = name;
-  localStorage.setItem('currentUser', name); // mappack.html과 공유됨
+  localStorage.setItem('currentUser', name);
   document.getElementById('userStatus').innerText = `접속 계정: ${name}`;
   alert(`${name}님 환영해!`);
   
@@ -568,7 +573,6 @@ function checkIfCleared(item) {
   return isInClearList || isVerifier;
 }
 
-// --- 렌더링 함수들 ---
 function generateList(data) {
   const list = document.getElementById('list');
   list.innerHTML = '';
@@ -598,16 +602,20 @@ function showDetail(item, element) {
   document.querySelectorAll('.item.active').forEach(el => el.classList.remove('active'));
   if (element) element.classList.add('active');
 
-  // 제목 및 기본 정보
   document.getElementById('detailTitle').textContent = item.title;
   document.getElementById('detailCreator').textContent =
     item.creator === item.verifier
       ? `by ${item.creator}`
       : `by ${item.creator} / Verified by ${item.verifier}`;
 
-  document.getElementById('detailVideo').src = item.video || '';
+  // [수정] 비디오가 없을 경우 iframe 비우기
+  const videoFrame = document.getElementById('detailVideo');
+  if (item.video) {
+    videoFrame.src = item.video;
+  } else {
+    videoFrame.src = "about:blank";
+  }
 
-  // 1. 정보 섹션
   const info = document.getElementById('infoSection');
   info.innerHTML = '';
   if (item.map) {
@@ -621,7 +629,6 @@ function showDetail(item, element) {
     `;
   }
 
-  // 2. 그래프 섹션
   const graph = document.getElementById('graphSection');
   graph.innerHTML = '';
   if (item.gameplay) {
@@ -629,7 +636,6 @@ function showDetail(item, element) {
     graph.innerHTML += makeRatioGraph('속도 비율', item.gameplay.speedRatio);
   }
   if (item.framePerfect) {
-    // FPS 그래프 로직 (생략 없이 포함)
     const total = item.framePerfect.total || 0;
     const fps = item.framePerfect.fps || {};
     graph.innerHTML += `
@@ -645,7 +651,6 @@ function showDetail(item, element) {
       </div>`;
   }
 
-  // 3. 태그
   document.getElementById('detailDescription').innerHTML = '';
   if (item.tags?.length) {
     const tagsHtml = item.tags.map(t => 
@@ -657,7 +662,6 @@ function showDetail(item, element) {
     document.getElementById('detailDescription').appendChild(tagBox);
   }
 
-  // 4. 클리어 명단
   const clearBox = document.getElementById('detailClears');
   clearBox.innerHTML = '';
   if (item.clears?.length) {
@@ -666,7 +670,8 @@ function showDetail(item, element) {
       row.className = `clear-row rank-${i + 1}`;
       const percentClass = c.percent === 100 ? 'full' : '';
       const youtube = PLAYER_YOUTUBE[c.player];
-      const playerHTML = youtube ? `<a href="${youtube}" target="_blank" style="text-decoration:underline;">${c.player}</a>` : c.player;
+      // [수정됨] PLAYER_YOUTUBE 링크에 파란 밑줄 생기는 것 방지됨 (CSS 추가 효과)
+      const playerHTML = youtube ? `<a href="${youtube}" target="_blank">${c.player}</a>` : c.player;
       row.innerHTML = `
         <div class="clear-rank">${i + 1}</div>
         <div class="clear-player">${playerHTML}</div>
@@ -694,7 +699,6 @@ function makeRatioGraph(title, data, suffix = '%') {
   `;
 }
 
-// --- 필터링 & 검색 ---
 function renderTagFilterButtons() {
   const container = document.getElementById('tagCategoryContainer');
   container.innerHTML = Object.entries(FILTER_CATEGORIES).map(([catName, tags]) => `
@@ -716,7 +720,6 @@ function searchByTag(tagName) {
 
 function updateFilter() {
   const term = document.getElementById('search').value.toLowerCase().trim();
-  // 버튼 활성화 스타일
   document.querySelectorAll('.filter-tag-btn').forEach(btn => {
     if (btn.innerText.toLowerCase() === `#${term}`) btn.classList.add('active');
     else btn.classList.remove('active');
@@ -729,9 +732,13 @@ function updateFilter() {
   });
 
   generateList(filteredData);
+  
+  // [수정] 필터링 시 첫 번째 아이템 상세 정보 자동 갱신
+  if (filteredData.length > 0) {
+    showDetail(filteredData[0]);
+  }
 }
 
-// --- 변경 이력 & 개발자 패널 (기능 보존) ---
 function renderHistory() {
   const box = document.getElementById('historyBox');
   box.innerHTML = `
@@ -745,6 +752,7 @@ function renderHistory() {
     </div>
   `;
 }
+
 function historyColor(type) {
   if (type === 'add') return '#6fff6f';
   if (type === 'rank-change') return '#6fa8ff';
@@ -752,7 +760,6 @@ function historyColor(type) {
   return '#ccc';
 }
 
-// 개발자 패널 단축키
 document.addEventListener('keydown', e => {
   if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'e') {
     const panel = document.getElementById('devPanel');
@@ -763,12 +770,14 @@ document.addEventListener('keydown', e => {
     }
   }
 });
+
 function renderDevHome() {
   document.getElementById('devContent').innerHTML = `
     <button class="header-btn" onclick="alert('기능 구현 필요 (이전 코드 참조)')">레벨 관리</button>
     <button class="header-btn" onclick="document.getElementById('devPanel').classList.remove('open')" style="margin-top:20px;">닫기</button>
   `;
 }
+
 function exportJson() {
   const data = { levels: demonData, history: changeHistory };
   const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
