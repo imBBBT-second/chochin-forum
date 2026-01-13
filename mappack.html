@@ -191,6 +191,29 @@ a { color: inherit; text-decoration: none; }
 .dev-content { padding: 20px; overflow-y: auto; flex: 1; }
 .dev-input { width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 6px; border: none; font-family: Paperlogy5; }
 .dev-label { color: #fff; margin-bottom: 5px; display: block; font-family: Paperlogy4; }
+
+/* 개별 레벨이 클리어되었을 때 */
+.level-item.cleared {
+  background-color: #2e4a2e !important;
+  color: #4f9 !important;
+}
+
+/* 맵 팩 전체를 클리어했을 때 (카드 테두리와 배경 강조) */
+.mappack-card.all-cleared {
+  background-color: #1e3a1e !important;
+  border: 3px solid #4f9 !important;
+  box-shadow: 0 0 15px rgba(79, 255, 153, 0.3);
+}
+
+/* 체크 표시 아이콘 */
+.check-mark {
+  color: #4f9;
+  margin-left: 5px;
+  display: none;
+}
+.level-item.cleared .check-mark {
+  display: inline;
+}
 </style>
 </head>
 
@@ -273,22 +296,37 @@ function initPage() {
   if(packData.length > 0) showPackDetail(packData[0]);
 }
 
-function renderList(data) {
-  const list = document.getElementById('packList');
-  list.innerHTML = '';
-  data.forEach(pack => {
-    const div = document.createElement('div');
-    div.className = 'item';
-    const tierColor = TIER_COLORS[pack.tier] || "#ffffff";
-    div.innerHTML = `
-      <div class="pack-tier" style="color: ${tierColor}">${pack.tier}</div>
-      <div>
-        <div class="title">${pack.title}</div>
-        <div class="creator">by ${pack.creator}</div>
-      </div>
+function renderList() {
+  const container = document.getElementById('mappackContainer');
+  container.innerHTML = '';
+
+  mapPacks.forEach(pack => {
+    let clearedCount = 0;
+    
+    // 팩 내부 레벨들의 HTML 생성
+    const levelsHTML = pack.levels.map(title => {
+      const cleared = checkIfLevelCleared(title);
+      if (cleared) clearedCount++;
+      
+      return `
+        <div class="level-item ${cleared ? 'cleared' : ''}">
+          <span>${title}</span>
+          <span class="check-mark">✅</span>
+        </div>
+      `;
+    }).join('');
+
+    // 모든 레벨을 다 깼는지 확인
+    const isAllCleared = clearedCount === pack.levels.length && pack.levels.length > 0;
+
+    const packCard = document.createElement('div');
+    packCard.className = `mappack-card ${isAllCleared ? 'all-cleared' : ''}`;
+    packCard.innerHTML = `
+      <div class="mappack-title">${pack.title}</div>
+      <div class="progress">Progress: ${clearedCount} / ${pack.levels.length}</div>
+      <div class="level-list">${levelsHTML}</div>
     `;
-    div.onclick = () => showPackDetail(pack, div);
-    list.appendChild(div);
+    container.appendChild(packCard);
   });
 }
 
@@ -459,6 +497,38 @@ function exportJson() {
   a.href = URL.createObjectURL(blob);
   a.download = 'mappack.json';
   a.click();
+}
+
+// classic.html에서 저장한 계정 정보를 가져옴
+let currentUser = localStorage.getItem('currentUser') || null;
+
+function checkIfLevelCleared(levelTitle) {
+  if (!currentUser) return false;
+  
+  // demonData는 classic.json에서 가져온 레벨 배열
+  const levelData = demonData.find(l => l.title === levelTitle);
+  if (!levelData) return false;
+
+  const name = currentUser.toLowerCase();
+
+  // 1. 클리어 명단에 100% 기록이 있는지 확인
+  const isCleared = levelData.clears && levelData.clears.some(c => 
+    c.player.toLowerCase() === name && Number(c.percent) === 100
+  );
+  
+  // 2. 검증자(Verifier)인지 확인
+  const isVerifier = levelData.verifier && levelData.verifier.toLowerCase() === name;
+
+  return isCleared || isVerifier;
+}
+
+function selectAccount() {
+  const name = prompt("본인의 닉네임을 입력해줘:");
+  if (name) {
+    currentUser = name;
+    localStorage.setItem('currentUser', name); // 브라우저에 저장해서 페이지 이동해도 유지
+    renderMapPacks(); // 즉시 다시 그리기
+  }
 }
 </script>
 </body>
