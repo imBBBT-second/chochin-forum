@@ -654,6 +654,29 @@ function generateList(data) {
         <div class="creator">${item.creator}</div>
       </div>
     `;
+    // showDetail 함수 내 태그 생성 부분 수정
+const tagsHtml = (lvl.tags || []).map(t => `
+  <span 
+    onclick="searchByTag('${t}')" 
+    style="
+      cursor:pointer; 
+      background:#444; 
+      color:#fff; 
+      padding:4px 8px; 
+      border-radius:4px; 
+      margin-right:5px; 
+      font-size:0.85rem;
+      transition: background 0.2s;
+    "
+    onmouseover="this.style.background='#666'"
+    onmouseout="this.style.background='#444'"
+  >
+    #${t}
+  </span>
+`).join('');
+
+// 이후 세부 정보 창의 HTML에 tagsHtml을 넣는 곳에 적용
+// 예: <div>태그: ${tagsHtml}</div>
     div.onclick = () => showDetail(item, div);
     list.appendChild(div);
   });
@@ -737,6 +760,10 @@ function showDetail(item, element) {
   // 태그 섹션
   if (item.tags?.length) {
     addSection('태그', renderTagGroups(item.tags));
+`).join('');
+
+// 이후 세부 정보 창의 HTML에 tagsHtml을 넣는 곳에 적용
+// 예: <div>태그: ${tagsHtml}</div>
   }
 
   // 기록 명단
@@ -1252,23 +1279,22 @@ async function saveClassicJSON() {
   }
 }
 
-function updateFilter() {
-  const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+// 태그 클릭 시 호출되는 함수
+function searchByTag(tagName) {
+  const searchInput = document.getElementById('searchInput');
+  if (!searchInput) return;
 
-  // 제목뿐만 아니라 태그 배열도 검색 대상에 포함하도록 수정
-  filteredLevels = allLevels.filter(lvl => {
-    const titleMatch = lvl.title.toLowerCase().includes(searchTerm);
-    
-    // tags 배열 안에 검색어가 포함되어 있는지 확인
-    const tagMatch = lvl.tags && lvl.tags.some(tag => 
-      tag.toLowerCase().includes(searchTerm)
-    );
-
-    return titleMatch || tagMatch;
-  });
-
-  renderButtons();
+  // 검색창에 태그 이름 입력
+  searchInput.value = tagName;
+  
+  // 필터 업데이트 실행
+  updateFilter();
+  
+  // (선택 사항) 상세창이 열려 있다면 닫고 메인으로 스크롤
+  // closeDetail(); 
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
 </body>
 </html>
+
