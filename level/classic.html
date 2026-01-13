@@ -557,7 +557,7 @@ function login() {
 
   currentUser = name;
   localStorage.setItem('currentUser', name);
-  document.getElementById('userStatus').innerText = `접속 계정: ${name}`;
+  document.getElementById('userStatus').innerText = `접속 계정 : ${name}`;
   alert(`${name}님, 환영합니다!`);
   
   generateList(filteredData);
@@ -789,6 +789,7 @@ function exportJson() {
 </script>
 </body>
 </html>
+
 
 
 
