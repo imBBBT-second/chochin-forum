@@ -570,7 +570,7 @@ fetch('classic.json')
   })
   .catch(err => {
     console.error('JSON 로드 실패:', err);
-    document.getElementById('list').innerHTML = `<div style="color:white;text-align:center;">데이터 로드 오류<br>파일명이 classic.json인지 확인해줘!</div>`;
+    document.getElementById('list').innerHTML = `<div style="color:white;text-align:center;">데이터 로드 오류</div>`;
   });
 
 /* ================= 핵심 로직: 검색 및 필터 ================= */
@@ -647,23 +647,23 @@ function checkURLParameter() {
 }
 
 /* ================= 렌더링 함수들 ================= */
-
 function generateList(data) {
   const list = document.getElementById('list');
   list.innerHTML = '';
-  
-  if (data.length === 0) {
-    list.innerHTML = '<div style="color:#aaa; text-align:center; margin-top:20px;">검색 결과가 없습니다.</div>';
-    return;
-  }
 
   data.forEach(item => {
+    const isCleared = checkIfCleared(item); // 자동 체크 로직 사용
     const div = document.createElement('div');
-    div.className = 'item';
+    
+    // 클리어 여부에 따라 cleared 클래스 추가
+    div.className = `item ${isCleared ? 'cleared' : ''}`;
+    
     div.innerHTML = `
       <div class="rank">${item.id}</div>
       <div>
-        <div class="title">${item.title}</div>
+        <div class="title">
+          ${item.title} ${isCleared ? '<span class="clear-check">✅</span>' : ''}
+        </div>
         <div class="creator">${item.creator}</div>
       </div>
     `;
@@ -1057,49 +1057,33 @@ let currentUser = null; // 현재 선택된 계정
 
 // 계정 선택(로그인) 함수
 function login() {
-  const name = prompt("본인의 닉네임을 입력해줘 (클리어 명단과 일치해야 해):");
+  const name = prompt("닉네임을 입력해주세요.");
   if (!name) return;
 
   currentUser = name;
-  alert(`${name} 계정으로 접속했어. 클리어한 레벨은 초록색으로 표시될 거야!`);
+  alert(`${name}님, 환영합니다!`);
   
   // 리스트를 다시 그려서 초록색 적용
   generateList(filteredData);
 }
 
 // [핵심] 클리어 여부 확인 함수
-// 해당 레벨의 clears 배열 안에 현재 사용자의 이름이 있는지 확인
-function checkIfCleared(levelItem) {
-  if (!currentUser || !levelItem.clears) return false;
-  return levelItem.clears.some(c => c.player.toLowerCase() === currentUser.toLowerCase());
-}
+function checkIfCleared(item) {
+  if (!currentUser) return false;
+  const name = currentUser.toLowerCase();
 
-function generateList(data) {
-  const list = document.getElementById('list');
-  list.innerHTML = '';
+  // 1. 클리어 명단에 있는지 확인
+  const isInClearList = item.clears && item.clears.some(c => c.player.toLowerCase() === name);
+  
+  // 2. 검증자(Verifier)인지 확인
+  const isVerifier = item.verifier && item.verifier.toLowerCase() === name;
 
-  data.forEach(item => {
-    const isCleared = checkIfCleared(item); // 자동 체크 로직 사용
-    const div = document.createElement('div');
-    
-    // 클리어 여부에 따라 cleared 클래스 추가
-    div.className = `item ${isCleared ? 'cleared' : ''}`;
-    
-    div.innerHTML = `
-      <div class="rank">${item.id}</div>
-      <div>
-        <div class="title">
-          ${item.title} ${isCleared ? '<span class="clear-check">✅</span>' : ''}
-        </div>
-        <div class="creator">${item.creator}</div>
-      </div>
-    `;
-    div.onclick = () => showDetail(item, div);
-    list.appendChild(div);
-  });
+  // 제작자(creator)는 조건에서 제외됨
+  return isInClearList || isVerifier;
 }
 </script>
 </body>
 </html>
+
 
 
