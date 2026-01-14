@@ -500,6 +500,49 @@ input#search {
   font-weight: 600;
   cursor: default;
 }
+
+/* 변경 이력 패널 전체 디자인 */
+.history-panel {
+  width: calc(100% - 40px);
+  margin: 20px auto 40px auto;
+  background: #252525;
+  border-radius: 12px;
+  padding: 30px;
+  border: 1px solid #444;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: #333;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border-left: 5px solid #888; /* 기본 왼쪽 선 */
+  gap: 20px;
+}
+
+/* 타입별 색상 강조 (Pointercrate/AREDL 스타일) */
+.history-item.add { border-left-color: #2ecc71; }        /* 초록: 추가 */
+.history-item.move { border-left-color: #3498db; }       /* 파랑: 순위 이동 */
+.history-item.remove { border-left-color: #e74c3c; }     /* 빨강: 제거 */
+.history-item.info { border-left-color: #f1c40f; }       /* 노랑: 기록/정보 수정 */
+
+.history-tag {
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-family: Paperlogy7;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: #fff;
+  min-width: 80px;
+  text-align: center;
+}
+
+.add .history-tag { background: #2ecc71; }
+.move .history-tag { background: #3498db; }
+.remove .history-tag { background: #e74c3c; }
+.info .history-tag { background: #f1c40f; color: #000; }
 </style>
 </head>
 
@@ -817,24 +860,30 @@ function updateFilter() {
 }
 
 function renderHistory() {
-  const box = document.getElementById('historyBox');
-  box.innerHTML = `
-    <div style="font-family:Paperlogy9; font-size:2.4rem; text-align:center; color:white; position:sticky; top:0; background:#323232; padding-bottom:15px; z-index:10; border-bottom: 2px solid #555;">변경 이력</div>
-    <div style="margin-top:15px;">
-      ${changeHistory.slice(0, 100).map(h => `
-        <div style="margin-top:8px; font-family:Paperlogy3; font-size:0.95rem; color:#ccc; border-bottom:1px solid #444; padding-bottom:6px;">
-          <span style="color:#aaa;">${h.time}</span> | <b style="color:${historyColor(h.type)}">${h.title}</b> | ${h.detail}
-        </div>
-      `).join('')}
-    </div>
-  `;
-}
+  const list = document.getElementById('historyList'); // 이력이 담길 div ID
+  list.innerHTML = '';
 
-function historyColor(type) {
-  if (type === 'add') return '#6fff6f';
-  if (type === 'rank-change') return '#6fa8ff';
-  if (type === 'reach') return '#ffcc66';
-  return '#ccc';
+  changeHistory.forEach(h => {
+    let typeClass = 'info';
+    let typeLabel = 'INFO';
+
+    // json의 type 값에 따라 라벨 분류
+    if (h.type === 'add') { typeClass = 'add'; typeLabel = 'ADDED'; }
+    else if (h.type === 'rank-change' || h.type === 'move') { typeClass = 'move'; typeLabel = 'MOVED'; }
+    else if (h.type === 'remove') { typeClass = 'remove'; typeLabel = 'REMOVED'; }
+
+    const item = document.createElement('div');
+    item.className = `history-item ${typeClass}`;
+    
+    item.innerHTML = `
+      <div class="history-date" style="color:#aaa; min-width:100px;">${h.time.split(' ')[0]}</div>
+      <div class="history-tag">${typeLabel}</div>
+      <div class="history-content" style="color:#eee; flex:1;">
+        <b style="color:#fff;">${h.title}</b> ${h.detail}
+      </div>
+    `;
+    list.appendChild(item);
+  });
 }
 
 document.addEventListener('keydown', e => {
@@ -866,6 +915,7 @@ function exportJson() {
 </script>
 </body>
 </html>
+
 
 
 
