@@ -729,90 +729,107 @@ function generateList(data) {
 }
 
 function showDetail(item, element) {
-  // 1. 활성화 표시 관리
+  // 1. 리스트 아이템 활성화 표시 관리
   document.querySelectorAll('.item').forEach(i => i.classList.remove('active'));
-  if(element) element.classList.add('active');
+  if (element) element.classList.add('active');
 
-  // 2. 요소 확인 (에러 방지 핵심)
+  // 2. 필수 HTML 요소 확인 (에러 방지)
   const clearBox = document.getElementById('detailClears');
+  const detailTitle = document.getElementById('detailTitle');
   
-  // 만약 HTML에 ID가 없으면 에러를 내지 않고 종료
-  if (!clearBox) {
-    cㅐnsole.error("에러: detailPanel 또는 detailClears 요소를 찾을 수 없어!");
+  if (!clearBox || !detailTitle) {
+    console.error("에러: detailTitle 또는 detailClears 요소를 찾을 수 없어! HTML ID를 확인해줘.");
     return;
   }
 
-  document.getElementById('detailTitle').textContent = item.title;
-  document.getElementById('detailCreator').textContent =
-    item.creator === item.verifier
-      ? `by ${item.creator}`
-      : `by ${item.creator} / Verified by ${item.verifier}`;
+  // 3. 상단 기본 정보 (제목 및 제작자/베리파이어) 렌더링
+  detailTitle.textContent = item.title;
+  const detailCreator = document.getElementById('detailCreator');
+  if (detailCreator) {
+    detailCreator.textContent =
+      item.creator === item.verifier
+        ? `by ${item.creator}`
+        : `by ${item.creator} / Verified by ${item.verifier}`;
+  }
 
-  // [수정] 비디오가 없을 경우 iframe 비우기
+  // 4. 비디오 설정
   const videoFrame = document.getElementById('detailVideo');
-  if (item.video) {
-    videoFrame.src = item.video;
-  } else {
-    videoFrame.src = "about:blank";
+  if (videoFrame) {
+    videoFrame.src = item.video ? item.video : "about:blank";
   }
 
+  // 5. 상세 정보 섹션 (ID, 길이, 오브젝트 등)
   const info = document.getElementById('infoSection');
-  info.innerHTML = '';
-  if (item.map) {
-    info.innerHTML += `
-      <div class="info-row">
-        <span>맵 ID : ${item.map.mapId || '-'}</span>
-        <span>길이 : ${item.map.length || '-'}</span>
-        <span>오브젝트 : ${item.map.objects?.toLocaleString() || '0'}</span>
-        <span>날짜 : ${item.map.uploadDate || '-'}</span>
-      </div>
-    `;
+  if (info) {
+    info.innerHTML = '';
+    if (item.map) {
+      info.innerHTML = `
+        <div class="info-row">
+          <span>맵 ID : ${item.map.mapId || '-'}</span>
+          <span>길이 : ${item.map.length || '-'}</span>
+          <span>오브젝트 : ${item.map.objects?.toLocaleString() || '0'}</span>
+          <span>날짜 : ${item.map.uploadDate || '-'}</span>
+        </div>
+      `;
+    }
   }
 
+  // 6. 그래프 섹션 (게임모드 및 속도 비율)
   const graph = document.getElementById('graphSection');
-  graph.innerHTML = '';
-  if (item.gameplay) {
-    graph.innerHTML += makeRatioGraph('게임모드 비율', item.gameplay.modeRatio);
-    graph.innerHTML += makeRatioGraph('속도 비율', item.gameplay.speedRatio);
-  }
-  if (item.framePerfect) {
-    const total = item.framePerfect.total || 0;
-    const fps = item.framePerfect.fps || {};
-    graph.innerHTML += `
-      <div class="graph-box">
-        <div class="graph-title">프레임 퍼펙트 <span class="graph-total">(Total : ${total})</span></div>
-        ${Object.entries(fps).map(([k, v]) => `
-          <div class="graph-row">
-            <div class="graph-label">${k}</div>
-            <div class="graph-bar-bg"><div class="graph-bar" data-key="${k}" style="width:${total>0?(v/total)*100:0}%"></div></div>
-            <div class="graph-value">${v}</div>
-          </div>
-        `).join('')}
-      </div>`;
+  if (graph) {
+    graph.innerHTML = '';
+    if (item.gameplay) {
+      graph.innerHTML += makeRatioGraph('게임모드 비율', item.gameplay.modeRatio);
+      graph.innerHTML += makeRatioGraph('속도 비율', item.gameplay.speedRatio);
+    }
+    if (item.framePerfect) {
+      const total = item.framePerfect.total || 0;
+      const fps = item.framePerfect.fps || {};
+      graph.innerHTML += `
+        <div class="graph-box">
+          <div class="graph-title">프레임 퍼펙트 <span class="graph-total">(Total : ${total})</span></div>
+          ${Object.entries(fps).map(([k, v]) => `
+            <div class="graph-row">
+              <div class="graph-label">${k}</div>
+              <div class="graph-bar-bg"><div class="graph-bar" data-key="${k}" style="width:${total > 0 ? (v / total) * 100 : 0}%"></div></div>
+              <div class="graph-value">${v}</div>
+            </div>
+          `).join('')}
+        </div>`;
+    }
   }
 
-  document.getElementById('detailDescription').innerHTML = '';
-  if (item.tags?.length) {
-    const tagsHtml = item.tags.map(t => 
-      `<span class="tag" onclick="searchByTag('${t}')">#${t}</span>`
-    ).join('');
-    const tagBox = document.createElement('div');
-    tagBox.className = 'section';
-    tagBox.innerHTML = `<div class="section-title">태그</div><div class="tag-group-container">${tagsHtml}</div>`;
-    document.getElementById('detailDescription').appendChild(tagBox);
+  // 7. 태그 섹션
+  const description = document.getElementById('detailDescription');
+  if (description) {
+    description.innerHTML = '';
+    if (item.tags?.length) {
+      const tagsHtml = item.tags.map(t => 
+        `<span class="tag" onclick="searchByTag('${t}')">#${t}</span>`
+      ).join('');
+      const tagBox = document.createElement('div');
+      tagBox.className = 'section';
+      tagBox.innerHTML = `<div class="section-title">태그</div><div class="tag-group-container">${tagsHtml}</div>`;
+      description.appendChild(tagBox);
+    }
   }
-  const levelSpecificHistory = changeHistory.filter(h => h.title === item.title);
-  renderHistory(item.title);
-  
+
+  // 8. [핵심] 변경 이력 연동 (Pointercrate 방식)
+  // renderHistory 함수가 HTML 내 'historyList'에 필터링된 기록을 뿌려줌
+  if (typeof renderHistory === 'function') {
+    renderHistory(item.title);
+  }
+
+  // 9. 기록 명단(Clears) 렌더링
   clearBox.innerHTML = '';
   if (item.clears?.length) {
     item.clears.forEach((c, i) => {
       const row = document.createElement('div');
       row.className = `clear-row rank-${i + 1}`;
       const percentClass = c.percent === 100 ? 'full' : '';
-      const youtube = PLAYER_YOUTUBE[c.player];
-      // [수정됨] PLAYER_YOUTUBE 링크에 파란 밑줄 생기는 것 방지됨 (CSS 추가 효과)
+      const youtube = typeof PLAYER_YOUTUBE !== 'undefined' ? PLAYER_YOUTUBE[c.player] : null;
       const playerHTML = youtube ? `<a href="${youtube}" target="_blank">${c.player}</a>` : c.player;
+      
       row.innerHTML = `
         <div class="clear-rank">${i + 1}</div>
         <div class="clear-player">${playerHTML}</div>
@@ -823,7 +840,7 @@ function showDetail(item, element) {
     });
   }
 }
-
+  
 function makeRatioGraph(title, data, suffix = '%') {
   if (!data || Object.keys(data).length === 0) return '';
   return `
@@ -931,6 +948,7 @@ function getHistoryColor(type) {
 </script>
 </body>
 </html>
+
 
 
 
