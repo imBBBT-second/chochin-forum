@@ -605,7 +605,6 @@ input#search {
       <div id="detailDescription"></div>
     </div>
     <p class="fp-warning">※ 프레임 퍼펙트는 정확하지 않습니다 ※</p>
-    <div id="detailPanel"></div>
   </div>
 
   <div class="detail-panel clears-panel">
@@ -615,7 +614,8 @@ input#search {
 </div>
 
 <div class="history-panel">
-  <div id="historyBox"></div>
+  <div class="history-title" style="font-family:Paperlogy9; color:#fff; font-size:2rem; text-align:center;">CHANGELOG</div>
+  <div id="historyList"></div> 
 </div>
 
 <div id="devPanel" class="dev-panel">
@@ -734,7 +734,6 @@ function showDetail(item, element) {
   if(element) element.classList.add('active');
 
   // 2. 요소 확인 (에러 방지 핵심)
-  const panel = document.getElementById('detailPanel');
   const clearBox = document.getElementById('detailClears');
   
   // 만약 HTML에 ID가 없으면 에러를 내지 않고 종료
@@ -854,6 +853,7 @@ function showDetail(item, element) {
       clearBox.appendChild(row);
     });
   }
+  renderHistory(item.title);
 }
 
 function makeRatioGraph(title, data, suffix = '%') {
@@ -912,25 +912,27 @@ function updateFilter() {
   }
 }
   
-function renderHistory() {
-  const list = document.getElementById('historyList'); // 이력이 담길 div ID
-  if (!list) return; // 요소가 없으면 실행하지 않음 (에러 방지)
-  
-  // 만약 전체 이력을 보여주는 페이지가 따로 있다면 여기서 처리
-  list.innerHTML = ''; 
+function renderHistory(targetTitle = null) {
+  const list = document.getElementById('historyList');
+  if (!list) return; // [에러 방지] 요소가 없으면 실행 안 함
 
-  changeHistory.forEach(h => {
+  list.innerHTML = ''; // 기존 내용 비우기
+
+  // targetTitle이 있으면 해당 레벨 이력만, 없으면 전체 이력 표시
+  const displayData = targetTitle 
+    ? changeHistory.filter(h => h.title === targetTitle)
+    : changeHistory;
+
+  displayData.forEach(h => {
     let typeClass = 'info';
     let typeLabel = 'INFO';
-
-    // json의 type 값에 따라 라벨 분류
     if (h.type === 'add') { typeClass = 'add'; typeLabel = 'ADDED'; }
-    else if (h.type === 'rank-change' || h.type === 'move') { typeClass = 'move'; typeLabel = 'MOVED'; }
+    else if (h.type === 'move' || h.type === 'rank-change') { typeClass = 'move'; typeLabel = 'MOVED'; }
     else if (h.type === 'remove') { typeClass = 'remove'; typeLabel = 'REMOVED'; }
 
     const item = document.createElement('div');
     item.className = `history-item ${typeClass}`;
-    
+    // 네가 기존에 쓰던 스타일 그대로 유지
     item.innerHTML = `
       <div class="history-date" style="color:#aaa; min-width:100px;">${h.time.split(' ')[0]}</div>
       <div class="history-tag">${typeLabel}</div>
@@ -941,17 +943,6 @@ function renderHistory() {
     list.appendChild(item);
   });
 }
-
-document.addEventListener('keydown', e => {
-  if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'e') {
-    const panel = document.getElementById('devPanel');
-    if (panel.classList.contains('open')) panel.classList.remove('open');
-    else if (prompt('개발자 비밀번호') === DEV_PASSWORD) {
-      panel.classList.add('open');
-      renderDevHome();
-    }
-  }
-});
 
 function renderDevHome() {
   document.getElementById('devContent').innerHTML = `
@@ -979,6 +970,7 @@ function getHistoryColor(type) {
 </script>
 </body>
 </html>
+
 
 
 
