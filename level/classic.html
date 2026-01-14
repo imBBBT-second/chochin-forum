@@ -728,36 +728,31 @@ function generateList(data) {
 }
 
 function showDetail(item, element) {
-  // 1. 리스트 아이템 활성화 표시 관리
+  // 1. 활성화 표시 관리
   document.querySelectorAll('.item').forEach(i => i.classList.remove('active'));
-  if (element) element.classList.add('active');
+  if(element) element.classList.add('active');
 
-  // 2. 필수 HTML 요소 확인 (에러 방지)
+  // 2. 요소 확인 (에러 방지)
   const clearBox = document.getElementById('detailClears');
-  const detailTitle = document.getElementById('detailTitle');
-  
-  if (!clearBox || !detailTitle) {
-    console.error("에러: detailTitle 또는 detailClears 요소를 찾을 수 없어! HTML ID를 확인해줘.");
+  if (!clearBox) {
+    console.error("에러: detailClears 요소를 찾을 수 없어!");
     return;
   }
 
-  // 3. 상단 기본 정보 (제목 및 제작자/베리파이어) 렌더링
-  detailTitle.textContent = item.title;
-  const detailCreator = document.getElementById('detailCreator');
-  if (detailCreator) {
-    detailCreator.textContent =
-      item.creator === item.verifier
-        ? `by ${item.creator}`
-        : `by ${item.creator} / Verified by ${item.verifier}`;
-  }
+  // 3. 기본 정보 업데이트
+  document.getElementById('detailTitle').textContent = item.title;
+  document.getElementById('detailCreator').textContent =
+    item.creator === item.verifier
+      ? `by ${item.creator}`
+      : `by ${item.creator} / Verified by ${item.verifier}`;
 
-  // 4. 비디오 설정
+  // 4. 비디오 처리
   const videoFrame = document.getElementById('detailVideo');
   if (videoFrame) {
     videoFrame.src = item.video ? item.video : "about:blank";
   }
 
-  // 5. 상세 정보 섹션 (ID, 길이, 오브젝트 등)
+  // 5. 맵 정보 섹션 (ID, 길이 등)
   const info = document.getElementById('infoSection');
   if (info) {
     info.innerHTML = '';
@@ -773,7 +768,7 @@ function showDetail(item, element) {
     }
   }
 
-  // 6. 그래프 섹션 (게임모드 및 속도 비율)
+  // 6. 그래프 섹션
   const graph = document.getElementById('graphSection');
   if (graph) {
     graph.innerHTML = '';
@@ -781,58 +776,40 @@ function showDetail(item, element) {
       graph.innerHTML += makeRatioGraph('게임모드 비율', item.gameplay.modeRatio);
       graph.innerHTML += makeRatioGraph('속도 비율', item.gameplay.speedRatio);
     }
-    if (item.framePerfect) {
-      const total = item.framePerfect.total || 0;
-      const fps = item.framePerfect.fps || {};
-      graph.innerHTML += `
-        <div class="graph-box">
-          <div class="graph-title">프레임 퍼펙트 <span class="graph-total">(Total : ${total})</span></div>
-          ${Object.entries(fps).map(([k, v]) => `
-            <div class="graph-row">
-              <div class="graph-label">${k}</div>
-              <div class="graph-bar-bg"><div class="graph-bar" data-key="${k}" style="width:${total > 0 ? (v / total) * 100 : 0}%"></div></div>
-              <div class="graph-value">${v}</div>
-            </div>
-          `).join('')}
-        </div>`;
-    }
   }
 
-  // 7. 태그 섹션
+  // 7. 태그 및 설명 섹션
   const description = document.getElementById('detailDescription');
   if (description) {
     description.innerHTML = '';
     if (item.tags?.length) {
-      const tagsHtml = item.tags.map(t => 
-        `<span class="tag" onclick="searchByTag('${t}')">#${t}</span>`
-      ).join('');
-      const tagBox = document.createElement('div');
-      tagBox.className = 'section';
-      tagBox.innerHTML = `<div class="section-title">태그</div><div class="tag-group-container">${tagsHtml}</div>`;
-      description.appendChild(tagBox);
+      const tagsHtml = item.tags.map(t => `<span class="tag" onclick="searchByTag('${t}')">#${t}</span>`).join('');
+      description.innerHTML = `<div class="section"><div class="section-title">태그</div><div class="tag-group-container">${tagsHtml}</div></div>`;
     }
   }
 
-  // 8. [핵심] 변경 이력 연동 (Pointercrate 방식)
-  // renderHistory 함수가 HTML 내 'historyList'에 필터링된 기록을 뿌려줌
+  // --- [핵심 수정 부분: 변경 이력] ---
+  // levelSpecificHistory 변수를 정의만 하지 말고, 데이터가 있는지 콘솔로 확인해봐.
+  const levelSpecificHistory = changeHistory.filter(h => h.title === item.title);
+  
+  // 만약 renderHistory 함수가 내부적으로 changeHistory 전체를 사용한다면 
+  // 아래처럼 필터링된 데이터를 직접 넘겨주거나 함수를 수정해야 해.
   if (typeof renderHistory === 'function') {
-    renderHistory(item.title);
+    renderHistory(item.title); 
   }
 
-  // 9. 기록 명단(Clears) 렌더링
+  // 8. 기록 명단(Clears) 처리
   clearBox.innerHTML = '';
   if (item.clears?.length) {
     item.clears.forEach((c, i) => {
       const row = document.createElement('div');
       row.className = `clear-row rank-${i + 1}`;
-      const percentClass = c.percent === 100 ? 'full' : '';
       const youtube = typeof PLAYER_YOUTUBE !== 'undefined' ? PLAYER_YOUTUBE[c.player] : null;
       const playerHTML = youtube ? `<a href="${youtube}" target="_blank">${c.player}</a>` : c.player;
-      
       row.innerHTML = `
         <div class="clear-rank">${i + 1}</div>
         <div class="clear-player">${playerHTML}</div>
-        <div class="clear-percent ${percentClass}">${c.percent}%</div>
+        <div class="clear-percent ${c.percent === 100 ? 'full' : ''}">${c.percent}%</div>
         <div class="clear-date">${c.date || ''}</div>
       `;
       clearBox.appendChild(row);
@@ -947,6 +924,7 @@ function getHistoryColor(type) {
 </script>
 </body>
 </html>
+
 
 
 
