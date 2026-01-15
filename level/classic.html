@@ -1150,6 +1150,8 @@ function saveLevelForm(idx) {
     const percentInputs = document.querySelectorAll('.cl-v');
     const dateInputs = document.querySelectorAll('.cl-d');
     const newClears = [];
+    const placementInput = document.getElementById('f-placement');
+    let targetRank = placementInput ? parseInt(placementInput.value) - 1 : (isEdit ? idx : demonData.length);
 
     playerInputs.forEach((input, i) => {
       const pName = input.value.trim();
@@ -1315,6 +1317,7 @@ function addHistory(type, title, detail) {
 </script>
 </body>
 </html>
+
 
 
 
