@@ -758,13 +758,20 @@ function showDetail(item, element) {
     info.innerHTML = '';
     if (item.map) {
       info.innerHTML = `
-        <div class="info-row">
-          <span>맵 ID : ${item.map.mapId || '-'}</span>
-          <span>길이 : ${item.map.length || '-'}</span>
-          <span>오브젝트 : ${item.map.objects?.toLocaleString() || '0'}</span>
-          <span>날짜 : ${item.map.uploadDate || '-'}</span>
+      <div class="info-row" style="margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #555;">
+        <span><b>ID:</b> ${item.map?.mapId || '-'}</span>
+        <span><b>Length:</b> ${item.map?.length || '-'}</span>
+        <span><b>Objects:</b> ${item.map?.objects?.toLocaleString() || '0'}</span>
+        <span><b>Date:</b> ${item.map?.uploadDate || '-'}</span>
+      </div>
+      <div class="song-info" style="background: #333; padding: 10px; border-radius: 5px; margin-bottom: 15px;">
+        <div style="font-family: Paperlogy7; color: #f1c40f;">노래 정</div>
+        <div style="font-size: 0.9rem; color: #eee;">
+          ${item.song?.name || 'Unknown'} by ${item.song?.author || 'Unknown'} 
+          <span style="color: #888;">(ID: ${item.song?.id || '-'})</span>
         </div>
-      `;
+      </div>
+    `;;
     }
   }
 
@@ -910,37 +917,20 @@ document.addEventListener('keydown', e => {
 });
 
 // 1. 개발자 패널 홈
+// 개발자 패널 메인 홈
 function renderDevHome() {
   document.getElementById('devContent').innerHTML = `
-    <div style="display:flex; flex-direction:column; gap:10px;">
-      <button class="dev-btn" onclick="renderAddLevel()">➕ 새 레벨 등록</button>
-      <button class="dev-btn" onclick="renderEditList()">📝 레벨 수정 / 기록 갱신</button>
-      <div style="margin-top:20px; padding:10px; background:#333; font-size:0.8rem; color:#aaa;">
-        * 모든 변경사항은 'JSON 내보내기'를 통해 파일로 저장해야 실제 반영됩니다.
-      </div>
-    </div>
+    <button class="dev-btn" onclick="renderLevelForm()">새 레벨 등록</button>
+    <button class="dev-btn" onclick="renderEditList()">레벨 수정 / 기록 갱신</button>
+    <button class="dev-btn" onclick="exportJson()" style="background:#5cb85c;">JSON 내보내기</button>
   `;
 }
 
-// 2. 레벨 등록 폼
-function renderAddLevel() {
-  document.getElementById('devContent').innerHTML = `
-    <h3>새 레벨 등록</h3>
-    <input id="newTitle" class="dev-input" placeholder="레벨 제목">
-    <input id="newCreator" class="dev-input" placeholder="제작자">
-    <input id="newVerifier" class="dev-input" placeholder="베리파이어">
-    <input id="newVideo" class="dev-input" placeholder="유튜브 임베드 URL">
-    <input id="newMapID" class="dev-input" placeholder="맵 ID">
-    <button class="dev-btn" onclick="saveNewLevel()">등록하기</button>
-    <button class="dev-btn" onclick="renderDevHome()">뒤로가기</button>
-  `;
-}
-
-// 3. 레벨 수정 리스트
+// 수정할 레벨 선택 리스트
 function renderEditList() {
-  let html = '<h3>수정할 레벨 선택</h3><div style="max-height:400px; overflow-y:auto;">';
+  let html = '<h3>수정할 레벨 선택</h3><div style="max-height:300px; overflow-y:auto; background:#333; border-radius:5px;">';
   demonData.forEach((lv, idx) => {
-    html += `<div class="item" style="padding:10px; font-size:0.9rem;" onclick="renderEditLevel(${idx})">
+    html += `<div class="item" style="padding:10px; border-bottom:1px solid #444;" onclick="renderLevelForm(${idx})">
               ${lv.id}. ${lv.title}
              </div>`;
   });
@@ -948,31 +938,48 @@ function renderEditList() {
   document.getElementById('devContent').innerHTML = html;
 }
 
-// 4. 레벨 수정 및 기록 갱신 폼
-function renderEditLevel(idx) {
-  const lv = demonData[idx];
+// [핵심] 등록과 수정을 통합한 폼
+function renderLevelForm(idx = null) {
+  const isEdit = idx !== null;
+  const lv = isEdit ? demonData[idx] : {
+    title: '', creator: '', verifier: '', video: '',
+    map: { mapId: '', length: '', objects: 0, uploadDate: '' },
+    song: { name: '', author: '', id: '' },
+    gameplay: { modeRatio: {}, speedRatio: {} },
+    framePerfect: { total: 0, fps: {} },
+    tags: []
+  };
+
   document.getElementById('devContent').innerHTML = `
-    <h3>레벨 수정 (${lv.title})</h3>
-    <label>제목</label><input id="editTitle" class="dev-input" value="${lv.title}">
-    <label>제작자</label><input id="editCreator" class="dev-input" value="${lv.creator}">
-    <label>비디오</label><input id="editVideo" class="dev-input" value="${lv.video}">
-    
-    <hr style="border:0.5px solid #444; margin:15px 0;">
-    <h4>기록 갱신 (Player, Percent, Date)</h4>
-    <div id="editClearsArea">
-      ${lv.clears.map((c, cIdx) => `
-        <div style="display:flex; gap:5px; margin-bottom:5px;">
-          <input class="dev-input cl-p" value="${c.player}" style="flex:2">
-          <input class="dev-input cl-v" value="${c.percent}" style="flex:1">
-          <button onclick="this.parentElement.remove()" style="background:red; color:white; border:none; cursor:pointer;">X</button>
-        </div>
-      `).join('')}
-    </div>
-    <button class="dev-btn" onclick="addClearRow()">+ 기록 추가</button>
-    
-    <button class="dev-btn" style="background:#4f9; color:#000;" onclick="saveEditLevel(${idx})">수정 완료</button>
-    <button class="dev-btn" onclick="renderEditList()">뒤로가기</button>
-  `;
+    <h3>${isEdit ? '레벨 수정' : '새 레벨 등록'}</h3>
+    <div style="max-height:450px; overflow-y:auto; padding-right:10px; display:flex; flex-direction:column; gap:10px;">
+      <label>기본: 제목, 제작자, 베리파이어, 영상URL</label>
+      <input id="f-title" class="dev-input" placeholder="제목" value="${lv.title}">
+      <input id="f-creator" class="dev-input" placeholder="제작자" value="${lv.creator}">
+      <input id="f-verifier" class="dev-input" placeholder="베리파이어" value="${lv.verifier || ''}">
+      <input id="f-video" class="dev-input" placeholder="영상 URL" value="${lv.video}">
+
+      <label>맵: ID, 길이, 오브젝트, 날짜</label>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:5px;">
+        <input id="f-mid" class="dev-input" placeholder="맵 ID" value="${lv.map?.mapId || ''}">
+        <input id="f-mlen" class="dev-input" placeholder="길이" value="${lv.map?.length || ''}">
+        <input id="f-mobj" class="dev-input" placeholder="오브젝트" value="${lv.map?.objects || ''}">
+        <input id="f-mdate" class="dev-input" placeholder="날짜" value="${lv.map?.uploadDate || ''}">
+      </div>
+
+      <label>노래: 제목, 작곡가, 노래 ID</label>
+      <input id="f-sname" class="dev-input" placeholder="노래 제목" value="${lv.song?.name || ''}">
+      <input id="f-sauth" class="dev-input" placeholder="작곡가" value="${lv.song?.author || ''}">
+      <input id="f-sid" class="dev-input" placeholder="노래 ID" value="${lv.song?.id || ''}">
+
+      <label>비율(JSON): 모드, 속도, 프레임퍼펙트</label>
+      <textarea id="f-mode" class="dev-input" placeholder='모드 비율 {"Cube":50...}'>${JSON.stringify(lv.gameplay?.modeRatio || {})}</textarea>
+      <textarea id="f-speed" class="dev-input" placeholder='속도 비율 {"1x":100...}'>${JSON.stringify(lv.gameplay?.speedRatio || {})}</textarea>
+      <textarea id="f-fps" class="dev-input" placeholder='FPS {"60hz":1...}'>${JSON.stringify(lv.framePerfect?.fps || {})}</textarea>
+
+      <label>태그 (쉼표 구분)</label>
+      <input id러");
+  }
 }
 
 // --- 보조 로직 함수들 ---
@@ -984,59 +991,6 @@ function addClearRow() {
                    <input class="dev-input cl-v" placeholder="%" style="flex:1">
                    <button onclick="this.parentElement.remove()" style="background:red; color:white; border:none; cursor:pointer;">X</button>`;
   document.getElementById('editClearsArea').appendChild(div);
-}
-
-function saveNewLevel() {
-  const title = document.getElementById('newTitle').value;
-  if(!title) return alert("제목은 필수야!");
-  
-  const newLv = {
-    id: demonData.length + 1,
-    title: title,
-    creator: document.getElementById('newCreator').value,
-    verifier: document.getElementById('newVerifier').value,
-    video: document.getElementById('newVideo').value,
-    map: { mapId: document.getElementById('newMapID').value },
-    clears: [],
-    tags: []
-  };
-  
-  demonData.push(newLv);
-  addHistory('add', title, "리스트에 새로운 레벨이 등록되었습니다.");
-  alert("등록 성공!");
-  generateList(demonData);
-  renderDevHome();
-}
-
-function saveEditLevel(idx) {
-  const oldTitle = demonData[idx].title;
-  const newTitle = document.getElementById('editTitle').value;
-  
-  // 데이터 업데이트
-  demonData[idx].title = newTitle;
-  demonData[idx].creator = document.getElementById('editCreator').value;
-  demonData[idx].video = document.getElementById('editVideo').value;
-  
-  // 기록(Clears) 업데이트
-  const pInputs = document.querySelectorAll('.cl-p');
-  const vInputs = document.querySelectorAll('.cl-v');
-  const newClears = [];
-  pInputs.forEach((input, i) => {
-    if(input.value) {
-      newClears.push({ player: input.value, percent: parseInt(vInputs[i].value) || 100 });
-    }
-  });
-  
-  // 기록 변화 감지하여 히스토리 남기기
-  if(demonData[idx].clears.length !== newClears.length) {
-    addHistory('info', newTitle, `기록 명단이 갱신되었습니다. (총 ${newClears.length}명)`);
-  }
-  
-  demonData[idx].clears = newClears;
-  
-  alert("수정 완료!");
-  generateList(demonData);
-  renderDevHome();
 }
 
 function addHistory(type, title, detail) {
@@ -1065,4 +1019,5 @@ function exportJson() {
 </script>
 </body>
 </html>
+
 
