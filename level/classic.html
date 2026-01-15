@@ -978,6 +978,10 @@ function renderLevelForm(idx = null) {
       <textarea id="f-fps" class="dev-input" placeholder='FPS {"60hz":1...}'>${JSON.stringify(lv.framePerfect?.fps || {})}</textarea>
 
       <label>태그 (쉼표 구분)</label>
+      <input id="f-tags" class="dev-input" placeholder="태그1, 태그2" value="${lv.tags?.join(', ') || ''}">
+    </div>
+    <button class="dev-btn" style="background:#4f9; color:#000;" onclick="saveLevelForm(${idx})">${isEdit ? '수정 완료' : '등록 완료'}</button>
+    <button class="dev-btn" onclick="renderDevHome()">취소</button>
       `);
   }
 }
@@ -1019,6 +1023,7 @@ function exportJson() {
 </script>
 </body>
 </html>
+
 
 
 
