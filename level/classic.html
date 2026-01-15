@@ -1088,6 +1088,11 @@ function renderLevelForm(idx = null) {
   document.getElementById('devContent').innerHTML = `
     <h3>${isEdit ? '레벨 수정' : '새 레벨 등록'}</h3>
     <div style="max-height:450px; overflow-y:auto; padding-right:10px; display:flex; flex-direction:column; gap:10px;">
+    <label>순위 설정 (현재 총 ${demonData.length}개)</label>
+      <input id="f-placement" type="number" class="dev-input" 
+             placeholder="순 (1~${demonData.length + (isEdit ? 0 : 1)})" 
+             value="${isEdit ? idx + 1 : demonData.length + 1}">
+        
       <label>기본: 제목, 제작자, 베리파이어, 영상URL</label>
       <input id="f-title" class="dev-input" placeholder="제목" value="${lv.title}">
       <input id="f-creator" class="dev-input" placeholder="제작자" value="${lv.creator}">
@@ -1220,10 +1225,31 @@ function saveLevelForm(idx) {
       addHistory('add', newData.title, "새로운 레벨이 등록되었습니다.");
     }
 
-    // 4. 화면 갱신 및 패널 닫기
+    // 2. [핵심] 순위 조정 로직
+    if (isEdit) {
+      // 수정인 경우: 기존 위치에서 빼서 새로운 위치에 끼워넣기
+      const oldTitle = demonData[idx].title;
+      demonData.splice(idx, 1); // 기존 자리 비우기
+      demonData.splice(placement, 0, newData); // 새 자리에 넣기 (자동으로 밀림)
+
+      // 순위가 변했으면 히스토리에 기록
+      if (idx !== placement) {
+        addHistory('move', newData.title, `순위가 ${idx + 1}위에서 ${placement + 1}위로 조정되었습니다.`);
+      }
+    } else {
+      // 신규 등록인 경우: 원하는 위치에 끼워넣기
+      demonData.splice(placement, 0, newData);
+      addHistory('add', newData.title, `${placement + 1}위에 새로운 레벨이 등록되었습니다.`);
+    }
+
+    // 3. ID 재정렬 (선택 사항: id를 순위 순서대로 1, 2, 3... 다시 매기고 싶다면)
+    demonData.forEach((lv, i) => {
+      lv.id = i + 1;
+    });
+
     generateList(demonData);
-    alert("수정 완료");
-    renderDevHome(); // 다시 홈으로 이동
+    alert("저장 완");
+    renderDevHome();
     
   } catch (err) {
     console.error("저장 중 에러 발생:", err);
@@ -1289,6 +1315,7 @@ function addHistory(type, title, detail) {
 </script>
 </body>
 </html>
+
 
 
 
