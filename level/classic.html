@@ -714,10 +714,11 @@ textarea.dev-input {
     <div class="tag-filter-container">
   <div style="display:flex; justify-content:space-between; align-items:center;">
     <div class="section-title">태그 필터</div>
-    <button onclick="toggleTagPanel()" id="tagToggleBtn" style="background:none; border:1px solid #555; color:#ccc; cursor:pointer; border-radius:4px; padding:2px 8px;">접기</button>
+    <button onclick="toggleTagPanel()" id="tagToggleBtn" style="background:none; border:1px solid #555; color:#ccc; cursor:pointer; border-radius:4px; padding:2px 8px;">펼치기</button>
   </div>
-  
-   <div id="tagCategoryContainer"></div>
+    <div id="tagContent" class="tag-content collapsed">
+       <div id="tagCategoryContainer"></div>
+    </div>
 </div>
     
     <div id="list" style="overflow-y:auto"></div>
@@ -1288,6 +1289,7 @@ function addHistory(type, title, detail) {
 </script>
 </body>
 </html>
+
 
 
 
