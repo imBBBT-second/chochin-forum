@@ -1091,31 +1091,38 @@ function renderLevelForm(idx = null) {
     </div>
     <button class="dev-btn" style="background:#4f9; color:#000;" onclick="saveLevelForm(${idx})">${isEdit ? '수정 완료' : '등록 완료'}</button>
     <button class="dev-btn" onclick="renderDevHome()">취소</button>
+
+    <label>기록 관리 (Clears)</label>
+      <div id="f-clears-container" style="display:flex; flex-direction:column; gap:5px;">
+        ${(lv.clears || []).map((c, i) => `
+          <div class="clear-edit-row" style="display:flex; gap:3px;">
+            <input class="dev-input cl-p" placeholder="유저" value="${c.player}" style="flex:2">
+            <input class="dev-input cl-v" placeholder="%" value="${c.percent}" style="flex:1">
+            <input class="dev-input cl-d" placeholder="날짜" value="${c.date || ''}" style="flex:1.5">
+            <button onclick="this.parentElement.remove()" style="background:#e74c3c; border:none; color:white; border-radius:4px; cursor:pointer; width:30px;">X</button>
+          </div>
+        `).join('')}
+      </div>
+      <button class="dev-btn" onclick="addClearInputRow()" style="background:#3498db; margin-top:5px;">+ 기록 추가</button>
       `;
   }
 
 // --- 보조 로직 함수들 ---
 
-function addClearRow() {
+// 기록 입력 행을 동적으로 추가하는 함수
+function addClearInputRow() {
+  const container = document.getElementById('f-clears-container');
   const div = document.createElement('div');
-  div.style = "display:flex; gap:5px; margin-bottom:5px;";
-  div.innerHTML = `<input class="dev-input cl-p" placeholder="닉네임" style="flex:2">
-                   <input class="dev-input cl-v" placeholder="%" style="flex:1">
-                   <button onclick="this.parentElement.remove()" style="background:red; color:white; border:none; cursor:pointer;">X</button>`;
-  document.getElementById('editClearsArea').appendChild(div);
+  div.className = "clear-edit-row";
+  div.style = "display:flex; gap:3px;";
+  div.innerHTML = `
+    <input class="dev-input cl-p" placeholder="유저" style="flex:2">
+    <input class="dev-input cl-v" placeholder="%" style="flex:1">
+    <input class="dev-input cl-d" placeholder="날짜" style="flex:1.5">
+    <button onclick="this.parentElement.remove()" style="background:#e74c3c; border:none; color:white; border-radius:4px; cursor:pointer; width:30px;">X</button>
+  `;
+  container.appendChild(div);
 }
-
-function addHistory(type, title, detail) {
-  const now = new Date();
-  const timeStr = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
-  changeHistory.unshift({
-    time: timeStr,
-    type: type,
-    title: title,
-    detail: detail
-  });
-}
-
 // JSON 저장 기능 (기존 것 유지 혹은 확인)
 function exportJson() {
   const data = { 
@@ -1131,6 +1138,7 @@ function exportJson() {
 </script>
 </body>
 </html>
+
 
 
 
