@@ -1205,41 +1205,41 @@ function saveLevelForm(idx) {
 
     // 2. [핵심] 순위 변경 감지 및 히스토리 기록
     if (isEdit) {
-      const oldRank = idx + 1; // 기존 인덱스 기반 순위
-      // 만약 레벨 순위(id가 아닌 배열 순서)를 조정하는 기능이 있다면 여기서 비교 로직이 추가됨
-      // 현재는 단순 정보 수정이므로, 만약 '순위 변경' 로그를 명시적으로 남기고 싶다면 
-      // 아래와 같이 조건문을 걸어주면 돼.
-      
-      const isTitleChanged = demonData[idx].title !== newData.title;
-      
-      if (isTitleChanged) {
-        addHistory('move', newData.title, `레벨 명칭이 ${demonData[idx].title}에서 ${newData.title}(으)로 변경되었습니다.`);
-      }
-      
-      // 실제 순위 이동 로직이 실행될 때만 move 로그를 남기도록 설계
-      // (이곳에 순위 변경 감지 로직 추가 가능)
-      
-      demonData[idx] = newData;
-    } else {
-      demonData.push(newData);
-      addHistory('add', newData.title, "새로운 레벨이 등록되었습니다.");
-    }
+      // [수정/이동]
+      const oldRank = idx;
+      if (oldRank !== targetRank) {
+        // 이동하는 레벨 자체의 기록
+        const direction = targetRank < oldRank ? "상승" : "하락";
+        addHistory('move', newData.title, `재평가로 인해 순위가 ${oldRank + 1}위에서 ${targetRank + 1}위로 ${direction}하였습니다.`);
 
-    // 2. [핵심] 순위 조정 로직
-    if (isEdit) {
-      // 수정인 경우: 기존 위치에서 빼서 새로운 위치에 끼워넣기
-      const oldTitle = demonData[idx].title;
-      demonData.splice(idx, 1); // 기존 자리 비우기
-      demonData.splice(placement, 0, newData); // 새 자리에 넣기 (자동으로 밀림)
+        // 사이의 레벨들 순위 변동 기록
+        const start = Math.min(oldRank, targetRank);
+        const end = Math.max(oldRank, targetRank);
+        const shift = targetRank < oldRank ? 1 : -1;
 
-      // 순위가 변했으면 히스토리에 기록
-      if (idx !== placement) {
-        addHistory('move', newData.title, `순위가 ${idx + 1}위에서 ${placement + 1}위로 조정되었습니다.`);
+        for (let i = start; i <= end; i++) {
+          if (i === oldRank) continue;
+          const affectedLv = demonData[i];
+          const shiftDir = shift > 0 ? "하락" : "상승";
+          addHistory('move', affectedLv.title, `상위 레벨의 순위 변동으로 인해 ${i + 1}위에서 ${i + 1 + shift}위로 ${shiftDir}하였습니다.`);
+        }
+
+        // 실제 배열 조작
+        demonData.splice(oldRank, 1);
+        demonData.splice(targetRank, 0, newData);
+      } else {
+        // 순위 변동 없는 단순 정보 수정
+        demonData[idx] = newData;
       }
     } else {
-      // 신규 등록인 경우: 원하는 위치에 끼워넣기
-      demonData.splice(placement, 0, newData);
-      addHistory('add', newData.title, `${placement + 1}위에 새로운 레벨이 등록되었습니다.`);
+      // [신규 추가]
+      // 추가되는 위치부터 그 뒤의 모든 레벨은 순위가 1단계씩 하락함
+      for (let i = targetRank; i < demonData.length; i++) {
+        addHistory('move', demonData[i].title, `새로운 레벨 추가로 인해 순위가 ${i + 1}위에서 ${i + 2}위로 하락하였습니다.`);
+      }
+      
+      demonData.splice(targetRank, 0, newData);
+      addHistory('add', newData.title, `${targetRank + 1}위에 새로운 레벨이 등록되었습니다.`);
     }
 
     // 3. ID 재정렬 (선택 사항: id를 순위 순서대로 1, 2, 3... 다시 매기고 싶다면)
@@ -1248,7 +1248,7 @@ function saveLevelForm(idx) {
     });
 
     generateList(demonData);
-    alert("저장 완");
+    alert("저장 완료");
     renderDevHome();
     
   } catch (err) {
@@ -1315,6 +1315,7 @@ function addHistory(type, title, detail) {
 </script>
 </body>
 </html>
+
 
 
 
