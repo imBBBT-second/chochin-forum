@@ -662,6 +662,21 @@ textarea.dev-input {
 .move .history-tag { background: #3498db; }
 .remove .history-tag { background: #e74c3c; }
 .info .history-tag { background: #f1c40f; color: #000; }
+
+  /* 태그 내용 감싸는 영역 */
+.tag-content {
+  max-height: 500px; /* 충분한 높이 */
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, opacity 0.2s;
+  opacity: 1;
+}
+
+/* 접혔을 때 상태 */
+.tag-content.collapsed {
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+}
 </style>
 </head>
 
@@ -696,7 +711,17 @@ textarea.dev-input {
 <div class="main-container">
   <div class="container">
     <input id="search" placeholder="제목 또는 태그 검색..." oninput="updateFilter()" />
-    <div id="tagCategoryContainer"></div>
+    <div class="tag-filter-container">
+  <div style="display:flex; justify-content:space-between; align-items:center;">
+    <div class="section-title">태그 필터</div>
+    <button onclick="toggleTagPanel()" id="tagToggleBtn" style="background:none; border:1px solid #555; color:#ccc; cursor:pointer; border-radius:4px; padding:2px 8px;">접기</button>
+  </div>
+  
+  <div id="tagContent" class="tag-content">
+    <div id="tagFilterList" class="tag-group-container">
+      </div>
+  </div>
+</div>
     
     <div id="list" style="overflow-y:auto"></div>
   </div>
@@ -1249,9 +1274,24 @@ function addHistory(type, title, detail) {
     });
   }
 }
+
+  function toggleTagPanel() {
+  const content = document.getElementById('tagContent');
+  const btn = document.getElementById('tagToggleBtn');
+  
+  content.classList.toggle('collapsed');
+  
+  // 버튼 텍스트 변경
+  if (content.classList.contains('collapsed')) {
+    btn.textContent = '펴기';
+  } else {
+    btn.textContent = '접기';
+  }
+}
 </script>
 </body>
 </html>
+
 
 
 
