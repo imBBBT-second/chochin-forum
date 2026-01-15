@@ -892,6 +892,9 @@ function showDetail(item, element) {
       graph.innerHTML += makeRatioGraph('게임모드 비율', item.gameplay.modeRatio);
       graph.innerHTML += makeRatioGraph('속도 비율', item.gameplay.speedRatio);
     }
+    if (item.framePerfect) {
+      graph.innerHTML += makeRatioGraph('프레임 퍼펙트 비율', item.framePerfect.fps);
+    }
   }
 
   // 7. 태그 및 설명 섹션
@@ -1138,6 +1141,7 @@ function exportJson() {
 </script>
 </body>
 </html>
+
 
 
 
