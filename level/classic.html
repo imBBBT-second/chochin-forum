@@ -1092,7 +1092,9 @@ function renderLevelForm(idx = null) {
       <label>태그 (쉼표 구분)</label>
       <input id="f-tags" class="dev-input" placeholder="태그1, 태그2" value="${lv.tags?.join(', ') || ''}">
     </div>
-    <button class="dev-btn" style="background:#4f9; color:#000;" onclick="saveLevelForm(${idx})">${isEdit ? '수정 완료' : '등록 완료'}</button>
+    <button class="dev-btn dev-btn-save" onclick="saveLevelForm(${idx})">
+  ${isEdit ? '수정 완료' : '등록 완료'}
+</button>
     <button class="dev-btn" onclick="renderDevHome()">취소</button>
 
     <label>기록 관리 (Clears)</label>
@@ -1111,6 +1113,87 @@ function renderLevelForm(idx = null) {
   }
 
 // --- 보조 로직 함수들 ---
+function saveLevelForm(idx) {
+  const isEdit = idx !== null;
+  
+  try {
+    // 1. 유저 기록(Clears) 데이터 수집
+    const playerInputs = document.querySelectorAll('.cl-p');
+    const percentInputs = document.querySelectorAll('.cl-v');
+    const dateInputs = document.querySelectorAll('.cl-d');
+    const newClears = [];
+
+    playerInputs.forEach((input, i) => {
+      const pName = input.value.trim();
+      if (pName) {
+        newClears.push({
+          player: pName,
+          percent: parseInt(percentInputs[i].value) || 100,
+          date: dateInputs[i]?.value.trim() || ""
+        });
+      }
+    });
+
+    // 2. 입력값 수집 (방어적 코딩: 요소가 없으면 빈 문자열 처리)
+    const getValue = (id) => document.getElementById(id)?.value || "";
+    
+    // FPS 데이터 파싱
+    let fpsData = {};
+    try {
+      fpsData = JSON.parse(getValue('f-fps') || '{}');
+    } catch(e) { 
+      alert("FPS 데이터 형식 오류"); 
+      return; 
+    }
+
+    const newData = {
+      id: isEdit ? demonData[idx].id : demonData.length + 1,
+      title: getValue('f-title'),
+      creator: getValue('f-creator'),
+      verifier: getValue('f-verifier'),
+      video: getValue('f-video'),
+      map: {
+        mapId: getValue('f-mid'),
+        length: getValue('f-mlen'),
+        objects: parseInt(getValue('f-mobj')) || 0,
+        uploadDate: getValue('f-mdate')
+      },
+      song: {
+        name: getValue('f-sname'),
+        author: getValue('f-sauth'),
+        id: getValue('f-sid')
+      },
+      gameplay: {
+        modeRatio: JSON.parse(getValue('f-mode') || '{}'),
+        speedRatio: JSON.parse(getValue('f-speed') || '{}')
+      },
+      framePerfect: {
+        fps: fpsData,
+        total: Object.values(fpsData).reduce((a, b) => a + (parseInt(b) || 0), 0)
+      },
+      tags: getValue('f-tags').split(',').map(t => t.trim()).filter(t => t),
+      clears: newClears
+    };
+
+    // 3. 데이터 업데이트 및 히스토리 기록
+    if (isEdit) {
+      demonData[idx] = newData;
+      addHistory('move', newData.title, "레벨 정보가 수정되었습니다.");
+    } else {
+      demonData.push(newData);
+      addHistory('add', newData.title, "새 레벨이 등록되었습니다.");
+    }
+
+    // 4. 화면 갱신 및 패널 닫기
+    generateList(demonData);
+    alert("수정 완료되었어!");
+    renderDevHome(); // 다시 홈으로 이동
+    
+  } catch (err) {
+    console.error("저장 중 에러 발생:", err);
+    alert("저장 실패");
+  }
+}
 
 // 기록 입력 행을 동적으로 추가하는 함수
 function addClearInputRow() {
@@ -1141,6 +1224,7 @@ function exportJson() {
 </script>
 </body>
 </html>
+
 
 
 
