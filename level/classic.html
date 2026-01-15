@@ -1079,7 +1079,7 @@ function renderLevelForm(idx = null) {
   const lv = isEdit ? demonData[idx] : {
     title: '', creator: '', verifier: '', video: '',
     map: { mapId: '', length: '', objects: 0, uploadDate: '' },
-    song: { name: '', author: '', id: '' },
+    song: { name: '', artist: '', id: '' },
     gameplay: { modeRatio: {}, speedRatio: {} },
     framePerfect: { total: 0, fps: {} },
     tags: []
@@ -1109,7 +1109,7 @@ function renderLevelForm(idx = null) {
 
       <label>노래: 제목, 작곡가, 노래 ID</label>
       <input id="f-sname" class="dev-input" placeholder="노래 제목" value="${lv.song?.name || ''}">
-      <input id="f-sauth" class="dev-input" placeholder="작곡가" value="${lv.song?.author || ''}">
+      <input id="f-sauth" class="dev-input" placeholder="작곡가" value="${lv.song?.artist || ''}">
       <input id="f-sid" class="dev-input" placeholder="노래 ID" value="${lv.song?.id || ''}">
 
       <label>비율(JSON): 모드, 속도, 프레임퍼펙트</label>
@@ -1315,6 +1315,7 @@ function addHistory(type, title, detail) {
 </script>
 </body>
 </html>
+
 
 
 
