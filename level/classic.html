@@ -893,7 +893,7 @@ function showDetail(item, element) {
       graph.innerHTML += makeRatioGraph('속도 비율', item.gameplay.speedRatio);
     }
     if (item.framePerfect) {
-      graph.innerHTML += makeRatioGraph('프레임 퍼펙트 비율', item.framePerfect.fps);
+      graph.innerHTML += makeRatioGraph('프레임 퍼펙트', item.framePerfect.fps);
     }
   }
 
@@ -1252,6 +1252,7 @@ function addHistory(type, title, detail) {
 </script>
 </body>
 </html>
+
 
 
 
