@@ -57,10 +57,10 @@
       "id": 2,
       "title": "Stereo MadnesS EX",
       "creator": "Choco & Timo",
-      "video": "-",
       "verifier": "Timo",
+      "video": "-",
       "map": {
-        "mapId": 131445339,
+        "mapId": "131445339",
         "length": "1m 25s",
         "objects": 9990,
         "uploadDate": "2026-01-15"
@@ -68,26 +68,31 @@
       "song": {
         "name": "Stereo Madness",
         "artist": "ForeverBound",
-        "id": 0
+        "id": "0"
       },
       "gameplay": {
-        "mainMode": "Ship",
         "modeRatio": {
-          "Wave": 100
+          "Cube": 47.08,
+          "Ship": 30.48,
+          "Ball": 2.72,
+          "UFO": 1.13,
+          "Wave": 7.93,
+          "Robot": 9.69,
+          "Spider": 0.96,
+          "Swing": 8.84
         },
         "speedRatio": {
-          "1x": 97.86,
-          "4x": 2.14
+          "1x": 100
         }
       },
       "framePerfect": {
-        "total": 3,
         "fps": {
           "30": 3,
           "60": 0,
           "120": 0,
           "240": 0
-        }
+        },
+        "total": 3
       },
       "tags": [
         "Any-Mode",
