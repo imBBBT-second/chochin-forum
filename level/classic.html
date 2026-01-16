@@ -1,899 +1,1220 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="user-scalable=no, initial-scale=1.0" />
-<title>초친 포럼 (레벨 - 클래식)</title>
-
-<style>
-/* --- 기본 설정 --- */
-html, body {
-  height: 100%;
-  margin: 0;
-  background: #323232;
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden;
-}
-* { box-sizing: border-box; }
-
-/* [수정] 모든 링크의 파란색 밑줄 제거 */
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* 폰트 설정 */
-@font-face { font-family: Paperlogy1; src: url('font - paperlogy/Paperlogy-1.ttf'); }
-@font-face { font-family: Paperlogy2; src: url('font - paperlogy/Paperlogy-2.ttf'); }
-@font-face { font-family: Paperlogy3; src: url('font - paperlogy/Paperlogy-3.ttf'); }
-@font-face { font-family: Paperlogy4; src: url('font - paperlogy/Paperlogy-4.ttf'); }
-@font-face { font-family: Paperlogy5; src: url('font - paperlogy/Paperlogy-5.ttf'); }
-@font-face { font-family: Paperlogy6; src: url('font - paperlogy/Paperlogy-6.ttf'); }
-@font-face { font-family: Paperlogy7; src: url('font - paperlogy/Paperlogy-7.ttf'); }
-@font-face { font-family: Paperlogy8; src: url('font - paperlogy/Paperlogy-8.ttf'); }
-@font-face { font-family: Paperlogy9; src: url('font - paperlogy/Paperlogy-9.ttf'); }
-
-/* --- 계정 바 스타일 --- */
-.auth-bar {
-  background: #202020;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 15px;
-  border-bottom: 2px solid #444;
-}
-.user-status { color: #4f9; font-family: Paperlogy5; font-size: 0.95rem; }
-.auth-btn {
-  background: transparent; border: 1.5px solid #fff; color: #fff; padding: 5px 15px; border-radius: 5px;
-  font-family: Paperlogy7; cursor: pointer; transition: 0.2s;
-}
-.auth-btn:hover { background: #fff; color: #000; }
-
-/* --- 헤더 네비게이션 --- */
-.header-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5vw;
-  padding: 2vh 0;
-  flex-wrap: wrap;
-}
-.header-btn-wrapper {
-  width: min(400px, 90vw);
-  display: flex;
-  justify-content: center;
-}
-.header-btn {
-  background-color: #323232;
-  color: white;
-  font-size: clamp(1.5rem, 4vw, 3rem);
-  cursor: pointer;
-  padding: 1.5vh 0;
-  border: none;
-  border-radius: 10px;
-  width: 100%;
-  transition: background-color 0.25s ease, color 0.25s ease;
-  font-family: Paperlogy5;
-}
-.header-btn:hover, .header-btn.active {
-  background-color: #fff;
-  color: #323232;
-}
-.divider {
-  border: 2px solid white;
-  width: 100%;
-  height: 0;
-  margin: 6px 0;
-}
-
-/* --- 메인 컨테이너 --- */
-.main-container {
-  display: flex;
-  gap: 20px;
-  padding: 20px;
-  align-items: stretch;
-  min-height: 800px;
-}
-  
-.container,
-.detail-panel {
-  background: #404040;
-  border-radius: 10px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.container { flex: 1; min-width: 0; }
-.detail-panel { flex: 2; background: #505050; overflow-y: auto; min-width: 0; }
-.detail-panel.clears-panel { flex: 1; background: #404040; }
-
-.history-panel {
-  width: calc(100% - 40px);
-  margin: 0 auto 40px auto;
-  background: #3a3a3a;
-  border-radius: 10px;
-  padding: 20px;
-  min-height: 450px;
-}
-
-@media (max-width: 1400px) {
-  .main-container { flex-direction: column; }
-  .container, .detail-panel, .detail-panel.clears-panel {
-    width: 100%; margin-bottom: 20px; height: 600px; flex: none;
-  }
-}
-
-/* --- 검색 및 태그 --- */
-input#search {
-  font-size: 18px;
-  border-radius: 8px;
-  border: none;
-  padding: 12px;
-  margin-bottom: 10px;
-  width: 100%;
-  font-family: Paperlogy5;
-  background: #333;
-  color: white;
-}
-
-#tagCategoryContainer {
-  margin-bottom: 15px;
-  background: #383838;
-  padding: 10px;
-  border-radius: 8px;
-}
-.tag-cat-row {
-  display: flex;
-  margin-bottom: 6px;
-  align-items: flex-start;
-}
-.tag-cat-name {
-  color: #aaa;
-  font-family: Paperlogy6;
-  font-size: 0.85rem;
-  width: 50px;
-  margin-top: 4px;
-  flex-shrink: 0;
-}
-.tag-cat-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  flex: 1;
-}
-.filter-tag-btn {
-  background: #555;
-  color: #ddd;
-  border: none;
-  padding: 3px 8px;
-  border-radius: 12px;
-  font-family: Paperlogy4;
-  font-size: 0.8rem;
-  cursor: pointer;
-  transition: 0.2s;
-}
-.filter-tag-btn:hover, .filter-tag-btn.active {
-  background: #fff;
-  color: #000;
-}
-
-/* --- 리스트 아이템 --- */
-.item {
-  display: flex;
-  align-items: flex-start;
-  padding: 0.9rem 0.5rem;
-  gap: 0.8rem;
-  border-bottom: 1px solid #777;
-  cursor: pointer;
-  transition: background-color 0.15s ease, color 0.15s ease;
-  min-height: fit-content;
-}
-.item:hover, .item.active { background-color: #ffffff; }
-.item:hover .title, .item:hover .creator, .item:hover .rank,
-.item.active .title, .item.active .creator, .item.active .rank {
-  color: #000000;
-}
-
-.item.cleared {
-  background-color: #2e4a2e !important;
-  border-left: 6px solid #4f9;
-}
-.item.cleared:hover { background-color: #3e5a3e !important; }
-.item.cleared.active { background-color: #fff !important; }
-
-.clear-check { color: #4f9; margin-left: 8px; font-size: 1.2rem; }
-
-.rank {
-  font-family: Paperlogy9;
-  font-size: clamp(2rem, 3.2vw, 3.2rem);
-  min-width: clamp(2rem, 3.2vw, 3.2rem);
-  text-align: center;
-  color: #ffffff;
-  flex-shrink: 0;
-}
-.title {
-  font-family: Paperlogy7;
-  font-size: clamp(1.4rem, 2.4vw, 2.4rem);
-  line-height: 1.3;
-  color: #ffffff;
-  word-break: keep-all;
-}
-.creator {
-  font-family: Paperlogy4;
-  font-size: clamp(0.8rem, 1vw, 1rem);
-  color: #d0d0d0;
-}
-
-/* --- 상세 정보 --- */
-.detail-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 10px;
-}
-#detailCreator {
-  font-family: Paperlogy4;
-  font-size: clamp(1rem, 1.6vw, 1.6rem);
-  color: #c8c8c8;
-  margin-top: 4px;
-}
-.detail-title {
-  font-family: Paperlogy9;
-  font-size: clamp(2.4rem, 4.8vw, 4.8rem);
-  color: #ffffff;
-  line-height: 1.1;
-  text-align: center;
-  white-space: normal;
-  word-break: keep-all;
-  margin-bottom: 6px;
-}
-.video-wrapper {
-  position: relative;
-  width: 100%;
-  padding-top: 56.25%;
-  background: #000;
-  border-radius: 10px;
-  overflow: hidden;
-}
-.video-wrapper iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-.section {
-  background: #444;
-  border-radius: 8px;
-  padding: 12px;
-  margin-top: 12px;
-}
-.section-title {
-  font-family: Paperlogy6;
-  font-size: 22px;
-  color: #fff;
-  margin-bottom: 8px;
-}
-.detail-content {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.info-section, .graph-section, .tag-section {
-  background: #444;
-  padding: 14px;
-  border-radius: 10px;
-}
-.info-row {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  font-family: Paperlogy3;
-  font-size: 1rem;
-  color: #c8c8c8;
-}
-.info-row span { min-width: 45%; }
-.fp-warning {
-  text-align: center;
-  font-family: Paperlogy2;
-  font-size: 0.9rem;
-  color: #aaa;
-  margin-top: 10px;
-}
-
-/* --- 그래프 --- */
-.graph-box { margin-bottom: 14px; }
-.graph-title {
-  font-family: Paperlogy6;
-  font-size: 1.2rem;
-  color: #fff;
-  margin-bottom: 6px;
-}
-.graph-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 4px 0;
-}
-.graph-label {
-  width: 90px;
-  font-family: Paperlogy3;
-  font-size: 0.9rem;
-  color: #c8c8c8;
-  flex-shrink: 0;
-}
-.graph-bar-bg {
-  flex: 1;
-  background: #333;
-  border-radius: 6px;
-  overflow: hidden;
-  height: 16px;
-}
-.graph-bar {
-  height: 100%;
-  border-radius: 6px;
-}
-.graph-value {
-  width: 50px;
-  text-align: right;
-  font-family: Paperlogy4;
-  font-size: 0.9rem;
-  color: #c8c8c8;
-}
-.graph-total { margin-left: 8px; font-size: 0.85rem; color: #ccc; font-family: Paperlogy3; }
-
-/* 그래프 색상 */
-.graph-bar[data-key="Cube"] { background: #00ff00; }
-.graph-bar[data-key="Ship"] { background: #ff00ff; }
-.graph-bar[data-key="Ball"] { background: #ff0000; }
-.graph-bar[data-key="UFO"] { background: #ff9900; }
-.graph-bar[data-key="Wave"] { background: #66ccff; }
-.graph-bar[data-key="Robot"] { background: #ffffff; }
-.graph-bar[data-key="Spider"] { background: #9900ff; }
-.graph-bar[data-key="Swing"] { background: #ffff00; }
-.graph-bar[data-key="0.5x"] { background: #ffff00; }
-.graph-bar[data-key="1x"] { background: #66ccff; }
-.graph-bar[data-key="2x"] { background: #00ff00; }
-.graph-bar[data-key="3x"] { background: #ff66cc; }
-.graph-bar[data-key="4x"] { background: #ff0000; }
-.graph-bar[data-key="30"] { background: #66ccff; }
-.graph-bar[data-key="60"] { background: #00ff00; }
-.graph-bar[data-key="120"] { background: #ff00ff; }
-
-/* 태그 */
-.tag-group-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 4px;
-}
-.tag {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: #5f5f5f;
-  color: #ffffff;
-  font-family: Paperlogy4;
-  font-size: 1rem;
-  padding: 6px 14px;
-  border-radius: 12px;
-  margin: 4px 6px 4px 0;
-  cursor: pointer;
-  transition: 0.2s;
-}
-.tag:hover { background: #888; color:#fff; }
-
-/* 기록 명단 */
-.clears-panel { color: #e0e0e0; }
-.clear-row {
-  display: flex;
-  align-items: center;
-  gap: 0.6vw;
-  padding: 6px 4px;
-  font-family: Paperlogy3;
-  font-size: clamp(0.9rem, 1.1vw, 1.1vw);
-  color: #e0e0e0;
-}
-.clear-rank { color: #ffffff; min-width: 30px; }
-.clear-player { flex: 1; color: #ffffff; font-family: Paperlogy5; }
-.clear-percent { color: #c8c8c8; min-width: 50px; text-align: right; }
-.clear-percent.full { color: #ffcc00; font-family: Paperlogy6; }
-.clear-date { font-family: Paperlogy2; font-size: 0.8rem; color: #b0b0b0; }
-
-/* 타이틀 영역 */
-#detailHeader { text-align: center; margin-bottom: 64px; }
-#headerTitle { font-family: Paperlogy7; font-size: clamp(80px, 10vw, 170px); color: #fff; margin: 20px 0; }
-#detailSubtitle { margin-top: 4px; color: #aaa; font-family: Paperlogy3; font-size: clamp(22px, 2.8vw, 32px); }
-#modeShortcut { display: flex; justify-content: center; gap: 10px; margin-top: 10px; margin-bottom: 18px; }
-
-/* 개발자 패널 */
-/* --- 개발자 패널 레이아웃 --- */
-#devPanel {
-  position: fixed;
-  top: 0;
-  right: -450px; /* 기본적으로 숨김 */
-  width: 450px;
-  height: 100%;
-  background: #222;
-  color: white;
-  transition: 0.3s ease-in-out;
-  z-index: 1000;
-  padding: 25px;
-  overflow-y: auto;
-  border-left: 3px solid #444;
-  box-shadow: -5px 0 15px rgba(0,0,0,0.5);
-  font-family: 'Paperlogy5', sans-serif;
-}
-
-#devPanel.open {
-  right: 0; /* 패널 열기 */
-}
-
-#devPanel h2, #devPanel h3 {
-  font-family: 'Paperlogy9';
-  margin-top: 0;
-  color: #fff;
-  border-bottom: 2px solid #444;
-  padding-bottom: 10px;
-}
-
-#devPanel label {
-  display: block;
-  margin-top: 15px;
-  margin-bottom: 5px;
-  font-size: 0.85rem;
-  color: #aaa;
-  font-family: 'Paperlogy7';
-}
-
-/* --- 입력창 스타일 --- */
-.dev-input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  background: #333;
-  color: white;
-  border: 1px solid #555;
-  border-radius: 5px;
-  font-family: 'Paperlogy3';
-  font-size: 0.9rem;
-  transition: border 0.2s;
-}
-
-.dev-input:focus {
-  outline: none;
-  border-color: #4f9;
-}
-
-textarea.dev-input {
-  resize: vertical;
-  min-height: 60px;
-  font-family: monospace; /* JSON 데이터 가독성을 위해 */
-}
-
-/* --- 버튼 스타일 --- */
-.dev-btn {
-  width: 100%;
-  padding: 12px;
-  background: #444;
-  border: none;
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-top: 10px;
-  font-family: 'Paperlogy7';
-  font-size: 1rem;
-  transition: 0.2s;
-}
-
-.dev-btn:hover {
-  background: #666;
-  transform: translateY(-2px);
-}
-
-.dev-btn-save {
-  background: #2ecc71 !important; /* 성공 초록색 */
-  color: #000 !important;
-}
-
-.dev-btn-save:hover {
-  background: #27ae60 !important;
-}
-
-/* --- 레벨 수정 리스트 아이템 --- */
-#devContent .item {
-  background: #2a2a2a;
-  margin-bottom: 5px;
-  border-radius: 4px;
-  cursor: pointer;
-  border-left: 4px solid #555;
-  transition: 0.2s;
-}
-
-#devContent .item:hover {
-  background: #3a3a3a;
-  border-left-color: #4f9;
-  padding-left: 15px !important;
-}
-
-/* --- 스크롤바 커스텀 --- */
-#devPanel::-webkit-scrollbar {
-  width: 8px;
-}
-#devPanel::-webkit-scrollbar-track {
-  background: #222;
-}
-#devPanel::-webkit-scrollbar-thumb {
-  background: #444;
-  border-radius: 10px;
-}
-#devPanel::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-/* 변경 이력 */
-#historyBox {
-  background: #252525; padding: 15px; border-radius: 8px; border: 1px solid #444;
-  height: 400px; overflow-y: auto;
-}
-
-#modeShortcut {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
-  margin-bottom: 18px;
-}
-
-.mode-btn {
-  background: transparent;
-  border: 1.5px solid #fff;
-  color: #fff;
-  padding: 6px 16px;
-  border-radius: 999px;
-  font-family: Paperlogy7;
-  font-size: clamp(1.2rem, 3vw, 2rem);
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-}
-
-@media (max-width: 768px) {
-  .mode-btn {
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
-    padding: 4px 12px;
-  }
-  
-  #modeShortcut {
-    gap: 6px;
-  }
-  
-  .clears-panel > div:first-child {
-    font-size: clamp(1.8rem, 3.2vw, 3.2rem) !important;
-  }
-}
-
-#modeShortcut .mode {
-  color: #aaa;
-  text-decoration: none;
-  cursor: pointer;
-  font-family: Paperlogy7;
-  font-size: 64px;
-}
-
-#modeShortcut .mode:hover {
-  color: #fff;
-}
-
-#modeShortcut .mode.active {
-  color: #fff;
-  font-weight: 700;
-  cursor: default;
-}
-
-#detailPanel {
-  margin-top: 64px;
-}
-
-.mode-btn:hover {
-  background: #fff;
-  color: #000;
-}
-
-.mode-btn.active {
-  background: #fff;
-  color: #000;
-  font-weight: 600;
-  cursor: default;
-}
-
-/* 변경 이력 패널 전체 디자인 */
-.history-panel {
-  width: calc(100% - 40px);
-  margin: 20px auto 40px auto;
-  background: #252525;
-  border-radius: 12px;
-  padding: 30px;
-  border: 1px solid #444;
-}
-
-.history-item {
-  display: flex;
-  align-items: center;
-  padding: 15px;
-  background: #333;
-  margin-bottom: 10px;
-  border-radius: 8px;
-  border-left: 5px solid #888; /* 기본 왼쪽 선 */
-  gap: 20px;
-}
-
-/* 타입별 색상 강조 (Pointercrate/AREDL 스타일) */
-.history-item.add { border-left-color: #2ecc71; }        /* 초록: 추가 */
-.history-item.move { border-left-color: #3498db; }       /* 파랑: 순위 이동 */
-.history-item.remove { border-left-color: #e74c3c; }     /* 빨강: 제거 */
-.history-item.info { border-left-color: #f1c40f; }       /* 노랑: 기록/정보 수정 */
-
-.history-tag {
-  padding: 4px 10px;
-  border-radius: 4px;
-  font-family: Paperlogy7;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  color: #fff;
-  min-width: 80px;
-  text-align: center;
-}
-
-.history-tag-small {
-  padding: 2px 6px;
-  border-radius: 3px;
-  font-family: Paperlogy7;
-  font-size: 0.7rem;
-  color: #fff;
-  text-transform: uppercase;
-}
-
-.add .history-tag { background: #2ecc71; }
-.move .history-tag { background: #3498db; }
-.remove .history-tag { background: #e74c3c; }
-.info .history-tag { background: #f1c40f; color: #000; }
-
-  /* 태그 내용 감싸는 영역 */
-.tag-content {
-  max-height: 500px; /* 충분한 높이 */
-  overflow: hidden;
-  transition: max-height 0.3s ease-out, opacity 0.2s;
-  opacity: 1;
-}
-
-/* 접혔을 때 상태 */
-.tag-content.collapsed {
-  max-height: 0;
-  opacity: 0;
-  margin-top: 0;
-}
-</style>
-</head>
-
-<body>
-
-<div class="auth-bar">
-  <div id="userStatus" class="user-status"></div>
-  <button class="auth-btn" onclick="login()">계정 선택</button>
-</div>
-
-<div class="header-container">
-  <a href="../index.html" class="header-btn-wrapper"><button class="header-btn">홈</button></a>
-  <a href="../level.html" class="header-btn-wrapper"><button class="header-btn active">레벨</button></a>
-  <div class="header-btn-wrapper"><a href="../mappack.html" class="header-btn-wrapper"><button class="header-btn">맵 팩</button></a></div>
-  <div class="header-btn-wrapper"><button class="header-btn">하디스트</button></div>
-</div>
-
-<div class="divider"></div>
-
-<div id="detailHeader">
-  <div id="headerTitle">Classic</div>
-  <div id="detailSubtitle">초친 멤버들이 만든 맵들 중 20초 이상의 레벨을 모아놓은 곳입니다.</div>
-  <div style="margin-top:70px;"></div>
-  <div id="detailSubtitle"><레벨 리스트 바로가기></div>
-  <div id="modeShortcut">
-    <button class="mode-btn active">Classic</button>
-    <button class="mode-btn" onclick="location.href='challenge.html'">Challenge</button>
-    <button class="mode-btn" onclick="location.href='platformer.html'">Platformer</button>
-  </div>
-</div>
-
-<div class="main-container">
-  <div class="container">
-    <input id="search" placeholder="제목 또는 태그 검색..." oninput="updateFilter()" />
-    <div class="tag-filter-container">
-  <div style="display:flex; justify-content:space-between; align-items:center;">
-    <div class="section-title">태그 필터</div>
-    <button onclick="toggleTagPanel()" id="tagToggleBtn" style="background:none; border:1px solid #555; color:#ccc; cursor:pointer; border-radius:4px; padding:2px 8px;">펼치기</button>
-  </div>
-    <div id="tagContent" class="tag-content collapsed">
-       <div id="tagCategoryContainer"></div>
-    </div>
-</div>
-    
-    <div id="list" style="overflow-y:auto"></div>
-  </div>
-
-  <div class="detail-panel">
-    <div class="detail-header">
-      <div id="detailTitle" class="detail-title"></div>
-      <div id="detailCreator" class="detail-creator"></div>
-    </div>
-    <div class="video-wrapper">
-      <iframe id="detailVideo" allowfullscreen></iframe>
-    </div>
-    <div class="detail-content">
-      <div id="infoSection" class="info-section"></div>
-      <div id="graphSection" class="graph-section"></div>
-      <div id="detailDescription"></div>
-    </div>
-    <p class="fp-warning">※ 프레임 퍼펙트는 정확하지 않습니다 ※</p>
-  </div>
-
-  <div class="detail-panel clears-panel">
-    <div style="font-family:Paperlogy9;font-size:3.2rem;text-align:center;color:white;">기록 명단</div>
-    <div id="detailClears"></div>
-  </div>
-</div>
-
-  <div id="historySection" class="section">
-  <div class="section-title">변경 이력 (Level History)</div>
-  <div id="historyList"></div> </div>
-  
-<div id="devPanel" class="dev-panel">
-  <div class="detail-header" style="margin-top: 20px;">
-    <div class="detail-title" style="font-size: 2.5rem;">개발자 패널</div>
-    <div id="devContent" class="dev-content"></div>
-  </div>
-</div>
-
-<script>
-const TAG_GROUPS = {
-  '주 게임모드': ['Cube', 'Ship', 'Ball', 'UFO', 'Wave', 'Robot', 'Spider', 'Swing', 'Any-Mode'],
-  '속도': ['0.5x', '1x', '2x', '3x', '4x', 'Any-Speed'],
-  '길이': ['Short', 'Medium', 'Long', 'XL', 'XXL', 'XXXL'],
-  '성격': ['Memory', 'Sync', 'Gimmick', 'Physical', 'Spam', 'Learny', 'Flow', 'Boss', 'Fast', 'Slow'],
-  '특이사항': ['None-Effect', 'Low-Effect', 'Full-Effect', 'One-Mode', 'No-Clear', 'NONG'],
-};
-
-const FILTER_CATEGORIES = {
-  "모드": TAG_GROUPS['주 게임모드'],
-  "길이": TAG_GROUPS['길이'],
-  "특징": TAG_GROUPS['성격'],
-  "기타": TAG_GROUPS['특이사항']
-};
-
-const PLAYER_YOUTUBE = {
-  'imBBBT': 'https://www.youtube.com/@imBBBT',
-  'Choco': 'https://www.youtube.com/@초코5768',
-  'Light': 'https://www.youtube.com/@CC_Light722',
-  'Timo': 'https://www.youtube.com/@SNIPER_Timo',
-};
-
-const DEV_PASSWORD = '6974'; 
-
-let demonData = [];
-let changeHistory = [];
-let filteredData = [];
-let currentUser = localStorage.getItem('currentUser') || null;
-
-window.onload = function() {
-  fetch('classic.json')
-    .then(r => r.json())
-    .then(j => {
-      demonData = j.levels || [];
-      changeHistory = j.history || [];
-      filteredData = [...demonData];
-      
-      // [수정] 닉네임 표시 로직 순서 조정
-      if(currentUser) {
-        document.getElementById('userStatus').innerText = `접속 계정 : ${currentUser}`;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0" />
+    <title>초친 포럼 (레벨 - 클래식)</title>
+
+    <style>
+      /* --- 기본 설정 --- */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        background: #323232;
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
       }
-      
-      renderTagFilterButtons();
-      generateList(filteredData);
-      renderHistory();
-      
-      if (filteredData.length > 0) showDetail(filteredData[0]);
-    })
-    .catch(err => {
-      console.error(err);
-      document.getElementById('list').innerHTML = `<div style="color:white;text-align:center;padding:20px;">데이터를 불러오는 데 실패했습니다.</div>`;
-    });
-};
+      * {
+        box-sizing: border-box;
+      }
 
-function login() {
-  const name = prompt("닉네임을 입력해주세요.");
-  if (!name) return;
+      /* [수정] 모든 링크의 파란색 밑줄 제거 */
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
 
-  currentUser = name;
-  localStorage.setItem('currentUser', name);
-  document.getElementById('userStatus').innerText = `접속 계정 : ${name}`;
-  alert(`${name}님, 환영합니다!`);
-  
-  generateList(filteredData);
-}
+      /* 폰트 설정 */
+      @font-face {
+        font-family: Paperlogy1;
+        src: url('font - paperlogy/Paperlogy-1.ttf');
+      }
+      @font-face {
+        font-family: Paperlogy2;
+        src: url('font - paperlogy/Paperlogy-2.ttf');
+      }
+      @font-face {
+        font-family: Paperlogy3;
+        src: url('font - paperlogy/Paperlogy-3.ttf');
+      }
+      @font-face {
+        font-family: Paperlogy4;
+        src: url('font - paperlogy/Paperlogy-4.ttf');
+      }
+      @font-face {
+        font-family: Paperlogy5;
+        src: url('font - paperlogy/Paperlogy-5.ttf');
+      }
+      @font-face {
+        font-family: Paperlogy6;
+        src: url('font - paperlogy/Paperlogy-6.ttf');
+      }
+      @font-face {
+        font-family: Paperlogy7;
+        src: url('font - paperlogy/Paperlogy-7.ttf');
+      }
+      @font-face {
+        font-family: Paperlogy8;
+        src: url('font - paperlogy/Paperlogy-8.ttf');
+      }
+      @font-face {
+        font-family: Paperlogy9;
+        src: url('font - paperlogy/Paperlogy-9.ttf');
+      }
 
-function checkIfCleared(item) {
-  if (!currentUser) return false;
-  const name = currentUser.toLowerCase();
+      /* --- 계정 바 스타일 --- */
+      .auth-bar {
+        background: #202020;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 15px;
+        border-bottom: 2px solid #444;
+      }
+      .user-status {
+        color: #4f9;
+        font-family: Paperlogy5;
+        font-size: 0.95rem;
+      }
+      .auth-btn {
+        background: transparent;
+        border: 1.5px solid #fff;
+        color: #fff;
+        padding: 5px 15px;
+        border-radius: 5px;
+        font-family: Paperlogy7;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .auth-btn:hover {
+        background: #fff;
+        color: #000;
+      }
 
-  const isInClearList = item.clears && item.clears.some(c => c.player.toLowerCase() === name);
-  const isVerifier = item.verifier && item.verifier.toLowerCase() === name;
+      /* --- 헤더 네비게이션 --- */
+      .header-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5vw;
+        padding: 2vh 0;
+        flex-wrap: wrap;
+      }
+      .header-btn-wrapper {
+        width: min(400px, 90vw);
+        display: flex;
+        justify-content: center;
+      }
+      .header-btn {
+        background-color: #323232;
+        color: white;
+        font-size: clamp(1.5rem, 4vw, 3rem);
+        cursor: pointer;
+        padding: 1.5vh 0;
+        border: none;
+        border-radius: 10px;
+        width: 100%;
+        transition: background-color 0.25s ease, color 0.25s ease;
+        font-family: Paperlogy5;
+      }
+      .header-btn:hover,
+      .header-btn.active {
+        background-color: #fff;
+        color: #323232;
+      }
+      .divider {
+        border: 2px solid white;
+        width: 100%;
+        height: 0;
+        margin: 6px 0;
+      }
 
-  return isInClearList || isVerifier;
-}
+      /* --- 메인 컨테이너 --- */
+      .main-container {
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+        align-items: stretch;
+        min-height: 800px;
+      }
 
-function generateList(data) {
-  const list = document.getElementById('list');
-  list.innerHTML = '';
-  
-  if (data.length === 0) {
-    list.innerHTML = '<div style="color:#aaa; text-align:center; margin-top:20px;">검색 결과가 없습니다.</div>';
-    return;
-  }
+      .container,
+      .detail-panel {
+        background: #404040;
+        border-radius: 10px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
 
-  data.forEach(item => {
-    const isDone = checkIfCleared(item);
-    const div = document.createElement('div');
-    div.className = `item ${isDone ? 'cleared' : ''}`;
-    div.innerHTML = `
+      .container {
+        flex: 1;
+        min-width: 0;
+      }
+      .detail-panel {
+        flex: 2;
+        background: #505050;
+        overflow-y: auto;
+        min-width: 0;
+      }
+      .detail-panel.clears-panel {
+        flex: 1;
+        background: #404040;
+      }
+
+      .history-panel {
+        width: calc(100% - 40px);
+        margin: 0 auto 40px auto;
+        background: #3a3a3a;
+        border-radius: 10px;
+        padding: 20px;
+        min-height: 450px;
+      }
+
+      @media (max-width: 1400px) {
+        .main-container {
+          flex-direction: column;
+        }
+        .container,
+        .detail-panel,
+        .detail-panel.clears-panel {
+          width: 100%;
+          margin-bottom: 20px;
+          height: 600px;
+          flex: none;
+        }
+      }
+
+      /* --- 검색 및 태그 --- */
+      input#search {
+        font-size: 18px;
+        border-radius: 8px;
+        border: none;
+        padding: 12px;
+        margin-bottom: 10px;
+        width: 100%;
+        font-family: Paperlogy5;
+        background: #333;
+        color: white;
+      }
+
+      #tagCategoryContainer {
+        margin-bottom: 15px;
+        background: #383838;
+        padding: 10px;
+        border-radius: 8px;
+      }
+      .tag-cat-row {
+        display: flex;
+        margin-bottom: 6px;
+        align-items: flex-start;
+      }
+      .tag-cat-name {
+        color: #aaa;
+        font-family: Paperlogy6;
+        font-size: 0.85rem;
+        width: 50px;
+        margin-top: 4px;
+        flex-shrink: 0;
+      }
+      .tag-cat-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        flex: 1;
+      }
+      .filter-tag-btn {
+        background: #555;
+        color: #ddd;
+        border: none;
+        padding: 3px 8px;
+        border-radius: 12px;
+        font-family: Paperlogy4;
+        font-size: 0.8rem;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .filter-tag-btn:hover,
+      .filter-tag-btn.active {
+        background: #fff;
+        color: #000;
+      }
+
+      /* --- 리스트 아이템 --- */
+      .item {
+        display: flex;
+        align-items: flex-start;
+        padding: 0.9rem 0.5rem;
+        gap: 0.8rem;
+        border-bottom: 1px solid #777;
+        cursor: pointer;
+        transition: background-color 0.15s ease, color 0.15s ease;
+        min-height: fit-content;
+      }
+      .item:hover,
+      .item.active {
+        background-color: #ffffff;
+      }
+      .item:hover .title,
+      .item:hover .creator,
+      .item:hover .rank,
+      .item.active .title,
+      .item.active .creator,
+      .item.active .rank {
+        color: #000000;
+      }
+
+      .item.cleared {
+        background-color: #2e4a2e !important;
+        border-left: 6px solid #4f9;
+      }
+      .item.cleared:hover {
+        background-color: #3e5a3e !important;
+      }
+      .item.cleared.active {
+        background-color: #fff !important;
+      }
+
+      .clear-check {
+        color: #4f9;
+        margin-left: 8px;
+        font-size: 1.2rem;
+      }
+
+      .rank {
+        font-family: Paperlogy9;
+        font-size: clamp(2rem, 3.2vw, 3.2rem);
+        min-width: clamp(2rem, 3.2vw, 3.2rem);
+        text-align: center;
+        color: #ffffff;
+        flex-shrink: 0;
+      }
+      .title {
+        font-family: Paperlogy7;
+        font-size: clamp(1.4rem, 2.4vw, 2.4rem);
+        line-height: 1.3;
+        color: #ffffff;
+        word-break: keep-all;
+      }
+      .creator {
+        font-family: Paperlogy4;
+        font-size: clamp(0.8rem, 1vw, 1rem);
+        color: #d0d0d0;
+      }
+
+      /* --- 상세 정보 --- */
+      .detail-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      #detailCreator {
+        font-family: Paperlogy4;
+        font-size: clamp(1rem, 1.6vw, 1.6rem);
+        color: #c8c8c8;
+        margin-top: 4px;
+      }
+      .detail-title {
+        font-family: Paperlogy9;
+        font-size: clamp(2.4rem, 4.8vw, 4.8rem);
+        color: #ffffff;
+        line-height: 1.1;
+        text-align: center;
+        white-space: normal;
+        word-break: keep-all;
+        margin-bottom: 6px;
+      }
+      .video-wrapper {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%;
+        background: #000;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .video-wrapper iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      .section {
+        background: #444;
+        border-radius: 8px;
+        padding: 12px;
+        margin-top: 12px;
+      }
+      .section-title {
+        font-family: Paperlogy6;
+        font-size: 22px;
+        color: #fff;
+        margin-bottom: 8px;
+      }
+      .detail-content {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .info-section,
+      .graph-section,
+      .tag-section {
+        background: #444;
+        padding: 14px;
+        border-radius: 10px;
+      }
+      .info-row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        font-family: Paperlogy3;
+        font-size: 1rem;
+        color: #c8c8c8;
+      }
+      .info-row span {
+        min-width: 45%;
+      }
+      .fp-warning {
+        text-align: center;
+        font-family: Paperlogy2;
+        font-size: 0.9rem;
+        color: #aaa;
+        margin-top: 10px;
+      }
+
+      /* --- 그래프 --- */
+      .graph-box {
+        margin-bottom: 14px;
+      }
+      .graph-title {
+        font-family: Paperlogy6;
+        font-size: 1.2rem;
+        color: #fff;
+        margin-bottom: 6px;
+      }
+      .graph-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 4px 0;
+      }
+      .graph-label {
+        width: 90px;
+        font-family: Paperlogy3;
+        font-size: 0.9rem;
+        color: #c8c8c8;
+        flex-shrink: 0;
+      }
+      .graph-bar-bg {
+        flex: 1;
+        background: #333;
+        border-radius: 6px;
+        overflow: hidden;
+        height: 16px;
+      }
+      .graph-bar {
+        height: 100%;
+        border-radius: 6px;
+      }
+      .graph-value {
+        width: 50px;
+        text-align: right;
+        font-family: Paperlogy4;
+        font-size: 0.9rem;
+        color: #c8c8c8;
+      }
+      .graph-total {
+        margin-left: 8px;
+        font-size: 0.85rem;
+        color: #ccc;
+        font-family: Paperlogy3;
+      }
+
+      /* 그래프 색상 */
+      .graph-bar[data-key='Cube'] {
+        background: #00ff00;
+      }
+      .graph-bar[data-key='Ship'] {
+        background: #ff00ff;
+      }
+      .graph-bar[data-key='Ball'] {
+        background: #ff0000;
+      }
+      .graph-bar[data-key='UFO'] {
+        background: #ff9900;
+      }
+      .graph-bar[data-key='Wave'] {
+        background: #66ccff;
+      }
+      .graph-bar[data-key='Robot'] {
+        background: #ffffff;
+      }
+      .graph-bar[data-key='Spider'] {
+        background: #9900ff;
+      }
+      .graph-bar[data-key='Swing'] {
+        background: #ffff00;
+      }
+      .graph-bar[data-key='0.5x'] {
+        background: #ffff00;
+      }
+      .graph-bar[data-key='1x'] {
+        background: #66ccff;
+      }
+      .graph-bar[data-key='2x'] {
+        background: #00ff00;
+      }
+      .graph-bar[data-key='3x'] {
+        background: #ff66cc;
+      }
+      .graph-bar[data-key='4x'] {
+        background: #ff0000;
+      }
+      .graph-bar[data-key='30'] {
+        background: #66ccff;
+      }
+      .graph-bar[data-key='60'] {
+        background: #00ff00;
+      }
+      .graph-bar[data-key='120'] {
+        background: #ff00ff;
+      }
+
+      /* 태그 */
+      .tag-group-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 4px;
+      }
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: #5f5f5f;
+        color: #ffffff;
+        font-family: Paperlogy4;
+        font-size: 1rem;
+        padding: 6px 14px;
+        border-radius: 12px;
+        margin: 4px 6px 4px 0;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .tag:hover {
+        background: #888;
+        color: #fff;
+      }
+
+      /* 기록 명단 */
+      .clears-panel {
+        color: #e0e0e0;
+      }
+      .clear-row {
+        display: flex;
+        align-items: center;
+        gap: 0.6vw;
+        padding: 6px 4px;
+        font-family: Paperlogy3;
+        font-size: clamp(0.9rem, 1.1vw, 1.1vw);
+        color: #e0e0e0;
+      }
+      .clear-rank {
+        color: #ffffff;
+        min-width: 30px;
+      }
+      .clear-player {
+        flex: 1;
+        color: #ffffff;
+        font-family: Paperlogy5;
+      }
+      .clear-percent {
+        color: #c8c8c8;
+        min-width: 50px;
+        text-align: right;
+      }
+      .clear-percent.full {
+        color: #ffcc00;
+        font-family: Paperlogy6;
+      }
+      .clear-date {
+        font-family: Paperlogy2;
+        font-size: 0.8rem;
+        color: #b0b0b0;
+      }
+
+      /* 타이틀 영역 */
+      #detailHeader {
+        text-align: center;
+        margin-bottom: 64px;
+      }
+      #headerTitle {
+        font-family: Paperlogy7;
+        font-size: clamp(80px, 10vw, 170px);
+        color: #fff;
+        margin: 20px 0;
+      }
+      #detailSubtitle {
+        margin-top: 4px;
+        color: #aaa;
+        font-family: Paperlogy3;
+        font-size: clamp(22px, 2.8vw, 32px);
+      }
+      #modeShortcut {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+        margin-bottom: 18px;
+      }
+
+      /* 개발자 패널 */
+      /* --- 개발자 패널 레이아웃 --- */
+      #devPanel {
+        position: fixed;
+        top: 0;
+        right: -450px; /* 기본적으로 숨김 */
+        width: 450px;
+        height: 100%;
+        background: #222;
+        color: white;
+        transition: 0.3s ease-in-out;
+        z-index: 1000;
+        padding: 25px;
+        overflow-y: auto;
+        border-left: 3px solid #444;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+        font-family: 'Paperlogy5', sans-serif;
+      }
+
+      #devPanel.open {
+        right: 0; /* 패널 열기 */
+      }
+
+      #devPanel h2,
+      #devPanel h3 {
+        font-family: 'Paperlogy9';
+        margin-top: 0;
+        color: #fff;
+        border-bottom: 2px solid #444;
+        padding-bottom: 10px;
+      }
+
+      #devPanel label {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        font-size: 0.85rem;
+        color: #aaa;
+        font-family: 'Paperlogy7';
+      }
+
+      /* --- 입력창 스타일 --- */
+      .dev-input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        background: #333;
+        color: white;
+        border: 1px solid #555;
+        border-radius: 5px;
+        font-family: 'Paperlogy3';
+        font-size: 0.9rem;
+        transition: border 0.2s;
+      }
+
+      .dev-input:focus {
+        outline: none;
+        border-color: #4f9;
+      }
+
+      textarea.dev-input {
+        resize: vertical;
+        min-height: 60px;
+        font-family: monospace; /* JSON 데이터 가독성을 위해 */
+      }
+
+      /* --- 버튼 스타일 --- */
+      .dev-btn {
+        width: 100%;
+        padding: 12px;
+        background: #444;
+        border: none;
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-top: 10px;
+        font-family: 'Paperlogy7';
+        font-size: 1rem;
+        transition: 0.2s;
+      }
+
+      .dev-btn:hover {
+        background: #666;
+        transform: translateY(-2px);
+      }
+
+      .dev-btn-save {
+        background: #2ecc71 !important; /* 성공 초록색 */
+        color: #000 !important;
+      }
+
+      .dev-btn-save:hover {
+        background: #27ae60 !important;
+      }
+
+      /* --- 레벨 수정 리스트 아이템 --- */
+      #devContent .item {
+        background: #2a2a2a;
+        margin-bottom: 5px;
+        border-radius: 4px;
+        cursor: pointer;
+        border-left: 4px solid #555;
+        transition: 0.2s;
+      }
+
+      #devContent .item:hover {
+        background: #3a3a3a;
+        border-left-color: #4f9;
+        padding-left: 15px !important;
+      }
+
+      /* --- 스크롤바 커스텀 --- */
+      #devPanel::-webkit-scrollbar {
+        width: 8px;
+      }
+      #devPanel::-webkit-scrollbar-track {
+        background: #222;
+      }
+      #devPanel::-webkit-scrollbar-thumb {
+        background: #444;
+        border-radius: 10px;
+      }
+      #devPanel::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+      /* 변경 이력 */
+      #historyBox {
+        background: #252525;
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px solid #444;
+        height: 400px;
+        overflow-y: auto;
+      }
+
+      #modeShortcut {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+        margin-bottom: 18px;
+      }
+
+      .mode-btn {
+        background: transparent;
+        border: 1.5px solid #fff;
+        color: #fff;
+        padding: 6px 16px;
+        border-radius: 999px;
+        font-family: Paperlogy7;
+        font-size: clamp(1.2rem, 3vw, 2rem);
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s;
+      }
+
+      @media (max-width: 768px) {
+        .mode-btn {
+          font-size: clamp(1rem, 2.5vw, 1.5rem);
+          padding: 4px 12px;
+        }
+
+        #modeShortcut {
+          gap: 6px;
+        }
+
+        .clears-panel > div:first-child {
+          font-size: clamp(1.8rem, 3.2vw, 3.2rem) !important;
+        }
+      }
+
+      #modeShortcut .mode {
+        color: #aaa;
+        text-decoration: none;
+        cursor: pointer;
+        font-family: Paperlogy7;
+        font-size: 64px;
+      }
+
+      #modeShortcut .mode:hover {
+        color: #fff;
+      }
+
+      #modeShortcut .mode.active {
+        color: #fff;
+        font-weight: 700;
+        cursor: default;
+      }
+
+      #detailPanel {
+        margin-top: 64px;
+      }
+
+      .mode-btn:hover {
+        background: #fff;
+        color: #000;
+      }
+
+      .mode-btn.active {
+        background: #fff;
+        color: #000;
+        font-weight: 600;
+        cursor: default;
+      }
+
+      /* 변경 이력 패널 전체 디자인 */
+      .history-panel {
+        width: calc(100% - 40px);
+        margin: 20px auto 40px auto;
+        background: #252525;
+        border-radius: 12px;
+        padding: 30px;
+        border: 1px solid #444;
+      }
+
+      .history-item {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        background: #333;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        border-left: 5px solid #888; /* 기본 왼쪽 선 */
+        gap: 20px;
+      }
+
+      /* 타입별 색상 강조 (Pointercrate/AREDL 스타일) */
+      .history-item.add {
+        border-left-color: #2ecc71;
+      } /* 초록: 추가 */
+      .history-item.move {
+        border-left-color: #3498db;
+      } /* 파랑: 순위 이동 */
+      .history-item.remove {
+        border-left-color: #e74c3c;
+      } /* 빨강: 제거 */
+      .history-item.info {
+        border-left-color: #f1c40f;
+      } /* 노랑: 기록/정보 수정 */
+
+      .history-tag {
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-family: Paperlogy7;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        color: #fff;
+        min-width: 80px;
+        text-align: center;
+      }
+
+      .history-tag-small {
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-family: Paperlogy7;
+        font-size: 0.7rem;
+        color: #fff;
+        text-transform: uppercase;
+      }
+
+      .add .history-tag {
+        background: #2ecc71;
+      }
+      .move .history-tag {
+        background: #3498db;
+      }
+      .remove .history-tag {
+        background: #e74c3c;
+      }
+      .info .history-tag {
+        background: #f1c40f;
+        color: #000;
+      }
+
+      /* 태그 내용 감싸는 영역 */
+      .tag-content {
+        max-height: 500px; /* 충분한 높이 */
+        overflow: hidden;
+        transition: max-height 0.3s ease-out, opacity 0.2s;
+        opacity: 1;
+      }
+
+      /* 접혔을 때 상태 */
+      .tag-content.collapsed {
+        max-height: 0;
+        opacity: 0;
+        margin-top: 0;
+      }
+
+      /* 히스토리 토글용 스타일 */
+      .history-content-wrapper {
+        transition: max-height 0.3s ease-out, opacity 0.2s;
+        max-height: 2000px; /* 내용이 많아도 잘리지 않도록 넉넉하게 설정 */
+        opacity: 1;
+        overflow: hidden;
+      }
+      .history-content-wrapper.collapsed {
+        max-height: 0;
+        opacity: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="auth-bar">
+      <div id="userStatus" class="user-status"></div>
+      <button class="auth-btn" onclick="login()">계정 선택</button>
+    </div>
+
+    <div class="header-container">
+      <a href="../index.html" class="header-btn-wrapper"
+        ><button class="header-btn">홈</button></a
+      >
+      <a href="../level.html" class="header-btn-wrapper"
+        ><button class="header-btn active">레벨</button></a
+      >
+      <div class="header-btn-wrapper">
+        <a href="../mappack.html" class="header-btn-wrapper"
+          ><button class="header-btn">맵 팩</button></a
+        >
+      </div>
+      <div class="header-btn-wrapper">
+        <button class="header-btn">하디스트</button>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div id="detailHeader">
+      <div id="headerTitle">Classic</div>
+      <div id="detailSubtitle">
+        초친 멤버들이 만든 맵들 중 20초 이상의 레벨을 모아놓은 곳입니다.
+      </div>
+      <div style="margin-top: 70px"></div>
+      <div id="detailSubtitle"><레벨 리스트 바로가기></div>
+      <div id="modeShortcut">
+        <button class="mode-btn active">Classic</button>
+        <button class="mode-btn" onclick="location.href='challenge.html'">
+          Challenge
+        </button>
+        <button class="mode-btn" onclick="location.href='platformer.html'">
+          Platformer
+        </button>
+      </div>
+    </div>
+
+    <div class="main-container">
+      <div class="container">
+        <input
+          id="search"
+          placeholder="제목 또는 태그 검색..."
+          oninput="updateFilter()"
+        />
+        <div class="tag-filter-container">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <div class="section-title">태그 필터</div>
+            <button
+              onclick="toggleTagPanel()"
+              id="tagToggleBtn"
+              style="
+                background: none;
+                border: 1px solid #555;
+                color: #ccc;
+                cursor: pointer;
+                border-radius: 4px;
+                padding: 2px 8px;
+              "
+            >
+              펴기
+            </button>
+          </div>
+          <div id="tagContent" class="tag-content collapsed">
+            <div id="tagCategoryContainer"></div>
+          </div>
+        </div>
+
+        <div id="list" style="overflow-y: auto"></div>
+      </div>
+
+      <div class="detail-panel">
+        <div class="detail-header">
+          <div id="detailTitle" class="detail-title"></div>
+          <div id="detailCreator" class="detail-creator"></div>
+        </div>
+        <div class="video-wrapper">
+          <iframe id="detailVideo" allowfullscreen></iframe>
+        </div>
+        <div class="detail-content">
+          <div id="infoSection" class="info-section"></div>
+          <div id="graphSection" class="graph-section"></div>
+          <div id="detailDescription"></div>
+        </div>
+        <p class="fp-warning">※ 프레임 퍼펙트는 정확하지 않습니다 ※</p>
+      </div>
+
+      <div class="detail-panel clears-panel">
+        <div
+          style="
+            font-family: Paperlogy9;
+            font-size: 3.2rem;
+            text-align: center;
+            color: white;
+          "
+        >
+          기록 명단
+        </div>
+        <div id="detailClears"></div>
+      </div>
+    </div>
+
+    <div id="historySection" class="section" style="margin: 0 20px 40px 20px">
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 10px;
+        "
+      >
+        <div class="section-title" style="margin-bottom: 0">
+          변경 이력 (Level History)
+        </div>
+        <button
+          onclick="toggleHistoryPanel()"
+          id="historyToggleBtn"
+          style="
+            background: none;
+            border: 1px solid #555;
+            color: #ccc;
+            cursor: pointer;
+            border-radius: 4px;
+            padding: 2px 8px;
+          "
+        >
+          접기
+        </button>
+      </div>
+      <div id="historyContentWrapper" class="history-content-wrapper">
+        <div id="historyList"></div>
+      </div>
+    </div>
+
+    <div id="devPanel" class="dev-panel">
+      <div class="detail-header" style="margin-top: 20px">
+        <div class="detail-title" style="font-size: 2.5rem">개발자 패널</div>
+        <div id="devContent" class="dev-content"></div>
+      </div>
+    </div>
+
+    <script>
+      const TAG_GROUPS = {
+        '주 게임모드': [
+          'Cube',
+          'Ship',
+          'Ball',
+          'UFO',
+          'Wave',
+          'Robot',
+          'Spider',
+          'Swing',
+          'Any-Mode',
+        ],
+        속도: ['0.5x', '1x', '2x', '3x', '4x', 'Any-Speed'],
+        길이: ['Short', 'Medium', 'Long', 'XL', 'XXL', 'XXXL'],
+        성격: [
+          'Memory',
+          'Sync',
+          'Gimmick',
+          'Physical',
+          'Spam',
+          'Learny',
+          'Flow',
+          'Boss',
+          'Fast',
+          'Slow',
+        ],
+        특이사항: [
+          'None-Effect',
+          'Low-Effect',
+          'Full-Effect',
+          'One-Mode',
+          'No-Clear',
+          'NONG',
+        ],
+      };
+
+      const FILTER_CATEGORIES = {
+        모드: TAG_GROUPS['주 게임모드'],
+        길이: TAG_GROUPS['길이'],
+        특징: TAG_GROUPS['성격'],
+        기타: TAG_GROUPS['특이사항'],
+      };
+
+      const PLAYER_YOUTUBE = {
+        imBBBT: 'https://www.youtube.com/@imBBBT',
+        Choco: 'https://www.youtube.com/@초코5768',
+        Light: 'https://www.youtube.com/@CC_Light722',
+        Timo: 'https://www.youtube.com/@SNIPER_Timo',
+      };
+
+      const DEV_PASSWORD = '6974';
+
+      let demonData = [];
+      let changeHistory = [];
+      let filteredData = [];
+      let currentUser = localStorage.getItem('currentUser') || null;
+
+      let githubConfig = {
+        owner: localStorage.getItem('gh_owner') || '',
+        repo: localStorage.getItem('gh_repo') || '',
+        path: localStorage.getItem('gh_path') || 'level/classic.json',
+        token: localStorage.getItem('gh_token') || '',
+      };
+
+      window.onload = function () {
+        fetch('classic.json')
+          .then((r) => r.json())
+          .then((j) => {
+            demonData = j.levels || [];
+            changeHistory = j.history || [];
+            filteredData = [...demonData];
+
+            // [수정] 닉네임 표시 로직 순서 조정
+            if (currentUser) {
+              document.getElementById(
+                'userStatus'
+              ).innerText = `접속 계정 : ${currentUser}`;
+            }
+
+            renderTagFilterButtons();
+            generateList(filteredData);
+            renderHistory();
+
+            if (filteredData.length > 0) showDetail(filteredData[0]);
+          })
+          .catch((err) => {
+            console.error(err);
+            document.getElementById(
+              'list'
+            ).innerHTML = `<div style="color:white;text-align:center;padding:20px;">데이터를 불러오는 데 실패했습니다.</div>`;
+          });
+      };
+
+      function login() {
+        const name = prompt('닉네임을 입력해주세요.');
+        if (!name) return;
+
+        currentUser = name;
+        localStorage.setItem('currentUser', name);
+        document.getElementById('userStatus').innerText = `접속 계정 : ${name}`;
+        alert(`${name}님, 환영합니다!`);
+
+        generateList(filteredData);
+      }
+
+      function checkIfCleared(item) {
+        if (!currentUser) return false;
+        const name = currentUser.toLowerCase();
+
+        const isInClearList =
+          item.clears &&
+          item.clears.some((c) => c.player.toLowerCase() === name);
+        const isVerifier =
+          item.verifier && item.verifier.toLowerCase() === name;
+
+        return isInClearList || isVerifier;
+      }
+
+      function generateList(data) {
+        const list = document.getElementById('list');
+        list.innerHTML = '';
+
+        if (data.length === 0) {
+          list.innerHTML =
+            '<div style="color:#aaa; text-align:center; margin-top:20px;">검색 결과가 없습니다.</div>';
+          return;
+        }
+
+        data.forEach((item) => {
+          const isDone = checkIfCleared(item);
+          const div = document.createElement('div');
+          div.className = `item ${isDone ? 'cleared' : ''}`;
+          div.innerHTML = `
       <div class="rank">${item.id}</div>
       <div>
-        <div class="title">${item.title} ${isDone ? '<span class="clear-check">✅</span>' : ''}</div>
+        <div class="title">${item.title} ${
+            isDone ? '<span class="clear-check">✅</span>' : ''
+          }</div>
         <div class="creator">${item.creator}</div>
       </div>
     `;
-    div.onclick = () => showDetail(item, div);
-    list.appendChild(div);
-  });
-}
+          div.onclick = () => showDetail(item, div);
+          list.appendChild(div);
+        });
+      }
 
-function showDetail(item, element) {
-  // 1. 활성화 표시 관리
-  document.querySelectorAll('.item').forEach(i => i.classList.remove('active'));
-  if(element) element.classList.add('active');
+      function showDetail(item, element) {
+        // 1. 활성화 표시 관리
+        document
+          .querySelectorAll('.item')
+          .forEach((i) => i.classList.remove('active'));
+        if (element) element.classList.add('active');
 
-  // 2. 요소 확인 (에러 방지)
-  const clearBox = document.getElementById('detailClears');
-  if (!clearBox) {
-    console.error("에러: detailClears 요소를 찾을 수 없어!");
-    return;
-  }
+        // 2. 요소 확인 (에러 방지)
+        const clearBox = document.getElementById('detailClears');
+        if (!clearBox) {
+          console.error('에러: detailClears 요소를 찾을 수 없어!');
+          return;
+        }
 
-  // 3. 기본 정보 업데이트
-  document.getElementById('detailTitle').textContent = item.title;
-  document.getElementById('detailCreator').textContent =
-    item.creator === item.verifier
-      ? `by ${item.creator}`
-      : `by ${item.creator} / Verified by ${item.verifier}`;
+        // 3. 기본 정보 업데이트
+        document.getElementById('detailTitle').textContent = item.title;
+        document.getElementById('detailCreator').textContent =
+          item.creator === item.verifier
+            ? `by ${item.creator}`
+            : `by ${item.creator} / Verified by ${item.verifier}`;
 
-  // 4. 비디오 처리
-  const videoFrame = document.getElementById('detailVideo');
-  if (videoFrame) {
-    videoFrame.src = item.video ? item.video : "about:blank";
-  }
+        // 4. 비디오 처리
+        const videoFrame = document.getElementById('detailVideo');
+        if (videoFrame) {
+          videoFrame.src = item.video ? item.video : 'about:blank';
+        }
 
-  // 5. 맵 정보 섹션 (ID, 길이 등)
-  const info = document.getElementById('infoSection');
-  if (info) {
-    info.innerHTML = '';
-    if (item.map) {
-      info.innerHTML = `
+        // 5. 맵 정보 섹션 (ID, 길이 등)
+        const info = document.getElementById('infoSection');
+        if (info) {
+          info.innerHTML = '';
+          if (item.map) {
+            info.innerHTML = `
       <div class="info-row" style="margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #555;">
         <span><b>ID:</b> ${item.map?.mapId || '-'}</span>
         <span><b>Length:</b> ${item.map?.length || '-'}</span>
-        <span><b>Objects:</b> ${item.map?.objects?.toLocaleString() || '0'}</span>
+        <span><b>Objects:</b> ${
+          item.map?.objects?.toLocaleString() || '0'
+        }</span>
         <span><b>Date:</b> ${item.map?.uploadDate || '-'}</span>
       </div>
       <div class="song-info" style="background: #333; padding: 10px; border-radius: 5px; margin-bottom: 15px;">
@@ -903,189 +1224,280 @@ function showDetail(item, element) {
           <span style="color: #888;">(ID: ${item.song?.id || '-'})</span>
         </div>
       </div>
-    `;;
-    }
-  }
+    `;
+          }
+        }
 
-  // 6. 그래프 섹션
-  const graph = document.getElementById('graphSection');
-  if (graph) {
-    graph.innerHTML = '';
-    if (item.gameplay) {
-      graph.innerHTML += makeRatioGraph('게임모드 비율', item.gameplay.modeRatio);
-      graph.innerHTML += makeRatioGraph('속도 비율', item.gameplay.speedRatio);
-    }
-    if (item.framePerfect) {
-      graph.innerHTML += makeRatioGraph('프레임 퍼펙트', item.framePerfect.fps, '');
-    }
-  }
+        // 6. 그래프 섹션
+        const graph = document.getElementById('graphSection');
+        if (graph) {
+          graph.innerHTML = '';
+          if (item.gameplay) {
+            graph.innerHTML += makeRatioGraph(
+              '게임모드 비율',
+              item.gameplay.modeRatio
+            );
+            graph.innerHTML += makeRatioGraph(
+              '속도 비율',
+              item.gameplay.speedRatio
+            );
+          }
+          if (item.framePerfect) {
+            graph.innerHTML += makeRatioGraph(
+              '프레임 퍼펙트',
+              item.framePerfect.fps,
+              ''
+            );
+          }
+        }
 
-  // 7. 태그 및 설명 섹션
-  const description = document.getElementById('detailDescription');
-  if (description) {
-    description.innerHTML = '';
-    if (item.tags?.length) {
-      const tagsHtml = item.tags.map(t => `<span class="tag" onclick="searchByTag('${t}')">#${t}</span>`).join('');
-      description.innerHTML = `<div class="section"><div class="section-title">태그</div><div class="tag-group-container">${tagsHtml}</div></div>`;
-    }
-  }
+        // 7. 태그 및 설명 섹션
+        const description = document.getElementById('detailDescription');
+        if (description) {
+          description.innerHTML = '';
+          if (item.tags?.length) {
+            const tagsHtml = item.tags
+              .map(
+                (t) =>
+                  `<span class="tag" onclick="searchByTag('${t}')">#${t}</span>`
+              )
+              .join('');
+            description.innerHTML = `<div class="section"><div class="section-title">태그</div><div class="tag-group-container">${tagsHtml}</div></div>`;
+          }
+        }
 
-  // --- [핵심 수정 부분: 변경 이력] ---
-  // levelSpecificHistory 변수를 정의만 하지 말고, 데이터가 있는지 콘솔로 확인해봐.
-  const levelSpecificHistory = changeHistory.filter(h => h.title === item.title);
-  
-  // 만약 renderHistory 함수가 내부적으로 changeHistory 전체를 사용한다면 
-  // 아래처럼 필터링된 데이터를 직접 넘겨주거나 함수를 수정해야 해.
-  if (typeof renderHistory === 'function') {
-    renderHistory(item.title); 
-  }
+        // --- [핵심 수정 부분: 변경 이력] ---
+        // levelSpecificHistory 변수를 정의만 하지 말고, 데이터가 있는지 콘솔로 확인해봐.
+        const levelSpecificHistory = changeHistory.filter(
+          (h) => h.title === item.title
+        );
 
-  // 8. 기록 명단(Clears) 처리
-  clearBox.innerHTML = '';
-  if (item.clears?.length) {
-    item.clears.forEach((c, i) => {
-      const row = document.createElement('div');
-      row.className = `clear-row rank-${i + 1}`;
-      const youtube = typeof PLAYER_YOUTUBE !== 'undefined' ? PLAYER_YOUTUBE[c.player] : null;
-      const playerHTML = youtube ? `<a href="${youtube}" target="_blank">${c.player}</a>` : c.player;
-      row.innerHTML = `
+        // 만약 renderHistory 함수가 내부적으로 changeHistory 전체를 사용한다면
+        // 아래처럼 필터링된 데이터를 직접 넘겨주거나 함수를 수정해야 해.
+        if (typeof renderHistory === 'function') {
+          renderHistory(item.title);
+        }
+
+        // 8. 기록 명단(Clears) 처리
+        clearBox.innerHTML = '';
+        if (item.clears?.length) {
+          item.clears.forEach((c, i) => {
+            const row = document.createElement('div');
+            row.className = `clear-row rank-${i + 1}`;
+            const youtube =
+              typeof PLAYER_YOUTUBE !== 'undefined'
+                ? PLAYER_YOUTUBE[c.player]
+                : null;
+            const playerHTML = youtube
+              ? `<a href="${youtube}" target="_blank">${c.player}</a>`
+              : c.player;
+            row.innerHTML = `
         <div class="clear-rank">${i + 1}</div>
         <div class="clear-player">${playerHTML}</div>
-        <div class="clear-percent ${c.percent === 100 ? 'full' : ''}">${c.percent}%</div>
+        <div class="clear-percent ${c.percent === 100 ? 'full' : ''}">${
+              c.percent
+            }%</div>
         <div class="clear-date">${c.date || ''}</div>
       `;
-      clearBox.appendChild(row);
-    });
-  }
-}
-  
-function makeRatioGraph(title, data, suffix = '%') {
-  if (!data || Object.keys(data).length === 0) return '';
-  return `
+            clearBox.appendChild(row);
+          });
+        }
+      }
+
+      function makeRatioGraph(title, data, suffix = '%') {
+        if (!data || Object.keys(data).length === 0) return '';
+        return `
     <div class="graph-box">
       <div class="graph-title">${title}</div>
-      ${Object.entries(data).map(([k, v]) => `
+      ${Object.entries(data)
+        .map(
+          ([k, v]) => `
         <div class="graph-row">
           <div class="graph-label">${k}</div>
           <div class="graph-bar-bg"><div class="graph-bar" data-key="${k}" style="width:${v}%"></div></div>
           <div class="graph-value">${v}${suffix}</div>
         </div>
-      `).join('')}
+      `
+        )
+        .join('')}
     </div>
   `;
-}
+      }
 
-function renderTagFilterButtons() {
-  const container = document.getElementById('tagCategoryContainer');
-  container.innerHTML = Object.entries(FILTER_CATEGORIES).map(([catName, tags]) => `
+      function renderTagFilterButtons() {
+        const container = document.getElementById('tagCategoryContainer');
+        container.innerHTML = Object.entries(FILTER_CATEGORIES)
+          .map(
+            ([catName, tags]) => `
     <div class="tag-cat-row">
       <div class="tag-cat-name">${catName}</div>
       <div class="tag-cat-list">
-        ${tags.map(t => `<button class="filter-tag-btn" onclick="searchByTag('${t}')">#${t}</button>`).join('')}
+        ${tags
+          .map(
+            (t) =>
+              `<button class="filter-tag-btn" onclick="searchByTag('${t}')">#${t}</button>`
+          )
+          .join('')}
       </div>
     </div>
-  `).join('');
-}
+  `
+          )
+          .join('');
+      }
 
-function searchByTag(tagName) {
-  const searchInput = document.getElementById('search');
-  if (searchInput.value === tagName) searchInput.value = '';
-  else searchInput.value = tagName;
-  updateFilter();
-}
+      function searchByTag(tagName) {
+        const searchInput = document.getElementById('search');
+        if (searchInput.value === tagName) searchInput.value = '';
+        else searchInput.value = tagName;
+        updateFilter();
+      }
 
-function updateFilter() {
-  const term = document.getElementById('search').value.toLowerCase().trim();
-  document.querySelectorAll('.filter-tag-btn').forEach(btn => {
-    if (btn.innerText.toLowerCase() === `#${term}`) btn.classList.add('active');
-    else btn.classList.remove('active');
-  });
+      function updateFilter() {
+        const term = document
+          .getElementById('search')
+          .value.toLowerCase()
+          .trim();
+        document.querySelectorAll('.filter-tag-btn').forEach((btn) => {
+          if (btn.innerText.toLowerCase() === `#${term}`)
+            btn.classList.add('active');
+          else btn.classList.remove('active');
+        });
 
-  filteredData = demonData.filter(item => {
-    const titleMatch = item.title.toLowerCase().includes(term);
-    const tagMatch = item.tags && item.tags.some(t => t.toLowerCase() === term || t.toLowerCase().includes(term));
-    return titleMatch || tagMatch;
-  });
+        filteredData = demonData.filter((item) => {
+          const titleMatch = item.title.toLowerCase().includes(term);
+          const tagMatch =
+            item.tags &&
+            item.tags.some(
+              (t) => t.toLowerCase() === term || t.toLowerCase().includes(term)
+            );
+          return titleMatch || tagMatch;
+        });
 
-  generateList(filteredData);
-  
-  // [수정] 필터링 시 첫 번째 아이템 상세 정보 자동 갱신
-  if (filteredData.length > 0) {
-    showDetail(filteredData[0]);
-  }
-}
-  
-function renderHistory(targetTitle = null) {
-  const list = document.getElementById('historyList');
-  if (!list) return; // [핵심] 에러 방지: 요소가 없으면 실행 중단
+        generateList(filteredData);
 
-  list.innerHTML = ''; 
+        // [수정] 필터링 시 첫 번째 아이템 상세 정보 자동 갱신
+        if (filteredData.length > 0) {
+          showDetail(filteredData[0]);
+        }
+      }
 
-  // targetTitle이 있으면 해당 레벨 이력만 필터링, 없으면 전체 표시
-  const displayData = targetTitle 
-    ? changeHistory.filter(h => h.title === targetTitle)
-    : changeHistory;
+      function renderHistory(targetTitle = null) {
+        const list = document.getElementById('historyList');
+        if (!list) return; // [핵심] 에러 방지: 요소가 없으면 실행 중단
 
-  displayData.forEach(h => {
-    let typeClass = h.type === 'add' ? 'add' : (h.type === 'remove' ? 'remove' : 'move');
-    
-    const item = document.createElement('div');
-    item.className = `history-item ${typeClass}`;
-    item.style = "display: flex; gap: 15px; padding: 10px; border-bottom: 1px solid #444; color: #eee;";
-    item.innerHTML = `
+        list.innerHTML = '';
+
+        // [추가] 최고 순위 계산 및 표시
+        if (targetTitle) {
+          let bestRank = 999999;
+
+          // 1. 현재 순위 확인
+          const currentLv = demonData.find((l) => l.title === targetTitle);
+          if (currentLv) {
+            bestRank = currentLv.id;
+          }
+
+          // 2. 이력에서 순위 파싱
+          const specificHistory = changeHistory.filter(
+            (h) => h.title === targetTitle
+          );
+          specificHistory.forEach((h) => {
+            const matches = h.detail.match(/(\d+)위/g);
+            if (matches) {
+              matches.forEach((m) => {
+                const r = parseInt(m.replace('위', ''));
+                if (!isNaN(r) && r < bestRank) bestRank = r;
+              });
+            }
+          });
+
+          if (bestRank !== 999999) {
+            const bestRankDiv = document.createElement('div');
+            bestRankDiv.style =
+              'background: #333; color: #ffd700; padding: 10px; border-radius: 8px; margin-bottom: 15px; text-align: center; font-family: Paperlogy7; border: 1px solid #ffd700;';
+            bestRankDiv.innerHTML = `🏆 최고 순위 : ${bestRank}위`;
+            list.appendChild(bestRankDiv);
+          }
+        }
+
+        // targetTitle이 있으면 해당 레벨 이력만 필터링, 없으면 전체 표시
+        const displayData = targetTitle
+          ? changeHistory.filter((h) => h.title === targetTitle)
+          : changeHistory;
+
+        displayData.forEach((h) => {
+          let typeClass =
+            h.type === 'add' ? 'add' : h.type === 'remove' ? 'remove' : 'move';
+
+          const item = document.createElement('div');
+          item.className = `history-item ${typeClass}`;
+          item.style =
+            'display: flex; gap: 15px; padding: 10px; border-bottom: 1px solid #444; color: #eee;';
+          item.innerHTML = `
       <div style="color: #aaa; min-width: 100px;">${h.time.split(' ')[0]}</div>
-      <div style="flex: 1;"><b style="color: #fff;">${h.title}</b> ${h.detail}</div>
+      <div style="flex: 1;"><b style="color: #fff;">${h.title}</b> ${
+            h.detail
+          }</div>
     `;
-    list.appendChild(item);
-  });
-}
+          list.appendChild(item);
+        });
+      }
 
-document.addEventListener('keydown', e => {
-  if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'e') {
-    const panel = document.getElementById('devPanel');
-    if (panel.classList.contains('open')) panel.classList.remove('open');
-    else if (prompt('개발자 비밀번호') === DEV_PASSWORD) {
-      panel.classList.add('open');
-      renderDevHome();
-    }
-  }
-});
+      document.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'e') {
+          const panel = document.getElementById('devPanel');
+          if (panel.classList.contains('open')) panel.classList.remove('open');
+          else if (prompt('개발자 비밀번호') === DEV_PASSWORD) {
+            panel.classList.add('open');
+            renderDevHome();
+          }
+        }
+      });
 
-// 1. 개발자 패널 홈
-// 개발자 패널 메인 홈
-function renderDevHome() {
-  document.getElementById('devContent').innerHTML = `
+      // 1. 개발자 패널 홈
+      // 개발자 패널 메인 홈
+      function renderDevHome() {
+        document.getElementById('devContent').innerHTML = `
     <button class="dev-btn" onclick="renderLevelForm()">새 레벨 등록</button>
     <button class="dev-btn" onclick="renderEditList()">레벨 수정 / 기록 갱신</button>
+    <button class="dev-btn" onclick="renderGitHubConfig()" style="background:#8e44ad;">GitHub 설정</button>
+    <button class="dev-btn" onclick="saveToGitHub()" style="background:#2980b9;">GitHub에 저장</button>
     <button class="dev-btn" onclick="exportJson()" style="background:#5cb85c;">JSON 내보내기</button>
   `;
-}
+      }
 
-// 수정할 레벨 선택 리스트
-function renderEditList() {
-  let html = '<h3>수정할 레벨 선택</h3><div style="max-height:300px; overflow-y:auto; background:#333; border-radius:5px;">';
-  demonData.forEach((lv, idx) => {
-    html += `<div class="item" style="padding:10px; border-bottom:1px solid #444;" onclick="renderLevelForm(${idx})">
+      // 수정할 레벨 선택 리스트
+      function renderEditList() {
+        let html =
+          '<h3>수정할 레벨 선택</h3><div style="max-height:300px; overflow-y:auto; background:#333; border-radius:5px;">';
+        demonData.forEach((lv, idx) => {
+          html += `<div class="item" style="padding:10px; border-bottom:1px solid #444;" onclick="renderLevelForm(${idx})">
               ${lv.id}. ${lv.title}
-             </div>`;
-  });
-  html += '</div><button class="dev-btn" onclick="renderDevHome()">뒤로가기</button>';
-  document.getElementById('devContent').innerHTML = html;
-}
+              </div>`;
+        });
+        html +=
+          '</div><button class="dev-btn" onclick="renderDevHome()">뒤로가기</button>';
+        document.getElementById('devContent').innerHTML = html;
+      }
 
-// [핵심] 등록과 수정을 통합한 폼
-function renderLevelForm(idx = null) {
-  const isEdit = idx !== null;
-  const lv = isEdit ? demonData[idx] : {
-    title: '', creator: '', verifier: '', video: '',
-    map: { mapId: '', length: '', objects: 0, uploadDate: '' },
-    song: { name: '', artist: '', id: '' },
-    gameplay: { modeRatio: {}, speedRatio: {} },
-    framePerfect: { total: 0, fps: {} },
-    tags: []
-  };
+      // [핵심] 등록과 수정을 통합한 폼
+      function renderLevelForm(idx = null) {
+        const isEdit = idx !== null;
+        const lv = isEdit
+          ? demonData[idx]
+          : {
+              title: '',
+              creator: '',
+              verifier: '',
+              video: '',
+              map: { mapId: '', length: '', objects: 0, uploadDate: '' },
+              song: { name: '', artist: '', id: '' },
+              gameplay: { modeRatio: {}, speedRatio: {} },
+              framePerfect: { total: 0, fps: {} },
+              tags: [],
+            };
 
-  document.getElementById('devContent').innerHTML = `
+        document.getElementById('devContent').innerHTML = `
     <h3>${isEdit ? '레벨 수정' : '새 레벨 등록'}</h3>
     <div style="max-height:450px; overflow-y:auto; padding-right:10px; display:flex; flex-direction:column; gap:10px;">
     <label>순위 설정 (현재 총 ${demonData.length}개)</label>
@@ -1094,251 +1506,446 @@ function renderLevelForm(idx = null) {
              value="${isEdit ? idx + 1 : demonData.length + 1}">
         
       <label>기본: 제목, 제작자, 베리파이어, 영상URL</label>
-      <input id="f-title" class="dev-input" placeholder="제목" value="${lv.title}">
-      <input id="f-creator" class="dev-input" placeholder="제작자" value="${lv.creator}">
-      <input id="f-verifier" class="dev-input" placeholder="베리파이어" value="${lv.verifier || ''}">
-      <input id="f-video" class="dev-input" placeholder="영상 URL" value="${lv.video}">
+      <input id="f-title" class="dev-input" placeholder="제목" value="${
+        lv.title
+      }">
+      <input id="f-creator" class="dev-input" placeholder="제작자" value="${
+        lv.creator
+      }">
+      <input id="f-verifier" class="dev-input" placeholder="베리파이어" value="${
+        lv.verifier || ''
+      }">
+      <input id="f-video" class="dev-input" placeholder="영상 URL" value="${
+        lv.video
+      }">
 
       <label>맵: ID, 길이, 오브젝트, 날짜</label>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:5px;">
-        <input id="f-mid" class="dev-input" placeholder="맵 ID" value="${lv.map?.mapId || ''}">
-        <input id="f-mlen" class="dev-input" placeholder="길이" value="${lv.map?.length || ''}">
-        <input id="f-mobj" class="dev-input" placeholder="오브젝트" value="${lv.map?.objects || ''}">
-        <input id="f-mdate" class="dev-input" placeholder="날짜" value="${lv.map?.uploadDate || ''}">
+        <input id="f-mid" class="dev-input" placeholder="맵 ID" value="${
+          lv.map?.mapId || ''
+        }">
+        <input id="f-mlen" class="dev-input" placeholder="길이" value="${
+          lv.map?.length || ''
+        }">
+        <input id="f-mobj" class="dev-input" placeholder="오브젝트" value="${
+          lv.map?.objects || ''
+        }">
+        <input id="f-mdate" class="dev-input" placeholder="날짜" value="${
+          lv.map?.uploadDate || ''
+        }">
       </div>
 
       <label>노래: 제목, 작곡가, 노래 ID</label>
-      <input id="f-sname" class="dev-input" placeholder="노래 제목" value="${lv.song?.name || ''}">
-      <input id="f-sauth" class="dev-input" placeholder="작곡가" value="${lv.song?.artist || ''}">
-      <input id="f-sid" class="dev-input" placeholder="노래 ID" value="${lv.song?.id || ''}">
+      <input id="f-sname" class="dev-input" placeholder="노래 제목" value="${
+        lv.song?.name || ''
+      }">
+      <input id="f-sauth" class="dev-input" placeholder="작곡가" value="${
+        lv.song?.artist || ''
+      }">
+      <input id="f-sid" class="dev-input" placeholder="노래 ID" value="${
+        lv.song?.id || ''
+      }">
 
       <label>비율(JSON): 모드, 속도, 프레임퍼펙트</label>
-      <textarea id="f-mode" class="dev-input" placeholder='모드 비율 {"Cube":50...}'>${JSON.stringify(lv.gameplay?.modeRatio || {})}</textarea>
-      <textarea id="f-speed" class="dev-input" placeholder='속도 비율 {"1x":100...}'>${JSON.stringify(lv.gameplay?.speedRatio || {})}</textarea>
-      <textarea id="f-fps" class="dev-input" placeholder='FPS {"60hz":1...}'>${JSON.stringify(lv.framePerfect?.fps || {})}</textarea>
+      <textarea id="f-mode" class="dev-input" placeholder='모드 비율 {"Cube":50...}'>${JSON.stringify(
+        lv.gameplay?.modeRatio || {}
+      )}</textarea>
+      <textarea id="f-speed" class="dev-input" placeholder='속도 비율 {"1x":100...}'>${JSON.stringify(
+        lv.gameplay?.speedRatio || {}
+      )}</textarea>
+      <textarea id="f-fps" class="dev-input" placeholder='FPS {"60hz":1...}'>${JSON.stringify(
+        lv.framePerfect?.fps || {}
+      )}</textarea>
 
       <label>태그 (쉼표 구분)</label>
-      <input id="f-tags" class="dev-input" placeholder="태그1, 태그2" value="${lv.tags?.join(', ') || ''}">
+      <input id="f-tags" class="dev-input" placeholder="태그1, 태그2" value="${
+        lv.tags?.join(', ') || ''
+      }">
     </div>
     <button class="dev-btn dev-btn-save" onclick="saveLevelForm(${idx})">
   ${isEdit ? '수정 완료' : '등록 완료'}
 </button>
+    ${
+      isEdit
+        ? `<button class="dev-btn" onclick="deleteLevel(${idx})" style="background:#e74c3c;">삭제</button>`
+        : ''
+    }
     <button class="dev-btn" onclick="renderDevHome()">취소</button>
 
     <label>기록 관리 (Clears)</label>
       <div id="f-clears-container" style="display:flex; flex-direction:column; gap:5px;">
-        ${(lv.clears || []).map((c, i) => `
+        ${(lv.clears || [])
+          .map(
+            (c, i) => `
           <div class="clear-edit-row" style="display:flex; gap:3px;">
-            <input class="dev-input cl-p" placeholder="유저" value="${c.player}" style="flex:2">
-            <input class="dev-input cl-v" placeholder="%" value="${c.percent}" style="flex:1">
-            <input class="dev-input cl-d" placeholder="날짜" value="${c.date || ''}" style="flex:1.5">
+            <input class="dev-input cl-p" placeholder="유저" value="${
+              c.player
+            }" style="flex:2">
+            <input class="dev-input cl-v" placeholder="%" value="${
+              c.percent
+            }" style="flex:1">
+            <input class="dev-input cl-d" placeholder="날짜" value="${
+              c.date || ''
+            }" style="flex:1.5">
             <button onclick="this.parentElement.remove()" style="background:#e74c3c; border:none; color:white; border-radius:4px; cursor:pointer; width:30px;">X</button>
           </div>
-        `).join('')}
+        `
+          )
+          .join('')}
       </div>
       <button class="dev-btn" onclick="addClearInputRow()" style="background:#3498db; margin-top:5px;">+ 기록 추가</button>
       `;
-  }
-
-// --- 보조 로직 함수들 ---
-function saveLevelForm(idx) {
-  const isEdit = idx !== null;
-  
-  try {
-    // 1. 유저 기록(Clears) 데이터 수집
-    const playerInputs = document.querySelectorAll('.cl-p');
-    const percentInputs = document.querySelectorAll('.cl-v');
-    const dateInputs = document.querySelectorAll('.cl-d');
-    const newClears = [];
-    const placementInput = document.getElementById('f-placement');
-    let targetRank = placementInput ? parseInt(placementInput.value) - 1 : (isEdit ? idx : demonData.length);
-
-    playerInputs.forEach((input, i) => {
-      const pName = input.value.trim();
-      if (pName) {
-        newClears.push({
-          player: pName,
-          percent: parseInt(percentInputs[i].value) || 100,
-          date: dateInputs[i]?.value.trim() || ""
-        });
       }
-    });
 
-    // 2. 입력값 수집 (방어적 코딩: 요소가 없으면 빈 문자열 처리)
-    const getValue = (id) => document.getElementById(id)?.value || "";
-    
-    // FPS 데이터 파싱
-    let fpsData = {};
-    try {
-      fpsData = JSON.parse(getValue('f-fps') || '{}');
-    } catch(e) { 
-      alert("FPS 데이터 형식 오류"); 
-      return; 
-    }
+      // --- 보조 로직 함수들 ---
+      function saveLevelForm(idx) {
+        const isEdit = idx !== null;
 
-    const newData = {
-      id: isEdit ? demonData[idx].id : demonData.length + 1,
-      title: getValue('f-title'),
-      creator: getValue('f-creator'),
-      verifier: getValue('f-verifier'),
-      video: getValue('f-video'),
-      map: {
-        mapId: getValue('f-mid'),
-        length: getValue('f-mlen'),
-        objects: parseInt(getValue('f-mobj')) || 0,
-        uploadDate: getValue('f-mdate')
-      },
-      song: {
-        name: getValue('f-sname'),
-        author: getValue('f-sauth'),
-        id: getValue('f-sid')
-      },
-      gameplay: {
-        modeRatio: JSON.parse(getValue('f-mode') || '{}'),
-        speedRatio: JSON.parse(getValue('f-speed') || '{}')
-      },
-      framePerfect: {
-        fps: fpsData,
-        total: Object.values(fpsData).reduce((a, b) => a + (parseInt(b) || 0), 0)
-      },
-      tags: getValue('f-tags').split(',').map(t => t.trim()).filter(t => t),
-      clears: newClears
-    };
+        try {
+          // 1. 유저 기록(Clears) 데이터 수집
+          const playerInputs = document.querySelectorAll('.cl-p');
+          const percentInputs = document.querySelectorAll('.cl-v');
+          const dateInputs = document.querySelectorAll('.cl-d');
+          const newClears = [];
+          const placementInput = document.getElementById('f-placement');
+          let targetRank = placementInput
+            ? parseInt(placementInput.value) - 1
+            : isEdit
+            ? idx
+            : demonData.length;
 
-    // 2. [핵심] 순위 변경 감지 및 히스토리 기록
-    if (isEdit) {
-      // [수정/이동]
-      const oldRank = idx;
-      if (oldRank !== targetRank) {
-        // 이동하는 레벨 자체의 기록
-        const direction = targetRank < oldRank ? "상승" : "하락";
-        addHistory('move', newData.title, `재평가로 인해 순위가 ${oldRank + 1}위에서 ${targetRank + 1}위로 ${direction}하였습니다.`);
+          playerInputs.forEach((input, i) => {
+            const pName = input.value.trim();
+            if (pName) {
+              newClears.push({
+                player: pName,
+                percent: parseInt(percentInputs[i].value) || 100,
+                date: dateInputs[i]?.value.trim() || '',
+              });
+            }
+          });
 
-        // 사이의 레벨들 순위 변동 기록
-        const start = Math.min(oldRank, targetRank);
-        const end = Math.max(oldRank, targetRank);
-        const shift = targetRank < oldRank ? 1 : -1;
+          // 2. 입력값 수집 (방어적 코딩: 요소가 없으면 빈 문자열 처리)
+          const getValue = (id) => document.getElementById(id)?.value || '';
 
-        for (let i = start; i <= end; i++) {
-          if (i === oldRank) continue;
+          // FPS 데이터 파싱
+          let fpsData = {};
+          try {
+            fpsData = JSON.parse(getValue('f-fps') || '{}');
+          } catch (e) {
+            alert('FPS 데이터 형식 오류');
+            return;
+          }
+
+          const newData = {
+            id: isEdit ? demonData[idx].id : demonData.length + 1,
+            title: getValue('f-title'),
+            creator: getValue('f-creator'),
+            verifier: getValue('f-verifier'),
+            video: getValue('f-video'),
+            map: {
+              mapId: getValue('f-mid'),
+              length: getValue('f-mlen'),
+              objects: parseInt(getValue('f-mobj')) || 0,
+              uploadDate: getValue('f-mdate'),
+            },
+            song: {
+              name: getValue('f-sname'),
+              artist: getValue('f-sauth'),
+              id: getValue('f-sid'),
+            },
+            gameplay: {
+              modeRatio: JSON.parse(getValue('f-mode') || '{}'),
+              speedRatio: JSON.parse(getValue('f-speed') || '{}'),
+            },
+            framePerfect: {
+              fps: fpsData,
+              total: Object.values(fpsData).reduce(
+                (a, b) => a + (parseInt(b) || 0),
+                0
+              ),
+            },
+            tags: getValue('f-tags')
+              .split(',')
+              .map((t) => t.trim())
+              .filter((t) => t),
+            clears: newClears,
+          };
+
+          // 2. [핵심] 순위 변경 감지 및 히스토리 기록
+          if (isEdit) {
+            // [수정/이동]
+            const oldRank = idx;
+            if (oldRank !== targetRank) {
+              // 이동하는 레벨 자체의 기록
+              const direction = targetRank < oldRank ? '상승' : '하락';
+              addHistory(
+                'move',
+                newData.title,
+                `재평가로 인해 순위가 ${oldRank + 1}위에서 ${
+                  targetRank + 1
+                }위로 ${direction}하였습니다.`
+              );
+
+              // 사이의 레벨들 순위 변동 기록
+              const start = Math.min(oldRank, targetRank);
+              const end = Math.max(oldRank, targetRank);
+              const shift = targetRank < oldRank ? 1 : -1;
+
+              for (let i = start; i <= end; i++) {
+                if (i === oldRank) continue;
+                const affectedLv = demonData[i];
+                const shiftDir = shift > 0 ? '하락' : '상승';
+                addHistory(
+                  'move',
+                  affectedLv.title,
+                  `상위 레벨의 순위 변동으로 인해 ${i + 1}위에서 ${
+                    i + 1 + shift
+                  }위로 ${shiftDir}하였습니다.`
+                );
+              }
+
+              // 실제 배열 조작
+              demonData.splice(oldRank, 1);
+              demonData.splice(targetRank, 0, newData);
+            } else {
+              // 순위 변동 없는 단순 정보 수정
+              demonData[idx] = newData;
+            }
+          } else {
+            // [신규 추가]
+            // 추가되는 위치부터 그 뒤의 모든 레벨은 순위가 1단계씩 하락함
+            for (let i = targetRank; i < demonData.length; i++) {
+              addHistory(
+                'move',
+                demonData[i].title,
+                `새로운 레벨 추가로 인해 순위가 ${i + 1}위에서 ${
+                  i + 2
+                }위로 하락하였습니다.`
+              );
+            }
+
+            demonData.splice(targetRank, 0, newData);
+            addHistory(
+              'add',
+              newData.title,
+              `${targetRank + 1}위에 새로운 레벨이 등록되었습니다.`
+            );
+          }
+
+          // 3. ID 재정렬 (선택 사항: id를 순위 순서대로 1, 2, 3... 다시 매기고 싶다면)
+          demonData.forEach((lv, i) => {
+            lv.id = i + 1;
+          });
+
+          generateList(demonData);
+          alert('저장 완료');
+          renderDevHome();
+        } catch (err) {
+          console.error('저장 중 에러 발생:', err);
+          alert('저장 실패');
+        }
+      }
+
+      // [추가] 레벨 삭제 함수 (순위 변동 이력 포함)
+      function deleteLevel(idx) {
+        if (
+          !confirm(
+            '정말로 이 레벨을 삭제하시겠습니까? 삭제 후에는 복구할 수 없습니다.'
+          )
+        )
+          return;
+
+        const deletedLv = demonData[idx];
+        const oldRank = idx + 1;
+
+        // 1. 삭제되는 레벨 이력
+        addHistory(
+          'remove',
+          deletedLv.title,
+          `${oldRank}위에 있던 레벨이 삭제되었습니다.`
+        );
+
+        // 2. 영향받는 레벨들 (삭제된 레벨 뒤에 있던 레벨들은 순위가 1씩 상승)
+        for (let i = idx + 1; i < demonData.length; i++) {
           const affectedLv = demonData[i];
-          const shiftDir = shift > 0 ? "하락" : "상승";
-          addHistory('move', affectedLv.title, `상위 레벨의 순위 변동으로 인해 ${i + 1}위에서 ${i + 1 + shift}위로 ${shiftDir}하였습니다.`);
+          addHistory(
+            'move',
+            affectedLv.title,
+            `상위 레벨 삭제로 인해 ${i + 1}위에서 ${i}위로 상승하였습니다.`
+          );
         }
 
-        // 실제 배열 조작
-        demonData.splice(oldRank, 1);
-        demonData.splice(targetRank, 0, newData);
-      } else {
-        // 순위 변동 없는 단순 정보 수정
-        demonData[idx] = newData;
+        // 3. 데이터 삭제
+        demonData.splice(idx, 1);
+
+        // 4. ID 재정렬
+        demonData.forEach((lv, i) => (lv.id = i + 1));
+
+        generateList(demonData);
+        alert('삭제되었습니다.');
+        renderDevHome();
       }
-    } else {
-      // [신규 추가]
-      // 추가되는 위치부터 그 뒤의 모든 레벨은 순위가 1단계씩 하락함
-      for (let i = targetRank; i < demonData.length; i++) {
-        addHistory('move', demonData[i].title, `새로운 레벨 추가로 인해 순위가 ${i + 1}위에서 ${i + 2}위로 하락하였습니다.`);
-      }
-      
-      demonData.splice(targetRank, 0, newData);
-      addHistory('add', newData.title, `${targetRank + 1}위에 새로운 레벨이 등록되었습니다.`);
-    }
 
-    // 3. ID 재정렬 (선택 사항: id를 순위 순서대로 1, 2, 3... 다시 매기고 싶다면)
-    demonData.forEach((lv, i) => {
-      lv.id = i + 1;
-    });
-
-    generateList(demonData);
-    alert("저장 완료");
-    renderDevHome();
-    
-  } catch (err) {
-    console.error("저장 중 에러 발생:", err);
-    alert("저장 실패");
-  }
-}
-
-// 기록 입력 행을 동적으로 추가하는 함수
-function addClearInputRow() {
-  const container = document.getElementById('f-clears-container');
-  const div = document.createElement('div');
-  div.className = "clear-edit-row";
-  div.style = "display:flex; gap:3px;";
-  div.innerHTML = `
+      // 기록 입력 행을 동적으로 추가하는 함수
+      function addClearInputRow() {
+        const container = document.getElementById('f-clears-container');
+        const div = document.createElement('div');
+        div.className = 'clear-edit-row';
+        div.style = 'display:flex; gap:3px;';
+        div.innerHTML = `
     <input class="dev-input cl-p" placeholder="유저" style="flex:2">
     <input class="dev-input cl-v" placeholder="%" style="flex:1">
     <input class="dev-input cl-d" placeholder="날짜" style="flex:1.5">
     <button onclick="this.parentElement.remove()" style="background:#e74c3c; border:none; color:white; border-radius:4px; cursor:pointer; width:30px;">X</button>
   `;
-  container.appendChild(div);
-}
-// JSON 저장 기능 (기존 것 유지 혹은 확인)
-function exportJson() {
-  const data = { 
-    levels: demonData, 
-    history: changeHistory 
-  };
-  const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'classic.json';
-  a.click();
-}
+        container.appendChild(div);
+      }
+      // JSON 저장 기능 (기존 것 유지 혹은 확인)
+      function exportJson() {
+        const data = {
+          levels: demonData,
+          history: changeHistory,
+        };
+        const blob = new Blob([JSON.stringify(data, null, 2)], {
+          type: 'application/json',
+        });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'classic.json';
+        a.click();
+      }
 
-  // 히스토리를 changeHistory 배열에 추가하는 함수
-function addHistory(type, title, detail) {
-  const now = new Date();
-  const timeStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
-  
-  if (typeof changeHistory !== 'undefined') {
-    changeHistory.unshift({
-      time: timeStr,
-      type: type,
-      title: title,
-      detail: detail
-    });
-  }
-}
+      function renderGitHubConfig() {
+        document.getElementById('devContent').innerHTML = `
+    <h3>GitHub 연동 설정</h3>
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <label>Repository Owner (유저명)</label>
+      <input id="gh-owner" class="dev-input" value="${githubConfig.owner}" placeholder="예: imBBBT">
+      
+      <label>Repository Name (저장소명)</label>
+      <input id="gh-repo" class="dev-input" value="${githubConfig.repo}" placeholder="예: chochin-forum">
+      
+      <label>File Path (파일 경로)</label>
+      <input id="gh-path" class="dev-input" value="${githubConfig.path}" placeholder="예: level/classic.json">
+      
+      <label>Personal Access Token (토큰)</label>
+      <input id="gh-token" class="dev-input" type="password" value="${githubConfig.token}" placeholder="ghp_...">
+      
+      <button class="dev-btn dev-btn-save" onclick="saveGitHubConfig()">설정 저장</button>
+      <button class="dev-btn" onclick="renderDevHome()">뒤로가기</button>
+    </div>
+  `;
+      }
 
-  function toggleTagPanel() {
-  const content = document.getElementById('tagContent');
-  const btn = document.getElementById('tagToggleBtn');
-  
-  content.classList.toggle('collapsed');
-  
-  // 버튼 텍스트 변경
-  if (content.classList.contains('collapsed')) {
-    btn.textContent = '펴기';
-  } else {
-    btn.textContent = '접기';
-  }
-}
-</script>
-</body>
+      function saveGitHubConfig() {
+        githubConfig.owner = document.getElementById('gh-owner').value.trim();
+        githubConfig.repo = document.getElementById('gh-repo').value.trim();
+        githubConfig.path = document.getElementById('gh-path').value.trim();
+        githubConfig.token = document.getElementById('gh-token').value.trim();
+
+        localStorage.setItem('gh_owner', githubConfig.owner);
+        localStorage.setItem('gh_repo', githubConfig.repo);
+        localStorage.setItem('gh_path', githubConfig.path);
+        localStorage.setItem('gh_token', githubConfig.token);
+
+        alert('설정이 저장되었습니다.');
+        renderDevHome();
+      }
+
+      async function saveToGitHub() {
+        if (!githubConfig.token || !githubConfig.owner || !githubConfig.repo) {
+          if (confirm('GitHub 설정이 필요합니다. 설정 화면으로 이동할까요?'))
+            renderGitHubConfig();
+          return;
+        }
+
+        const content = JSON.stringify(
+          { levels: demonData, history: changeHistory },
+          null,
+          2
+        );
+        const url = `https://api.github.com/repos/${githubConfig.owner}/${githubConfig.repo}/contents/${githubConfig.path}`;
+
+        try {
+          let sha = null;
+          const getRes = await fetch(url, {
+            headers: {
+              Authorization: `Bearer ${githubConfig.token}`,
+              Accept: 'application/vnd.github.v3+json',
+            },
+          });
+          if (getRes.ok) {
+            const json = await getRes.json();
+            sha = json.sha;
+          }
+
+          const putRes = await fetch(url, {
+            method: 'PUT',
+            headers: {
+              Authorization: `Bearer ${githubConfig.token}`,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              message: `Update ${githubConfig.path} via Web`,
+              content: btoa(unescape(encodeURIComponent(content))),
+              sha: sha,
+            }),
+          });
+
+          if (putRes.ok) alert('GitHub에 성공적으로 저장되었습니다!');
+          else {
+            const err = await putRes.json();
+            alert(`저장 실패: ${err.message}`);
+          }
+        } catch (e) {
+          alert(`오류 발생: ${e.message}`);
+        }
+      }
+
+      // 히스토리를 changeHistory 배열에 추가하는 함수
+      function addHistory(type, title, detail) {
+        const now = new Date();
+        const timeStr = `${now.getFullYear()}-${String(
+          now.getMonth() + 1
+        ).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(
+          now.getHours()
+        ).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+
+        if (typeof changeHistory !== 'undefined') {
+          changeHistory.unshift({
+            time: timeStr,
+            type: type,
+            title: title,
+            detail: detail,
+          });
+        }
+      }
+
+      function toggleTagPanel() {
+        const content = document.getElementById('tagContent');
+        const btn = document.getElementById('tagToggleBtn');
+
+        content.classList.toggle('collapsed');
+
+        // 버튼 텍스트 변경
+        if (content.classList.contains('collapsed')) {
+          btn.textContent = '펴기';
+        } else {
+          btn.textContent = '접기';
+        }
+      }
+
+      function toggleHistoryPanel() {
+        const wrapper = document.getElementById('historyContentWrapper');
+        const btn = document.getElementById('historyToggleBtn');
+        wrapper.classList.toggle('collapsed');
+        if (wrapper.classList.contains('collapsed')) {
+          btn.textContent = '펴기';
+        } else {
+          btn.textContent = '접기';
+        }
+      }
+    </script>
+  </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

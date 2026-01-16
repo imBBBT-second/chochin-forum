@@ -4,10 +4,10 @@
       "id": 1,
       "title": "chocubed",
       "creator": "Light",
-      "video": "https://www.youtube.com/embed/Q9i2t7wWckw",
       "verifier": "Light",
+      "video": "https://www.youtube.com/embed/Q9i2t7wWckw",
       "map": {
-        "mapId": 126886071,
+        "mapId": "126886071",
         "length": "0m 24s",
         "objects": 1930,
         "uploadDate": "2025-10-10"
@@ -15,42 +15,35 @@
       "song": {
         "name": "Parfait",
         "artist": "EspiDev",
-        "id": 763176
+        "id": "763176"
       },
       "gameplay": {
-        "mainMode": "Wave",
         "modeRatio": {
-          "Cube": 35.97,
-          "Ship": 11.14,
-          "Wave": 52.82
+          "Cube": 32.93,
+          "Ship": 11.78,
+          "Wave": 55.29
         },
         "speedRatio": {
-          "0.5x": 10.01,
-          "1x": 5.09,
-          "4x": 84.9
+          "0.5x": 5.14,
+          "1x": 5.96,
+          "4x": 88.91
         }
       },
       "framePerfect": {
-        "total": 30,
         "fps": {
           "30": 21,
           "60": 9,
           "120": 0,
           "240": 0
-        }
+        },
+        "total": 30
       },
-      "tags": [
-        "Wave",
-        "4x",
-        "Short",
-        "Physical",
-        "None-Effect"
-      ],
+      "tags": ["Wave", "4x", "Short", "Physical", "None-Effect"],
       "clears": [
         {
           "player": "Timo",
-          "date": "2025-12-17",
-          "percent": 100
+          "percent": 100,
+          "date": "2025-12-17"
         }
       ]
     },
@@ -58,10 +51,10 @@
       "id": 2,
       "title": "Stereo MadnesS EX",
       "creator": "Choco & Timo",
-      "video": "-",
       "verifier": "Timo",
+      "video": "https://www.youtube.com/embed/ys5N_0DgIsk",
       "map": {
-        "mapId": 131445339,
+        "mapId": "131445339",
         "length": "1m 25s",
         "objects": 9990,
         "uploadDate": "2026-01-15"
@@ -69,26 +62,31 @@
       "song": {
         "name": "Stereo Madness",
         "artist": "ForeverBound",
-        "id": 0
+        "id": "0"
       },
       "gameplay": {
-        "mainMode": "Ship",
         "modeRatio": {
-          "Wave": 100
+          "Cube": 47.08,
+          "Ship": 30.48,
+          "Ball": 2.72,
+          "UFO": 1.13,
+          "Wave": 7.93,
+          "Robot": 9.69,
+          "Spider": 0.96,
+          "Swing": 8.84
         },
         "speedRatio": {
-          "1x": 97.86,
-          "4x": 2.14
+          "1x": 100
         }
       },
       "framePerfect": {
-        "total": 3,
         "fps": {
           "30": 3,
           "60": 0,
           "120": 0,
           "240": 0
-        }
+        },
+        "total": 3
       },
       "tags": [
         "Any-Mode",
@@ -106,10 +104,10 @@
       "id": 3,
       "title": "BOOBAWAVEBA",
       "creator": "Choco",
-      "video": "https://www.youtube.com/embed/NCW_519mfoc",
       "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/NCW_519mfoc",
       "map": {
-        "mapId": 129453627,
+        "mapId": "129453627",
         "length": "0m 28s",
         "objects": 1431,
         "uploadDate": "2025-12-14"
@@ -117,26 +115,25 @@
       "song": {
         "name": "Portal To The Other Side (feat. Hatsune Miku)",
         "artist": "nandinanubis",
-        "id": 941913
+        "id": "941913"
       },
       "gameplay": {
-        "mainMode": "Wave",
         "modeRatio": {
           "Wave": 100
         },
         "speedRatio": {
-          "1x": 97.86,
-          "4x": 2.14
+          "1x": 97.92,
+          "4x": 2.09
         }
       },
       "framePerfect": {
-        "total": 3,
         "fps": {
           "30": 3,
           "60": 0,
           "120": 0,
           "240": 0
-        }
+        },
+        "total": 3
       },
       "tags": [
         "Wave",
@@ -154,10 +151,10 @@
       "id": 4,
       "title": "nullscube",
       "creator": "Timo",
-      "video": "https://www.youtube.com/embed/rqmKAdj5gPI",
       "verifier": "Timo",
+      "video": "https://www.youtube.com/embed/rqmKAdj5gPI",
       "map": {
-        "mapId": 126915240,
+        "mapId": "126915240",
         "length": "0m 25s",
         "objects": 33111,
         "uploadDate": "2025-10-11"
@@ -165,25 +162,25 @@
       "song": {
         "name": "Flow",
         "artist": "Creo",
-        "id": 1132447
+        "id": "1132447"
       },
       "gameplay": {
-        "mainMode": "Cube",
         "modeRatio": {
           "Cube": 100
         },
         "speedRatio": {
-          "1x": 100
+          "0.5x": 7.61,
+          "1x": 92.39
         }
       },
       "framePerfect": {
-        "total": 12,
         "fps": {
           "30": 7,
           "60": 5,
           "120": 0,
           "240": 0
-        }
+        },
+        "total": 12
       },
       "tags": [
         "Cube",
@@ -200,10 +197,10 @@
       "id": 5,
       "title": "Reaper Wave",
       "creator": "Timo",
-      "video": "https://www.youtube.com/embed/Zo14uVzdCaY",
       "verifier": "Timo",
+      "video": "https://www.youtube.com/embed/Zo14uVzdCaY",
       "map": {
-        "mapId": 110122641,
+        "mapId": "110122641",
         "length": "0m 33s",
         "objects": 1326,
         "uploadDate": "2024-09-14"
@@ -211,25 +208,33 @@
       "song": {
         "name": "[Silent Hill Dupstep]*",
         "artist": "Solkrieg",
-        "id": 509014
+        "id": "509014"
       },
       "gameplay": {
-        "mainMode": "Any-Mode",
         "modeRatio": {
-          "Cube": 100
+          "Cube": 25.5,
+          "Ship": 5.39,
+          "Ball": 8.34,
+          "UFO": 13.47,
+          "Wave": 34.99,
+          "Spider": 10.17,
+          "Swing": 2.14
         },
         "speedRatio": {
-          "1x": 100
+          "0.5x": 47.62,
+          "2x": 0.5,
+          "3x": 47.84,
+          "4x": 4.04
         }
       },
       "framePerfect": {
-        "total": 0,
         "fps": {
           "30": 0,
           "60": 0,
           "120": 0,
           "240": 0
-        }
+        },
+        "total": 0
       },
       "tags": [
         "Any-Mode",
@@ -255,15 +260,22 @@
       },
       "song": {
         "name": "PPPP",
-        "author": "TAK",
+        "artist": "TAK",
         "id": "NONG"
       },
       "gameplay": {
         "modeRatio": {
-          "Cube": 100
+          "Cube": 72.41,
+          "Ball": 4.12,
+          "UFO": 7.97,
+          "Wave": 6.9,
+          "Spider": 8.59
         },
         "speedRatio": {
-          "1x": 100
+          "1x": 9.5,
+          "2x": 67.64,
+          "3x": 20.47,
+          "4x": 2.39
         }
       },
       "framePerfect": {
@@ -291,10 +303,10 @@
       "id": 7,
       "title": "JPA EP8",
       "creator": "Choco",
-      "video": "-",
       "verifier": "Choco",
+      "video": "-",
       "map": {
-        "mapId": 86335155,
+        "mapId": "86335155",
         "length": "2m 11s",
         "objects": 7467,
         "uploadDate": "2022-12-03"
@@ -302,25 +314,32 @@
       "song": {
         "name": "Stardust",
         "artist": "Geoxor",
-        "id": 864327
+        "id": "864327"
       },
       "gameplay": {
-        "mainMode": "Cube",
         "modeRatio": {
-          "Cube": 100
+          "Cube": 48.48,
+          "Ship": 26.75,
+          "Ball": 8.44,
+          "UFO": 3.36,
+          "Wave": 9.59,
+          "Robot": 1.77,
+          "Spider": 1.62
         },
         "speedRatio": {
-          "1x": 100
+          "1x": 59.74,
+          "2x": 23.45,
+          "3x": 16.81
         }
       },
       "framePerfect": {
-        "total": 0,
         "fps": {
           "30": 0,
           "60": 0,
           "120": 0,
           "240": 0
-        }
+        },
+        "total": 0
       },
       "tags": [
         "Cube",
@@ -338,10 +357,10 @@
       "id": 8,
       "title": "Egg Layout",
       "creator": "Light",
-      "video": "https://www.youtu.com/embed/Enf5QGaAPyI",
       "verifier": "Light",
+      "video": "https://www.youtu.com/embed/Enf5QGaAPyI",
       "map": {
-        "mapId": 123940130,
+        "mapId": "123940130",
         "length": "1m 20s",
         "objects": 1734,
         "uploadDate": "2025-08-01"
@@ -349,25 +368,34 @@
       "song": {
         "name": "Egg",
         "artist": "Exyl",
-        "id": 1021674
+        "id": "1021674"
       },
       "gameplay": {
-        "mainMode": "Any-mode",
         "modeRatio": {
-          "Cube": 100
+          "Cube": 38.84,
+          "Ship": 13.37,
+          "Ball": 8.11,
+          "UFO": 5.69,
+          "Wave": 8.13,
+          "Robot": 9.56,
+          "Spider": 12.39,
+          "Swing": 3.91
         },
         "speedRatio": {
-          "1x": 100
+          "1x": 34.16,
+          "2x": 17.37,
+          "3x": 45.78,
+          "4x": 2.69
         }
       },
       "framePerfect": {
-        "total": 1,
         "fps": {
           "30": 0,
           "60": 1,
           "120": 0,
           "240": 0
-        }
+        },
+        "total": 1
       },
       "tags": [
         "Any-Mode",
@@ -384,10 +412,10 @@
       "id": 9,
       "title": "Trolled",
       "creator": "Light",
-      "video": "-",
       "verifier": "Light",
+      "video": "-",
       "map": {
-        "mapId": 85646626,
+        "mapId": "85646626",
         "length": "0m 36s",
         "objects": 553,
         "uploadDate": "2022-11-13"
@@ -395,44 +423,47 @@
       "song": {
         "name": "Youve been Trolled",
         "artist": "AntonyC",
-        "id": 477402
+        "id": "477402"
       },
       "gameplay": {
-        "mainMode": "Any-mode",
         "modeRatio": {
-          "Cube": 100
+          "Cube": 44.07,
+          "Ship": 9.68,
+          "Ball": 8.6,
+          "UFO": 6.72,
+          "Wave": 25.54,
+          "Robot": 5.38
         },
         "speedRatio": {
           "1x": 100
         }
       },
       "framePerfect": {
-        "total": 1,
         "fps": {
           "30": 0,
           "60": 1,
           "120": 0,
           "240": 0
-        }
+        },
+        "total": 1
       },
-      "tags": [
-        "Any-Mode",
-        "1x",
-        "Medium",
-        "Memory",
-        "Low-Effect",
-        "No-Clear"
-      ],
-      "clears": []
+      "tags": ["Any-Mode", "1x", "Medium", "Memory", "Low-Effect", "No-Clear"],
+      "clears": [
+        {
+          "player": "imBBBT",
+          "percent": 100,
+          "date": "2026-01-16"
+        }
+      ]
     },
     {
       "id": 10,
       "title": "JPA EP4",
       "creator": "Choco",
-      "video": "-",
       "verifier": "Choco",
+      "video": "-",
       "map": {
-        "mapId": 84951046,
+        "mapId": "84951046",
         "length": "1m 28s",
         "objects": 2064,
         "uploadDate": "2022-10-24"
@@ -440,25 +471,31 @@
       "song": {
         "name": "Hexagon Force",
         "artist": "Waterflame",
-        "id": 15
+        "id": "15"
       },
       "gameplay": {
-        "mainMode": "Any-Mode",
         "modeRatio": {
-          "Cube": 100
+          "Cube": 32.56,
+          "Ship": 38.46,
+          "Wave": 13.18,
+          "Robot": 6.87,
+          "Spider": 8.93
         },
         "speedRatio": {
-          "1x": 100
+          "0.5x": 12.88,
+          "1x": 40.27,
+          "2x": 40.36,
+          "3x": 6.49
         }
       },
       "framePerfect": {
-        "total": 0,
         "fps": {
           "30": 0,
           "60": 0,
           "120": 0,
           "240": 0
-        }
+        },
+        "total": 0
       },
       "tags": [
         "Cube",
@@ -507,14 +544,7 @@
           "240": 0
         }
       },
-      "tags": [
-        "Any-Mode",
-        "4x",
-        "Long",
-        "Physical",
-        "Low-Effect",
-        "No-Clear"
-      ],
+      "tags": ["Any-Mode", "4x", "Long", "Physical", "Low-Effect", "No-Clear"],
       "clears": []
     },
     {
@@ -738,14 +768,7 @@
           "240": 0
         }
       },
-      "tags": [
-        "Ship",
-        "1x",
-        "Long",
-        "Physical",
-        "None-Effect",
-        "No-Clear"
-      ],
+      "tags": ["Ship", "1x", "Long", "Physical", "None-Effect", "No-Clear"],
       "clears": []
     },
     {
@@ -866,14 +889,7 @@
           "240": 0
         }
       },
-      "tags": [
-        "2x",
-        "Sync",
-        "Learny",
-        "Low-Effect",
-        "XL",
-        "Ship"
-      ],
+      "tags": ["2x", "Sync", "Learny", "Low-Effect", "XL", "Ship"],
       "clears": []
     },
     {
@@ -949,14 +965,7 @@
           "240": 0
         }
       },
-      "tags": [
-        "Any-Mode",
-        "1x",
-        "Medium",
-        "Sync",
-        "Slow",
-        "None-Effect"
-      ],
+      "tags": ["Any-Mode", "1x", "Medium", "Sync", "Slow", "None-Effect"],
       "clears": []
     },
     {
