@@ -862,18 +862,6 @@
         opacity: 0;
         margin-top: 0;
       }
-
-      /* 히스토리 토글용 스타일 */
-      .history-content-wrapper {
-        transition: max-height 0.3s ease-out, opacity 0.2s;
-        max-height: 2000px; /* 내용이 많아도 잘리지 않도록 넉넉하게 설정 */
-        opacity: 1;
-        overflow: hidden;
-      }
-      .history-content-wrapper.collapsed {
-        max-height: 0;
-        opacity: 0;
-      }
     </style>
   </head>
 
@@ -948,7 +936,7 @@
                 padding: 2px 8px;
               "
             >
-              펴기
+              펼치기
             </button>
           </div>
           <div id="tagContent" class="tag-content collapsed">
@@ -990,36 +978,9 @@
       </div>
     </div>
 
-    <div id="historySection" class="section" style="margin: 0 20px 40px 20px">
-      <div
-        style="
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 10px;
-        "
-      >
-        <div class="section-title" style="margin-bottom: 0">
-          변경 이력 (Level History)
-        </div>
-        <button
-          onclick="toggleHistoryPanel()"
-          id="historyToggleBtn"
-          style="
-            background: none;
-            border: 1px solid #555;
-            color: #ccc;
-            cursor: pointer;
-            border-radius: 4px;
-            padding: 2px 8px;
-          "
-        >
-          접기
-        </button>
-      </div>
-      <div id="historyContentWrapper" class="history-content-wrapper">
-        <div id="historyList"></div>
-      </div>
+    <div id="historySection" class="section">
+      <div class="section-title">변경 이력 (Level History)</div>
+      <div id="historyList"></div>
     </div>
 
     <div id="devPanel" class="dev-panel">
@@ -1387,39 +1348,6 @@
 
         list.innerHTML = '';
 
-        // [추가] 최고 순위 계산 및 표시
-        if (targetTitle) {
-          let bestRank = 999999;
-
-          // 1. 현재 순위 확인
-          const currentLv = demonData.find((l) => l.title === targetTitle);
-          if (currentLv) {
-            bestRank = currentLv.id;
-          }
-
-          // 2. 이력에서 순위 파싱
-          const specificHistory = changeHistory.filter(
-            (h) => h.title === targetTitle
-          );
-          specificHistory.forEach((h) => {
-            const matches = h.detail.match(/(\d+)위/g);
-            if (matches) {
-              matches.forEach((m) => {
-                const r = parseInt(m.replace('위', ''));
-                if (!isNaN(r) && r < bestRank) bestRank = r;
-              });
-            }
-          });
-
-          if (bestRank !== 999999) {
-            const bestRankDiv = document.createElement('div');
-            bestRankDiv.style =
-              'background: #333; color: #ffd700; padding: 10px; border-radius: 8px; margin-bottom: 15px; text-align: center; font-family: Paperlogy7; border: 1px solid #ffd700;';
-            bestRankDiv.innerHTML = `🏆 최고 순위 : ${bestRank}위`;
-            list.appendChild(bestRankDiv);
-          }
-        }
-
         // targetTitle이 있으면 해당 레벨 이력만 필터링, 없으면 전체 표시
         const displayData = targetTitle
           ? changeHistory.filter((h) => h.title === targetTitle)
@@ -1565,11 +1493,6 @@
     <button class="dev-btn dev-btn-save" onclick="saveLevelForm(${idx})">
   ${isEdit ? '수정 완료' : '등록 완료'}
 </button>
-    ${
-      isEdit
-        ? `<button class="dev-btn" onclick="deleteLevel(${idx})" style="background:#e74c3c;">삭제</button>`
-        : ''
-    }
     <button class="dev-btn" onclick="renderDevHome()">취소</button>
 
     <label>기록 관리 (Clears)</label>
@@ -1747,46 +1670,6 @@
         }
       }
 
-      // [추가] 레벨 삭제 함수 (순위 변동 이력 포함)
-      function deleteLevel(idx) {
-        if (
-          !confirm(
-            '정말로 이 레벨을 삭제하시겠습니까? 삭제 후에는 복구할 수 없습니다.'
-          )
-        )
-          return;
-
-        const deletedLv = demonData[idx];
-        const oldRank = idx + 1;
-
-        // 1. 삭제되는 레벨 이력
-        addHistory(
-          'remove',
-          deletedLv.title,
-          `${oldRank}위에 있던 레벨이 삭제되었습니다.`
-        );
-
-        // 2. 영향받는 레벨들 (삭제된 레벨 뒤에 있던 레벨들은 순위가 1씩 상승)
-        for (let i = idx + 1; i < demonData.length; i++) {
-          const affectedLv = demonData[i];
-          addHistory(
-            'move',
-            affectedLv.title,
-            `상위 레벨 삭제로 인해 ${i + 1}위에서 ${i}위로 상승하였습니다.`
-          );
-        }
-
-        // 3. 데이터 삭제
-        demonData.splice(idx, 1);
-
-        // 4. ID 재정렬
-        demonData.forEach((lv, i) => (lv.id = i + 1));
-
-        generateList(demonData);
-        alert('삭제되었습니다.');
-        renderDevHome();
-      }
-
       // 기록 입력 행을 동적으로 추가하는 함수
       function addClearInputRow() {
         const container = document.getElementById('f-clears-container');
@@ -1930,17 +1813,6 @@
 
         // 버튼 텍스트 변경
         if (content.classList.contains('collapsed')) {
-          btn.textContent = '펴기';
-        } else {
-          btn.textContent = '접기';
-        }
-      }
-
-      function toggleHistoryPanel() {
-        const wrapper = document.getElementById('historyContentWrapper');
-        const btn = document.getElementById('historyToggleBtn');
-        wrapper.classList.toggle('collapsed');
-        if (wrapper.classList.contains('collapsed')) {
           btn.textContent = '펴기';
         } else {
           btn.textContent = '접기';
