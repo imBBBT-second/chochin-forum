@@ -309,10 +309,10 @@
       "id": 7,
       "title": "JPA EP8",
       "creator": "Choco",
-      "video": "-",
       "verifier": "Choco",
+      "video": "-",
       "map": {
-        "mapId": 86335155,
+        "mapId": "86335155",
         "length": "2m 11s",
         "objects": 7467,
         "uploadDate": "2022-12-03"
@@ -320,25 +320,32 @@
       "song": {
         "name": "Stardust",
         "artist": "Geoxor",
-        "id": 864327
+        "id": "864327"
       },
       "gameplay": {
-        "mainMode": "Cube",
         "modeRatio": {
-          "Cube": 100
+          "Cube": 48.48,
+          "Ship": 26.75,
+          "Ball": 8.44,
+          "UFO": 3.36,
+          "Wave": 9.59,
+          "Robot": 1.77,
+          "Spider": 1.62
         },
         "speedRatio": {
-          "1x": 100
+          "1x": 59.74,
+          "2x": 23.45,
+          "3x": 16.81
         }
       },
       "framePerfect": {
-        "total": 0,
         "fps": {
           "30": 0,
           "60": 0,
           "120": 0,
           "240": 0
-        }
+        },
+        "total": 0
       },
       "tags": [
         "Cube",
@@ -356,10 +363,10 @@
       "id": 8,
       "title": "Egg Layout",
       "creator": "Light",
-      "video": "https://www.youtu.com/embed/Enf5QGaAPyI",
       "verifier": "Light",
+      "video": "https://www.youtu.com/embed/Enf5QGaAPyI",
       "map": {
-        "mapId": 123940130,
+        "mapId": "123940130",
         "length": "1m 20s",
         "objects": 1734,
         "uploadDate": "2025-08-01"
@@ -367,25 +374,34 @@
       "song": {
         "name": "Egg",
         "artist": "Exyl",
-        "id": 1021674
+        "id": "1021674"
       },
       "gameplay": {
-        "mainMode": "Any-mode",
         "modeRatio": {
-          "Cube": 100
+          "Cube": 38.84,
+          "Ship": 13.37,
+          "Ball": 8.11,
+          "UFO": 5.69,
+          "Wave": 8.13,
+          "Robot": 9.56,
+          "Spider": 12.39,
+          "Swing": 3.91
         },
         "speedRatio": {
-          "1x": 100
+          "1x": 34.16,
+          "2x": 17.37,
+          "3x": 45.78,
+          "4x": 2.69
         }
       },
       "framePerfect": {
-        "total": 1,
         "fps": {
           "30": 0,
           "60": 1,
           "120": 0,
           "240": 0
-        }
+        },
+        "total": 1
       },
       "tags": [
         "Any-Mode",
@@ -417,7 +433,12 @@
       },
       "gameplay": {
         "modeRatio": {
-          "Cube": 100
+          "Cube": 44.07,
+          "Ship": 9.68,
+          "Ball": 8.6,
+          "UFO": 6.72,
+          "Wave": 25.54,
+          "Robot": 5.38
         },
         "speedRatio": {
           "1x": 100
@@ -452,10 +473,10 @@
       "id": 10,
       "title": "JPA EP4",
       "creator": "Choco",
-      "video": "-",
       "verifier": "Choco",
+      "video": "-",
       "map": {
-        "mapId": 84951046,
+        "mapId": "84951046",
         "length": "1m 28s",
         "objects": 2064,
         "uploadDate": "2022-10-24"
@@ -463,25 +484,31 @@
       "song": {
         "name": "Hexagon Force",
         "artist": "Waterflame",
-        "id": 15
+        "id": "15"
       },
       "gameplay": {
-        "mainMode": "Any-Mode",
         "modeRatio": {
-          "Cube": 100
+          "Cube": 32.56,
+          "Ship": 38.46,
+          "Wave": 13.18,
+          "Robot": 6.87,
+          "Spider": 8.93
         },
         "speedRatio": {
-          "1x": 100
+          "0.5x": 12.88,
+          "1x": 40.27,
+          "2x": 40.36,
+          "3x": 6.49
         }
       },
       "framePerfect": {
-        "total": 0,
         "fps": {
           "30": 0,
           "60": 0,
           "120": 0,
           "240": 0
-        }
+        },
+        "total": 0
       },
       "tags": [
         "Cube",
