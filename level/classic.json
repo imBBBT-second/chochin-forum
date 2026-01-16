@@ -110,10 +110,10 @@
       "id": 3,
       "title": "BOOBAWAVEBA",
       "creator": "Choco",
-      "video": "https://www.youtube.com/embed/NCW_519mfoc",
       "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/NCW_519mfoc",
       "map": {
-        "mapId": 129453627,
+        "mapId": "129453627",
         "length": "0m 28s",
         "objects": 1431,
         "uploadDate": "2025-12-14"
@@ -121,26 +121,25 @@
       "song": {
         "name": "Portal To The Other Side (feat. Hatsune Miku)",
         "artist": "nandinanubis",
-        "id": 941913
+        "id": "941913"
       },
       "gameplay": {
-        "mainMode": "Wave",
         "modeRatio": {
           "Wave": 100
         },
         "speedRatio": {
-          "1x": 97.86,
-          "4x": 2.14
+          "1x": 97.92,
+          "4x": 2.09
         }
       },
       "framePerfect": {
-        "total": 3,
         "fps": {
           "30": 3,
           "60": 0,
           "120": 0,
           "240": 0
-        }
+        },
+        "total": 3
       },
       "tags": [
         "Wave",
@@ -158,10 +157,10 @@
       "id": 4,
       "title": "nullscube",
       "creator": "Timo",
-      "video": "https://www.youtube.com/embed/rqmKAdj5gPI",
       "verifier": "Timo",
+      "video": "https://www.youtube.com/embed/rqmKAdj5gPI",
       "map": {
-        "mapId": 126915240,
+        "mapId": "126915240",
         "length": "0m 25s",
         "objects": 33111,
         "uploadDate": "2025-10-11"
@@ -169,25 +168,25 @@
       "song": {
         "name": "Flow",
         "artist": "Creo",
-        "id": 1132447
+        "id": "1132447"
       },
       "gameplay": {
-        "mainMode": "Cube",
         "modeRatio": {
           "Cube": 100
         },
         "speedRatio": {
-          "1x": 100
+          "0.5x": 7.61,
+          "1x": 92.39
         }
       },
       "framePerfect": {
-        "total": 12,
         "fps": {
           "30": 7,
           "60": 5,
           "120": 0,
           "240": 0
-        }
+        },
+        "total": 12
       },
       "tags": [
         "Cube",
@@ -204,10 +203,10 @@
       "id": 5,
       "title": "Reaper Wave",
       "creator": "Timo",
-      "video": "https://www.youtube.com/embed/Zo14uVzdCaY",
       "verifier": "Timo",
+      "video": "https://www.youtube.com/embed/Zo14uVzdCaY",
       "map": {
-        "mapId": 110122641,
+        "mapId": "110122641",
         "length": "0m 33s",
         "objects": 1326,
         "uploadDate": "2024-09-14"
@@ -215,25 +214,33 @@
       "song": {
         "name": "[Silent Hill Dupstep]*",
         "artist": "Solkrieg",
-        "id": 509014
+        "id": "509014"
       },
       "gameplay": {
-        "mainMode": "Any-Mode",
         "modeRatio": {
-          "Cube": 100
+          "Cube": 25.5,
+          "Ship": 5.39,
+          "Ball": 8.34,
+          "UFO": 13.47,
+          "Wave": 34.99,
+          "Spider": 10.17,
+          "Swing": 2.14
         },
         "speedRatio": {
-          "1x": 100
+          "0.5x": 47.62,
+          "2x": 0.5,
+          "3x": 47.84,
+          "4x": 4.04
         }
       },
       "framePerfect": {
-        "total": 0,
         "fps": {
           "30": 0,
           "60": 0,
           "120": 0,
           "240": 0
-        }
+        },
+        "total": 0
       },
       "tags": [
         "Any-Mode",
@@ -264,10 +271,17 @@
       },
       "gameplay": {
         "modeRatio": {
-          "Cube": 100
+          "Cube": 72.41,
+          "Ball": 4.12,
+          "UFO": 7.97,
+          "Wave": 6.9,
+          "Spider": 8.59
         },
         "speedRatio": {
-          "1x": 100
+          "1x": 9.5,
+          "2x": 67.64,
+          "3x": 20.47,
+          "4x": 2.39
         }
       },
       "framePerfect": {
