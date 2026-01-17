@@ -1086,40 +1086,45 @@
       let filteredData = [];
       let currentUser = localStorage.getItem('currentUser') || null;
 
+      // GitHub 설정 상수
+      const GH_OWNER = 'imBBBT';
+      const GH_REPO = 'chochin-forum';
+      const GH_PATH = 'level/classic.json';
+      const GH_TOKEN = ''; // 코드에 토큰을 고정하려면 이곳에 입력
+
       let githubConfig = {
-        owner: localStorage.getItem('gh_owner') || '',
-        repo: localStorage.getItem('gh_repo') || '',
-        path: localStorage.getItem('gh_path') || 'level/classic.json',
-        token: localStorage.getItem('gh_token') || '',
+        owner: GH_OWNER,
+        repo: GH_REPO,
+        path: GH_PATH,
+        token: GH_TOKEN || localStorage.getItem('gh_token') || '',
       };
 
-      window.onload = function () {
-        fetch('classic.json')
-          .then((r) => r.json())
-          .then((j) => {
-            demonData = j.levels || [];
-            changeHistory = j.history || [];
-            filteredData = [...demonData];
+      window.onload = async function () {
+        try {
+          const response = await fetch('classic.json');
+          const data = await response.json();
 
-            // [수정] 닉네임 표시 로직 순서 조정
-            if (currentUser) {
-              document.getElementById(
-                'userStatus'
-              ).innerText = `접속 계정 : ${currentUser}`;
-            }
+          demonData = data.levels || [];
+          changeHistory = data.history || [];
+          filteredData = [...demonData];
 
-            renderTagFilterButtons();
-            generateList(filteredData);
-            renderHistory();
-
-            if (filteredData.length > 0) showDetail(filteredData[0]);
-          })
-          .catch((err) => {
-            console.error(err);
+          if (currentUser) {
             document.getElementById(
-              'list'
-            ).innerHTML = `<div style="color:white;text-align:center;padding:20px;">데이터를 불러오는 데 실패했습니다.</div>`;
-          });
+              'userStatus'
+            ).innerText = `접속 계정 : ${currentUser}`;
+          }
+
+          renderTagFilterButtons();
+          generateList(filteredData);
+          renderHistory();
+
+          if (filteredData.length > 0) showDetail(filteredData[0]);
+        } catch (err) {
+          console.error(err);
+          document.getElementById(
+            'list'
+          ).innerHTML = `<div style="color:white;text-align:center;padding:20px;">데이터를 불러오는 데 실패했습니다.</div>`;
+        }
       };
 
       function login() {
@@ -1496,54 +1501,41 @@
               tags: [],
             };
 
+        // 입력 필드 생성 헬퍼
+        const mkInput = (id, ph, val, type = 'text') =>
+          `<input id="${id}" class="dev-input" type="${type}" placeholder="${ph}" value="${
+            val || ''
+          }">`;
+
         document.getElementById('devContent').innerHTML = `
     <h3>${isEdit ? '레벨 수정' : '새 레벨 등록'}</h3>
     <div style="max-height:450px; overflow-y:auto; padding-right:10px; display:flex; flex-direction:column; gap:10px;">
     <label>순위 설정 (현재 총 ${demonData.length}개)</label>
-      <input id="f-placement" type="number" class="dev-input" 
-            placeholder="순 (1~${demonData.length + (isEdit ? 0 : 1)})" 
-            value="${isEdit ? idx + 1 : demonData.length + 1}">
+      ${mkInput(
+        'f-placement',
+        `순위 (1~${demonData.length + (isEdit ? 0 : 1)})`,
+        isEdit ? idx + 1 : demonData.length + 1,
+        'number'
+      )}
         
       <label>기본: 제목, 제작자, 베리파이어, 영상URL</label>
-      <input id="f-title" class="dev-input" placeholder="제목" value="${
-        lv.title
-      }">
-      <input id="f-creator" class="dev-input" placeholder="제작자" value="${
-        lv.creator
-      }">
-      <input id="f-verifier" class="dev-input" placeholder="베리파이어" value="${
-        lv.verifier || ''
-      }">
-      <input id="f-video" class="dev-input" placeholder="영상 URL" value="${
-        lv.video
-      }">
+      ${mkInput('f-title', '제목', lv.title)}
+      ${mkInput('f-creator', '제작자', lv.creator)}
+      ${mkInput('f-verifier', '베리파이어', lv.verifier)}
+      ${mkInput('f-video', '영상 URL', lv.video)}
 
       <label>맵: ID, 길이, 오브젝트, 날짜</label>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:5px;">
-        <input id="f-mid" class="dev-input" placeholder="맵 ID" value="${
-          lv.map?.mapId || ''
-        }">
-        <input id="f-mlen" class="dev-input" placeholder="길이" value="${
-          lv.map?.length || ''
-        }">
-        <input id="f-mobj" class="dev-input" placeholder="오브젝트" value="${
-          lv.map?.objects || ''
-        }">
-        <input id="f-mdate" class="dev-input" placeholder="날짜" value="${
-          lv.map?.uploadDate || ''
-        }">
+        ${mkInput('f-mid', '맵 ID', lv.map?.mapId)}
+        ${mkInput('f-mlen', '길이', lv.map?.length)}
+        ${mkInput('f-mobj', '오브젝트', lv.map?.objects)}
+        ${mkInput('f-mdate', '날짜', lv.map?.uploadDate)}
       </div>
 
       <label>노래: 제목, 작곡가, 노래 ID</label>
-      <input id="f-sname" class="dev-input" placeholder="노래 제목" value="${
-        lv.song?.name || ''
-      }">
-      <input id="f-sauth" class="dev-input" placeholder="작곡가" value="${
-        lv.song?.artist || ''
-      }">
-      <input id="f-sid" class="dev-input" placeholder="노래 ID" value="${
-        lv.song?.id || ''
-      }">
+      ${mkInput('f-sname', '노래 제목', lv.song?.name)}
+      ${mkInput('f-sauth', '작곡가', lv.song?.artist)}
+      ${mkInput('f-sid', '노래 ID', lv.song?.id)}
 
       <label>비율(JSON): 모드, 속도, 프레임퍼펙트</label>
       <textarea id="f-mode" class="dev-input" placeholder='모드 비율 {"Cube":50...}'>${JSON.stringify(
@@ -1557,9 +1549,7 @@
       )}</textarea>
 
       <label>태그 (쉼표 구분)</label>
-      <input id="f-tags" class="dev-input" placeholder="태그1, 태그2" value="${
-        lv.tags?.join(', ') || ''
-      }">
+      ${mkInput('f-tags', '태그1, 태그2', lv.tags?.join(', '))}
     </div>
     <button class="dev-btn dev-btn-save" onclick="saveLevelForm(${idx})">
   ${isEdit ? '수정 완료' : '등록 완료'}
@@ -1816,39 +1806,50 @@
       }
 
       function renderGitHubConfig() {
+        const isTokenFixed = !!GH_TOKEN;
         document.getElementById('devContent').innerHTML = `
     <h3>GitHub 연동 설정</h3>
     <div style="display:flex; flex-direction:column; gap:10px;">
-      <label>Repository Owner (유저명)</label>
-      <input id="gh-owner" class="dev-input" value="${githubConfig.owner}" placeholder="예: imBBBT">
+      <label>Repository Owner (고정)</label>
+      <input class="dev-input" value="${
+        githubConfig.owner
+      }" readonly style="background:#222; color:#888;">
       
-      <label>Repository Name (저장소명)</label>
-      <input id="gh-repo" class="dev-input" value="${githubConfig.repo}" placeholder="예: chochin-forum">
+      <label>Repository Name (고정)</label>
+      <input class="dev-input" value="${
+        githubConfig.repo
+      }" readonly style="background:#222; color:#888;">
       
-      <label>File Path (파일 경로)</label>
-      <input id="gh-path" class="dev-input" value="${githubConfig.path}" placeholder="예: level/classic.json">
+      <label>File Path (고정)</label>
+      <input class="dev-input" value="${
+        githubConfig.path
+      }" readonly style="background:#222; color:#888;">
       
-      <label>Personal Access Token (토큰)</label>
-      <input id="gh-token" class="dev-input" type="password" value="${githubConfig.token}" placeholder="ghp_...">
+      <label>Personal Access Token ${isTokenFixed ? '(고정됨)' : ''}</label>
+      <input id="gh-token" class="dev-input" type="password" value="${
+        githubConfig.token
+      }" ${
+          isTokenFixed
+            ? 'readonly style="background:#222; color:#888;"'
+            : 'placeholder="ghp_..."'
+        }>
       
-      <button class="dev-btn dev-btn-save" onclick="saveGitHubConfig()">설정 저장</button>
+      ${
+        !isTokenFixed
+          ? '<button class="dev-btn dev-btn-save" onclick="saveGitHubConfig()">토큰 저장</button>'
+          : ''
+      }
       <button class="dev-btn" onclick="renderDevHome()">뒤로가기</button>
     </div>
   `;
       }
 
       function saveGitHubConfig() {
-        githubConfig.owner = document.getElementById('gh-owner').value.trim();
-        githubConfig.repo = document.getElementById('gh-repo').value.trim();
-        githubConfig.path = document.getElementById('gh-path').value.trim();
-        githubConfig.token = document.getElementById('gh-token').value.trim();
-
-        localStorage.setItem('gh_owner', githubConfig.owner);
-        localStorage.setItem('gh_repo', githubConfig.repo);
-        localStorage.setItem('gh_path', githubConfig.path);
-        localStorage.setItem('gh_token', githubConfig.token);
-
-        alert('설정이 저장되었습니다.');
+        if (!GH_TOKEN) {
+          githubConfig.token = document.getElementById('gh-token').value.trim();
+          localStorage.setItem('gh_token', githubConfig.token);
+          alert('토큰이 저장되었습니다.');
+        }
         renderDevHome();
       }
 
