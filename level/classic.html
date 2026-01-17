@@ -819,6 +819,9 @@
       .history-item.info {
         border-left-color: #f1c40f;
       } /* 노랑: 기록/정보 수정 */
+      .history-item.reeval {
+        border-left-color: #9b59b6;
+      } /* 보라: 재평가 */
 
       .history-tag {
         padding: 4px 10px;
@@ -852,6 +855,9 @@
       .info .history-tag {
         background: #f1c40f;
         color: #000;
+      }
+      .reeval .history-tag {
+        background: #9b59b6;
       }
 
       /* 태그 내용 감싸는 영역 */
@@ -1440,7 +1446,13 @@
 
         displayData.forEach((h) => {
           let typeClass =
-            h.type === 'add' ? 'add' : h.type === 'remove' ? 'remove' : 'move';
+            h.type === 'add'
+              ? 'add'
+              : h.type === 'remove'
+                ? 'remove'
+                : h.type === 'reeval'
+                  ? 'reeval'
+                  : 'move';
 
           const item = document.createElement('div');
           item.className = `history-item ${typeClass}`;
@@ -1678,7 +1690,7 @@
               // 이동하는 레벨 자체의 기록
               const direction = targetRank < oldRank ? '상승' : '하락';
               addHistory(
-                'move',
+                'reeval',
                 newData.title,
                 `재평가로 인해 순위가 ${oldRank + 1}위에서 ${
                   targetRank + 1
@@ -1958,4 +1970,3 @@
     </script>
   </body>
 </html>
-
