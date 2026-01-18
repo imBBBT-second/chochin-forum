@@ -1557,6 +1557,18 @@
       "type": "move",
       "title": "BOOBAWAVABA",
       "detail": "새로운 레벨 추가로 인해 순위가 2위에서 3위로 하락하였습니다."
+    },
+    {
+      "time": "2025-12-14 22:04",
+      "type": "add",
+      "title": "BOOBAWAVEBA",
+      "detail": "2위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2026-01-15 12:28",
+      "type": "move",
+      "title": "BOOBAWAVEBA",
+      "detail": "새로운 레벨 추가로 인해 순위가 2위에서 3위로 하락하였습니다."
     }
   ]
 }
