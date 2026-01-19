@@ -483,7 +483,13 @@
         "None-Effect",
         "No-Clear"
       ],
-      "clears": []
+      "clears": [
+        {
+          "player": "Choco",
+          "percent": 100,
+          "date": "2026-01-19"
+        }
+      ]
     },
     {
       "id": 11,
@@ -537,6 +543,11 @@
           "player": "imBBBT",
           "percent": 100,
           "date": "2026-01-16"
+        },
+        {
+          "player": "Choco",
+          "percent": 100,
+          "date": "2026-01-19"
         }
       ]
     },
