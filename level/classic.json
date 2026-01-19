@@ -1292,31 +1292,31 @@
       "time": "2025-12-10 21:37",
       "type": "move",
       "title": "nullscube",
-      "detail": "상위 레벨의 순위 변동으로 인해 순위가 1위에서 2위로 하락하였습니다."
+      "detail": "'chocubed' 레벨의 순위 변동으로 인해 순위가 1위에서 2위로 하락하였습니다."
     },
     {
       "time": "2025-12-10 21:37",
       "type": "reeval",
       "title": "Reaper Wave",
-      "detail": "상위 레벨의 순위 변동으로 인해 2위에서 3위로 하락하였습니다."
+      "detail": "'chocubed' 레벨의 순위 변동으로 인해 2위에서 3위로 하락하였습니다."
     },
     {
       "time": "2026-12-10 21:37",
       "type": "reeval",
       "title": "chocubed",
-      "detail": "상위 레벨의 순위 변동으로 인해 순위가 3위에서 1위로 상승하였습니다."
+      "detail": "'nullscube' 레벨의 순위 변동으로 인해 순위가 3위에서 1위로 상승하였습니다."
     },
     {
-      "time": "2025-12-14 22:04",
+      "time": "2026-01-15 22:04",
       "type": "move",
       "title": "BOOBAWAVABA",
-      "detail": "새로운 레벨 추가로 인해 순위가 2위에서 3위로 하락하였습니다."
+      "detail": "'Stereo MadnesS EX' 레벨 추가로 인해 순위가 2위에서 3위로 하락하였습니다."
     },
     {
       "time": "2026-12-14 22:04",
       "type": "move",
       "title": "nullscube",
-      "detail": "새로운 레벨 추가로 인해 순위가 2위에서 3위로 하락하였습니다."
+      "detail": "'BOOBAWAVEBA' 레벨 추가로 인해 순위가 2위에서 3위로 하락하였습니다."
     },
     {
       "time": "2025-12-14 22:04",
@@ -1328,37 +1328,43 @@
       "time": "2025-12-14 21:13",
       "type": "move",
       "title": "Reaper Wave",
-      "detail": "새로운 레벨 추가로 인해 순위가 3위에서 4위로 하락하였습니다."
+      "detail": "'BOOBAWAVEBA' 레벨 추가로 인해 순위가 3위에서 4위로 하락하였습니다."
     },
     {
       "time": "2026-01-15 12:28",
       "type": "move",
       "title": "BOOBAWAVEBA",
-      "detail": "새로운 레벨 추가로 인해 순위가 2위에서 3위로 하락하였습니다."
+      "detail": "'Stereo MadnesS EX' 레벨 추가로 인해 순위가 2위에서 3위로 하락하였습니다."
     },
     {
       "time": "2026-01-15 12:28",
       "type": "move",
       "title": "nullscube",
-      "detail": "새로운 레벨 추가로 인해 순위가 3위에서 4위로 하락하였습니다."
+      "detail": "'Stereo MadnesS EX' 레벨 추가로 인해 순위가 3위에서 4위로 하락하였습니다."
     },
     {
       "time": "2026-01-15 12:28",
       "type": "move",
       "title": "Reaper Wave",
-      "detail": "새로운 레벨 추가로 인해 순위가 4위에서 5위로 하락하였습니다."
+      "detail": "'Stereo MadnesS EX' 레벨 추가로 인해 순위가 4위에서 5위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-17 21:11",
+      "type": "add",
+      "title": "FlipBook",
+      "detail": "5위에 새로운 레벨이 등록되었습니다."
     },
     {
       "time": "2026-01-17 21:11",
       "type": "move",
       "title": "Reaper Wave",
-      "detail": "새로운 레벨 추가로 인해 순위가 5위에서 6위로 하락하였습니다."
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 5위에서 6위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:11",
       "type": "move",
       "title": "PPPP",
-      "detail": "새로운 레벨 추가로 인해 순위가 6위에서 7위로 하락하였습니다."
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 6위에서 7위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:13",
@@ -1370,253 +1376,247 @@
       "time": "2026-01-17 21:13",
       "type": "move",
       "title": "Slow Challenge",
-      "detail": "새로운 레벨 추가로 인해 순위가 27위에서 28위로 하락하였습니다."
+      "detail": "'Endless Dreaming' 레벨 추가로 인해 순위가 27위에서 28위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:13",
       "type": "move",
       "title": "Answer Me",
-      "detail": "새로운 레벨 추가로 인해 순위가 26위에서 27위로 하락하였습니다."
+      "detail": "'Endless Dreaming' 레벨 추가로 인해 순위가 26위에서 27위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:13",
       "type": "move",
       "title": "LT EP3",
-      "detail": "새로운 레벨 추가로 인해 순위가 25위에서 26위로 하락하였습니다."
+      "detail": "'Endless Dreaming' 레벨 추가로 인해 순위가 25위에서 26위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:13",
       "type": "move",
       "title": "Glide Fastival",
-      "detail": "새로운 레벨 추가로 인해 순위가 24위에서 25위로 하락하였습니다."
+      "detail": "'Endless Dreaming' 레벨 추가로 인해 순위가 24위에서 25위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:13",
       "type": "move",
       "title": "LT EP5",
-      "detail": "새로운 레벨 추가로 인해 순위가 23위에서 24위로 하락하였습니다."
+      "detail": "'Endless Dreaming' 레벨 추가로 인해 순위가 23위에서 24위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:13",
       "type": "move",
       "title": "LT EP4",
-      "detail": "새로운 레벨 추가로 인해 순위가 22위에서 23위로 하락하였습니다."
+      "detail": "'Endless Dreaming' 레벨 추가로 인해 순위가 22위에서 23위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:13",
       "type": "move",
       "title": "LT EP6",
-      "detail": "새로운 레벨 추가로 인해 순위가 21위에서 22위로 하락하였습니다."
+      "detail": "'Endless Dreaming' 레벨 추가로 인해 순위가 21위에서 22위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:13",
       "type": "move",
       "title": "JPA EP6",
-      "detail": "새로운 레벨 추가로 인해 순위가 20위에서 21위로 하락하였습니다."
+      "detail": "'Endless Dreaming' 레벨 추가로 인해 순위가 20위에서 21위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:13",
       "type": "move",
       "title": "JPA EP9",
-      "detail": "새로운 레벨 추가로 인해 순위가 19위에서 20위로 하락하였습니다."
+      "detail": "'Endless Dreaming' 레벨 추가로 인해 순위가 19위에서 20위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:13",
       "type": "move",
       "title": "JPA EP3",
-      "detail": "새로운 레벨 추가로 인해 순위가 18위에서 19위로 하락하였습니다."
+      "detail": "'Endless Dreaming' 레벨 추가로 인해 순위가 18위에서 19위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:13",
       "type": "move",
       "title": "LT EP2",
-      "detail": "새로운 레벨 추가로 인해 순위가 17위에서 18위로 하락하였습니다."
+      "detail": "'Endless Dreaming' 레벨 추가로 인해 순위가 17위에서 18위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:13",
       "type": "move",
       "title": "LT EP7",
-      "detail": "새로운 레벨 추가로 인해 순위가 16위에서 17위로 하락하였습니다."
+      "detail": "'Endless Dreaming' 레벨 추가로 인해 순위가 16위에서 17위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:13",
       "type": "move",
       "title": "JPA EP2",
-      "detail": "새로운 레벨 추가로 인해 순위가 15위에서 16위로 하락하였습니다."
+      "detail": "'Endless Dreaming' 레벨 추가로 인해 순위가 15위에서 16위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:13",
       "type": "move",
       "title": "JPA EP7",
-      "detail": "새로운 레벨 추가로 인해 순위가 14위에서 15위로 하락하였습니다."
+      "detail": "'Endless Dreaming' 레벨 추가로 인해 순위가 14위에서 15위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:13",
       "type": "move",
       "title": "JPA EP1",
-      "detail": "새로운 레벨 추가로 인해 순위가 13위에서 14위로 하락하였습니다."
+      "detail": "'Endless Dreaming' 레벨 추가로 인해 순위가 13위에서 14위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:13",
       "type": "move",
       "title": "JPA EP5",
-      "detail": "새로운 레벨 추가로 인해 순위가 12위에서 13위로 하락하였습니다."
+      "detail": "'Endless Dreaming' 레벨 추가로 인해 순위가 12위에서 13위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:13",
       "type": "move",
       "title": "JPA EP4",
-      "detail": "새로운 레벨 추가로 인해 순위가 11위에서 12위로 하락하였습니다."
+      "detail": "'Endless Dreaming' 레벨 추가로 인해 순위가 11위에서 12위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:13",
       "type": "move",
       "title": "Trolled",
-      "detail": "새로운 레벨 추가로 인해 순위가 10위에서 11위로 하락하였습니다."
+      "detail": "'Endless Dreaming' 레벨 추가로 인해 순위가 10위에서 11위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:13",
       "type": "move",
       "title": "Egg Layout",
-      "detail": "새로운 레벨 추가로 인해 순위가 9위에서 10위로 하락하였습니다."
+      "detail": "'Endless Dreaming' 레벨 추가로 인해 순위가 9위에서 10위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:13",
       "type": "move",
       "title": "JPA EP8",
-      "detail": "새로운 레벨 추가로 인해 순위가 8위에서 9위로 하락하였습니다."
+      "detail": "'Endless Dreaming' 레벨 추가로 인해 순위가 8위에서 9위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:13",
       "type": "move",
       "title": "PPPP",
-      "detail": "새로운 레벨 추가로 인해 순위가 7위에서 8위로 하락하였습니다."
-    },
-    {
-      "time": "2026-01-17 21:11",
-      "type": "add",
-      "title": "FlipBook",
-      "detail": "5위에 새로운 레벨이 등록되었습니다."
+      "detail": "'Endless Dreaming' 레벨 추가로 인해 순위가 7위에서 8위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:11",
       "type": "move",
       "title": "Slow Challenge",
-      "detail": "새로운 레벨 추가로 인해 순위가 26위에서 27위로 하락하였습니다."
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 26위에서 27위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:11",
       "type": "move",
       "title": "Answer Me",
-      "detail": "새로운 레벨 추가로 인해 순위가 25위에서 26위로 하락하였습니다."
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 25위에서 26위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:11",
       "type": "move",
       "title": "LT EP3",
-      "detail": "새로운 레벨 추가로 인해 순위가 24위에서 25위로 하락하였습니다."
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 24위에서 25위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:11",
       "type": "move",
       "title": "Glide Fastival",
-      "detail": "새로운 레벨 추가로 인해 순위가 23위에서 24위로 하락하였습니다."
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 23위에서 24위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:11",
       "type": "move",
       "title": "LT EP5",
-      "detail": "새로운 레벨 추가로 인해 순위가 22위에서 23위로 하락하였습니다."
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 22위에서 23위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:11",
       "type": "move",
       "title": "LT EP4",
-      "detail": "새로운 레벨 추가로 인해 순위가 21위에서 22위로 하락하였습니다."
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 21위에서 22위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:11",
       "type": "move",
       "title": "LT EP6",
-      "detail": "새로운 레벨 추가로 인해 순위가 20위에서 21위로 하락하였습니다."
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 20위에서 21위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:11",
       "type": "move",
       "title": "JPA EP6",
-      "detail": "새로운 레벨 추가로 인해 순위가 19위에서 20위로 하락하였습니다."
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 19위에서 20위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:11",
       "type": "move",
       "title": "JPA EP9",
-      "detail": "새로운 레벨 추가로 인해 순위가 18위에서 19위로 하락하였습니다."
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 18위에서 19위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:11",
       "type": "move",
       "title": "JPA EP3",
-      "detail": "새로운 레벨 추가로 인해 순위가 17위에서 18위로 하락하였습니다."
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 17위에서 18위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:11",
       "type": "move",
       "title": "LT EP2",
-      "detail": "새로운 레벨 추가로 인해 순위가 16위에서 17위로 하락하였습니다."
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 16위에서 17위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:11",
       "type": "move",
       "title": "LT EP7",
-      "detail": "새로운 레벨 추가로 인해 순위가 15위에서 16위로 하락하였습니다."
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 15위에서 16위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:11",
       "type": "move",
       "title": "JPA EP2",
-      "detail": "새로운 레벨 추가로 인해 순위가 14위에서 15위로 하락하였습니다."
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 14위에서 15위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:11",
       "type": "move",
       "title": "JPA EP7",
-      "detail": "새로운 레벨 추가로 인해 순위가 13위에서 14위로 하락하였습니다."
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 13위에서 14위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:11",
       "type": "move",
       "title": "JPA EP1",
-      "detail": "새로운 레벨 추가로 인해 순위가 12위에서 13위로 하락하였습니다."
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 12위에서 13위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:11",
       "type": "move",
       "title": "JPA EP5",
-      "detail": "새로운 레벨 추가로 인해 순위가 11위에서 12위로 하락하였습니다."
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 11위에서 12위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:11",
       "type": "move",
       "title": "JPA EP4",
-      "detail": "새로운 레벨 추가로 인해 순위가 10위에서 11위로 하락하였습니다."
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 10위에서 11위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:11",
       "type": "move",
       "title": "Trolled",
-      "detail": "새로운 레벨 추가로 인해 순위가 9위에서 10위로 하락하였습니다."
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 9위에서 10위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:11",
       "type": "move",
       "title": "Egg Layout",
-      "detail": "새로운 레벨 추가로 인해 순위가 8위에서 9위로 하락하였습니다."
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 8위에서 9위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:11",
       "type": "move",
       "title": "JPA EP8",
-      "detail": "새로운 레벨 추가로 인해 순위가 7위에서 8위로 하락하였습니다."
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 7위에서 8위로 하락하였습니다."
     }
   ]
 }
