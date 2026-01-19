@@ -89,7 +89,12 @@
           "author": "Choco"
         }
       ],
-      "clears": []
+      "clears": [
+        {
+          "player": "Choco",
+          "date": "2026-01-19"
+        }
+      ]
     },
     {
       "id": "pack 5",
