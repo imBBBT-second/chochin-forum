@@ -1702,7 +1702,7 @@
               addHistory(
                 'reeval',
                 newData.title,
-                `재평가로 인해 순위가 ${oldRank + 1}위에서 ${
+                `'${newData.title}' 레벨의 재평가로 인해 순위가 ${oldRank + 1}위에서 ${
                   targetRank + 1
                 }위로 ${direction}하였습니다.`,
               );
@@ -1718,7 +1718,7 @@
                 addHistory(
                   'move',
                   affectedLv.title,
-                  `상위 레벨의 순위 변동으로 인해 ${i + 1}위에서 ${
+                  `'${newData.title}' 레벨의 순위 변동으로 인해 순위가 ${i + 1}위에서 ${
                     i + 1 + shift
                   }위로 ${shiftDir}하였습니다.`,
                 );
@@ -1734,7 +1734,7 @@
               addHistory(
                 'move',
                 demonData[i].title,
-                `새로운 레벨 추가로 인해 순위가 ${i + 1}위에서 ${
+                `'${newData.title}' 레벨 추가로 인해 순위가 ${i + 1}위에서 ${
                   i + 2
                 }위로 하락하였습니다.`,
               );
@@ -1776,7 +1776,7 @@
           addHistory(
             'move',
             affectedLv.title,
-            `상위 레벨 삭제로 인해 ${i + 1}위에서 ${i}위로 상승하였습니다.`,
+            `'${deletedLv.title}' 레벨 삭제로 인해 순위가 ${i + 1}위에서 ${i}위로 상승하였습니다.`,
           );
         }
 
