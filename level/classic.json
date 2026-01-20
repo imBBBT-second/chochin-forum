@@ -1217,6 +1217,47 @@
     },
     {
       "id": 27,
+      "title": "Slow Challenge",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "-",
+      "map": {
+        "mapId": "101683550",
+        "length": "2m 55s",
+        "objects": 1718,
+        "uploadDate": "2024-02-29"
+      },
+      "song": {
+        "name": "",
+        "artist": "",
+        "id": ""
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        },
+        "total": 0
+      },
+      "tags": [
+        "Wave",
+        "4x",
+        "XXL",
+        "Gimmick",
+        "Physical",
+        "Slow",
+        "None-Effect"
+      ],
+      "clears": []
+    },
+    {
+      "id": 28,
       "title": "Answer Me",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1255,50 +1296,21 @@
         "Full-Effect"
       ],
       "clears": []
-    },
-    {
-      "id": 28,
-      "title": "Slow Challenge",
-      "creator": "Choco",
-      "verifier": "Choco",
-      "video": "-",
-      "map": {
-        "mapId": 101683550,
-        "length": "2m 55s",
-        "objects": 1718,
-        "uploadDate": "2024-02-29"
-      },
-      "song": {
-        "name": "",
-        "artist": "",
-        "id": 0
-      },
-      "gameplay": {
-        "modeRatio": {},
-        "speedRatio": {}
-      },
-      "framePerfect": {
-        "total": 0,
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        }
-      },
-      "tags": [
-        "Wave",
-        "4x",
-        "XXL",
-        "Gimmick",
-        "Physical",
-        "Slow",
-        "None-Effect"
-      ],
-      "clears": []
     }
   ],
   "history": [
+    {
+      "time": "2026-01-20 12:54",
+      "type": "move",
+      "title": "Answer Me",
+      "detail": "'Slow Challenge' 레벨의 순위 변동으로 인해 순위가 27위에서 28위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-20 12:54",
+      "type": "reeval",
+      "title": "Slow Challenge",
+      "detail": "'Slow Challenge' 레벨의 재평가로 인해 순위가 28위에서 27위로 상승하였습니다."
+    },
     {
       "time": "2025-12-10 21:37",
       "type": "move",
