@@ -1,4 +1,4 @@
-const DEV_PASSWORD = '6974';
+const DEV_PASSWORD = 'tyviva123';
 const TIER_COLORS = {
   'Tier 1': '#00ffff',
   'Tier 2': '#00ff00',

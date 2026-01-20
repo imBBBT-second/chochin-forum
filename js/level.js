@@ -8,7 +8,7 @@ const PLAYER_YOUTUBE = {
   Timo: 'https://www.youtube.com/@SNIPER_Timo',
 };
 
-const DEV_PASSWORD = '6974';
+const DEV_PASSWORD = 'tyviva123';
 
 let demonData = [];
 let changeHistory = [];

@@ -403,6 +403,115 @@
           display: block;
         }
       }
+
+      /* --- 개발자 패널 --- */
+      .dev-panel {
+        position: fixed;
+        top: 0;
+        right: -480px;
+        width: 480px;
+        height: 100%;
+        background: #222;
+        color: white;
+        transition: 0.3s ease-in-out;
+        z-index: 9999;
+        padding: 25px;
+        overflow-y: auto;
+        border-left: 3px solid #444;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+        font-family: 'Paperlogy5', sans-serif;
+      }
+      .dev-panel.open {
+        right: 0;
+      }
+      #devPanel h2,
+      #devPanel h3 {
+        font-family: 'Paperlogy9';
+        margin-top: 0;
+        color: #fff;
+        border-bottom: 2px solid #444;
+        padding-bottom: 10px;
+      }
+      #devPanel label {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        font-size: 0.85rem;
+        color: #aaa;
+        font-family: 'Paperlogy7';
+      }
+      .dev-input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        background: #333;
+        color: white;
+        border: 1px solid #555;
+        border-radius: 5px;
+        font-family: 'Paperlogy3';
+        font-size: 0.9rem;
+        transition: border 0.2s;
+      }
+      .dev-input:focus {
+        outline: none;
+        border-color: #4f9;
+      }
+      textarea.dev-input {
+        resize: vertical;
+        min-height: 60px;
+        font-family: monospace;
+      }
+      .dev-btn {
+        width: 100%;
+        padding: 12px;
+        background: #444;
+        border: none;
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-top: 10px;
+        font-family: 'Paperlogy7';
+        font-size: 1rem;
+        transition: 0.2s;
+      }
+      .dev-btn:hover {
+        background: #666;
+        transform: translateY(-2px);
+      }
+      .dev-btn-save {
+        background: #2ecc71 !important;
+        color: #000 !important;
+      }
+      .dev-btn-save:hover {
+        background: #27ae60 !important;
+      }
+      #devContent .item {
+        background: #2a2a2a;
+        margin-bottom: 5px;
+        border-radius: 4px;
+        cursor: pointer;
+        border-left: 4px solid #555;
+        transition: 0.2s;
+        padding: 10px;
+      }
+      #devContent .item:hover {
+        background: #3a3a3a;
+        border-left-color: #4f9;
+        padding-left: 15px !important;
+      }
+      #devPanel::-webkit-scrollbar {
+        width: 8px;
+      }
+      #devPanel::-webkit-scrollbar-track {
+        background: #222;
+      }
+      #devPanel::-webkit-scrollbar-thumb {
+        background: #444;
+        border-radius: 10px;
+      }
+      #devPanel::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
     </style>
   </head>
 
@@ -501,8 +610,15 @@
       <div id="historyBox"></div>
     </div>
 
+    <div id="devPanel" class="dev-panel">
+      <div class="detail-header" style="margin-top: 20px">
+        <div class="detail-title" style="font-size: 2.5rem">개발자 패널</div>
+        <div id="devContent" class="dev-content"></div>
+      </div>
+    </div>
+
     <script>
-      const DEV_PASSWORD = '6974';
+      const DEV_PASSWORD = 'tyviva123';
       const TIER_COLORS = {
         'Tier 1': '#00ffff',
         'Tier 2': '#00ff00',
@@ -517,6 +633,19 @@
       let classicLevelData = [];
       let changeHistory = [];
       let currentUser = localStorage.getItem('currentUser') || null;
+
+      // GitHub 설정 상수
+      const GH_OWNER = 'imBBBT';
+      const GH_REPO = 'chochin-forum';
+      const GH_PATH = 'mappack.json';
+      const GH_TOKEN = '';
+
+      let githubConfig = {
+        owner: GH_OWNER,
+        repo: GH_REPO,
+        path: GH_PATH,
+        token: GH_TOKEN || localStorage.getItem('gh_token') || '',
+      };
 
       // 데이터 로딩
       Promise.all([
@@ -717,6 +846,281 @@
         `,
           )
           .join('');
+      }
+
+      function addHistory(type, title, detail) {
+        const now = new Date();
+        const timeStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+        changeHistory.unshift({
+          time: timeStr,
+          type,
+          detail,
+        });
+        renderHistory();
+      }
+
+      /* ================= 개발자 패널 로직 ================= */
+      document.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'e') {
+          const panel = document.getElementById('devPanel');
+          if (panel.classList.contains('open')) panel.classList.remove('open');
+          else if (prompt('개발자 비밀번호') === DEV_PASSWORD) {
+            panel.classList.add('open');
+            renderDevHome();
+          }
+        }
+      });
+
+      function renderDevHome() {
+        document.getElementById('devContent').innerHTML = `
+          <button class="dev-btn" onclick="renderPackForm()">새 팩 등록</button>
+          <button class="dev-btn" onclick="renderEditList()">팩 수정 / 기록 갱신</button>
+          <button class="dev-btn" onclick="renderGitHubConfig()" style="background:#8e44ad;">GitHub 설정</button>
+          <button class="dev-btn" onclick="saveToGitHub()" style="background:#2980b9;">GitHub에 저장</button>
+          <button class="dev-btn" onclick="exportJson()" style="background:#5cb85c;">JSON 내보내기</button>
+        `;
+      }
+
+      function renderEditList() {
+        let html =
+          '<h3>수정할 팩 선택</h3><div style="max-height:300px; overflow-y:auto; background:#333; border-radius:5px;">';
+        packData.forEach((pack, idx) => {
+          html += `<div class="item" onclick="renderPackForm(${idx})">${pack.title} (${pack.tier})</div>`;
+        });
+        html +=
+          '</div><button class="dev-btn" onclick="renderDevHome()">뒤로가기</button>';
+        document.getElementById('devContent').innerHTML = html;
+      }
+
+      function renderPackForm(idx = null) {
+        const isEdit = idx !== null;
+        const pack = isEdit
+          ? packData[idx]
+          : {
+              id: `pack ${packData.length + 1}`,
+              title: '',
+              tier: 'Tier 1',
+              description: '',
+              levels: [],
+              clears: [],
+            };
+
+        const mkInput = (id, ph, val) =>
+          `<input id="${id}" class="dev-input" placeholder="${ph}" value="${val || ''}">`;
+
+        let levelsHtml = '';
+        (pack.levels || []).forEach((lvl, i) => {
+          levelsHtml += `
+            <div class="clear-edit-row" style="display:flex; gap:3px; margin-bottom:5px;">
+              <input class="dev-input lvl-name" placeholder="레벨 이름" value="${lvl.name}" style="flex:2">
+              <input class="dev-input lvl-author" placeholder="제작자" value="${lvl.author}" style="flex:1">
+              <button onclick="this.parentElement.remove()" style="background:#e74c3c; border:none; color:white; border-radius:4px; cursor:pointer; width:30px;">X</button>
+            </div>`;
+        });
+
+        let clearsHtml = '';
+        (pack.clears || []).forEach((c, i) => {
+          clearsHtml += `
+            <div class="clear-edit-row" style="display:flex; gap:3px; margin-bottom:5px;">
+              <input class="dev-input cl-p" placeholder="유저" value="${c.player}" style="flex:2">
+              <input class="dev-input cl-d" placeholder="날짜" value="${c.date}" style="flex:1">
+              <button onclick="this.parentElement.remove()" style="background:#e74c3c; border:none; color:white; border-radius:4px; cursor:pointer; width:30px;">X</button>
+            </div>`;
+        });
+
+        document.getElementById('devContent').innerHTML = `
+          <h3>${isEdit ? '팩 수정' : '새 팩 등록'}</h3>
+          <div style="max-height:450px; overflow-y:auto; padding-right:10px;">
+            <label>기본 정보</label>
+            ${mkInput('p-title', '팩 제목', pack.title)}
+            ${mkInput('p-tier', '티어 (예: Tier 1)', pack.tier)}
+            <textarea id="p-desc" class="dev-input" placeholder="설명">${pack.description || ''}</textarea>
+
+            <label>레벨 목록</label>
+            <div id="p-levels-container">${levelsHtml}</div>
+            <button class="dev-btn" onclick="addLevelInputRow()" style="background:#3498db; margin-top:5px;">+ 레벨 추가</button>
+
+            <label>클리어 명단</label>
+            <div id="p-clears-container">${clearsHtml}</div>
+            <button class="dev-btn" onclick="addClearInputRow()" style="background:#3498db; margin-top:5px;">+ 기록 추가</button>
+          </div>
+          <button class="dev-btn dev-btn-save" onclick="savePackForm(${idx})">${isEdit ? '수정 완료' : '등록 완료'}</button>
+          ${isEdit ? `<button class="dev-btn" onclick="deletePack(${idx})" style="background:#e74c3c;">삭제</button>` : ''}
+          <button class="dev-btn" onclick="renderDevHome()">취소</button>
+        `;
+      }
+
+      function addLevelInputRow() {
+        const div = document.createElement('div');
+        div.className = 'clear-edit-row';
+        div.style = 'display:flex; gap:3px; margin-bottom:5px;';
+        div.innerHTML = `
+          <input class="dev-input lvl-name" placeholder="레벨 이름" style="flex:2">
+          <input class="dev-input lvl-author" placeholder="제작자" style="flex:1">
+          <button onclick="this.parentElement.remove()" style="background:#e74c3c; border:none; color:white; border-radius:4px; cursor:pointer; width:30px;">X</button>
+        `;
+        document.getElementById('p-levels-container').appendChild(div);
+      }
+
+      function addClearInputRow() {
+        const div = document.createElement('div');
+        div.className = 'clear-edit-row';
+        div.style = 'display:flex; gap:3px; margin-bottom:5px;';
+        div.innerHTML = `
+          <input class="dev-input cl-p" placeholder="유저" style="flex:2">
+          <input class="dev-input cl-d" placeholder="날짜" style="flex:1">
+          <button onclick="this.parentElement.remove()" style="background:#e74c3c; border:none; color:white; border-radius:4px; cursor:pointer; width:30px;">X</button>
+        `;
+        document.getElementById('p-clears-container').appendChild(div);
+      }
+
+      function savePackForm(idx) {
+        const isEdit = idx !== null;
+        const title = document.getElementById('p-title').value;
+        const tier = document.getElementById('p-tier').value;
+        const desc = document.getElementById('p-desc').value;
+
+        const levels = [];
+        document
+          .querySelectorAll('#p-levels-container .clear-edit-row')
+          .forEach((row) => {
+            const name = row.querySelector('.lvl-name').value.trim();
+            const author = row.querySelector('.lvl-author').value.trim();
+            if (name) levels.push({ name, author });
+          });
+
+        const clears = [];
+        document
+          .querySelectorAll('#p-clears-container .clear-edit-row')
+          .forEach((row) => {
+            const player = row.querySelector('.cl-p').value.trim();
+            const date = row.querySelector('.cl-d').value.trim();
+            if (player) clears.push({ player, date });
+          });
+
+        const newPack = {
+          id: isEdit ? packData[idx].id : `pack ${packData.length + 1}`,
+          title,
+          tier,
+          description: desc,
+          levels,
+          clears,
+        };
+
+        if (isEdit) {
+          packData[idx] = newPack;
+          addHistory('팩 수정', title, `${title} 팩 정보가 수정되었습니다.`);
+        } else {
+          packData.push(newPack);
+          addHistory('팩 추가', title, `${title} 팩이 추가되었습니다.`);
+        }
+
+        renderList(packData);
+        showPackDetail(newPack);
+        alert('저장되었습니다.');
+        renderDevHome();
+      }
+
+      function deletePack(idx) {
+        if (!confirm('정말 삭제하시겠습니까?')) return;
+        const title = packData[idx].title;
+        packData.splice(idx, 1);
+        addHistory('팩 삭제', title, `${title} 팩이 삭제되었습니다.`);
+        renderList(packData);
+        if (packData.length > 0) showPackDetail(packData[0]);
+        else document.getElementById('packDetailContent').innerHTML = '';
+        alert('삭제되었습니다.');
+        renderDevHome();
+      }
+
+      function exportJson() {
+        const data = {
+          packs: packData,
+          history: changeHistory,
+        };
+        const blob = new Blob([JSON.stringify(data, null, 2)], {
+          type: 'application/json',
+        });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'mappack.json';
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+
+      function renderGitHubConfig() {
+        const isTokenFixed = !!GH_TOKEN;
+        document.getElementById('devContent').innerHTML = `
+          <h3>GitHub 연동 설정</h3>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <label class="dev-label">Repository Owner (고정)</label>
+            <input class="dev-input" value="${githubConfig.owner}" readonly style="background:#222; color:#888;">
+            <label class="dev-label">Repository Name (고정)</label>
+            <input class="dev-input" value="${githubConfig.repo}" readonly style="background:#222; color:#888;">
+            <label class="dev-label">File Path (고정)</label>
+            <input class="dev-input" value="${githubConfig.path}" readonly style="background:#222; color:#888;">
+            <label class="dev-label">Personal Access Token ${isTokenFixed ? '(고정됨)' : ''}</label>
+            <input id="gh-token" class="dev-input" type="password" value="${githubConfig.token}" ${isTokenFixed ? 'readonly style="background:#222; color:#888;"' : 'placeholder="ghp_..."'}>
+            ${!isTokenFixed ? '<button class="dev-btn dev-btn-save" onclick="saveGitHubConfig()">토큰 저장</button>' : ''}
+            <button class="dev-btn" onclick="renderDevHome()">뒤로가기</button>
+          </div>
+        `;
+      }
+
+      function saveGitHubConfig() {
+        if (!GH_TOKEN) {
+          githubConfig.token = document.getElementById('gh-token').value.trim();
+          localStorage.setItem('gh_token', githubConfig.token);
+          alert('토큰이 저장되었습니다.');
+        }
+        renderDevHome();
+      }
+
+      async function saveToGitHub() {
+        if (!githubConfig.token || !githubConfig.owner || !githubConfig.repo) {
+          if (confirm('GitHub 설정이 필요합니다. 설정 화면으로 이동할까요?'))
+            renderGitHubConfig();
+          return;
+        }
+        const content = JSON.stringify(
+          { packs: packData, history: changeHistory },
+          null,
+          2,
+        );
+        const url = `https://api.github.com/repos/${githubConfig.owner}/${githubConfig.repo}/contents/${githubConfig.path}`;
+        try {
+          let sha = null;
+          const getRes = await fetch(url, {
+            headers: {
+              Authorization: `Bearer ${githubConfig.token}`,
+              Accept: 'application/vnd.github.v3+json',
+            },
+          });
+          if (getRes.ok) {
+            const json = await getRes.json();
+            sha = json.sha;
+          }
+          const putRes = await fetch(url, {
+            method: 'PUT',
+            headers: {
+              Authorization: `Bearer ${githubConfig.token}`,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              message: `Update ${githubConfig.path} via Web`,
+              content: btoa(unescape(encodeURIComponent(content))),
+              sha: sha,
+            }),
+          });
+          if (putRes.ok) alert('GitHub에 성공적으로 저장되었습니다!');
+          else {
+            const err = await putRes.json();
+            alert(`저장 실패: ${err.message}`);
+          }
+        } catch (e) {
+          alert(`오류 발생: ${e.message}`);
+        }
       }
 
       function toggleMenu() {
