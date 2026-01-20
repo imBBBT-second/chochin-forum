@@ -1,0 +1,691 @@
+/* --- 메인 컨테이너 레이아웃 --- */
+.main-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  align-items: stretch;
+  min-height: 800px;
+}
+
+.container,
+.detail-panel {
+  background: #404040;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.container {
+  flex: 1;
+  min-width: 0;
+}
+
+.detail-panel {
+  flex: 2;
+  background: #505050;
+  overflow-y: auto;
+  min-width: 0;
+}
+
+.detail-panel.clears-panel {
+  flex: 1;
+  background: #404040;
+}
+
+/* --- 검색 및 리스트 --- */
+input#search {
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+  padding: 12px;
+  margin-bottom: 10px;
+  width: 100%;
+  font-family: Paperlogy5;
+  background: #333;
+  color: white;
+}
+
+#tagCategoryContainer {
+  margin-bottom: 15px;
+  background: #383838;
+  padding: 10px;
+  border-radius: 8px;
+}
+.tag-cat-row {
+  display: flex;
+  margin-bottom: 6px;
+  align-items: flex-start;
+}
+.tag-cat-name {
+  color: #aaa;
+  font-family: Paperlogy6;
+  font-size: 0.85rem;
+  width: 50px;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+.tag-cat-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  flex: 1;
+}
+.filter-tag-btn {
+  background: #555;
+  color: #ddd;
+  border: none;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-family: Paperlogy4;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.filter-tag-btn:hover,
+.filter-tag-btn.active {
+  background: #fff;
+  color: #000;
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  padding: 0.9rem 0.5rem;
+  gap: 0.8rem;
+  border-bottom: 1px solid #777;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+  min-height: fit-content;
+}
+.item:hover,
+.item.active {
+  background-color: #ffffff;
+}
+.item:hover .title,
+.item:hover .creator,
+.item:hover .rank,
+.item.active .title,
+.item.active .creator,
+.item.active .rank {
+  color: #000000;
+}
+.item.cleared {
+  background-color: #2e4a2e !important;
+  border-left: 6px solid #4f9;
+}
+.item.cleared:hover {
+  background-color: #3e5a3e !important;
+}
+.item.cleared.active {
+  background-color: #fff !important;
+}
+.clear-check {
+  color: #4f9;
+  margin-left: 8px;
+  font-size: 1.2rem;
+}
+.rank {
+  font-family: Paperlogy9;
+  font-size: clamp(2rem, 3.2vw, 3.2rem);
+  min-width: clamp(2rem, 3.2vw, 3.2rem);
+  text-align: center;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+.title {
+  font-family: Paperlogy7;
+  font-size: clamp(1.4rem, 2.4vw, 2.4rem);
+  line-height: 1.3;
+  color: #ffffff;
+  word-break: keep-all;
+}
+.creator {
+  font-family: Paperlogy4;
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  color: #d0d0d0;
+}
+
+/* --- 상세 정보 --- */
+.detail-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 10px;
+}
+#detailCreator {
+  font-family: Paperlogy4;
+  font-size: clamp(1rem, 1.6vw, 1.6rem);
+  color: #c8c8c8;
+  margin-top: 4px;
+}
+.detail-title {
+  font-family: Paperlogy9;
+  font-size: clamp(2.4rem, 4.8vw, 4.8rem);
+  color: #ffffff;
+  line-height: 1.1;
+  text-align: center;
+  white-space: normal;
+  word-break: keep-all;
+  margin-bottom: 6px;
+}
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  background: #000;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.section {
+  background: #444;
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 12px;
+}
+.section-title {
+  font-family: Paperlogy6;
+  font-size: 22px;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.info-section,
+.graph-section,
+.tag-section {
+  background: #444;
+  padding: 14px;
+  border-radius: 10px;
+}
+.info-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-family: Paperlogy3;
+  font-size: 1rem;
+  color: #c8c8c8;
+}
+.info-row span {
+  min-width: 45%;
+}
+.fp-warning {
+  text-align: center;
+  font-family: Paperlogy2;
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-top: 10px;
+}
+
+/* --- 그래프 --- */
+.graph-box {
+  margin-bottom: 14px;
+}
+.graph-title {
+  font-family: Paperlogy6;
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.graph-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0;
+}
+.graph-label {
+  width: 90px;
+  font-family: Paperlogy3;
+  font-size: 0.9rem;
+  color: #c8c8c8;
+  flex-shrink: 0;
+}
+.graph-bar-bg {
+  flex: 1;
+  background: #333;
+  border-radius: 6px;
+  overflow: hidden;
+  height: 16px;
+}
+.graph-bar {
+  height: 100%;
+  border-radius: 6px;
+}
+.graph-value {
+  width: 50px;
+  text-align: right;
+  font-family: Paperlogy4;
+  font-size: 0.9rem;
+  color: #c8c8c8;
+}
+/* 그래프 색상 */
+.graph-bar[data-key='Cube'] {
+  background: #00ff00;
+}
+.graph-bar[data-key='Ship'] {
+  background: #ff00ff;
+}
+.graph-bar[data-key='Ball'] {
+  background: #ff0000;
+}
+.graph-bar[data-key='UFO'] {
+  background: #ff9900;
+}
+.graph-bar[data-key='Wave'] {
+  background: #66ccff;
+}
+.graph-bar[data-key='Robot'] {
+  background: #ffffff;
+}
+.graph-bar[data-key='Spider'] {
+  background: #9900ff;
+}
+.graph-bar[data-key='Swing'] {
+  background: #ffff00;
+}
+.graph-bar[data-key='0.5x'] {
+  background: #ffff00;
+}
+.graph-bar[data-key='1x'] {
+  background: #66ccff;
+}
+.graph-bar[data-key='2x'] {
+  background: #00ff00;
+}
+.graph-bar[data-key='3x'] {
+  background: #ff66cc;
+}
+.graph-bar[data-key='4x'] {
+  background: #ff0000;
+}
+.graph-bar[data-key='30'] {
+  background: #66ccff;
+}
+.graph-bar[data-key='60'] {
+  background: #00ff00;
+}
+.graph-bar[data-key='120'] {
+  background: #ff00ff;
+}
+.graph-bar[data-key='240'] {
+  background: #ff0000;
+}
+
+/* --- 태그 --- */
+.tag-group-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 4px;
+}
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #5f5f5f;
+  color: #ffffff;
+  font-family: Paperlogy4;
+  font-size: 1rem;
+  padding: 6px 14px;
+  border-radius: 12px;
+  margin: 4px 6px 4px 0;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.tag:hover {
+  background: #888;
+  color: #fff;
+}
+.tag-content {
+  max-height: 500px;
+  overflow: hidden;
+  transition:
+    max-height 0.3s ease-out,
+    opacity 0.2s;
+  opacity: 1;
+}
+.tag-content.collapsed {
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+}
+
+/* --- 기록 명단 --- */
+.clears-panel {
+  color: #e0e0e0;
+}
+.clear-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6vw;
+  padding: 6px 4px;
+  font-family: Paperlogy3;
+  font-size: clamp(0.9rem, 1.1vw, 1.1vw);
+  color: #e0e0e0;
+}
+.clear-rank {
+  font-family: Paperlogy6;
+  color: #ffffff;
+  min-width: clamp(2rem, 3.5vw, 3.5vw);
+  flex-shrink: 0;
+}
+.clear-player {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #ffffff;
+  font-family: Paperlogy5;
+}
+.clear-percent {
+  color: #c8c8c8;
+  min-width: clamp(3rem, 4vw, 4vw);
+  text-align: right;
+  flex-shrink: 0;
+}
+.clear-percent.full {
+  color: #ffcc00;
+  font-family: Paperlogy6;
+}
+.clear-date {
+  font-family: Paperlogy2;
+  font-size: 0.8rem;
+  color: #b0b0b0;
+  flex-shrink: 0;
+}
+
+/* --- 상단 타이틀 --- */
+#detailHeader {
+  text-align: center;
+  margin-bottom: 64px;
+}
+#headerTitle {
+  font-family: Paperlogy7;
+  font-size: clamp(80px, 10vw, 170px);
+  color: #fff;
+  text-align: center;
+  margin: 20px 0;
+}
+#detailSubtitle {
+  margin-top: 4px;
+  color: #aaa;
+  font-family: Paperlogy3;
+  font-size: clamp(22px, 2.8vw, 32px);
+}
+#modeShortcut {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+.mode-btn {
+  background: transparent;
+  border: 1.5px solid #fff;
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-family: Paperlogy7;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.mode-btn:hover {
+  background: #fff;
+  color: #000;
+}
+.mode-btn.active {
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  cursor: default;
+}
+
+/* --- 개발자 패널 --- */
+.dev-panel {
+  position: fixed;
+  top: 0;
+  right: -450px;
+  width: 450px;
+  height: 100%;
+  background: #222;
+  color: white;
+  transition: 0.3s ease-in-out;
+  z-index: 9999;
+  padding: 25px;
+  overflow-y: auto;
+  border-left: 3px solid #444;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+  font-family: 'Paperlogy5', sans-serif;
+}
+.dev-panel.open {
+  right: 0;
+}
+#devPanel h2,
+#devPanel h3 {
+  font-family: 'Paperlogy9';
+  margin-top: 0;
+  color: #fff;
+  border-bottom: 2px solid #444;
+  padding-bottom: 10px;
+}
+#devPanel label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 0.85rem;
+  color: #aaa;
+  font-family: 'Paperlogy7';
+}
+.dev-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #333;
+  color: white;
+  border: 1px solid #555;
+  border-radius: 5px;
+  font-family: 'Paperlogy3';
+  font-size: 0.9rem;
+  transition: border 0.2s;
+}
+.dev-input:focus {
+  outline: none;
+  border-color: #4f9;
+}
+textarea.dev-input {
+  resize: vertical;
+  min-height: 60px;
+  font-family: monospace;
+}
+.dev-btn {
+  width: 100%;
+  padding: 12px;
+  background: #444;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-family: 'Paperlogy7';
+  font-size: 1rem;
+  transition: 0.2s;
+}
+.dev-btn:hover {
+  background: #666;
+  transform: translateY(-2px);
+}
+.dev-btn-save {
+  background: #2ecc71 !important;
+  color: #000 !important;
+}
+.dev-btn-save:hover {
+  background: #27ae60 !important;
+}
+#devContent .item {
+  background: #2a2a2a;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  border-left: 4px solid #555;
+  transition: 0.2s;
+}
+#devContent .item:hover {
+  background: #3a3a3a;
+  border-left-color: #4f9;
+  padding-left: 15px !important;
+}
+#devPanel::-webkit-scrollbar {
+  width: 8px;
+}
+#devPanel::-webkit-scrollbar-track {
+  background: #222;
+}
+#devPanel::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 10px;
+}
+#devPanel::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* --- 변경 이력 --- */
+.history-panel {
+  width: calc(100% - 40px);
+  margin: 20px auto 40px auto;
+  background: #252525;
+  border-radius: 12px;
+  padding: 30px;
+  border: 1px solid #444;
+}
+.history-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: #333;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border-left: 5px solid #888;
+  gap: 20px;
+}
+.history-item.add {
+  border-left-color: #2ecc71;
+}
+.history-item.move {
+  border-left-color: #3498db;
+}
+.history-item.remove {
+  border-left-color: #e74c3c;
+}
+.history-item.info {
+  border-left-color: #f1c40f;
+}
+.history-item.reeval {
+  border-left-color: #9b59b6;
+}
+.history-content-wrapper {
+  transition:
+    max-height 0.3s ease-out,
+    opacity 0.2s;
+  max-height: 2000px;
+  opacity: 1;
+  overflow: hidden;
+}
+.history-content-wrapper.collapsed {
+  max-height: 0;
+  opacity: 0;
+}
+
+/* --- 모바일 반응형 --- */
+.mobile-controls {
+  display: none;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.mobile-toggle-btn {
+  background: #444;
+  color: white;
+  border: 1px solid #777;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-family: Paperlogy5;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.mobile-toggle-btn.active {
+  background: #fff;
+  color: #333;
+  font-weight: bold;
+}
+
+@media (max-width: 1400px) {
+  .main-container {
+    flex-direction: column;
+  }
+  .container,
+  .detail-panel,
+  .detail-panel.clears-panel {
+    width: 100%;
+    margin-bottom: 20px;
+    height: auto;
+    flex: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    padding: 10px;
+    gap: 15px;
+  }
+  .container,
+  .detail-panel,
+  .detail-panel.clears-panel {
+    padding: 15px;
+  }
+  #detailHeader {
+    margin-bottom: 30px;
+  }
+  #headerTitle {
+    font-size: 100px;
+  }
+  #detailSubtitle {
+    font-size: 20px;
+  }
+  .detail-title {
+    font-size: 2.8rem;
+    word-break: keep-all;
+  }
+  .mobile-controls {
+    display: flex;
+  }
+  .container,
+  .detail-panel.clears-panel {
+    display: none;
+  }
+  .container.show,
+  .detail-panel.clears-panel.show {
+    display: flex;
+  }
+  #historySection {
+    margin-top: auto !important;
+  }
+}
