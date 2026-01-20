@@ -98,23 +98,6 @@
     },
     {
       "id": "pack 5",
-      "title": "Troll Pack",
-      "tier": "Tier 2",
-      "description": "찌끄레기같은 맵들을 쳐 즐겨보세요!",
-      "levels": [
-        {
-          "name": "Trolled",
-          "author": "Light"
-        },
-        {
-          "name": "Stereo Madness EX",
-          "author": "Choco & Timo"
-        }
-      ],
-      "clears": []
-    },
-    {
-      "id": "pack 6",
       "title": "Japanese Pack",
       "tier": "Tier 2",
       "description": "일본 노래로 구성된 맵을 해보세요!",
@@ -130,6 +113,23 @@
         {
           "name": "PPPP",
           "author": "Choco"
+        }
+      ],
+      "clears": []
+    },
+    {
+      "id": "pack 6",
+      "title": "Troll Pack",
+      "tier": "Tier 3",
+      "description": "찌끄레기같은 맵들을 쳐 즐겨보세요!",
+      "levels": [
+        {
+          "name": "Trolled",
+          "author": "Light"
+        },
+        {
+          "name": "Stereo Madness EX",
+          "author": "Choco & Timo"
         }
       ],
       "clears": []
