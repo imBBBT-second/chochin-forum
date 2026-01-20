@@ -37,6 +37,14 @@ Promise.all([
   });
 
 function initPage() {
+  packData.sort((a, b) => {
+    const getTierNum = (str) => {
+      const match = (str || '').match(/Tier\s+(\d+)/i);
+      return match ? parseInt(match[1]) : 999;
+    };
+    return getTierNum(a.tier) - getTierNum(b.tier);
+  });
+
   renderList(packData);
   renderHistory();
   if (packData.length > 0) showPackDetail(packData[0]);
