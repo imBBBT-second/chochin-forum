@@ -73,6 +73,36 @@
         font-display: swap;
       }
 
+      /* --- 계정 바 스타일 --- */
+      .auth-bar {
+        background: #202020;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 15px;
+        border-bottom: 2px solid #444;
+      }
+      .user-status {
+        color: #4f9;
+        font-family: Paperlogy5;
+        font-size: 0.95rem;
+      }
+      .auth-btn {
+        background: transparent;
+        border: 1.5px solid #fff;
+        color: #fff;
+        padding: 5px 15px;
+        border-radius: 5px;
+        font-family: Paperlogy7;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .auth-btn:hover {
+        background: #fff;
+        color: #000;
+      }
+
       /* --- 헤더 영역 --- */
       .header-container {
         display: flex;
@@ -244,6 +274,11 @@
     </style>
   </head>
   <body>
+    <div class="auth-bar">
+      <div id="userStatus" class="user-status"></div>
+      <button class="auth-btn" onclick="login()">계정 선택</button>
+    </div>
+
     <div class="header-container">
       <button class="hamburger" onclick="toggleMenu()">☰</button>
       <a href="index.html" class="header-btn-wrapper"
@@ -295,6 +330,21 @@
     <script>
       let classicLevels = [];
       const selectedCategories = new Set();
+
+      let currentUser = localStorage.getItem('currentUser') || null;
+      if (currentUser) {
+        document.getElementById('userStatus').innerText =
+          `접속 계정 : ${currentUser}`;
+      }
+
+      function login() {
+        const name = prompt('닉네임을 입력해주세요.');
+        if (!name) return;
+        currentUser = name;
+        localStorage.setItem('currentUser', name);
+        document.getElementById('userStatus').innerText = `접속 계정 : ${name}`;
+        alert(`${name}님, 환영합니다!`);
+      }
 
       fetch('level/classic.json')
         .then((res) => res.json())

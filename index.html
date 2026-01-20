@@ -350,6 +350,11 @@
   </head>
 
   <body>
+    <div class="auth-bar">
+      <div id="userStatus" class="user-status"></div>
+      <button class="auth-btn" onclick="login()">계정 선택</button>
+    </div>
+
     <div class="header-container">
       <button class="hamburger" onclick="toggleMenu()">☰</button
       ><a href="index.html" class="header-btn-wrapper">
@@ -416,6 +421,21 @@
       </div>
     </div>
     <script>
+      let currentUser = localStorage.getItem('currentUser') || null;
+      if (currentUser) {
+        document.getElementById('userStatus').innerText =
+          `접속 계정 : ${currentUser}`;
+      }
+
+      function login() {
+        const name = prompt('닉네임을 입력해주세요.');
+        if (!name) return;
+        currentUser = name;
+        localStorage.setItem('currentUser', name);
+        document.getElementById('userStatus').innerText = `접속 계정 : ${name}`;
+        alert(`${name}님, 환영합니다!`);
+      }
+
       function toggleMenu() {
         document.querySelector('.header-container').classList.toggle('open');
       }
