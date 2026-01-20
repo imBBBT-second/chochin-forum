@@ -4,8 +4,348 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>초친 포럼 (홈)</title>
-    <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/index.css" />
+    <style>
+      /* --- 기본 설정 --- */
+      html,
+      body {
+        min-height: 100vh;
+        margin: 0;
+        background: #323232;
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+        color: white;
+      }
+      * {
+        box-sizing: border-box;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* 폰트 설정 */
+      @font-face {
+        font-family: Paperlogy1;
+        src: url('font - paperlogy/Paperlogy-1.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy2;
+        src: url('font - paperlogy/Paperlogy-2.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy3;
+        src: url('font - paperlogy/Paperlogy-3.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy4;
+        src: url('font - paperlogy/Paperlogy-4.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy5;
+        src: url('font - paperlogy/Paperlogy-5.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy6;
+        src: url('font - paperlogy/Paperlogy-6.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy7;
+        src: url('font - paperlogy/Paperlogy-7.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy8;
+        src: url('font - paperlogy/Paperlogy-8.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy9;
+        src: url('font - paperlogy/Paperlogy-9.ttf');
+        font-display: swap;
+      }
+
+      /* --- 헤더 영역 --- */
+      .header-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5vw;
+        padding: 2vh 0;
+        flex-wrap: wrap;
+      }
+      .header-btn-wrapper {
+        width: min(400px, 90vw);
+        display: flex;
+        justify-content: center;
+      }
+      .header-btn {
+        background-color: #323232;
+        color: white;
+        font-size: clamp(1.5rem, 4vw, 3rem);
+        cursor: pointer;
+        padding: 1.5vh 0;
+        border: none;
+        border-radius: 10px;
+        width: 100%;
+        transition:
+          background-color 0.25s ease,
+          color 0.25s ease;
+        font-family: Paperlogy5;
+      }
+      .header-btn:hover,
+      .header-btn.active {
+        background-color: #fff;
+        color: #323232;
+      }
+      .divider {
+        border: 2px solid white;
+        width: 100%;
+        height: 0;
+        margin: 6px 0;
+      }
+      .hamburger {
+        display: none;
+        font-size: 2.5rem;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+      }
+      .header-container.open .header-btn-wrapper {
+        display: flex;
+      }
+
+      /* --- 계정 바 스타일 --- */
+      .auth-bar {
+        background: #202020;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 15px;
+        border-bottom: 2px solid #444;
+      }
+      .user-status {
+        color: #4f9;
+        font-family: Paperlogy5;
+        font-size: 0.95rem;
+      }
+      .auth-btn {
+        background: transparent;
+        border: 1.5px solid #fff;
+        color: #fff;
+        padding: 5px 15px;
+        border-radius: 5px;
+        font-family: Paperlogy7;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .auth-btn:hover {
+        background: #fff;
+        color: #000;
+      }
+
+      @media (max-width: 768px) {
+        .header-container {
+          flex-direction: column;
+          gap: 10px;
+        }
+        .header-btn-wrapper {
+          display: none;
+        }
+        .hamburger {
+          display: block;
+        }
+      }
+
+      h1 {
+        font-family: Paperlogy7;
+        font-size: clamp(3rem, 12vw, 10rem);
+        color: #ffffff;
+        text-align: center;
+        margin-top: 3rem;
+      }
+
+      h2 {
+        font-family: Paperlogy6;
+        font-size: clamp(1.8rem, 5vw, 4rem);
+        color: #ffffff;
+        text-align: center;
+      }
+
+      h3 {
+        font-family: Paperlogy5;
+        font-size: clamp(1.5rem, 4vw, 3rem);
+        color: #ffffff;
+        text-align: center;
+      }
+
+      h4 {
+        font-family: Paperlogy3;
+        font-size: clamp(1.2rem, 3vw, 2.5rem);
+        color: #a0a0a0;
+        text-align: center;
+      }
+
+      p {
+        font-family: Paperlogy2;
+        color: #c8c8c8;
+        text-align: center;
+      }
+
+      button {
+        font-family: Paperlogy5;
+      }
+
+      .main-content {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .title-section {
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .version {
+        font-size: clamp(1rem, 2.5vw, 2rem);
+        margin-top: 1rem;
+        color: #c8c8c8;
+      }
+
+      .intro-box {
+        border: 4px solid #ffffff;
+        padding: 2rem;
+        margin: 3rem auto;
+        max-width: 1375px;
+      }
+
+      .intro-text {
+        font-size: clamp(1rem, 2vw, 1.8rem);
+        margin-top: 1rem;
+        line-height: 1.6;
+      }
+
+      .discord-section {
+        background-color: #323339;
+        border: 5px solid #5e68ef;
+        padding: 2rem;
+        margin: 3rem auto;
+        max-width: 1500px;
+        border-radius: 10px;
+      }
+
+      .discord-title {
+        margin-bottom: 1rem;
+      }
+
+      .discord-description {
+        font-size: clamp(0.9rem, 2vw, 1.5rem);
+        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .discord-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+      }
+
+      .discord-btn {
+        background-color: #5e68ef;
+        color: white;
+        font-size: clamp(1rem, 2.5vw, 2rem);
+        cursor: pointer;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: transform 0.25s cubic-bezier(0.25, 1, 0.75, 1);
+        min-width: 200px;
+        justify-content: center;
+      }
+
+      .discord-btn:hover {
+        transform: scale(1.1);
+      }
+
+      .discord-btn img {
+        width: clamp(40px, 5vw, 60px);
+        height: clamp(40px, 5vw, 60px);
+      }
+
+      .credit-section {
+        margin: auto auto 2rem;
+        padding: 2rem;
+      }
+
+      .credit-text {
+        font-size: clamp(1rem, 2vw, 1.8rem);
+        color: #808080;
+        margin-top: 1rem;
+      }
+
+      @media (max-width: 768px) {
+        .intro-box {
+          padding: 1.5rem;
+        }
+
+        .discord-section {
+          padding: 1.5rem;
+        }
+
+        .discord-buttons {
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .discord-btn {
+          width: 100%;
+          max-width: 300px;
+        }
+
+        .discord-description {
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .main-content {
+          padding: 0 1rem;
+        }
+
+        .intro-box {
+          border-width: 2px;
+          padding: 1rem;
+        }
+
+        .discord-section {
+          border-width: 3px;
+          padding: 1rem;
+        }
+      }
+    </style>
   </head>
 
   <body>
@@ -17,16 +357,12 @@
       <a href="level.html" class="header-btn-wrapper">
         <button class="header-btn">레벨</button>
       </a>
-      <div class="header-btn-wrapper">
-        <a href="mappack.html" class="header-btn-wrapper">
-          <button class="header-btn">맵 팩</button>
-        </a>
-      </div>
-      <div class="header-btn-wrapper">
-        <a href="roulette.html" class="header-btn-wrapper">
-          <button class="header-btn">룰렛</button>
-        </a>
-      </div>
+      <a href="mappack.html" class="header-btn-wrapper">
+        <button class="header-btn">맵 팩</button>
+      </a>
+      <a href="roulette.html" class="header-btn-wrapper">
+        <button class="header-btn">룰렛</button>
+      </a>
     </div>
 
     <div class="divider"></div>
@@ -76,6 +412,10 @@
         <p class="credit-text">제작 : 초코, 앞티</p>
       </div>
     </div>
-    <script src="js/common.js"></script>
+    <script>
+      function toggleMenu() {
+        document.querySelector('.header-container').classList.toggle('open');
+      }
+    </script>
   </body>
 </html>
