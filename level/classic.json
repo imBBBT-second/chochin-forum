@@ -38,7 +38,13 @@
         },
         "total": 30
       },
-      "tags": ["Wave", "4x", "Short", "Physical", "None-Effect"],
+      "tags": [
+        "Wave",
+        "4x",
+        "Short",
+        "Physical",
+        "None-Effect"
+      ],
       "clears": [
         {
           "player": "Timo",
@@ -308,7 +314,13 @@
         "fps": {},
         "total": 0
       },
-      "tags": ["Any-Mode", "Long", "Sync", "Flow", "No-Clear"],
+      "tags": [
+        "Any-Mode",
+        "Long",
+        "Sync",
+        "Flow",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -519,7 +531,14 @@
         },
         "total": 1
       },
-      "tags": ["Any-Mode", "1x", "Medium", "Memory", "Low-Effect", "No-Clear"],
+      "tags": [
+        "Any-Mode",
+        "1x",
+        "Medium",
+        "Memory",
+        "Low-Effect",
+        "No-Clear"
+      ],
       "clears": [
         {
           "player": "imBBBT",
@@ -621,7 +640,14 @@
           "240": 0
         }
       },
-      "tags": ["Any-Mode", "4x", "Long", "Physical", "Low-Effect", "No-Clear"],
+      "tags": [
+        "Any-Mode",
+        "4x",
+        "Long",
+        "Physical",
+        "Low-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -845,7 +871,14 @@
           "240": 0
         }
       },
-      "tags": ["Ship", "1x", "Long", "Physical", "None-Effect", "No-Clear"],
+      "tags": [
+        "Ship",
+        "1x",
+        "Long",
+        "Physical",
+        "None-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -966,7 +999,14 @@
           "240": 0
         }
       },
-      "tags": ["2x", "Sync", "Learny", "Low-Effect", "XL", "Ship"],
+      "tags": [
+        "2x",
+        "Sync",
+        "Learny",
+        "Low-Effect",
+        "XL",
+        "Ship"
+      ],
       "clears": []
     },
     {
@@ -1042,7 +1082,14 @@
           "240": 0
         }
       },
-      "tags": ["Any-Mode", "1x", "Medium", "Sync", "Slow", "None-Effect"],
+      "tags": [
+        "Any-Mode",
+        "1x",
+        "Medium",
+        "Sync",
+        "Slow",
+        "None-Effect"
+      ],
       "clears": []
     },
     {
@@ -1272,18 +1319,6 @@
       "detail": "3위에 새로운 레벨이 등록되었습니다."
     },
     {
-      "time": "2026-01-15 00:00",
-      "type": "add",
-      "title": "Stereo MadnesS EX",
-      "detail": "2위에 새로운 레벨이 등록되었습니다."
-    },
-    {
-      "time": "2025-11-16 00:00",
-      "type": "add",
-      "title": "PPPP",
-      "detail": "6위에 새로운 레벨이 등록되었습니다."
-    },
-    {
       "time": "2025-10-11 00:00",
       "type": "add",
       "title": "JPA EP 8",
@@ -1404,16 +1439,10 @@
       "detail": "25위에 새로운 레벨이 등록되었습니다."
     },
     {
-      "time": "2026-01-20 12:54",
-      "type": "move",
-      "title": "Answer Me",
-      "detail": "'Slow Challenge' 레벨의 순위 변동으로 인해 순위가 27위에서 28위로 하락하였습니다."
-    },
-    {
-      "time": "2026-01-20 12:54",
-      "type": "reeval",
-      "title": "Slow Challenge",
-      "detail": "'Slow Challenge' 레벨의 재평가로 인해 순위가 28위에서 27위로 상승하였습니다."
+      "time": "2025-11-16 00:00",
+      "type": "add",
+      "title": "PPPP",
+      "detail": "6위에 새로운 레벨이 등록되었습니다."
     },
     {
       "time": "2025-12-10 21:37",
@@ -1428,22 +1457,10 @@
       "detail": "'chocubed' 레벨의 순위 변동으로 인해 2위에서 3위로 하락하였습니다."
     },
     {
-      "time": "2026-12-10 21:37",
-      "type": "reeval",
-      "title": "chocubed",
-      "detail": "'nullscube' 레벨의 순위 변동으로 인해 순위가 3위에서 1위로 상승하였습니다."
-    },
-    {
-      "time": "2026-01-15 22:04",
+      "time": "2025-12-14 21:13",
       "type": "move",
-      "title": "BOOBAWAVABA",
-      "detail": "'Stereo MadnesS EX' 레벨 추가로 인해 순위가 2위에서 3위로 하락하였습니다."
-    },
-    {
-      "time": "2026-12-14 22:04",
-      "type": "move",
-      "title": "nullscube",
-      "detail": "'BOOBAWAVEBA' 레벨 추가로 인해 순위가 2위에서 3위로 하락하였습니다."
+      "title": "Reaper Wave",
+      "detail": "'BOOBAWAVEBA' 레벨 추가로 인해 순위가 3위에서 4위로 하락하였습니다."
     },
     {
       "time": "2025-12-14 22:04",
@@ -1452,10 +1469,10 @@
       "detail": "2위에 새로운 레벨이 등록되었습니다."
     },
     {
-      "time": "2025-12-14 21:13",
-      "type": "move",
-      "title": "Reaper Wave",
-      "detail": "'BOOBAWAVEBA' 레벨 추가로 인해 순위가 3위에서 4위로 하락하였습니다."
+      "time": "2026-01-15 00:00",
+      "type": "add",
+      "title": "Stereo MadnesS EX",
+      "detail": "2위에 새로운 레벨이 등록되었습니다."
     },
     {
       "time": "2026-01-15 12:28",
@@ -1476,6 +1493,12 @@
       "detail": "'Stereo MadnesS EX' 레벨 추가로 인해 순위가 4위에서 5위로 하락하였습니다."
     },
     {
+      "time": "2026-01-15 22:04",
+      "type": "move",
+      "title": "BOOBAWAVABA",
+      "detail": "'Stereo MadnesS EX' 레벨 추가로 인해 순위가 2위에서 3위로 하락하였습니다."
+    },
+    {
       "time": "2026-01-17 21:11",
       "type": "add",
       "title": "FlipBook",
@@ -1492,6 +1515,126 @@
       "type": "move",
       "title": "PPPP",
       "detail": "'FlipBook' 레벨 추가로 인해 순위가 6위에서 7위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-17 21:11",
+      "type": "move",
+      "title": "Slow Challenge",
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 26위에서 27위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-17 21:11",
+      "type": "move",
+      "title": "Answer Me",
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 25위에서 26위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-17 21:11",
+      "type": "move",
+      "title": "LT EP3",
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 24위에서 25위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-17 21:11",
+      "type": "move",
+      "title": "Glide Fastival",
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 23위에서 24위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-17 21:11",
+      "type": "move",
+      "title": "LT EP5",
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 22위에서 23위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-17 21:11",
+      "type": "move",
+      "title": "LT EP4",
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 21위에서 22위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-17 21:11",
+      "type": "move",
+      "title": "LT EP6",
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 20위에서 21위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-17 21:11",
+      "type": "move",
+      "title": "JPA EP6",
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 19위에서 20위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-17 21:11",
+      "type": "move",
+      "title": "JPA EP9",
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 18위에서 19위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-17 21:11",
+      "type": "move",
+      "title": "JPA EP3",
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 17위에서 18위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-17 21:11",
+      "type": "move",
+      "title": "LT EP2",
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 16위에서 17위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-17 21:11",
+      "type": "move",
+      "title": "LT EP7",
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 15위에서 16위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-17 21:11",
+      "type": "move",
+      "title": "JPA EP2",
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 14위에서 15위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-17 21:11",
+      "type": "move",
+      "title": "JPA EP7",
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 13위에서 14위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-17 21:11",
+      "type": "move",
+      "title": "JPA EP1",
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 12위에서 13위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-17 21:11",
+      "type": "move",
+      "title": "JPA EP5",
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 11위에서 12위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-17 21:11",
+      "type": "move",
+      "title": "JPA EP4",
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 10위에서 11위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-17 21:11",
+      "type": "move",
+      "title": "Trolled",
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 9위에서 10위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-17 21:11",
+      "type": "move",
+      "title": "Egg Layout",
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 8위에서 9위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-17 21:11",
+      "type": "move",
+      "title": "JPA EP8",
+      "detail": "'FlipBook' 레벨 추가로 인해 순위가 7위에서 8위로 하락하였습니다."
     },
     {
       "time": "2026-01-17 21:13",
@@ -1626,124 +1769,28 @@
       "detail": "'Endless Dreaming' 레벨 추가로 인해 순위가 7위에서 8위로 하락하였습니다."
     },
     {
-      "time": "2026-01-17 21:11",
-      "type": "move",
-      "title": "Slow Challenge",
-      "detail": "'FlipBook' 레벨 추가로 인해 순위가 26위에서 27위로 하락하였습니다."
-    },
-    {
-      "time": "2026-01-17 21:11",
+      "time": "2026-01-20 12:54",
       "type": "move",
       "title": "Answer Me",
-      "detail": "'FlipBook' 레벨 추가로 인해 순위가 25위에서 26위로 하락하였습니다."
+      "detail": "'Slow Challenge' 레벨의 순위 변동으로 인해 순위가 27위에서 28위로 하락하였습니다."
     },
     {
-      "time": "2026-01-17 21:11",
-      "type": "move",
-      "title": "LT EP3",
-      "detail": "'FlipBook' 레벨 추가로 인해 순위가 24위에서 25위로 하락하였습니다."
+      "time": "2026-01-20 12:54",
+      "type": "reeval",
+      "title": "Slow Challenge",
+      "detail": "'Slow Challenge' 레벨의 재평가로 인해 순위가 28위에서 27위로 상승하였습니다."
     },
     {
-      "time": "2026-01-17 21:11",
-      "type": "move",
-      "title": "Glide Fastival",
-      "detail": "'FlipBook' 레벨 추가로 인해 순위가 23위에서 24위로 하락하였습니다."
+      "time": "2026-12-10 21:37",
+      "type": "reeval",
+      "title": "chocubed",
+      "detail": "'nullscube' 레벨의 순위 변동으로 인해 순위가 3위에서 1위로 상승하였습니다."
     },
     {
-      "time": "2026-01-17 21:11",
+      "time": "2026-12-14 22:04",
       "type": "move",
-      "title": "LT EP5",
-      "detail": "'FlipBook' 레벨 추가로 인해 순위가 22위에서 23위로 하락하였습니다."
-    },
-    {
-      "time": "2026-01-17 21:11",
-      "type": "move",
-      "title": "LT EP4",
-      "detail": "'FlipBook' 레벨 추가로 인해 순위가 21위에서 22위로 하락하였습니다."
-    },
-    {
-      "time": "2026-01-17 21:11",
-      "type": "move",
-      "title": "LT EP6",
-      "detail": "'FlipBook' 레벨 추가로 인해 순위가 20위에서 21위로 하락하였습니다."
-    },
-    {
-      "time": "2026-01-17 21:11",
-      "type": "move",
-      "title": "JPA EP6",
-      "detail": "'FlipBook' 레벨 추가로 인해 순위가 19위에서 20위로 하락하였습니다."
-    },
-    {
-      "time": "2026-01-17 21:11",
-      "type": "move",
-      "title": "JPA EP9",
-      "detail": "'FlipBook' 레벨 추가로 인해 순위가 18위에서 19위로 하락하였습니다."
-    },
-    {
-      "time": "2026-01-17 21:11",
-      "type": "move",
-      "title": "JPA EP3",
-      "detail": "'FlipBook' 레벨 추가로 인해 순위가 17위에서 18위로 하락하였습니다."
-    },
-    {
-      "time": "2026-01-17 21:11",
-      "type": "move",
-      "title": "LT EP2",
-      "detail": "'FlipBook' 레벨 추가로 인해 순위가 16위에서 17위로 하락하였습니다."
-    },
-    {
-      "time": "2026-01-17 21:11",
-      "type": "move",
-      "title": "LT EP7",
-      "detail": "'FlipBook' 레벨 추가로 인해 순위가 15위에서 16위로 하락하였습니다."
-    },
-    {
-      "time": "2026-01-17 21:11",
-      "type": "move",
-      "title": "JPA EP2",
-      "detail": "'FlipBook' 레벨 추가로 인해 순위가 14위에서 15위로 하락하였습니다."
-    },
-    {
-      "time": "2026-01-17 21:11",
-      "type": "move",
-      "title": "JPA EP7",
-      "detail": "'FlipBook' 레벨 추가로 인해 순위가 13위에서 14위로 하락하였습니다."
-    },
-    {
-      "time": "2026-01-17 21:11",
-      "type": "move",
-      "title": "JPA EP1",
-      "detail": "'FlipBook' 레벨 추가로 인해 순위가 12위에서 13위로 하락하였습니다."
-    },
-    {
-      "time": "2026-01-17 21:11",
-      "type": "move",
-      "title": "JPA EP5",
-      "detail": "'FlipBook' 레벨 추가로 인해 순위가 11위에서 12위로 하락하였습니다."
-    },
-    {
-      "time": "2026-01-17 21:11",
-      "type": "move",
-      "title": "JPA EP4",
-      "detail": "'FlipBook' 레벨 추가로 인해 순위가 10위에서 11위로 하락하였습니다."
-    },
-    {
-      "time": "2026-01-17 21:11",
-      "type": "move",
-      "title": "Trolled",
-      "detail": "'FlipBook' 레벨 추가로 인해 순위가 9위에서 10위로 하락하였습니다."
-    },
-    {
-      "time": "2026-01-17 21:11",
-      "type": "move",
-      "title": "Egg Layout",
-      "detail": "'FlipBook' 레벨 추가로 인해 순위가 8위에서 9위로 하락하였습니다."
-    },
-    {
-      "time": "2026-01-17 21:11",
-      "type": "move",
-      "title": "JPA EP8",
-      "detail": "'FlipBook' 레벨 추가로 인해 순위가 7위에서 8위로 하락하였습니다."
+      "title": "nullscube",
+      "detail": "'BOOBAWAVEBA' 레벨 추가로 인해 순위가 2위에서 3위로 하락하였습니다."
     }
   ]
 }
