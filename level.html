@@ -95,14 +95,6 @@
         color: #000;
       }
 
-      h1 {
-        font-family: Paperlogy7;
-        font-size: clamp(3rem, 10vw, 10rem);
-        color: #fff;
-        text-align: center;
-        margin: 20px 0;
-      }
-
       h4 {
         font-family: Paperlogy3;
         font-size: clamp(1.2rem, 3vw, 2.5rem);
@@ -120,19 +112,41 @@
         text-decoration: none;
       }
 
+      /* --- 페이지 타이틀 --- */
+      .page-title-container {
+        text-align: center;
+        margin: 2rem 0 3rem 0;
+        padding: 0 1rem;
+      }
+      .page-title {
+        font-family: Paperlogy7;
+        font-size: clamp(3rem, 12vw, 10rem);
+        color: #ffffff;
+        margin: 0;
+        line-height: 1.1;
+      }
+      .page-subtitle {
+        font-family: Paperlogy3;
+        font-size: clamp(1.2rem, 3vw, 2.5rem);
+        color: #a0a0a0;
+        margin-top: 0.5rem;
+        line-height: 1.5;
+      }
+
       .header-container {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 5vw;
-        padding: 2vh 0;
+        gap: 1vw;
+        padding: 2vh 2vw;
         flex-wrap: wrap;
       }
 
       .header-btn-wrapper {
-        width: min(400px, 90vw);
+        flex: 1;
         display: flex;
         justify-content: center;
+        min-width: 160px;
       }
 
       .header-btn {
@@ -150,9 +164,11 @@
         font-family: Paperlogy5;
       }
 
-      .header-btn:hover {
+      .header-btn:hover,
+      .header-btn.active {
         background-color: #fff;
         color: #323232;
+        font-family: Paperlogy9;
       }
 
       .divider {
@@ -321,32 +337,31 @@
       ><a href="index.html" class="header-btn-wrapper">
         <button class="header-btn">홈</button>
       </a>
-      <a href="level.html" class="header-btn-wrapper">
-        <button class="header-btn" style="font-family: Paperlogy9">레벨</button>
+      <div class="header-btn-wrapper">
+        <button class="header-btn active">레벨</button>
+      </div>
+      <a href="mappack.html" class="header-btn-wrapper">
+        <button class="header-btn">맵 팩</button>
       </a>
-      <div class="header-btn-wrapper">
-        <a href="mappack.html" class="header-btn-wrapper">
-          <button class="header-btn">맵 팩</button>
-        </a>
-      </div>
-      <div class="header-btn-wrapper">
-        <a href="roulette.html" class="header-btn-wrapper">
-          <button class="header-btn">룰렛</button>
-        </a>
-      </div>
+      <a href="ranking.html" class="header-btn-wrapper">
+        <button class="header-btn">랭킹</button>
+      </a>
+      <a href="roulette.html" class="header-btn-wrapper">
+        <button class="header-btn">룰렛</button>
+      </a>
     </div>
 
     <div class="divider"></div>
 
     <div class="main-content">
-      <h1>레벨</h1>
-
-      <p class="description">
-        초친 멤버들이 제작한 커스텀 레벨의 난이도를 기준으로 랭킹을 나눈
-        곳입니다.<br />
-        일반적인 클래식, 20초 내의 길이를 가진 챌린지, 플랫포머로 레벨이
-        구분됩니다.<br />
-      </p>
+      <div class="page-title-container">
+        <h1 class="page-title">레벨</h1>
+        <p class="page-subtitle">
+          초친 멤버들이 제작한 커스텀 레벨의 난이도를 기준으로 랭킹을 나눈
+          곳입니다.<br />일반적인 클래식, 20초 내의 길이를 가진 챌린지, 플랫포머로
+          레벨이 구분됩니다.
+        </p>
+      </div>
 
       <div class="cards-container">
         <a href="level/classic.html">
@@ -381,18 +396,89 @@
     </div>
     <script>
       let currentUser = localStorage.getItem('currentUser') || null;
-      if (currentUser) {
-        document.getElementById('userStatus').innerText =
-          `접속 계정 : ${currentUser}`;
-      }
+      let allLevels = [];
+
+      // 포인트 데이터 로드
+      Promise.all([
+        fetch('level/classic.json').then((res) => res.json()),
+        fetch('level/challenge.json').then((res) => res.json()),
+        fetch('level/platformer.json').then((res) => res.json()),
+      ])
+        .then(([classicData, challengeData, platformerData]) => {
+          const classicLevels = classicData.levels || [];
+          const challengeLevels = challengeData.levels || [];
+          const platformerLevels = platformerData.levels || [];
+          allLevels = [
+            ...classicLevels,
+            ...challengeLevels,
+            ...platformerLevels,
+          ];
+          if (currentUser) updateUserStatus();
+        })
+        .catch((err) => console.error('포인트 데이터 로드 실패', err));
 
       function login() {
         const name = prompt('닉네임을 입력해주세요.');
         if (!name) return;
         currentUser = name;
         localStorage.setItem('currentUser', name);
-        document.getElementById('userStatus').innerText = `접속 계정 : ${name}`;
+        updateUserStatus();
         alert(`${name}님, 환영합니다!`);
+      }
+
+      function getRankPoints(rank) {
+        if (typeof rank !== 'number') return 0;
+        if (rank === 1) return 200;
+        if (rank === 2) return 180;
+        if (rank >= 3 && rank <= 5) return 150;
+        if (rank >= 6 && rank <= 10) return 120;
+        if (rank >= 11 && rank <= 15) return 50;
+        if (rank >= 16 && rank <= 20) return 20;
+        if (rank >= 21) return 10;
+        return 0;
+      }
+
+      function getUserPoints(level, username) {
+        if (!username || !level) return 0;
+        const rank = level.id;
+        const base = getRankPoints(rank);
+        const lowerUser = username.toLowerCase();
+
+        if (level.verifier && level.verifier.toLowerCase() === lowerUser)
+          return Math.floor(base * 1.5);
+
+        if (level.clears && level.clears.length > 0) {
+          if (
+            level.clears[0].player.toLowerCase() === lowerUser &&
+            Number(level.clears[0].percent) === 100
+          )
+            return Math.floor(base * 1.3);
+          if (
+            level.clears.some(
+              (c) =>
+                c.player.toLowerCase() === lowerUser &&
+                Number(c.percent) === 100,
+            )
+          )
+            return base;
+        }
+        return 0;
+      }
+
+      function updateUserStatus() {
+        if (currentUser && allLevels.length > 0) {
+          let total = 0;
+          allLevels.forEach((lvl) => {
+            total += getUserPoints(lvl, currentUser);
+          });
+          document.getElementById('userStatus').innerText =
+            `접속 계정 : ${currentUser} (${total}pt)`;
+        } else if (currentUser) {
+          document.getElementById('userStatus').innerText =
+            `접속 계정 : ${currentUser}`;
+        } else {
+          document.getElementById('userStatus').innerText = '';
+        }
       }
 
       function toggleMenu() {

@@ -1,0 +1,931 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>초친 포럼 (랭킹)</title>
+    <style>
+      html,
+      body {
+        height: 100vh;
+        margin: 0;
+        background: #323232;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      * {
+        box-sizing: border-box;
+      }
+
+      /* 폰트 설정 (Root 경로 기준) */
+      @font-face {
+        font-family: Paperlogy1;
+        src: url('font - paperlogy/Paperlogy-1.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy2;
+        src: url('font - paperlogy/Paperlogy-2.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy3;
+        src: url('font - paperlogy/Paperlogy-3.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy4;
+        src: url('font - paperlogy/Paperlogy-4.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy5;
+        src: url('font - paperlogy/Paperlogy-5.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy6;
+        src: url('font - paperlogy/Paperlogy-6.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy7;
+        src: url('font - paperlogy/Paperlogy-7.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy8;
+        src: url('font - paperlogy/Paperlogy-8.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy9;
+        src: url('font - paperlogy/Paperlogy-9.ttf');
+        font-display: swap;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* --- 계정 바 스타일 --- */
+      .auth-bar {
+        background: #202020;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 15px;
+        border-bottom: 2px solid #444;
+      }
+      .user-status {
+        color: #4f9;
+        font-family: Paperlogy5;
+        font-size: 0.95rem;
+      }
+      .auth-btn {
+        background: transparent;
+        border: 1.5px solid #fff;
+        color: #fff;
+        padding: 5px 15px;
+        border-radius: 5px;
+        font-family: Paperlogy7;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .auth-btn:hover {
+        background: #fff;
+        color: #000;
+      }
+
+      /* --- 헤더 --- */
+      .header-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1vw;
+        padding: 2vh 2vw;
+        flex-wrap: wrap;
+      }
+      .header-btn-wrapper {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        min-width: 160px;
+      }
+      .header-btn {
+        background-color: #323232;
+        color: white;
+        font-size: clamp(1.5rem, 4vw, 3rem);
+        cursor: pointer;
+        padding: 1.5vh 0;
+        border: none;
+        border-radius: 10px;
+        width: 100%;
+        transition:
+          background-color 0.25s ease,
+          color 0.25s ease;
+        font-family: Paperlogy5;
+      }
+      .header-btn:hover,
+      .header-btn.active {
+        background-color: #fff;
+        color: #323232;
+        font-family: Paperlogy9;
+      }
+      .divider {
+        border: 2px solid white;
+        width: 100%;
+        height: 0;
+        margin: 6px 0;
+      }
+      .hamburger {
+        display: none;
+        font-size: 2.5rem;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+      }
+      .header-container.open .header-btn-wrapper {
+        display: flex;
+      }
+
+      /* --- 페이지 타이틀 --- */
+      .page-title-container {
+        text-align: center;
+        margin: 2rem 0 3rem 0;
+        padding: 0 1rem;
+      }
+      .page-title {
+        font-family: Paperlogy7;
+        font-size: clamp(3rem, 12vw, 10rem);
+        color: #fff;
+        margin: 0;
+        line-height: 1.1;
+      }
+      .page-subtitle {
+        font-family: Paperlogy3;
+        font-size: clamp(1.2rem, 3vw, 2.5rem);
+        color: #aaa;
+        margin-top: 0.5rem;
+        line-height: 1.5;
+      }
+
+      /* --- 메인 컨텐츠 --- */
+      .main-container {
+        flex: 1;
+        padding: 20px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .mode-selector {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 30px;
+        justify-content: center;
+      }
+      .mode-btn {
+        background: transparent;
+        border: 2px solid #fff;
+        color: #fff;
+        padding: 10px 30px;
+        border-radius: 999px;
+        font-family: Paperlogy7;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .mode-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+      .mode-btn.active {
+        background: #fff;
+        color: #323232;
+      }
+
+      /* --- 랭킹 테이블 --- */
+      .ranking-table-wrapper {
+        width: 100%;
+        max-width: 95%;
+        background: #404040;
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        color: white;
+        font-family: Paperlogy4;
+      }
+      th {
+        background: #333;
+        padding: 15px;
+        font-family: Paperlogy6;
+        font-size: 1.2rem;
+        border-bottom: 2px solid #555;
+        text-align: center;
+      }
+      td {
+        padding: 15px;
+        border-bottom: 1px solid #555;
+        text-align: center;
+        font-size: 1.1rem;
+      }
+      tr:hover {
+        background: #4a4a4a;
+      }
+
+      .rank-num {
+        font-family: Paperlogy8;
+        font-size: 1.3rem;
+      }
+      .rank-1 {
+        color: #ffd700;
+        font-size: 1.5rem;
+      }
+      .rank-2 {
+        color: #c0c0c0;
+        font-size: 1.4rem;
+      }
+      .rank-3 {
+        color: #cd7f32;
+        font-size: 1.4rem;
+      }
+
+      .user-name {
+        font-family: Paperlogy6;
+        color: #fff;
+      }
+      .user-points {
+        color: #4f9;
+        font-family: Paperlogy7;
+      }
+      .hardest-level {
+        color: #ff6b6b;
+        font-family: Paperlogy5;
+      }
+      .clear-count {
+        color: #aaa;
+      }
+
+      @media (max-width: 768px) {
+        .header-container {
+          flex-direction: column;
+          gap: 10px;
+        }
+        .header-btn-wrapper {
+          width: 90%;
+        }
+        .mode-btn {
+          padding: 8px 20px;
+          font-size: 1.2rem;
+        }
+        th,
+        td {
+          padding: 10px 5px;
+          font-size: 0.9rem;
+        }
+        .hardest-level {
+          font-size: 0.85rem;
+        }
+        .hamburger {
+          display: block;
+        }
+      }
+
+      /* --- 개발자 패널 --- */
+      .dev-panel {
+        position: fixed;
+        top: 0;
+        right: -450px;
+        width: 450px;
+        height: 100%;
+        background: #222;
+        color: white;
+        transition: 0.3s ease-in-out;
+        z-index: 1000;
+        padding: 25px;
+        overflow-y: auto;
+        border-left: 3px solid #444;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+        font-family: 'Paperlogy5', sans-serif;
+      }
+      .dev-panel.open {
+        right: 0;
+      }
+      #devPanel h3 {
+        font-family: 'Paperlogy9';
+        margin-top: 0;
+        color: #fff;
+        border-bottom: 2px solid #444;
+        padding-bottom: 10px;
+      }
+      #devPanel label {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        font-size: 0.85rem;
+        color: #aaa;
+        font-family: 'Paperlogy7';
+      }
+      .dev-input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        background: #333;
+        color: white;
+        border: 1px solid #555;
+        border-radius: 5px;
+        font-family: 'Paperlogy3';
+        font-size: 0.9rem;
+        transition: border 0.2s;
+      }
+      .dev-input:focus {
+        outline: none;
+        border-color: #4f9;
+      }
+      .dev-btn {
+        width: 100%;
+        padding: 12px;
+        background: #444;
+        border: none;
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-top: 10px;
+        font-family: 'Paperlogy7';
+        font-size: 1rem;
+        transition: 0.2s;
+      }
+      .dev-btn:hover {
+        background: #666;
+        transform: translateY(-2px);
+      }
+      .dev-btn-save {
+        background: #2ecc71 !important;
+        color: #000 !important;
+      }
+      .dev-btn-save:hover {
+        background: #27ae60 !important;
+      }
+      #devContent .item {
+        background: #2a2a2a;
+        margin-bottom: 5px;
+        border-radius: 4px;
+        cursor: pointer;
+        border-left: 4px solid #555;
+        transition: 0.2s;
+        padding: 10px;
+      }
+      #devContent .item:hover {
+        background: #3a3a3a;
+        border-left-color: #4f9;
+        padding-left: 15px !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="auth-bar">
+      <div id="userStatus" class="user-status"></div>
+      <button class="auth-btn" onclick="login()">계정 선택</button>
+    </div>
+
+    <div class="header-container">
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+      <a href="index.html" class="header-btn-wrapper"
+        ><button class="header-btn">홈</button></a
+      >
+      <a href="level.html" class="header-btn-wrapper"
+        ><button class="header-btn">레벨</button></a
+      >
+      <a href="mappack.html" class="header-btn-wrapper">
+        <button class="header-btn">맵 팩</button>
+      </a>
+      <div class="header-btn-wrapper">
+        <button class="header-btn active">랭킹</button>
+      </div>
+      <a href="roulette.html" class="header-btn-wrapper">
+        <button class="header-btn">룰렛</button>
+      </a>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="page-title-container">
+      <h1 class="page-title">랭킹</h1>
+      <p class="page-subtitle">
+        멤버들의 포인트를 기준으로 순위를 확인하세요.
+      </p>
+    </div>
+
+    <div class="main-container">
+      <div class="mode-selector">
+        <button class="mode-btn" onclick="switchMode('hardest')">
+          Hardest
+        </button>
+        <button class="mode-btn active" onclick="switchMode('classic')">
+          Classic
+        </button>
+        <button class="mode-btn" onclick="switchMode('challenge')">
+          Challenge
+        </button>
+        <button class="mode-btn" onclick="switchMode('platformer')">
+          Platformer
+        </button>
+      </div>
+
+      <div class="ranking-table-wrapper">
+        <table>
+          <thead id="rankingHead">
+            <tr>
+              <th style="width: 10%">순위</th>
+              <th style="width: 25%">이름</th>
+              <th style="width: 15%">포인트</th>
+              <th style="width: 35%">하디스트 (Hardest)</th>
+              <th style="width: 15%">클리어</th>
+            </tr>
+          </thead>
+          <tbody id="rankingBody">
+            <!-- JS로 데이터 로드 -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="devPanel" class="dev-panel">
+      <div class="detail-header" style="margin-top: 20px">
+        <div
+          class="detail-title"
+          style="
+            font-size: 2.5rem;
+            font-family: Paperlogy9;
+            text-align: center;
+            margin-bottom: 20px;
+          "
+        >
+          개발자 패널
+        </div>
+        <div id="devContent" class="dev-content"></div>
+      </div>
+    </div>
+
+    <script>
+      const DATA_URLS = {
+        hardest: 'level/hardest.json',
+        classic: 'level/classic.json',
+        challenge: 'level/challenge.json',
+        platformer: 'level/platformer.json',
+      };
+
+      let currentMode = 'classic';
+      let levelData = {};
+      let currentUser = localStorage.getItem('currentUser') || null;
+      let allLevels = [];
+
+      const DEV_PASSWORD = 'tyviva123';
+      let githubConfig = {
+        owner: 'imBBBT-second',
+        repo: 'chochin-forum',
+        path: 'level/hardest.json',
+        token: localStorage.getItem('gh_token') || '',
+      };
+
+      document.addEventListener('DOMContentLoaded', async () => {
+        await loadAllData();
+        renderRanking();
+        updateUserStatus();
+      });
+
+      async function loadAllData() {
+        try {
+          const [hardest, classic, challenge, platformer] = await Promise.all([
+            fetch(DATA_URLS.hardest)
+              .then((r) => r.json())
+              .catch(() => []),
+            fetch(DATA_URLS.classic).then((r) => r.json()),
+            fetch(DATA_URLS.challenge).then((r) => r.json()),
+            fetch(DATA_URLS.platformer).then((r) => r.json()),
+          ]);
+
+          levelData = {
+            hardest: hardest,
+            classic: classic.levels || classic,
+            challenge: challenge.levels || challenge,
+            platformer: platformer.levels || platformer,
+          };
+
+          allLevels = [
+            ...(levelData.classic || []),
+            ...(levelData.challenge || []),
+            ...(levelData.platformer || []),
+          ];
+        } catch (e) {
+          console.error('데이터 로드 실패', e);
+          document.getElementById('rankingBody').innerHTML =
+            '<tr><td colspan="5">데이터를 불러오는데 실패했습니다.</td></tr>';
+        }
+      }
+
+      function login() {
+        const name = prompt('닉네임을 입력해주세요.');
+        if (!name) return;
+        currentUser = name;
+        localStorage.setItem('currentUser', name);
+        updateUserStatus();
+        alert(`${name}님, 환영합니다!`);
+        renderRanking();
+      }
+
+      function switchMode(mode) {
+        currentMode = mode;
+        document.querySelectorAll('.mode-btn').forEach((btn) => {
+          btn.classList.remove('active');
+          if (btn.innerText.toLowerCase() === mode) btn.classList.add('active');
+        });
+        renderRanking();
+      }
+
+      function getRankPoints(rank) {
+        if (typeof rank !== 'number') return 0;
+        if (rank === 1) return 200;
+        if (rank === 2) return 180;
+        if (rank >= 3 && rank <= 5) return 150;
+        if (rank >= 6 && rank <= 10) return 120;
+        if (rank >= 11 && rank <= 15) return 50;
+        if (rank >= 16 && rank <= 20) return 20;
+        if (rank >= 21) return 10;
+        return 0;
+      }
+
+      function getUserPoints(level, username) {
+        if (!username || !level) return 0;
+        const rank = level.id;
+        const base = getRankPoints(rank);
+        const lowerUser = username.toLowerCase();
+
+        if (level.verifier && level.verifier.toLowerCase() === lowerUser)
+          return Math.floor(base * 1.5);
+
+        if (level.clears && level.clears.length > 0) {
+          if (
+            level.clears[0].player.toLowerCase() === lowerUser &&
+            Number(level.clears[0].percent) === 100
+          )
+            return Math.floor(base * 1.3);
+          if (
+            level.clears.some(
+              (c) =>
+                c.player.toLowerCase() === lowerUser &&
+                Number(c.percent) === 100,
+            )
+          )
+            return base;
+        }
+        return 0;
+      }
+
+      function calculateUserStats(levels) {
+        const userMap = {};
+
+        levels.forEach((level) => {
+          const rank = level.id;
+          const basePoints = getRankPoints(rank);
+
+          // Verifier 처리
+          if (level.verifier) {
+            const vName = level.verifier;
+            if (!userMap[vName])
+              userMap[vName] = {
+                points: 0,
+                clears: 0,
+                hardestRank: 9999,
+                hardestName: '',
+              };
+
+            userMap[vName].points += Math.floor(basePoints * 1.5);
+            userMap[vName].clears += 1; // 베리파이어도 클리어로 간주
+            if (rank < userMap[vName].hardestRank) {
+              userMap[vName].hardestRank = rank;
+              userMap[vName].hardestName = level.title;
+            }
+          }
+
+          // Clears 처리
+          if (level.clears && Array.isArray(level.clears)) {
+            level.clears.forEach((clear, idx) => {
+              const pName = clear.player;
+              // 베리파이어와 중복되면 스킵 (이미 처리됨)
+              if (
+                level.verifier &&
+                pName.toLowerCase() === level.verifier.toLowerCase()
+              )
+                return;
+
+              if (!userMap[pName])
+                userMap[pName] = {
+                  points: 0,
+                  clears: 0,
+                  hardestRank: 9999,
+                  hardestName: '',
+                };
+
+              // 100% 클리어만 포인트 지급 (일반적으로)
+              if (Number(clear.percent) === 100) {
+                let pts = basePoints;
+                // 첫 클리어 보너스 (목록의 첫번째가 첫클리어라고 가정)
+                if (idx === 0) pts = Math.floor(basePoints * 1.3);
+
+                userMap[pName].points += pts;
+                userMap[pName].clears += 1;
+
+                if (rank < userMap[pName].hardestRank) {
+                  userMap[pName].hardestRank = rank;
+                  userMap[pName].hardestName = level.title;
+                }
+              }
+            });
+          }
+        });
+
+        // 배열로 변환 및 정렬
+        return Object.entries(userMap)
+          .map(([name, stats]) => ({
+            name,
+            points: stats.points,
+            clears: stats.clears,
+            hardest: stats.hardestName,
+          }))
+          .sort((a, b) => b.points - a.points);
+      }
+
+      function renderRanking() {
+        const thead = document.getElementById('rankingHead');
+        const tbody = document.getElementById('rankingBody');
+        tbody.innerHTML = '';
+
+        let rankingData = [];
+        const isHardest = currentMode === 'hardest';
+
+        if (isHardest) {
+          thead.innerHTML = `
+            <tr>
+              <th style="width: 15%">순위</th>
+              <th style="width: 35%">이름</th>
+              <th style="width: 50%">레벨 이름</th>
+            </tr>`;
+          rankingData = levelData['hardest'] || [];
+        } else {
+          thead.innerHTML = `
+            <tr>
+              <th style="width: 10%">순위</th>
+              <th style="width: 25%">이름</th>
+              <th style="width: 15%">포인트</th>
+              <th style="width: 35%">하디스트 (Hardest)</th>
+              <th style="width: 15%">클리어</th>
+            </tr>`;
+          const levels = levelData[currentMode] || [];
+          rankingData = calculateUserStats(levels);
+        }
+
+        if (rankingData.length === 0) {
+          const colSpan = isHardest ? 3 : 5;
+          tbody.innerHTML = `<tr><td colspan="${colSpan}" style="padding:30px; color:#aaa;">데이터가 없습니다.</td></tr>`;
+          return;
+        }
+
+        rankingData.forEach((user, index) => {
+          const rank = index + 1;
+          let rankClass = 'rank-num';
+          if (rank === 1) rankClass += ' rank-1';
+          else if (rank === 2) rankClass += ' rank-2';
+          else if (rank === 3) rankClass += ' rank-3';
+
+          const tr = document.createElement('tr');
+          if (
+            currentUser &&
+            user.name.toLowerCase() === currentUser.toLowerCase()
+          ) {
+            tr.style.backgroundColor = '#2e4a2e';
+          }
+
+          if (isHardest) {
+            tr.innerHTML = `
+            <td class="${rankClass}">${rank}</td>
+            <td class="user-name">${user.name}</td>
+            <td class="hardest-level" style="color:#fff;">${user.hardest || '-'}</td>
+          `;
+          } else {
+            tr.innerHTML = `
+            <td class="${rankClass}">${rank}</td>
+            <td class="user-name">${user.name}</td>
+            <td class="user-points">${user.points.toLocaleString()}pt</td>
+            <td class="hardest-level">${user.hardest || '-'}</td>
+            <td class="clear-count">${user.clears}회</td>
+          `;
+          }
+          tbody.appendChild(tr);
+        });
+      }
+
+      /* ================= 개발자 패널 로직 ================= */
+      document.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'e') {
+          const panel = document.getElementById('devPanel');
+          if (panel.classList.contains('open')) panel.classList.remove('open');
+          else if (prompt('개발자 비밀번호') === DEV_PASSWORD) {
+            panel.classList.add('open');
+            renderDevHome();
+          }
+        }
+      });
+
+      function renderDevHome() {
+        document.getElementById('devContent').innerHTML = `
+          <button class="dev-btn" onclick="renderUserForm()">새 유저 등록</button>
+          <button class="dev-btn" onclick="renderEditList()">유저 수정 / 순위 변경</button>
+          <button class="dev-btn" onclick="renderGitHubConfig()" style="background:#8e44ad;">GitHub 설정</button>
+          <button class="dev-btn" onclick="saveToGitHub()" style="background:#2980b9;">GitHub에 저장</button>
+          <button class="dev-btn" onclick="exportJson()" style="background:#5cb85c;">JSON 내보내기</button>
+        `;
+      }
+
+      function renderEditList() {
+        const hardestData = levelData.hardest || [];
+        let html =
+          '<h3>수정할 유저 선택</h3><div style="max-height:300px; overflow-y:auto; background:#333; border-radius:5px;">';
+        hardestData.forEach((user, idx) => {
+          html += `<div class="item" onclick="renderUserForm()">
+                    ${idx + 1}. ${user.name} (${user.hardest || ''})
+                  </div>`;
+        });
+        html +=
+          '</div><button class="dev-btn" onclick="renderDevHome()">뒤로가기</button>';
+        document.getElementById('devContent').innerHTML = html;
+      }
+
+      function renderUserForm(idx = null) {
+        const isEdit = idx !== null;
+        const hardestData = levelData.hardest || [];
+        const user = isEdit ? hardestData[idx] : { name: '', hardest: '' };
+        const currentRank = isEdit ? idx + 1 : hardestData.length + 1;
+
+        document.getElementById('devContent').innerHTML = `
+          <h3>${isEdit ? '유저 수정' : '새 유저 등록'}</h3>
+          <label>순위 (1 ~ ${hardestData.length + (isEdit ? 0 : 1)})</label>
+          <input id="u-rank" class="dev-input" type="number" value="">
+          
+          <label>이름</label>
+          <input id="u-name" class="dev-input" value="${user.name || ''}">
+          
+          <label>하디스트 레벨</label>
+          <input id="u-hardest" class="dev-input" value="${user.hardest || ''}">
+          
+          <button class="dev-btn dev-btn-save" onclick="saveUserForm()">${isEdit ? '수정 완료' : '등록 완료'}</button>
+          ${isEdit ? `<button class="dev-btn" onclick="deleteUser()" style="background:#e74c3c;">삭제</button>` : ''}
+          <button class="dev-btn" onclick="renderDevHome()">취소</button>
+        `;
+      }
+
+      function saveUserForm(idx) {
+        const name = document.getElementById('u-name').value.trim();
+        const hardest = document.getElementById('u-hardest').value.trim();
+        const rankInput = document.getElementById('u-rank');
+        let targetRank = parseInt(rankInput.value);
+
+        if (!name) {
+          alert('이름을 입력하세요.');
+          return;
+        }
+
+        if (!levelData.hardest) levelData.hardest = [];
+        const hardestData = levelData.hardest;
+
+        // Rank validation
+        if (isNaN(targetRank) || targetRank < 1) targetRank = 1;
+        if (targetRank > hardestData.length + 1)
+          targetRank = hardestData.length + 1;
+
+        const newUser = { name, hardest };
+
+        if (idx !== null) {
+          // Edit existing
+          hardestData.splice(idx, 1); // Remove old
+          hardestData.splice(targetRank - 1, 0, newUser); // Insert new at target
+        } else {
+          // Add new
+          hardestData.splice(targetRank - 1, 0, newUser);
+        }
+
+        renderRanking();
+        alert('저장되었습니다 (로컬). GitHub 저장을 잊지 마세요.');
+        renderDevHome();
+      }
+
+      function deleteUser(idx) {
+        if (!confirm('정말 삭제하시겠습니까?')) return;
+        levelData.hardest.splice(idx, 1);
+        renderRanking();
+        alert('삭제되었습니다.');
+        renderDevHome();
+      }
+
+      function renderGitHubConfig() {
+        const isTokenFixed = !!githubConfig.token;
+        document.getElementById('devContent').innerHTML = `
+          <h3>GitHub 연동 설정</h3>
+          <label>Repository Owner</label>
+          <input class="dev-input" value="${githubConfig.owner}" readonly style="background:#222; color:#888;">
+          <label>Repository Name</label>
+          <input class="dev-input" value="${githubConfig.repo}" readonly style="background:#222; color:#888;">
+          <label>File Path</label>
+          <input class="dev-input" value="${githubConfig.path}" readonly style="background:#222; color:#888;">
+          <label>Personal Access Token</label>
+          <input id="gh-token" class="dev-input" type="password" value="${githubConfig.token}" placeholder="ghp_...">
+          <button class="dev-btn dev-btn-save" onclick="saveGitHubConfig()">토큰 저장</button>
+          <button class="dev-btn" onclick="renderDevHome()">뒤로가기</button>
+        `;
+      }
+
+      function saveGitHubConfig() {
+        githubConfig.token = document.getElementById('gh-token').value.trim();
+        localStorage.setItem('gh_token', githubConfig.token);
+        alert('토큰이 저장되었습니다.');
+        renderDevHome();
+      }
+
+      async function saveToGitHub() {
+        if (!githubConfig.token) {
+          alert('GitHub 토큰이 설정되지 않았습니다.');
+          renderGitHubConfig();
+          return;
+        }
+
+        const content = JSON.stringify(levelData.hardest || [], null, 2);
+        const url = `https://api.github.com/repos/${githubConfig.owner}/${githubConfig.repo}/contents/${githubConfig.path}`;
+
+        try {
+          // Get SHA
+          const getRes = await fetch(url, {
+            headers: { Authorization: `Bearer ${githubConfig.token}` },
+          });
+          const getJson = await getRes.json();
+          const sha = getJson.sha;
+
+          // Update
+          const putRes = await fetch(url, {
+            method: 'PUT',
+            headers: {
+              Authorization: `Bearer ${githubConfig.token}`,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              message: 'Update hardest ranking via Web',
+              content: btoa(unescape(encodeURIComponent(content))),
+              sha: sha,
+            }),
+          });
+
+          if (putRes.ok) alert('GitHub에 저장되었습니다!');
+          else alert('저장 실패: ' + (await putRes.text()));
+        } catch (e) {
+          alert('오류: ' + e.message);
+        }
+      }
+
+      function exportJson() {
+        const data = JSON.stringify(levelData.hardest || [], null, 2);
+        const blob = new Blob([data], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'hardest.json';
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+
+      function updateUserStatus() {
+        if (currentUser && allLevels.length > 0) {
+          let total = 0;
+          allLevels.forEach((lvl) => {
+            total += getUserPoints(lvl, currentUser);
+          });
+          document.getElementById('userStatus').innerText =
+            `접속 계정 : ${currentUser} (${total}pt)`;
+        } else if (currentUser) {
+          document.getElementById('userStatus').innerText =
+            `접속 계정 : ${currentUser}`;
+        } else {
+          document.getElementById('userStatus').innerText = '';
+        }
+      }
+    </script>
+  </body>
+</html>

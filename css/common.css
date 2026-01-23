@@ -70,14 +70,15 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5vw;
-  padding: 2vh 0;
+  gap: 1vw;
+  padding: 2vh 2vw;
   flex-wrap: wrap;
 }
 .header-btn-wrapper {
-  width: min(400px, 90vw);
+  flex: 1;
   display: flex;
   justify-content: center;
+  min-width: 160px;
 }
 .header-btn {
   background-color: #323232;
@@ -97,6 +98,7 @@ a {
 .header-btn.active {
   background-color: #fff;
   color: #323232;
+  font-family: Paperlogy9;
 }
 .divider {
   border: 2px solid white;

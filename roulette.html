@@ -108,14 +108,15 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 5vw;
-        padding: 2vh 0;
+        gap: 1vw;
+        padding: 2vh 2vw;
         flex-wrap: wrap;
       }
       .header-btn-wrapper {
-        width: min(400px, 90vw);
+        flex: 1;
         display: flex;
         justify-content: center;
+        min-width: 160px;
       }
       .header-btn {
         background-color: #323232;
@@ -135,6 +136,7 @@
       .header-btn.active {
         background-color: #fff;
         color: #323232;
+        font-family: Paperlogy9;
       }
       .divider {
         border: 2px solid white;
@@ -155,22 +157,31 @@
         display: flex;
       }
 
+      /* --- 페이지 타이틀 --- */
+      .page-title-container {
+        text-align: center;
+        margin: 2rem 0 3rem 0;
+        padding: 0 1rem;
+      }
+      .page-title {
+        font-family: Paperlogy7;
+        font-size: clamp(3rem, 12vw, 10rem);
+        color: #ffffff;
+        margin: 0;
+        line-height: 1.1;
+      }
+      .page-subtitle {
+        font-family: Paperlogy3;
+        font-size: clamp(1.2rem, 3vw, 2.5rem);
+        color: #a0a0a0;
+        margin-top: 0.5rem;
+        line-height: 1.5;
+      }
+
       /* --- 메인 컨텐츠 --- */
       .main-content {
         text-align: center;
         padding: 40px 20px;
-      }
-      #headerTitle {
-        font-family: Paperlogy7;
-        font-size: 120px;
-        color: #fff;
-        margin: 20px 0;
-      }
-      #detailSubtitle {
-        color: #aaa;
-        font-family: Paperlogy3;
-        font-size: 24px;
-        margin-bottom: 50px;
       }
       .roulette-controls {
         display: flex;
@@ -246,9 +257,6 @@
       }
 
       @media (max-width: 768px) {
-        #headerTitle {
-          font-size: 80px;
-        }
         .roulette-btn {
           font-size: 1.4rem;
           padding: 12px 20px;
@@ -290,16 +298,21 @@
       <a href="mappack.html" class="header-btn-wrapper"
         ><button class="header-btn">맵 팩</button></a
       >
+      <a href="ranking.html" class="header-btn-wrapper"
+        ><button class="header-btn">랭킹</button></a
+      >
       <div class="header-btn-wrapper">
-        <button class="header-btn" style="font-family: Paperlogy9">룰렛</button>
+        <button class="header-btn active">룰렛</button>
       </div>
     </div>
 
     <div class="divider"></div>
 
     <div class="main-content">
-      <div id="headerTitle">Roulette</div>
-      <div id="detailSubtitle">원하는 범위의 레벨을 무작위로 선택합니다.</div>
+      <div class="page-title-container">
+        <h1 class="page-title">Roulette</h1>
+        <p class="page-subtitle">원하는 범위의 레벨을 무작위로 선택합니다.</p>
+      </div>
 
       <div class="roulette-controls">
         <button class="roulette-btn" onclick="toggleCategory('main', this)">
@@ -329,31 +342,94 @@
 
     <script>
       let classicLevels = [];
+      let allLevels = [];
       const selectedCategories = new Set();
 
       let currentUser = localStorage.getItem('currentUser') || null;
-      if (currentUser) {
-        document.getElementById('userStatus').innerText =
-          `접속 계정 : ${currentUser}`;
-      }
 
       function login() {
         const name = prompt('닉네임을 입력해주세요.');
         if (!name) return;
         currentUser = name;
         localStorage.setItem('currentUser', name);
-        document.getElementById('userStatus').innerText = `접속 계정 : ${name}`;
+        updateUserStatus();
         alert(`${name}님, 환영합니다!`);
       }
 
-      fetch('level/classic.json')
-        .then((res) => res.json())
-        .then((data) => {
-          classicLevels = data.levels || [];
+      Promise.all([
+        fetch('level/classic.json').then((res) => res.json()),
+        fetch('level/challenge.json').then((res) => res.json()),
+        fetch('level/platformer.json').then((res) => res.json()),
+      ])
+        .then(([classicData, challengeData, platformerData]) => {
+          classicLevels = classicData.levels || [];
+          const challengeLevels = challengeData.levels || [];
+          const platformerLevels = platformerData.levels || [];
+          allLevels = [
+            ...classicLevels,
+            ...challengeLevels,
+            ...platformerLevels,
+          ];
+          if (currentUser) updateUserStatus();
         })
         .catch((err) =>
           console.error('레벨 데이터를 불러오지 못했습니다.', err),
         );
+
+      function getRankPoints(rank) {
+        if (typeof rank !== 'number') return 0;
+        if (rank === 1) return 200;
+        if (rank === 2) return 180;
+        if (rank >= 3 && rank <= 5) return 150;
+        if (rank >= 6 && rank <= 10) return 120;
+        if (rank >= 11 && rank <= 15) return 50;
+        if (rank >= 16 && rank <= 20) return 20;
+        if (rank >= 21) return 10;
+        return 0;
+      }
+
+      function getUserPoints(level, username) {
+        if (!username || !level) return 0;
+        const rank = level.id;
+        const base = getRankPoints(rank);
+        const lowerUser = username.toLowerCase();
+
+        if (level.verifier && level.verifier.toLowerCase() === lowerUser)
+          return Math.floor(base * 1.5);
+
+        if (level.clears && level.clears.length > 0) {
+          if (
+            level.clears[0].player.toLowerCase() === lowerUser &&
+            Number(level.clears[0].percent) === 100
+          )
+            return Math.floor(base * 1.3);
+          if (
+            level.clears.some(
+              (c) =>
+                c.player.toLowerCase() === lowerUser &&
+                Number(c.percent) === 100,
+            )
+          )
+            return base;
+        }
+        return 0;
+      }
+
+      function updateUserStatus() {
+        if (currentUser && allLevels.length > 0) {
+          let total = 0;
+          allLevels.forEach((lvl) => {
+            total += getUserPoints(lvl, currentUser);
+          });
+          document.getElementById('userStatus').innerText =
+            `접속 계정 : ${currentUser} (${total}pt)`;
+        } else if (currentUser) {
+          document.getElementById('userStatus').innerText =
+            `접속 계정 : ${currentUser}`;
+        } else {
+          document.getElementById('userStatus').innerText = '';
+        }
+      }
 
       function toggleCategory(category, btn) {
         if (selectedCategories.has(category)) {
@@ -407,7 +483,8 @@
         const maxCount = 20; // 20번 바뀜
         const interval = setInterval(() => {
           const randomLevel = pool[Math.floor(Math.random() * pool.length)];
-          titleEl.innerText = `#${randomLevel.id} - ${randomLevel.title}`;
+          const pts = getRankPoints(randomLevel.id);
+          titleEl.innerHTML = `#${randomLevel.id} - ${randomLevel.title} <span style="font-size:0.5em; color:#aaa; vertical-align:middle;">(${pts}pt)</span>`;
           creatorEl.innerText = `by ${randomLevel.creator}`;
 
           count++;
