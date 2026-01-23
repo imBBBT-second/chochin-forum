@@ -231,7 +231,6 @@
         "Sync",
         "Flow",
         "High-CPS",
-        "No-Clear",
         "NONG"
       ],
       "clears": [
@@ -290,10 +289,15 @@
         "Any-Speed",
         "Medium",
         "Physical",
-        "None-Effect",
-        "No-Clear"
+        "None-Effect"
       ],
-      "clears": []
+      "clears": [
+        {
+          "player": "Choco",
+          "percent": 100,
+          "date": "2026-01-23"
+        }
+      ]
     },
     {
       "id": 7,
@@ -487,8 +491,7 @@
         "Long",
         "Sync",
         "Learny",
-        "None-Effect",
-        "No-Clear"
+        "None-Effect"
       ],
       "clears": [
         {
@@ -542,8 +545,7 @@
         "1x",
         "Medium",
         "Memory",
-        "Low-Effect",
-        "No-Clear"
+        "Low-Effect"
       ],
       "clears": [
         {
