@@ -297,40 +297,6 @@
     },
     {
       "id": 7,
-      "title": "Endless Dreaming",
-      "creator": "Light",
-      "verifier": "Light",
-      "video": "https://www.youtube.com/embed/J3orGNYTjg8",
-      "map": {
-        "mapId": "131506005",
-        "length": "1m 46s",
-        "objects": 8013,
-        "uploadDate": "2026-01-16"
-      },
-      "song": {
-        "name": "Looking for Edge of Ground",
-        "artist": "Camellia",
-        "id": "10012529"
-      },
-      "gameplay": {
-        "modeRatio": {},
-        "speedRatio": {}
-      },
-      "framePerfect": {
-        "fps": {},
-        "total": 0
-      },
-      "tags": [
-        "Any-Mode",
-        "Long",
-        "Sync",
-        "Flow",
-        "No-Clear"
-      ],
-      "clears": []
-    },
-    {
-      "id": 8,
       "title": "PPPP",
       "creator": "Choco",
       "verifier": "Choco",
@@ -379,6 +345,40 @@
         "Flow",
         "High-CPS",
         "Full-Effect",
+        "No-Clear"
+      ],
+      "clears": []
+    },
+    {
+      "id": 8,
+      "title": "Endless Dreaming",
+      "creator": "Light",
+      "verifier": "Light",
+      "video": "https://www.youtube.com/embed/J3orGNYTjg8",
+      "map": {
+        "mapId": "131506005",
+        "length": "1m 46s",
+        "objects": 8013,
+        "uploadDate": "2026-01-16"
+      },
+      "song": {
+        "name": "Looking for Edge of Ground",
+        "artist": "Camellia",
+        "id": "10012529"
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "framePerfect": {
+        "fps": {},
+        "total": 0
+      },
+      "tags": [
+        "Any-Mode",
+        "Long",
+        "Sync",
+        "Flow",
         "No-Clear"
       ],
       "clears": []
@@ -1306,6 +1306,18 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-01-23 18:45",
+      "type": "move",
+      "title": "PPPP",
+      "detail": "'Endless Dreaming' 레벨의 순위 변동으로 인해 순위가 8위에서 7위로 상승하였습니다."
+    },
+    {
+      "time": "2026-01-23 18:45",
+      "type": "reeval",
+      "title": "Endless Dreaming",
+      "detail": "'Endless Dreaming' 레벨의 재평가로 인해 순위가 7위에서 8위로 하락하였습니다."
+    },
     {
       "time": "2025-10-11 00:00",
       "type": "add",
