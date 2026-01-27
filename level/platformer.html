@@ -1170,8 +1170,6 @@
           <div id="detailDescription"></div>
         </div>
 
-        <p class="fp-warning">※ 프레임 퍼펙트는 정확하지 않습니다 ※</p>
-
         <div id="historySection" class="section" style="margin-top: 20px">
           <div
             style="
@@ -1515,13 +1513,6 @@
               item.gameplay.speedRatio,
             );
           }
-          if (item.framePerfect) {
-            graph.innerHTML += makeRatioGraph(
-              '프레임 퍼펙트',
-              item.framePerfect.fps,
-              '',
-            );
-          }
         }
 
         const description = document.getElementById('detailDescription');
@@ -1689,7 +1680,6 @@
               map: { mapId: '', length: '', objects: 0, uploadDate: '' },
               song: { name: '', artist: '', id: '' },
               gameplay: { modeRatio: {}, speedRatio: {} },
-              framePerfect: { total: 0, fps: {} },
               tags: [],
             };
 
@@ -1726,15 +1716,12 @@
             ${mkInput('f-sauth', '작곡가', lv.song?.artist)}
             ${mkInput('f-sid', '노래 ID', lv.song?.id)}
 
-            <label>비율(JSON): 모드, 속도, 프레임퍼펙트</label>
+            <label>비율(JSON): 모드, 속도</label>
             <textarea id="f-mode" class="dev-input" placeholder='모드 비율 {"Cube":50...}' style="min-height:60px;">${JSON.stringify(
               lv.gameplay?.modeRatio || {},
             )}</textarea>
             <textarea id="f-speed" class="dev-input" placeholder='속도 비율 {"1x":100...}' style="min-height:60px;">${JSON.stringify(
               lv.gameplay?.speedRatio || {},
-            )}</textarea>
-            <textarea id="f-fps" class="dev-input" placeholder='FPS {"60hz":1...}' style="min-height:60px;">${JSON.stringify(
-              lv.framePerfect?.fps || {},
             )}</textarea>
 
             <label class="dev-label">태그 (쉼표 구분)</label>
@@ -1797,14 +1784,6 @@
 
           const getValue = (id) => document.getElementById(id)?.value || '';
 
-          let fpsData = {};
-          try {
-            fpsData = JSON.parse(getValue('f-fps') || '{}');
-          } catch (e) {
-            alert('FPS 데이터 형식 오류');
-            return;
-          }
-
           const newData = {
             id: isEdit ? demonData[idx].id : demonData.length + 1,
             title: getValue('f-title'),
@@ -1825,13 +1804,6 @@
             gameplay: {
               modeRatio: JSON.parse(getValue('f-mode') || '{}'),
               speedRatio: JSON.parse(getValue('f-speed') || '{}'),
-            },
-            framePerfect: {
-              fps: fpsData,
-              total: Object.values(fpsData).reduce(
-                (a, b) => a + (parseInt(b) || 0),
-                0,
-              ),
             },
             tags: getValue('f-tags')
               .split(',')
