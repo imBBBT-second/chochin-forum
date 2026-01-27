@@ -49,10 +49,10 @@
       "id": 2,
       "title": "B!TCH",
       "creator": "Choco",
-      "video": "https://www.youtube.com/embed/NCW_519mfoc",
       "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/aoWhyy5VhAo",
       "map": {
-        "mapId": 129446657,
+        "mapId": "129446657",
         "length": "4s",
         "objects": 1070,
         "uploadDate": "2025-12-14"
@@ -60,24 +60,14 @@
       "song": {
         "name": "B!tchcrush",
         "artist": "ImCold",
-        "id": 1221726
+        "id": "1221726"
       },
       "gameplay": {
-        "mainMode": "Wave",
         "modeRatio": {
           "Cube": 100
         },
         "speedRatio": {
           "1x": 100
-        }
-      },
-      "framePerfect": {
-        "total": 0,
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
         }
       },
       "tags": [
