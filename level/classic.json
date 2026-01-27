@@ -983,9 +983,9 @@
         "uploadDate": "2022-12-26"
       },
       "song": {
-        "name": "",
-        "artist": "",
-        "id": ""
+        "name": "Rockin That Bass",
+        "artist": "MrKoolTrix",
+        "id": "781195"
       },
       "gameplay": {
         "modeRatio": {},
@@ -1016,9 +1016,9 @@
         "uploadDate": "2022-11-18"
       },
       "song": {
-        "name": "",
-        "artist": "",
-        "id": ""
+        "name": "Solyton - Cave",
+        "artist": "TheArcadium",
+        "id": "912637"
       },
       "gameplay": {
         "modeRatio": {},
@@ -1041,28 +1041,19 @@
       "verifier": "Light",
       "video": "-",
       "map": {
-        "mapId": 85605798,
+        "mapId": "85605798",
         "length": "43s",
         "objects": 1628,
         "uploadDate": "2022-11-12"
       },
       "song": {
-        "name": "",
-        "artist": "",
-        "id": 0
+        "name": "Ocean of Stars",
+        "artist": "Geoplex",
+        "id": "537202"
       },
       "gameplay": {
         "modeRatio": {},
         "speedRatio": {}
-      },
-      "framePerfect": {
-        "total": 0,
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        }
       },
       "tags": [
         "Cube",
@@ -1084,28 +1075,19 @@
       "verifier": "Light",
       "video": "-",
       "map": {
-        "mapId": 85191093,
+        "mapId": "85191093",
         "length": "45s",
         "objects": 1785,
         "uploadDate": "2022-10-31"
       },
       "song": {
-        "name": "",
-        "artist": "",
-        "id": 0
+        "name": "Xenogenesis",
+        "artist": "ThisIsTheFatRat",
+        "id": "621136"
       },
       "gameplay": {
         "modeRatio": {},
         "speedRatio": {}
-      },
-      "framePerfect": {
-        "total": 0,
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        }
       },
       "tags": [
         "Any-Mode",
@@ -1130,9 +1112,9 @@
         "uploadDate": "2022-11-12"
       },
       "song": {
-        "name": "",
-        "artist": "",
-        "id": ""
+        "name": "Okiba Crackdown",
+        "artist": "Bossfightofficial",
+        "id": "638737"
       },
       "gameplay": {
         "modeRatio": {},
@@ -1167,22 +1149,13 @@
         "uploadDate": "2025-07-08"
       },
       "song": {
-        "name": "",
-        "artist": "",
-        "id": ""
+        "name": "Egg",
+        "artist": "Exyl",
+        "id": "1021674"
       },
       "gameplay": {
         "modeRatio": {},
         "speedRatio": {}
-      },
-      "framePerfect": {
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        },
-        "total": 0
       },
       "tags": [
         "Any-Mode",
@@ -1209,9 +1182,9 @@
         "uploadDate": "2022-10-20"
       },
       "song": {
-        "name": "",
-        "artist": "",
-        "id": ""
+        "name": "Arcana",
+        "artist": "Xtrullor",
+        "id": "803223"
       },
       "gameplay": {
         "modeRatio": {},
@@ -1248,22 +1221,13 @@
         "uploadDate": "2024-02-29"
       },
       "song": {
-        "name": "",
-        "artist": "",
-        "id": ""
+        "name": "Stereo Madness",
+        "artist": "ForeverBound",
+        "id": "0"
       },
       "gameplay": {
         "modeRatio": {},
         "speedRatio": {}
-      },
-      "framePerfect": {
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        },
-        "total": 0
       },
       "tags": [
         "Wave",
@@ -1290,21 +1254,12 @@
       },
       "song": {
         "name": "Infinite Power",
-        "author": "TheFatRat",
+        "artist": "ThisIsTheFatRat",
         "id": "621144"
       },
       "gameplay": {
         "modeRatio": {},
         "speedRatio": {}
-      },
-      "framePerfect": {
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        },
-        "total": 0
       },
       "tags": [
         "Any-Mode",
