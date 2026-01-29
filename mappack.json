@@ -7,7 +7,7 @@
       "description": "엣날 라이트가 만든 레벨을 해보세요!",
       "levels": [
         {
-          "name": "LT EP2",
+          "name": "Trolled",
           "author": "Light"
         },
         {
@@ -15,7 +15,7 @@
           "author": "Light"
         },
         {
-          "name": "Trolled",
+          "name": "LT EP2",
           "author": "Light"
         }
       ],
@@ -28,7 +28,7 @@
       "description": "초코의 JPA 시리즈를 해보세요!",
       "levels": [
         {
-          "name": "JPA EP2",
+          "name": "JPA EP1",
           "author": "Choco"
         },
         {
@@ -36,7 +36,7 @@
           "author": "Choco"
         },
         {
-          "name": "JPA EP1",
+          "name": "JPA EP2",
           "author": "Choco"
         }
       ],
@@ -54,7 +54,7 @@
       "description": "초코의 또 다른 JPA 시리즈를 해보세요!",
       "levels": [
         {
-          "name": "JPA EP5",
+          "name": "JPA EP8",
           "author": "Choco"
         },
         {
@@ -62,7 +62,7 @@
           "author": "Choco"
         },
         {
-          "name": "JPA EP8",
+          "name": "JPA EP5",
           "author": "Choco"
         }
       ],
@@ -106,12 +106,12 @@
           "author": "Choco"
         },
         {
-          "name": "Endless Dreaming",
-          "author": "Light"
-        },
-        {
           "name": "PPPP",
           "author": "Choco"
+        },
+        {
+          "name": "Endless Dreaming",
+          "author": "Light"
         }
       ],
       "clears": []
@@ -123,12 +123,12 @@
       "description": "찌끄레기같은 맵들을 쳐 즐겨보세요!",
       "levels": [
         {
-          "name": "Trolled",
-          "author": "Light"
-        },
-        {
           "name": "Stereo MadnesS EX",
           "author": "Choco & Timo"
+        },
+        {
+          "name": "Trolled",
+          "author": "Light"
         }
       ],
       "clears": []
@@ -165,16 +165,16 @@
           "author": "Light"
         },
         {
+          "name": "Stereo MadnesS EX",
+          "author": "Choco & Timo"
+        },
+        {
           "name": "BOOBAWAVEBA",
           "author": "Choco"
         },
         {
           "name": "nullscube",
           "author": "Timo"
-        },
-        {
-          "name": "Stereo MadnesS EX",
-          "author": "Choco & Timo"
         }
       ],
       "clears": []
@@ -186,6 +186,10 @@
       "description": "현재와 과거의 TOP 1 자리를 지키는(던) 맵들을 즐길... 수 있어요?",
       "levels": [
         {
+          "name": "Desuwa",
+          "author": "Choco & Timo"
+        },
+        {
           "name": "chocubed",
           "author": "Light"
         },
@@ -196,10 +200,6 @@
         {
           "name": "Reaper Wave",
           "author": "Timo"
-        },
-        {
-          "name": "Desuwa",
-          "author": "Choco & Timo"
         }
       ],
       "clears": []
@@ -227,6 +227,46 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-01-27",
+      "type": "팩 수정",
+      "detail": "TOP 1 Pack 팩 정보가 수정되었습니다."
+    },
+    {
+      "time": "2026-01-27",
+      "type": "팩 수정",
+      "detail": "TOP 1 Pack 팩 정보가 수정되었습니다."
+    },
+    {
+      "time": "2026-01-27",
+      "type": "팩 수정",
+      "detail": "Inspired Pack 팩 정보가 수정되었습니다."
+    },
+    {
+      "time": "2026-01-27",
+      "type": "팩 수정",
+      "detail": "Troll Pack 팩 정보가 수정되었습니다."
+    },
+    {
+      "time": "2026-01-27",
+      "type": "팩 수정",
+      "detail": "Japanese Pack 팩 정보가 수정되었습니다."
+    },
+    {
+      "time": "2026-01-27",
+      "type": "팩 수정",
+      "detail": "Adventure Pack II 팩 정보가 수정되었습니다."
+    },
+    {
+      "time": "2026-01-27",
+      "type": "팩 수정",
+      "detail": "Adventure Pack I 팩 정보가 수정되었습니다."
+    },
+    {
+      "time": "2026-01-27",
+      "type": "팩 수정",
+      "detail": "Treasure Pack 팩 정보가 수정되었습니다."
+    },
     {
       "time": "2026-01-26",
       "type": "팩 추가",

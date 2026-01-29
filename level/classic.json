@@ -15,15 +15,11 @@
       "song": {
         "name": "Glory",
         "artist": "FyremanMusic",
-        "id": ""
+        "id": "714579"
       },
       "gameplay": {
         "modeRatio": {},
         "speedRatio": {}
-      },
-      "framePerfect": {
-        "fps": {},
-        "total": 0
       },
       "tags": [
         "Wave",
@@ -975,30 +971,21 @@
       "title": "JPA EP9",
       "creator": "Choco",
       "verifier": "Choco",
-      "video": "-",
+      "video": "https://www.youtube.com/embed/WFhj0H3_IBo",
       "map": {
-        "mapId": 87116363,
+        "mapId": "87116363",
         "length": "1m 22s",
         "objects": 7380,
         "uploadDate": "2022-12-26"
       },
       "song": {
-        "name": "",
-        "artist": "",
-        "id": 0
+        "name": "Rockin That Bass",
+        "artist": "MrKoolTrix",
+        "id": "781195"
       },
       "gameplay": {
         "modeRatio": {},
         "speedRatio": {}
-      },
-      "framePerfect": {
-        "total": 0,
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        }
       },
       "tags": [
         "Any-Mode",
@@ -1017,30 +1004,21 @@
       "title": "JPA EP6",
       "creator": "Choco",
       "verifier": "Choco",
-      "video": "-",
+      "video": "https://www.youtube.com/embed/x1_DooaskKc",
       "map": {
-        "mapId": 85797010,
+        "mapId": "85797010",
         "length": "2m 55s",
         "objects": 4055,
         "uploadDate": "2022-11-18"
       },
       "song": {
-        "name": "",
-        "artist": "",
-        "id": 0
+        "name": "Solyton - Cave",
+        "artist": "TheArcadium",
+        "id": "912637"
       },
       "gameplay": {
         "modeRatio": {},
         "speedRatio": {}
-      },
-      "framePerfect": {
-        "total": 0,
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        }
       },
       "tags": [
         "2x",
@@ -1059,28 +1037,19 @@
       "verifier": "Light",
       "video": "-",
       "map": {
-        "mapId": 85605798,
+        "mapId": "85605798",
         "length": "43s",
         "objects": 1628,
         "uploadDate": "2022-11-12"
       },
       "song": {
-        "name": "",
-        "artist": "",
-        "id": 0
+        "name": "Ocean of Stars",
+        "artist": "Geoplex",
+        "id": "537202"
       },
       "gameplay": {
         "modeRatio": {},
         "speedRatio": {}
-      },
-      "framePerfect": {
-        "total": 0,
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        }
       },
       "tags": [
         "Cube",
@@ -1102,28 +1071,19 @@
       "verifier": "Light",
       "video": "-",
       "map": {
-        "mapId": 85191093,
+        "mapId": "85191093",
         "length": "45s",
         "objects": 1785,
         "uploadDate": "2022-10-31"
       },
       "song": {
-        "name": "",
-        "artist": "",
-        "id": 0
+        "name": "Xenogenesis",
+        "artist": "ThisIsTheFatRat",
+        "id": "621136"
       },
       "gameplay": {
         "modeRatio": {},
         "speedRatio": {}
-      },
-      "framePerfect": {
-        "total": 0,
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        }
       },
       "tags": [
         "Any-Mode",
@@ -1142,28 +1102,19 @@
       "verifier": "Light",
       "video": "-",
       "map": {
-        "mapId": 85596289,
+        "mapId": "85596289",
         "length": "53s",
         "objects": 1492,
         "uploadDate": "2022-11-12"
       },
       "song": {
-        "name": "",
-        "artist": "",
-        "id": 0
+        "name": "Okiba Crackdown",
+        "artist": "Bossfightofficial",
+        "id": "638737"
       },
       "gameplay": {
         "modeRatio": {},
         "speedRatio": {}
-      },
-      "framePerfect": {
-        "total": 0,
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        }
       },
       "tags": [
         "Any-Mode",
@@ -1173,7 +1124,13 @@
         "Any-Speed",
         "None-Effect"
       ],
-      "clears": []
+      "clears": [
+        {
+          "player": "Choco",
+          "percent": 100,
+          "date": "2026-01-27"
+        }
+      ]
     },
     {
       "id": 26,
@@ -1188,22 +1145,13 @@
         "uploadDate": "2025-07-08"
       },
       "song": {
-        "name": "",
-        "artist": "",
-        "id": ""
+        "name": "Egg",
+        "artist": "Exyl",
+        "id": "1021674"
       },
       "gameplay": {
         "modeRatio": {},
         "speedRatio": {}
-      },
-      "framePerfect": {
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        },
-        "total": 0
       },
       "tags": [
         "Any-Mode",
@@ -1224,28 +1172,19 @@
       "verifier": "Light",
       "video": "-",
       "map": {
-        "mapId": 84810667,
+        "mapId": "84810667",
         "length": "39s",
         "objects": 742,
         "uploadDate": "2022-10-20"
       },
       "song": {
-        "name": "",
-        "artist": "",
-        "id": 0
+        "name": "Arcana",
+        "artist": "Xtrullor",
+        "id": "803223"
       },
       "gameplay": {
         "modeRatio": {},
         "speedRatio": {}
-      },
-      "framePerfect": {
-        "total": 0,
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        }
       },
       "tags": [
         "Cube",
@@ -1257,7 +1196,13 @@
         "Spam",
         "None-Effect"
       ],
-      "clears": []
+      "clears": [
+        {
+          "player": "Choco",
+          "percent": 100,
+          "date": "2026-01-27"
+        }
+      ]
     },
     {
       "id": 28,
@@ -1272,22 +1217,13 @@
         "uploadDate": "2024-02-29"
       },
       "song": {
-        "name": "",
-        "artist": "",
-        "id": ""
+        "name": "Stereo Madness",
+        "artist": "ForeverBound",
+        "id": "0"
       },
       "gameplay": {
         "modeRatio": {},
         "speedRatio": {}
-      },
-      "framePerfect": {
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        },
-        "total": 0
       },
       "tags": [
         "Wave",
@@ -1314,21 +1250,12 @@
       },
       "song": {
         "name": "Infinite Power",
-        "author": "TheFatRat",
+        "artist": "ThisIsTheFatRat",
         "id": "621144"
       },
       "gameplay": {
         "modeRatio": {},
         "speedRatio": {}
-      },
-      "framePerfect": {
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        },
-        "total": 0
       },
       "tags": [
         "Any-Mode",
