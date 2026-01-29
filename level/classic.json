@@ -994,6 +994,7 @@
       "creator": "Light",
       "verifier": "Light",
       "video": "-",
+      "rating": "",
       "map": {
         "mapId": "85605798",
         "length": "43s",
@@ -1020,7 +1021,14 @@
         "Physical",
         "Low-Effect"
       ],
-      "clears": []
+      "clears": [
+        {
+          "player": "imBBBT",
+          "percent": 100,
+          "date": "2026-01-19",
+          "link": "https://youtu.be/ZKh-WGpwNt8"
+        }
+      ]
     },
     {
       "id": 24,
