@@ -34,6 +34,42 @@
     },
     {
       "id": 2,
+      "title": "Heart 8",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "-",
+      "rating": "Featured",
+      "map": {
+        "mapId": "131293568",
+        "length": "45s",
+        "objects": 4591,
+        "uploadDate": "2026-01-12"
+      },
+      "song": {
+        "name": "Trick Heart",
+        "artist": "MIMI",
+        "id": "NONG"
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "tags": [
+        "Any-Mode",
+        "Medium",
+        "Sync",
+        "Gimmick",
+        "Physical",
+        "Flow",
+        "Fast",
+        "Full-Effect",
+        "No-Clear",
+        "NONG"
+      ],
+      "clears": []
+    },
+    {
+      "id": 3,
       "title": "chocubed",
       "creator": "Light",
       "verifier": "Light",
@@ -86,7 +122,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": 4,
       "title": "Stereo MadnesS EX",
       "creator": "Choco & Timo",
       "verifier": "Timo",
@@ -131,7 +167,7 @@
       "clears": []
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "BOOBAWAVEBA",
       "creator": "Choco",
       "verifier": "Choco",
@@ -170,7 +206,7 @@
       "clears": []
     },
     {
-      "id": 5,
+      "id": 6,
       "title": "nullscube",
       "creator": "Timo",
       "verifier": "Timo",
@@ -209,7 +245,7 @@
       "clears": []
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "FlipBook",
       "creator": "Choco",
       "verifier": "Choco",
@@ -248,7 +284,7 @@
       ]
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "Reaper Wave",
       "creator": "Timo",
       "verifier": "Timo",
@@ -299,7 +335,7 @@
       ]
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "PPPP",
       "creator": "Choco",
       "verifier": "Choco",
@@ -345,7 +381,7 @@
       "clears": []
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "Endless Dreaming",
       "creator": "Light",
       "verifier": "Light",
@@ -379,7 +415,7 @@
       "clears": []
     },
     {
-      "id": 10,
+      "id": 11,
       "title": "JPA EP8",
       "creator": "Choco",
       "verifier": "Choco",
@@ -433,7 +469,7 @@
       "clears": []
     },
     {
-      "id": 11,
+      "id": 12,
       "title": "Egg Layout",
       "creator": "Light",
       "verifier": "Light",
@@ -492,7 +528,7 @@
       ]
     },
     {
-      "id": 12,
+      "id": 13,
       "title": "Trolled",
       "creator": "Light",
       "verifier": "Light",
@@ -551,7 +587,7 @@
       ]
     },
     {
-      "id": 13,
+      "id": 14,
       "title": "JPA EP4",
       "creator": "Choco",
       "verifier": "Choco",
@@ -604,7 +640,7 @@
       "clears": []
     },
     {
-      "id": 14,
+      "id": 15,
       "title": "JPA EP5",
       "creator": "Choco",
       "video": "-",
@@ -649,7 +685,7 @@
       "clears": []
     },
     {
-      "id": 15,
+      "id": 16,
       "title": "JPA EP1",
       "creator": "Choco",
       "video": "-",
@@ -695,7 +731,7 @@
       "clears": []
     },
     {
-      "id": 16,
+      "id": 17,
       "title": "JPA EP7",
       "creator": "Choco",
       "video": "-",
@@ -741,7 +777,7 @@
       "clears": []
     },
     {
-      "id": 17,
+      "id": 18,
       "title": "JPA EP2",
       "creator": "Choco",
       "video": "-",
@@ -787,7 +823,7 @@
       "clears": []
     },
     {
-      "id": 18,
+      "id": 19,
       "title": "LT EP7",
       "creator": "Light",
       "verifier": "Light",
@@ -833,7 +869,7 @@
       ]
     },
     {
-      "id": 19,
+      "id": 20,
       "title": "LT EP2",
       "creator": "Light",
       "video": "-",
@@ -878,7 +914,7 @@
       "clears": []
     },
     {
-      "id": 20,
+      "id": 21,
       "title": "JPA EP3",
       "creator": "Choco",
       "video": "-",
@@ -924,7 +960,7 @@
       "clears": []
     },
     {
-      "id": 21,
+      "id": 22,
       "title": "JPA EP9",
       "creator": "Choco",
       "verifier": "Choco",
@@ -957,7 +993,7 @@
       "clears": []
     },
     {
-      "id": 22,
+      "id": 23,
       "title": "JPA EP6",
       "creator": "Choco",
       "verifier": "Choco",
@@ -988,7 +1024,7 @@
       "clears": []
     },
     {
-      "id": 23,
+      "id": 24,
       "title": "LT EP6",
       "creator": "Light",
       "verifier": "Light",
@@ -1030,7 +1066,7 @@
       ]
     },
     {
-      "id": 24,
+      "id": 25,
       "title": "LT EP4",
       "creator": "Light",
       "verifier": "Light",
@@ -1061,7 +1097,7 @@
       "clears": []
     },
     {
-      "id": 25,
+      "id": 26,
       "title": "LT EP5",
       "creator": "Light",
       "verifier": "Light",
@@ -1100,7 +1136,7 @@
       ]
     },
     {
-      "id": 26,
+      "id": 27,
       "title": "Glide Festival",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1133,7 +1169,7 @@
       "clears": []
     },
     {
-      "id": 27,
+      "id": 28,
       "title": "LT EP3",
       "creator": "Light",
       "verifier": "Light",
@@ -1174,7 +1210,7 @@
       ]
     },
     {
-      "id": 28,
+      "id": 29,
       "title": "Slow Challenge",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1206,7 +1242,7 @@
       "clears": []
     },
     {
-      "id": 29,
+      "id": 30,
       "title": "Answer Me",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1240,6 +1276,180 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-01-30 14:43",
+      "type": "add",
+      "title": "Heart 8",
+      "detail": "2위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "Answer Me",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 29위에서 30위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "Slow Challenge",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 28위에서 29위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "LT EP3",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 27위에서 28위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "Glide Festival",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 26위에서 27위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "LT EP5",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 25위에서 26위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "LT EP4",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 24위에서 25위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "LT EP6",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 23위에서 24위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "JPA EP6",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 22위에서 23위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "JPA EP9",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 21위에서 22위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "JPA EP3",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 20위에서 21위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "LT EP2",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 19위에서 20위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "LT EP7",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 18위에서 19위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "JPA EP2",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 17위에서 18위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "JPA EP7",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 16위에서 17위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "JPA EP1",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 15위에서 16위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "JPA EP5",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 14위에서 15위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "JPA EP4",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 13위에서 14위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "Trolled",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 12위에서 13위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "Egg Layout",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 11위에서 12위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "JPA EP8",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 10위에서 11위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "Endless Dreaming",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 9위에서 10위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "PPPP",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 8위에서 9위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "Reaper Wave",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 7위에서 8위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "FlipBook",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 6위에서 7위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "nullscube",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 5위에서 6위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "BOOBAWAVEBA",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 4위에서 5위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "Stereo MadnesS EX",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 3위에서 4위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "chocubed",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 2위에서 3위로 하락하였습니다."
+    },
     {
       "time": "2026-01-26 21:23",
       "type": "add",
