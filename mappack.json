@@ -97,14 +97,10 @@
     },
     {
       "id": "pack 5",
-      "title": "Japanese Pack",
+      "title": "Japanese Pack I",
       "tier": "Tier 2",
       "description": "일본 노래로 구성된 맵을 해보세요!",
       "levels": [
-        {
-          "name": "FlipBook",
-          "author": "Choco"
-        },
         {
           "name": "PPPP",
           "author": "Choco"
@@ -224,9 +220,36 @@
         }
       ],
       "clears": []
+    },
+    {
+      "id": "pack 11",
+      "title": "Japanese Pack II",
+      "tier": "Tier 3",
+      "description": "일본 노래로 구성된 맵을 해보세요! (2)",
+      "levels": [
+        {
+          "name": "Heart 8",
+          "author": "Choco"
+        },
+        {
+          "name": "FlipBook",
+          "author": "Choco"
+        }
+      ],
+      "clears": []
     }
   ],
   "history": [
+    {
+      "time": "2026-01-30",
+      "type": "팩 수정",
+      "detail": "Japanese Pack I 팩 정보가 수정되었습니다."
+    },
+    {
+      "time": "2026-01-30",
+      "type": "팩 추가",
+      "detail": "Japanese Pack II 팩이 추가되었습니다."
+    },
     {
       "time": "2026-01-27",
       "type": "팩 수정",
