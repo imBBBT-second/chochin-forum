@@ -779,6 +779,43 @@
     },
     {
       "id": 18,
+      "title": "JPA EP3",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "-",
+      "rating": "",
+      "map": {
+        "mapId": "84660687",
+        "length": "1m 22s",
+        "objects": 3700,
+        "uploadDate": "2022-10-15"
+      },
+      "song": {
+        "name": "Electrodynamix",
+        "artist": "DJ-Nate",
+        "id": "14"
+      },
+      "gameplay": {
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "tags": [
+        "Ship",
+        "3x",
+        "Long",
+        "Fast",
+        "Physical",
+        "None-Effect",
+        "No-Clear"
+      ],
+      "clears": []
+    },
+    {
+      "id": 19,
       "title": "JPA EP2",
       "creator": "Choco",
       "video": "-",
@@ -824,7 +861,7 @@
       "clears": []
     },
     {
-      "id": 19,
+      "id": 20,
       "title": "LT EP7",
       "creator": "Light",
       "verifier": "Light",
@@ -870,7 +907,7 @@
       ]
     },
     {
-      "id": 20,
+      "id": 21,
       "title": "LT EP2",
       "creator": "Light",
       "video": "-",
@@ -908,52 +945,6 @@
         "Ship",
         "1x",
         "Long",
-        "Physical",
-        "None-Effect",
-        "No-Clear"
-      ],
-      "clears": []
-    },
-    {
-      "id": 21,
-      "title": "JPA EP3",
-      "creator": "Choco",
-      "video": "-",
-      "verifier": "Choco",
-      "map": {
-        "mapId": 84660687,
-        "length": "1m 22s",
-        "objects": 3700,
-        "uploadDate": "2022-10-15"
-      },
-      "song": {
-        "name": "Electrodynamix",
-        "artist": "DJ-Nate",
-        "id": 14
-      },
-      "gameplay": {
-        "mainMode": "Ship",
-        "modeRatio": {
-          "Cube": 100
-        },
-        "speedRatio": {
-          "1x": 100
-        }
-      },
-      "framePerfect": {
-        "total": 0,
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        }
-      },
-      "tags": [
-        "Ship",
-        "3x",
-        "Long",
-        "Fast",
         "Physical",
         "None-Effect",
         "No-Clear"
@@ -1291,6 +1282,30 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-01-31 20:41",
+      "type": "move",
+      "title": "LT EP2",
+      "detail": "'JPA EP3' 레벨의 순위 변동으로 인해 순위가 20위에서 21위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-31 20:41",
+      "type": "move",
+      "title": "LT EP7",
+      "detail": "'JPA EP3' 레벨의 순위 변동으로 인해 순위가 19위에서 20위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-31 20:41",
+      "type": "move",
+      "title": "JPA EP2",
+      "detail": "'JPA EP3' 레벨의 순위 변동으로 인해 순위가 18위에서 19위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-31 20:41",
+      "type": "reeval",
+      "title": "JPA EP3",
+      "detail": "'JPA EP3' 레벨의 재평가로 인해 순위가 21위에서 18위로 상승하였습니다."
+    },
     {
       "time": "2026-01-30 14:43",
       "type": "add",
