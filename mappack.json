@@ -253,6 +253,10 @@
       "description": "일본 노래로 구성된 맵을 해보세요! (2)",
       "levels": [
         {
+          "name": "GOAT!",
+          "author": "Choco"
+        },
+        {
           "name": "Heart 8",
           "author": "Choco"
         },
@@ -265,6 +269,11 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-02-03",
+      "type": "팩 수정",
+      "detail": "Japanese Pack II 팩 정보가 수정되었습니다."
+    },
     {
       "time": "2026-02-01",
       "type": "팩 수정",
