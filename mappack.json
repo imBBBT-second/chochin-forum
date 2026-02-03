@@ -207,6 +207,10 @@
       "description": "현재와 과거의 TOP 1 자리를 지키는(던) 맵들을 즐길... 수 있어요?",
       "levels": [
         {
+          "name": "GOAT!",
+          "author": "Choco"
+        },
+        {
           "name": "Desuwa",
           "author": "Choco & Timo"
         },
@@ -216,10 +220,6 @@
         },
         {
           "name": "nullscube",
-          "author": "Timo"
-        },
-        {
-          "name": "Reaper Wave",
           "author": "Timo"
         }
       ],
@@ -269,6 +269,11 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-02-03",
+      "type": "팩 수정",
+      "detail": "TOP 1 Pack 팩 정보가 수정되었습니다."
+    },
     {
       "time": "2026-02-03",
       "type": "팩 수정",
