@@ -70,6 +70,90 @@
     },
     {
       "id": 3,
+      "title": "Stereo MadnesS EX",
+      "creator": "Choco & Timo",
+      "verifier": "Timo",
+      "video": "https://www.youtube.com/embed/ys5N_0DgIsk",
+      "rating": "Legendary",
+      "map": {
+        "mapId": "131445339",
+        "length": "1m 25s",
+        "objects": 9990,
+        "uploadDate": "2026-01-15"
+      },
+      "song": {
+        "name": "Stereo Madness",
+        "artist": "ForeverBound",
+        "id": "0"
+      },
+      "gameplay": {
+        "modeRatio": {
+          "Cube": 47,
+          "Ship": 30.5,
+          "Ball": 2.7,
+          "UFO": 1.1,
+          "Wave": 7.9,
+          "Robot": 9.7,
+          "Spider": 1,
+          "Swing": 8.8
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "tags": [
+        "Any-Mode",
+        "1x",
+        "Long",
+        "Memory",
+        "Physical",
+        "Full-Effect",
+        "Slow",
+        "No-Clear"
+      ],
+      "clears": []
+    },
+    {
+      "id": 4,
+      "title": "nullscube",
+      "creator": "Timo",
+      "verifier": "Timo",
+      "video": "https://www.youtube.com/embed/rqmKAdj5gPI",
+      "rating": "Mythic",
+      "map": {
+        "mapId": "126915240",
+        "length": "25s",
+        "objects": 33111,
+        "uploadDate": "2025-10-11"
+      },
+      "song": {
+        "name": "Flow",
+        "artist": "Creo",
+        "id": "1132447"
+      },
+      "gameplay": {
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "0.5x": 7.6,
+          "1x": 92.4
+        }
+      },
+      "tags": [
+        "Cube",
+        "1x",
+        "Short",
+        "Physical",
+        "Slow",
+        "One-Mode",
+        "Full-Effect",
+        "No-Clear"
+      ],
+      "clears": []
+    },
+    {
+      "id": 5,
       "title": "chocubed",
       "creator": "Light",
       "verifier": "Light",
@@ -122,52 +206,7 @@
       ]
     },
     {
-      "id": 4,
-      "title": "Stereo MadnesS EX",
-      "creator": "Choco & Timo",
-      "verifier": "Timo",
-      "video": "https://www.youtube.com/embed/ys5N_0DgIsk",
-      "rating": "Legendary",
-      "map": {
-        "mapId": "131445339",
-        "length": "1m 25s",
-        "objects": 9990,
-        "uploadDate": "2026-01-15"
-      },
-      "song": {
-        "name": "Stereo Madness",
-        "artist": "ForeverBound",
-        "id": "0"
-      },
-      "gameplay": {
-        "modeRatio": {
-          "Cube": 47,
-          "Ship": 30.5,
-          "Ball": 2.7,
-          "UFO": 1.1,
-          "Wave": 7.9,
-          "Robot": 9.7,
-          "Spider": 1,
-          "Swing": 8.8
-        },
-        "speedRatio": {
-          "1x": 100
-        }
-      },
-      "tags": [
-        "Any-Mode",
-        "1x",
-        "Long",
-        "Memory",
-        "Physical",
-        "Full-Effect",
-        "Slow",
-        "No-Clear"
-      ],
-      "clears": []
-    },
-    {
-      "id": 5,
+      "id": 6,
       "title": "BOOBAWAVEBA",
       "creator": "Choco",
       "verifier": "Choco",
@@ -201,45 +240,6 @@
         "Spam",
         "Low-Effect",
         "One-Mode",
-        "No-Clear"
-      ],
-      "clears": []
-    },
-    {
-      "id": 6,
-      "title": "nullscube",
-      "creator": "Timo",
-      "verifier": "Timo",
-      "video": "https://www.youtube.com/embed/rqmKAdj5gPI",
-      "rating": "Mythic",
-      "map": {
-        "mapId": "126915240",
-        "length": "25s",
-        "objects": 33111,
-        "uploadDate": "2025-10-11"
-      },
-      "song": {
-        "name": "Flow",
-        "artist": "Creo",
-        "id": "1132447"
-      },
-      "gameplay": {
-        "modeRatio": {
-          "Cube": 100
-        },
-        "speedRatio": {
-          "0.5x": 7.6,
-          "1x": 92.4
-        }
-      },
-      "tags": [
-        "Cube",
-        "1x",
-        "Short",
-        "Physical",
-        "Slow",
-        "One-Mode",
-        "Full-Effect",
         "No-Clear"
       ],
       "clears": []
@@ -1295,6 +1295,36 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-02-03 15:01",
+      "type": "move",
+      "title": "BOOBAWAVEBA",
+      "detail": "'nullscube' 레벨의 순위 변동으로 인해 순위가 5위에서 6위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:01",
+      "type": "move",
+      "title": "chocubed",
+      "detail": "'nullscube' 레벨의 순위 변동으로 인해 순위가 4위에서 5위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:01",
+      "type": "reeval",
+      "title": "nullscube",
+      "detail": "'nullscube' 레벨의 재평가로 인해 순위가 6위에서 4위로 상승하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:01",
+      "type": "move",
+      "title": "chocubed",
+      "detail": "'Stereo MadnesS EX' 레벨의 순위 변동으로 인해 순위가 3위에서 4위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:01",
+      "type": "reeval",
+      "title": "Stereo MadnesS EX",
+      "detail": "'Stereo MadnesS EX' 레벨의 재평가로 인해 순위가 4위에서 3위로 상승하였습니다."
+    },
     {
       "time": "2026-02-01 00:56",
       "type": "add",
