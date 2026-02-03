@@ -157,7 +157,7 @@
     {
       "id": "pack 7",
       "title": "Wave Pack",
-      "tier": "Tier 3",
+      "tier": "Tier 2",
       "description": "웨이브 원툴인 맵들을 해보세요!",
       "levels": [
         {
@@ -269,6 +269,11 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-02-03",
+      "type": "팩 수정",
+      "detail": "Wave Pack 팩 정보가 수정되었습니다."
+    },
     {
       "time": "2026-02-03",
       "type": "팩 수정",
