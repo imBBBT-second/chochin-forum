@@ -51,9 +51,10 @@
       "creator": "Choco",
       "verifier": "Choco",
       "video": "https://www.youtube.com/embed/aoWhyy5VhAo",
+      "rating": "",
       "map": {
         "mapId": "129446657",
-        "length": "4s",
+        "length": "11s",
         "objects": 1070,
         "uploadDate": "2025-12-14"
       },
