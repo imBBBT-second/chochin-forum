@@ -2,10 +2,45 @@
   "levels": [
     {
       "id": 1,
+      "title": "GOAT!",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/UILQpwgwwo0",
+      "rating": "Mythic",
+      "map": {
+        "mapId": "132490623",
+        "length": "35s",
+        "objects": 30932,
+        "uploadDate": "2026-01-31"
+      },
+      "song": {
+        "name": "GOAT!",
+        "artist": "Kurousagi",
+        "id": "NONG"
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "tags": [
+        "Any-Mode",
+        "Medium",
+        "Sync",
+        "Physical",
+        "Learny",
+        "Fast",
+        "Full-Effect",
+        "No-Clear",
+        "NONG"
+      ],
+      "clears": []
+    },
+    {
+      "id": 2,
       "title": "Desuwa",
       "creator": "Choco & Timo",
       "verifier": "Timo",
-      "video": "",
+      "video": "https://www.youtube.com/embed/A3f76rVH-ZM",
       "rating": "Featured",
       "map": {
         "mapId": "132194145",
@@ -33,7 +68,127 @@
       "clears": []
     },
     {
-      "id": 2,
+      "id": 3,
+      "title": "Heart 8",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/ZNTV5Zo72iQ",
+      "rating": "Featured",
+      "map": {
+        "mapId": "131293568",
+        "length": "45s",
+        "objects": 4591,
+        "uploadDate": "2026-01-12"
+      },
+      "song": {
+        "name": "Trick Heart",
+        "artist": "MIMI",
+        "id": "NONG"
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "tags": [
+        "Any-Mode",
+        "Medium",
+        "Sync",
+        "Gimmick",
+        "Physical",
+        "Flow",
+        "Fast",
+        "Full-Effect",
+        "No-Clear",
+        "NONG"
+      ],
+      "clears": []
+    },
+    {
+      "id": 4,
+      "title": "Stereo MadnesS EX",
+      "creator": "Choco & Timo",
+      "verifier": "Timo",
+      "video": "https://www.youtube.com/embed/ys5N_0DgIsk",
+      "rating": "Legendary",
+      "map": {
+        "mapId": "131445339",
+        "length": "1m 25s",
+        "objects": 9990,
+        "uploadDate": "2026-01-15"
+      },
+      "song": {
+        "name": "Stereo Madness",
+        "artist": "ForeverBound",
+        "id": "0"
+      },
+      "gameplay": {
+        "modeRatio": {
+          "Cube": 47,
+          "Ship": 30.5,
+          "Ball": 2.7,
+          "UFO": 1.1,
+          "Wave": 7.9,
+          "Robot": 9.7,
+          "Spider": 1,
+          "Swing": 8.8
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "tags": [
+        "Any-Mode",
+        "1x",
+        "Long",
+        "Memory",
+        "Physical",
+        "Full-Effect",
+        "Slow",
+        "No-Clear"
+      ],
+      "clears": []
+    },
+    {
+      "id": 5,
+      "title": "nullscube",
+      "creator": "Timo",
+      "verifier": "Timo",
+      "video": "https://www.youtube.com/embed/rqmKAdj5gPI",
+      "rating": "Mythic",
+      "map": {
+        "mapId": "126915240",
+        "length": "25s",
+        "objects": 33111,
+        "uploadDate": "2025-10-11"
+      },
+      "song": {
+        "name": "Flow",
+        "artist": "Creo",
+        "id": "1132447"
+      },
+      "gameplay": {
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "0.5x": 7.6,
+          "1x": 92.4
+        }
+      },
+      "tags": [
+        "Cube",
+        "1x",
+        "Short",
+        "Physical",
+        "Slow",
+        "One-Mode",
+        "Full-Effect",
+        "No-Clear"
+      ],
+      "clears": []
+    },
+    {
+      "id": 6,
       "title": "chocubed",
       "creator": "Light",
       "verifier": "Light",
@@ -86,52 +241,42 @@
       ]
     },
     {
-      "id": 3,
-      "title": "Stereo MadnesS EX",
-      "creator": "Choco & Timo",
-      "verifier": "Timo",
-      "video": "https://www.youtube.com/embed/ys5N_0DgIsk",
-      "rating": "Legendary",
+      "id": 7,
+      "title": "First Fantasy",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/GhHEGWOnv3c",
+      "rating": "Featured",
       "map": {
-        "mapId": "131445339",
-        "length": "1m 25s",
-        "objects": 9990,
-        "uploadDate": "2026-01-15"
+        "mapId": "132859666",
+        "length": "52s",
+        "objects": 11645,
+        "uploadDate": "2026-02-06"
       },
       "song": {
-        "name": "Stereo Madness",
-        "artist": "ForeverBound",
-        "id": "0"
+        "name": "Her Name Is Yubin Lady",
+        "artist": "Tree Palm",
+        "id": "NONG"
       },
       "gameplay": {
-        "modeRatio": {
-          "Cube": 47,
-          "Ship": 30.5,
-          "Ball": 2.7,
-          "UFO": 1.1,
-          "Wave": 7.9,
-          "Robot": 9.7,
-          "Spider": 1,
-          "Swing": 8.8
-        },
-        "speedRatio": {
-          "1x": 100
-        }
+        "modeRatio": {},
+        "speedRatio": {}
       },
       "tags": [
-        "Any-Mode",
-        "1x",
+        "Cube",
         "Long",
         "Memory",
+        "Sync",
         "Physical",
-        "Full-Effect",
-        "Slow",
-        "No-Clear"
+        "Low-Effect",
+        "One-Mode",
+        "No-Clear",
+        "NONG"
       ],
       "clears": []
     },
     {
-      "id": 4,
+      "id": 8,
       "title": "BOOBAWAVEBA",
       "creator": "Choco",
       "verifier": "Choco",
@@ -170,46 +315,37 @@
       "clears": []
     },
     {
-      "id": 5,
-      "title": "nullscube",
-      "creator": "Timo",
-      "verifier": "Timo",
-      "video": "https://www.youtube.com/embed/rqmKAdj5gPI",
-      "rating": "Mythic",
+      "id": 9,
+      "title": "Just Test Map",
+      "creator": "Choco",
+      "verifier": "Light",
+      "video": "https://www.youtube.com/embed/7aEjbZTmCVY?si=wmk75qXVpbFmkulD",
+      "rating": "",
       "map": {
-        "mapId": "126915240",
-        "length": "25s",
-        "objects": 33111,
-        "uploadDate": "2025-10-11"
+        "mapId": "132514210",
+        "length": "32s",
+        "objects": 47735,
+        "uploadDate": "2026-01-31"
       },
       "song": {
-        "name": "Flow",
-        "artist": "Creo",
-        "id": "1132447"
+        "name": "Let's Make A Plan Everyone",
+        "artist": "Brooklyn Game Audio",
+        "id": "10005684"
       },
       "gameplay": {
-        "modeRatio": {
-          "Cube": 100
-        },
-        "speedRatio": {
-          "0.5x": 7.6,
-          "1x": 92.4
-        }
+        "modeRatio": {},
+        "speedRatio": {}
       },
       "tags": [
-        "Cube",
-        "1x",
-        "Short",
+        "Any-Mode",
+        "Medium",
         "Physical",
-        "Slow",
-        "One-Mode",
-        "Full-Effect",
-        "No-Clear"
+        "High-CPS"
       ],
       "clears": []
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "FlipBook",
       "creator": "Choco",
       "verifier": "Choco",
@@ -236,6 +372,7 @@
         "Sync",
         "Flow",
         "High-CPS",
+        "Full-Effect",
         "NONG"
       ],
       "clears": [
@@ -248,7 +385,7 @@
       ]
     },
     {
-      "id": 7,
+      "id": 11,
       "title": "Reaper Wave",
       "creator": "Timo",
       "verifier": "Timo",
@@ -299,11 +436,11 @@
       ]
     },
     {
-      "id": 8,
+      "id": 12,
       "title": "PPPP",
       "creator": "Choco",
       "verifier": "Choco",
-      "video": "https://www.youtube.com/embed/bhJ6x2_qNKs?si=nkMceOtd88D99pn5",
+      "video": "https://www.youtube.com/embed/GhxjLUgNMZE",
       "rating": "Featured",
       "map": {
         "mapId": "128210347",
@@ -345,7 +482,39 @@
       "clears": []
     },
     {
-      "id": 9,
+      "id": 13,
+      "title": "LT EP8",
+      "creator": "Light",
+      "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/nJX7Hs3PBEs",
+      "rating": "Featured",
+      "map": {
+        "mapId": "126044291",
+        "length": "1m 24s",
+        "objects": 7525,
+        "uploadDate": "2025-09-16"
+      },
+      "song": {
+        "name": "Golden Haze (Prev)",
+        "artist": "DeadRewind",
+        "id": "557117"
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "tags": [
+        "Ship",
+        "Long",
+        "Memory",
+        "Physical",
+        "Full-Effect",
+        "No-Clear"
+      ],
+      "clears": []
+    },
+    {
+      "id": 14,
       "title": "Endless Dreaming",
       "creator": "Light",
       "verifier": "Light",
@@ -379,7 +548,7 @@
       "clears": []
     },
     {
-      "id": 10,
+      "id": 15,
       "title": "JPA EP8",
       "creator": "Choco",
       "verifier": "Choco",
@@ -433,7 +602,7 @@
       "clears": []
     },
     {
-      "id": 11,
+      "id": 16,
       "title": "Egg Layout",
       "creator": "Light",
       "verifier": "Light",
@@ -492,7 +661,7 @@
       ]
     },
     {
-      "id": 12,
+      "id": 17,
       "title": "Trolled",
       "creator": "Light",
       "verifier": "Light",
@@ -551,7 +720,7 @@
       ]
     },
     {
-      "id": 13,
+      "id": 18,
       "title": "JPA EP4",
       "creator": "Choco",
       "verifier": "Choco",
@@ -604,13 +773,14 @@
       "clears": []
     },
     {
-      "id": 14,
+      "id": 19,
       "title": "JPA EP5",
       "creator": "Choco",
-      "video": "-",
       "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/0ArqVh7ttEo",
+      "rating": "",
       "map": {
-        "mapId": 85596521,
+        "mapId": "85596521",
         "length": "1m 36s",
         "objects": 9344,
         "uploadDate": "2022-11-12"
@@ -618,24 +788,14 @@
       "song": {
         "name": "-Final Battle-",
         "artist": "Waterflame",
-        "id": 598349
+        "id": "598349"
       },
       "gameplay": {
-        "mainMode": "Any-Mode",
         "modeRatio": {
           "Cube": 100
         },
         "speedRatio": {
           "1x": 100
-        }
-      },
-      "framePerfect": {
-        "total": 0,
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
         }
       },
       "tags": [
@@ -649,13 +809,14 @@
       "clears": []
     },
     {
-      "id": 15,
+      "id": 20,
       "title": "JPA EP1",
       "creator": "Choco",
-      "video": "-",
       "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/TzGBCHnXtAE",
+      "rating": "",
       "map": {
-        "mapId": 84244031,
+        "mapId": "84244031",
         "length": "1m 39s",
         "objects": 3054,
         "uploadDate": "2022-10-02"
@@ -663,24 +824,14 @@
       "song": {
         "name": "Theory of Everthing",
         "artist": "DJ-Nate",
-        "id": 11
+        "id": "11"
       },
       "gameplay": {
-        "mainMode": "Any-Mode",
         "modeRatio": {
           "Cube": 100
         },
         "speedRatio": {
           "1x": 100
-        }
-      },
-      "framePerfect": {
-        "total": 0,
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
         }
       },
       "tags": [
@@ -695,13 +846,14 @@
       "clears": []
     },
     {
-      "id": 16,
+      "id": 21,
       "title": "JPA EP7",
       "creator": "Choco",
-      "video": "-",
       "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/Ki59EogWXq0",
+      "rating": "",
       "map": {
-        "mapId": 86204427,
+        "mapId": "86204427",
         "length": "2m 35s",
         "objects": 5115,
         "uploadDate": "2022-11-29"
@@ -709,24 +861,14 @@
       "song": {
         "name": "Thundaga (FL Core)",
         "artist": "Garlagan",
-        "id": 465848
+        "id": "465848"
       },
       "gameplay": {
-        "mainMode": "Any-Mode",
         "modeRatio": {
           "Cube": 100
         },
         "speedRatio": {
           "1x": 100
-        }
-      },
-      "framePerfect": {
-        "total": 0,
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
         }
       },
       "tags": [
@@ -741,24 +883,24 @@
       "clears": []
     },
     {
-      "id": 17,
-      "title": "JPA EP2",
+      "id": 22,
+      "title": "JPA EP3",
       "creator": "Choco",
-      "video": "-",
       "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/uxi1zitxa4Y",
+      "rating": "",
       "map": {
-        "mapId": 84536046,
-        "length": "1m 33s",
-        "objects": 3025,
-        "uploadDate": "2022-10-11"
+        "mapId": "84660687",
+        "length": "1m 22s",
+        "objects": 3700,
+        "uploadDate": "2022-10-15"
       },
       "song": {
-        "name": "Theory of Everthing 2",
+        "name": "Electrodynamix",
         "artist": "DJ-Nate",
-        "id": 17
+        "id": "14"
       },
       "gameplay": {
-        "mainMode": "Any-Mode",
         "modeRatio": {
           "Cube": 100
         },
@@ -766,13 +908,41 @@
           "1x": 100
         }
       },
-      "framePerfect": {
-        "total": 0,
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
+      "tags": [
+        "Ship",
+        "3x",
+        "Long",
+        "Fast",
+        "Physical",
+        "None-Effect",
+        "No-Clear"
+      ],
+      "clears": []
+    },
+    {
+      "id": 23,
+      "title": "JPA EP2",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/q2uQM2yz4K4",
+      "rating": "",
+      "map": {
+        "mapId": "84536046",
+        "length": "1m 33s",
+        "objects": 3025,
+        "uploadDate": "2022-10-11"
+      },
+      "song": {
+        "name": "Theory of Everthing 2",
+        "artist": "DJ-Nate",
+        "id": "17"
+      },
+      "gameplay": {
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
         }
       },
       "tags": [
@@ -787,7 +957,7 @@
       "clears": []
     },
     {
-      "id": 18,
+      "id": 24,
       "title": "LT EP7",
       "creator": "Light",
       "verifier": "Light",
@@ -833,7 +1003,7 @@
       ]
     },
     {
-      "id": 19,
+      "id": 25,
       "title": "LT EP2",
       "creator": "Light",
       "video": "-",
@@ -878,53 +1048,7 @@
       "clears": []
     },
     {
-      "id": 20,
-      "title": "JPA EP3",
-      "creator": "Choco",
-      "video": "-",
-      "verifier": "Choco",
-      "map": {
-        "mapId": 84660687,
-        "length": "1m 22s",
-        "objects": 3700,
-        "uploadDate": "2022-10-15"
-      },
-      "song": {
-        "name": "Electrodynamix",
-        "artist": "DJ-Nate",
-        "id": 14
-      },
-      "gameplay": {
-        "mainMode": "Ship",
-        "modeRatio": {
-          "Cube": 100
-        },
-        "speedRatio": {
-          "1x": 100
-        }
-      },
-      "framePerfect": {
-        "total": 0,
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        }
-      },
-      "tags": [
-        "Ship",
-        "3x",
-        "Long",
-        "Fast",
-        "Physical",
-        "None-Effect",
-        "No-Clear"
-      ],
-      "clears": []
-    },
-    {
-      "id": 21,
+      "id": 26,
       "title": "JPA EP9",
       "creator": "Choco",
       "verifier": "Choco",
@@ -957,7 +1081,7 @@
       "clears": []
     },
     {
-      "id": 22,
+      "id": 27,
       "title": "JPA EP6",
       "creator": "Choco",
       "verifier": "Choco",
@@ -988,7 +1112,7 @@
       "clears": []
     },
     {
-      "id": 23,
+      "id": 28,
       "title": "LT EP6",
       "creator": "Light",
       "verifier": "Light",
@@ -1026,15 +1150,22 @@
           "percent": 100,
           "date": "2026-01-19",
           "link": "https://youtu.be/ZKh-WGpwNt8"
+        },
+        {
+          "player": "Choco",
+          "percent": 100,
+          "date": "2026-01-30",
+          "link": "https://youtu.be/2v-gH8a4bPw"
         }
       ]
     },
     {
-      "id": 24,
+      "id": 29,
       "title": "LT EP4",
       "creator": "Light",
       "verifier": "Light",
       "video": "-",
+      "rating": "",
       "map": {
         "mapId": "85191093",
         "length": "45s",
@@ -1058,10 +1189,17 @@
         "Slow",
         "None-Effect"
       ],
-      "clears": []
+      "clears": [
+        {
+          "player": "Choco",
+          "percent": 100,
+          "date": "2026-01-30",
+          "link": "https://youtu.be/2v-gH8a4bPw"
+        }
+      ]
     },
     {
-      "id": 25,
+      "id": 30,
       "title": "LT EP5",
       "creator": "Light",
       "verifier": "Light",
@@ -1100,11 +1238,12 @@
       ]
     },
     {
-      "id": 26,
+      "id": 31,
       "title": "Glide Festival",
       "creator": "Choco",
       "verifier": "Choco",
-      "video": "-",
+      "video": "https://www.youtube.com/embed/tDW5fSMS2NI",
+      "rating": "",
       "map": {
         "mapId": "122547026",
         "length": "2m 37s",
@@ -1133,7 +1272,7 @@
       "clears": []
     },
     {
-      "id": 27,
+      "id": 32,
       "title": "LT EP3",
       "creator": "Light",
       "verifier": "Light",
@@ -1174,7 +1313,7 @@
       ]
     },
     {
-      "id": 28,
+      "id": 33,
       "title": "Slow Challenge",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1206,7 +1345,7 @@
       "clears": []
     },
     {
-      "id": 29,
+      "id": 34,
       "title": "Answer Me",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1240,6 +1379,906 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-02-07 17:12",
+      "type": "add",
+      "title": "First Fantasy",
+      "detail": "7위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "Answer Me",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 33위에서 34위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "Slow Challenge",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 32위에서 33위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "LT EP3",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 31위에서 32위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "Glide Festival",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 30위에서 31위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "LT EP5",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 29위에서 30위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "LT EP4",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 28위에서 29위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "LT EP6",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 27위에서 28위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "JPA EP6",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 26위에서 27위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "JPA EP9",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 25위에서 26위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "LT EP2",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 24위에서 25위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "LT EP7",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 23위에서 24위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "JPA EP2",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 22위에서 23위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "JPA EP3",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 21위에서 22위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "JPA EP7",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 20위에서 21위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "JPA EP1",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 19위에서 20위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "JPA EP5",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 18위에서 19위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "JPA EP4",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 17위에서 18위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "Trolled",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 16위에서 17위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "Egg Layout",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 15위에서 16위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "JPA EP8",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 14위에서 15위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "Endless Dreaming",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 13위에서 14위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "LT EP8",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 12위에서 13위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "PPPP",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 11위에서 12위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "Reaper Wave",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 10위에서 11위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "FlipBook",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 9위에서 10위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "Just Test Map",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 8위에서 9위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "BOOBAWAVEBA",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 7위에서 8위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 11:04",
+      "type": "move",
+      "title": "Desuwa",
+      "detail": "'GOAT!' 레벨의 순위 변동으로 인해 순위가 1위에서 2위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 11:04",
+      "type": "reeval",
+      "title": "GOAT!",
+      "detail": "'GOAT!' 레벨의 재평가로 인해 순위가 2위에서 1위로 상승하였습니다."
+    },
+    {
+      "time": "2026-02-06 19:11",
+      "type": "move",
+      "title": "Desuwa",
+      "detail": "'GOAT!' 레벨의 순위 변동으로 인해 순위가 2위에서 1위로 상승하였습니다."
+    },
+    {
+      "time": "2026-02-06 19:11",
+      "type": "reeval",
+      "title": "GOAT!",
+      "detail": "'GOAT!' 레벨의 재평가로 인해 순위가 1위에서 2위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-05 23:34",
+      "type": "add",
+      "title": "LT EP8",
+      "detail": "12위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2026-02-05 23:34",
+      "type": "move",
+      "title": "Answer Me",
+      "detail": "'LT EP8' 레벨 추가로 인해 순위가 32위에서 33위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-05 23:34",
+      "type": "move",
+      "title": "Slow Challenge",
+      "detail": "'LT EP8' 레벨 추가로 인해 순위가 31위에서 32위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-05 23:34",
+      "type": "move",
+      "title": "LT EP3",
+      "detail": "'LT EP8' 레벨 추가로 인해 순위가 30위에서 31위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-05 23:34",
+      "type": "move",
+      "title": "Glide Festival",
+      "detail": "'LT EP8' 레벨 추가로 인해 순위가 29위에서 30위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-05 23:34",
+      "type": "move",
+      "title": "LT EP5",
+      "detail": "'LT EP8' 레벨 추가로 인해 순위가 28위에서 29위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-05 23:34",
+      "type": "move",
+      "title": "LT EP4",
+      "detail": "'LT EP8' 레벨 추가로 인해 순위가 27위에서 28위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-05 23:34",
+      "type": "move",
+      "title": "LT EP6",
+      "detail": "'LT EP8' 레벨 추가로 인해 순위가 26위에서 27위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-05 23:34",
+      "type": "move",
+      "title": "JPA EP6",
+      "detail": "'LT EP8' 레벨 추가로 인해 순위가 25위에서 26위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-05 23:34",
+      "type": "move",
+      "title": "JPA EP9",
+      "detail": "'LT EP8' 레벨 추가로 인해 순위가 24위에서 25위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-05 23:34",
+      "type": "move",
+      "title": "LT EP2",
+      "detail": "'LT EP8' 레벨 추가로 인해 순위가 23위에서 24위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-05 23:34",
+      "type": "move",
+      "title": "LT EP7",
+      "detail": "'LT EP8' 레벨 추가로 인해 순위가 22위에서 23위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-05 23:34",
+      "type": "move",
+      "title": "JPA EP2",
+      "detail": "'LT EP8' 레벨 추가로 인해 순위가 21위에서 22위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-05 23:34",
+      "type": "move",
+      "title": "JPA EP3",
+      "detail": "'LT EP8' 레벨 추가로 인해 순위가 20위에서 21위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-05 23:34",
+      "type": "move",
+      "title": "JPA EP7",
+      "detail": "'LT EP8' 레벨 추가로 인해 순위가 19위에서 20위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-05 23:34",
+      "type": "move",
+      "title": "JPA EP1",
+      "detail": "'LT EP8' 레벨 추가로 인해 순위가 18위에서 19위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-05 23:34",
+      "type": "move",
+      "title": "JPA EP5",
+      "detail": "'LT EP8' 레벨 추가로 인해 순위가 17위에서 18위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-05 23:34",
+      "type": "move",
+      "title": "JPA EP4",
+      "detail": "'LT EP8' 레벨 추가로 인해 순위가 16위에서 17위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-05 23:34",
+      "type": "move",
+      "title": "Trolled",
+      "detail": "'LT EP8' 레벨 추가로 인해 순위가 15위에서 16위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-05 23:34",
+      "type": "move",
+      "title": "Egg Layout",
+      "detail": "'LT EP8' 레벨 추가로 인해 순위가 14위에서 15위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-05 23:34",
+      "type": "move",
+      "title": "JPA EP8",
+      "detail": "'LT EP8' 레벨 추가로 인해 순위가 13위에서 14위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-05 23:34",
+      "type": "move",
+      "title": "Endless Dreaming",
+      "detail": "'LT EP8' 레벨 추가로 인해 순위가 12위에서 13위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:59",
+      "type": "move",
+      "title": "Desuwa",
+      "detail": "'GOAT!' 레벨의 순위 변동으로 인해 순위가 1위에서 2위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:59",
+      "type": "reeval",
+      "title": "GOAT!",
+      "detail": "'GOAT!' 레벨의 재평가로 인해 순위가 2위에서 1위로 상승하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:55",
+      "type": "move",
+      "title": "BOOBAWAVEBA",
+      "detail": "'nullscube' 레벨의 순위 변동으로 인해 순위가 6위에서 7위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:55",
+      "type": "move",
+      "title": "chocubed",
+      "detail": "'nullscube' 레벨의 순위 변동으로 인해 순위가 5위에서 6위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:55",
+      "type": "reeval",
+      "title": "nullscube",
+      "detail": "'nullscube' 레벨의 재평가로 인해 순위가 7위에서 5위로 상승하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:54",
+      "type": "move",
+      "title": "chocubed",
+      "detail": "'Stereo MadnesS EX' 레벨의 순위 변동으로 인해 순위가 4위에서 5위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:54",
+      "type": "reeval",
+      "title": "Stereo MadnesS EX",
+      "detail": "'Stereo MadnesS EX' 레벨의 재평가로 인해 순위가 5위에서 4위로 상승하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "add",
+      "title": "GOAT!",
+      "detail": "2위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "Answer Me",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 31위에서 32위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "Slow Challenge",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 30위에서 31위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "LT EP3",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 29위에서 30위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "Glide Festival",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 28위에서 29위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "LT EP5",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 27위에서 28위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "LT EP4",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 26위에서 27위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "LT EP6",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 25위에서 26위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "JPA EP6",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 24위에서 25위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "JPA EP9",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 23위에서 24위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "LT EP2",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 22위에서 23위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "LT EP7",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 21위에서 22위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "JPA EP2",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 20위에서 21위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "JPA EP3",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 19위에서 20위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "JPA EP7",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 18위에서 19위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "JPA EP1",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 17위에서 18위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "JPA EP5",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 16위에서 17위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "JPA EP4",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 15위에서 16위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "Trolled",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 14위에서 15위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "Egg Layout",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 13위에서 14위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "JPA EP8",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 12위에서 13위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "Endless Dreaming",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 11위에서 12위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "PPPP",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 10위에서 11위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "Reaper Wave",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 9위에서 10위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "FlipBook",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 8위에서 9위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "Just Test Map",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 7위에서 8위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "nullscube",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 6위에서 7위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "BOOBAWAVEBA",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 5위에서 6위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "Stereo MadnesS EX",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 4위에서 5위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "chocubed",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 3위에서 4위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-03 15:53",
+      "type": "move",
+      "title": "Heart 8",
+      "detail": "'GOAT!' 레벨 추가로 인해 순위가 2위에서 3위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-01 00:56",
+      "type": "add",
+      "title": "Just Test Map",
+      "detail": "7위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2026-02-01 00:56",
+      "type": "move",
+      "title": "Answer Me",
+      "detail": "'Just Test Map' 레벨 추가로 인해 순위가 30위에서 31위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-01 00:56",
+      "type": "move",
+      "title": "Slow Challenge",
+      "detail": "'Just Test Map' 레벨 추가로 인해 순위가 29위에서 30위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-01 00:56",
+      "type": "move",
+      "title": "LT EP3",
+      "detail": "'Just Test Map' 레벨 추가로 인해 순위가 28위에서 29위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-01 00:56",
+      "type": "move",
+      "title": "Glide Festival",
+      "detail": "'Just Test Map' 레벨 추가로 인해 순위가 27위에서 28위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-01 00:56",
+      "type": "move",
+      "title": "LT EP5",
+      "detail": "'Just Test Map' 레벨 추가로 인해 순위가 26위에서 27위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-01 00:56",
+      "type": "move",
+      "title": "LT EP4",
+      "detail": "'Just Test Map' 레벨 추가로 인해 순위가 25위에서 26위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-01 00:56",
+      "type": "move",
+      "title": "LT EP6",
+      "detail": "'Just Test Map' 레벨 추가로 인해 순위가 24위에서 25위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-01 00:56",
+      "type": "move",
+      "title": "JPA EP6",
+      "detail": "'Just Test Map' 레벨 추가로 인해 순위가 23위에서 24위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-01 00:56",
+      "type": "move",
+      "title": "JPA EP9",
+      "detail": "'Just Test Map' 레벨 추가로 인해 순위가 22위에서 23위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-01 00:56",
+      "type": "move",
+      "title": "LT EP2",
+      "detail": "'Just Test Map' 레벨 추가로 인해 순위가 21위에서 22위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-01 00:56",
+      "type": "move",
+      "title": "LT EP7",
+      "detail": "'Just Test Map' 레벨 추가로 인해 순위가 20위에서 21위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-01 00:56",
+      "type": "move",
+      "title": "JPA EP2",
+      "detail": "'Just Test Map' 레벨 추가로 인해 순위가 19위에서 20위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-01 00:56",
+      "type": "move",
+      "title": "JPA EP3",
+      "detail": "'Just Test Map' 레벨 추가로 인해 순위가 18위에서 19위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-01 00:56",
+      "type": "move",
+      "title": "JPA EP7",
+      "detail": "'Just Test Map' 레벨 추가로 인해 순위가 17위에서 18위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-01 00:56",
+      "type": "move",
+      "title": "JPA EP1",
+      "detail": "'Just Test Map' 레벨 추가로 인해 순위가 16위에서 17위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-01 00:56",
+      "type": "move",
+      "title": "JPA EP5",
+      "detail": "'Just Test Map' 레벨 추가로 인해 순위가 15위에서 16위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-01 00:56",
+      "type": "move",
+      "title": "JPA EP4",
+      "detail": "'Just Test Map' 레벨 추가로 인해 순위가 14위에서 15위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-01 00:56",
+      "type": "move",
+      "title": "Trolled",
+      "detail": "'Just Test Map' 레벨 추가로 인해 순위가 13위에서 14위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-01 00:56",
+      "type": "move",
+      "title": "Egg Layout",
+      "detail": "'Just Test Map' 레벨 추가로 인해 순위가 12위에서 13위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-01 00:56",
+      "type": "move",
+      "title": "JPA EP8",
+      "detail": "'Just Test Map' 레벨 추가로 인해 순위가 11위에서 12위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-01 00:56",
+      "type": "move",
+      "title": "Endless Dreaming",
+      "detail": "'Just Test Map' 레벨 추가로 인해 순위가 10위에서 11위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-01 00:56",
+      "type": "move",
+      "title": "PPPP",
+      "detail": "'Just Test Map' 레벨 추가로 인해 순위가 9위에서 10위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-01 00:56",
+      "type": "move",
+      "title": "Reaper Wave",
+      "detail": "'Just Test Map' 레벨 추가로 인해 순위가 8위에서 9위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-01 00:56",
+      "type": "move",
+      "title": "FlipBook",
+      "detail": "'Just Test Map' 레벨 추가로 인해 순위가 7위에서 8위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-31 20:41",
+      "type": "move",
+      "title": "LT EP2",
+      "detail": "'JPA EP3' 레벨의 순위 변동으로 인해 순위가 20위에서 21위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-31 20:41",
+      "type": "move",
+      "title": "LT EP7",
+      "detail": "'JPA EP3' 레벨의 순위 변동으로 인해 순위가 19위에서 20위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-31 20:41",
+      "type": "move",
+      "title": "JPA EP2",
+      "detail": "'JPA EP3' 레벨의 순위 변동으로 인해 순위가 18위에서 19위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-31 20:41",
+      "type": "reeval",
+      "title": "JPA EP3",
+      "detail": "'JPA EP3' 레벨의 재평가로 인해 순위가 21위에서 18위로 상승하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "add",
+      "title": "Heart 8",
+      "detail": "2위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "Answer Me",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 29위에서 30위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "Slow Challenge",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 28위에서 29위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "LT EP3",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 27위에서 28위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "Glide Festival",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 26위에서 27위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "LT EP5",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 25위에서 26위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "LT EP4",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 24위에서 25위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "LT EP6",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 23위에서 24위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "JPA EP6",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 22위에서 23위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "JPA EP9",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 21위에서 22위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "JPA EP3",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 20위에서 21위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "LT EP2",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 19위에서 20위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "LT EP7",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 18위에서 19위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "JPA EP2",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 17위에서 18위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "JPA EP7",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 16위에서 17위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "JPA EP1",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 15위에서 16위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "JPA EP5",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 14위에서 15위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "JPA EP4",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 13위에서 14위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "Trolled",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 12위에서 13위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "Egg Layout",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 11위에서 12위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "JPA EP8",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 10위에서 11위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "Endless Dreaming",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 9위에서 10위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "PPPP",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 8위에서 9위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "Reaper Wave",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 7위에서 8위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "FlipBook",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 6위에서 7위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "nullscube",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 5위에서 6위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "BOOBAWAVEBA",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 4위에서 5위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "Stereo MadnesS EX",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 3위에서 4위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-30 14:43",
+      "type": "move",
+      "title": "chocubed",
+      "detail": "'Heart 8' 레벨 추가로 인해 순위가 2위에서 3위로 하락하였습니다."
+    },
     {
       "time": "2026-01-26 21:23",
       "type": "add",
