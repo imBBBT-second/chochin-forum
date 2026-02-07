@@ -1371,7 +1371,7 @@
 
         const isInClearList =
           item.clears &&
-          item.clears.some((c) => c.player.toLowerCase() === name);
+          item.clears.some((c) => c.player.toLowerCase() === name && Number(c.percent) === 100);
         const isVerifier =
           item.verifier && item.verifier.toLowerCase() === name;
 
