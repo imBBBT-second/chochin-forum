@@ -242,6 +242,41 @@
     },
     {
       "id": 7,
+      "title": "First Fantasy",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/GhHEGWOnv3c",
+      "rating": "Featured",
+      "map": {
+        "mapId": "132859666",
+        "length": "52s",
+        "objects": 11645,
+        "uploadDate": "2026-02-06"
+      },
+      "song": {
+        "name": "Her Name Is Yubin Lady",
+        "artist": "Tree Palm",
+        "id": "NONG"
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "tags": [
+        "Cube",
+        "Long",
+        "Memory",
+        "Sync",
+        "Physical",
+        "Low-Effect",
+        "One-Mode",
+        "No-Clear",
+        "NONG"
+      ],
+      "clears": []
+    },
+    {
+      "id": 8,
       "title": "BOOBAWAVEBA",
       "creator": "Choco",
       "verifier": "Choco",
@@ -280,7 +315,7 @@
       "clears": []
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "Just Test Map",
       "creator": "Choco",
       "verifier": "Light",
@@ -310,7 +345,7 @@
       "clears": []
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "FlipBook",
       "creator": "Choco",
       "verifier": "Choco",
@@ -350,7 +385,7 @@
       ]
     },
     {
-      "id": 10,
+      "id": 11,
       "title": "Reaper Wave",
       "creator": "Timo",
       "verifier": "Timo",
@@ -401,7 +436,7 @@
       ]
     },
     {
-      "id": 11,
+      "id": 12,
       "title": "PPPP",
       "creator": "Choco",
       "verifier": "Choco",
@@ -447,7 +482,7 @@
       "clears": []
     },
     {
-      "id": 12,
+      "id": 13,
       "title": "LT EP8",
       "creator": "Light",
       "verifier": "Choco",
@@ -479,7 +514,7 @@
       "clears": []
     },
     {
-      "id": 13,
+      "id": 14,
       "title": "Endless Dreaming",
       "creator": "Light",
       "verifier": "Light",
@@ -513,7 +548,7 @@
       "clears": []
     },
     {
-      "id": 14,
+      "id": 15,
       "title": "JPA EP8",
       "creator": "Choco",
       "verifier": "Choco",
@@ -567,7 +602,7 @@
       "clears": []
     },
     {
-      "id": 15,
+      "id": 16,
       "title": "Egg Layout",
       "creator": "Light",
       "verifier": "Light",
@@ -626,7 +661,7 @@
       ]
     },
     {
-      "id": 16,
+      "id": 17,
       "title": "Trolled",
       "creator": "Light",
       "verifier": "Light",
@@ -685,7 +720,7 @@
       ]
     },
     {
-      "id": 17,
+      "id": 18,
       "title": "JPA EP4",
       "creator": "Choco",
       "verifier": "Choco",
@@ -738,7 +773,7 @@
       "clears": []
     },
     {
-      "id": 18,
+      "id": 19,
       "title": "JPA EP5",
       "creator": "Choco",
       "verifier": "Choco",
@@ -774,7 +809,7 @@
       "clears": []
     },
     {
-      "id": 19,
+      "id": 20,
       "title": "JPA EP1",
       "creator": "Choco",
       "verifier": "Choco",
@@ -811,7 +846,7 @@
       "clears": []
     },
     {
-      "id": 20,
+      "id": 21,
       "title": "JPA EP7",
       "creator": "Choco",
       "verifier": "Choco",
@@ -848,7 +883,7 @@
       "clears": []
     },
     {
-      "id": 21,
+      "id": 22,
       "title": "JPA EP3",
       "creator": "Choco",
       "verifier": "Choco",
@@ -885,7 +920,7 @@
       "clears": []
     },
     {
-      "id": 22,
+      "id": 23,
       "title": "JPA EP2",
       "creator": "Choco",
       "verifier": "Choco",
@@ -922,7 +957,7 @@
       "clears": []
     },
     {
-      "id": 23,
+      "id": 24,
       "title": "LT EP7",
       "creator": "Light",
       "verifier": "Light",
@@ -968,7 +1003,7 @@
       ]
     },
     {
-      "id": 24,
+      "id": 25,
       "title": "LT EP2",
       "creator": "Light",
       "video": "-",
@@ -1013,7 +1048,7 @@
       "clears": []
     },
     {
-      "id": 25,
+      "id": 26,
       "title": "JPA EP9",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1046,7 +1081,7 @@
       "clears": []
     },
     {
-      "id": 26,
+      "id": 27,
       "title": "JPA EP6",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1077,7 +1112,7 @@
       "clears": []
     },
     {
-      "id": 27,
+      "id": 28,
       "title": "LT EP6",
       "creator": "Light",
       "verifier": "Light",
@@ -1125,7 +1160,7 @@
       ]
     },
     {
-      "id": 28,
+      "id": 29,
       "title": "LT EP4",
       "creator": "Light",
       "verifier": "Light",
@@ -1164,7 +1199,7 @@
       ]
     },
     {
-      "id": 29,
+      "id": 30,
       "title": "LT EP5",
       "creator": "Light",
       "verifier": "Light",
@@ -1203,7 +1238,7 @@
       ]
     },
     {
-      "id": 30,
+      "id": 31,
       "title": "Glide Festival",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1237,7 +1272,7 @@
       "clears": []
     },
     {
-      "id": 31,
+      "id": 32,
       "title": "LT EP3",
       "creator": "Light",
       "verifier": "Light",
@@ -1278,7 +1313,7 @@
       ]
     },
     {
-      "id": 32,
+      "id": 33,
       "title": "Slow Challenge",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1310,7 +1345,7 @@
       "clears": []
     },
     {
-      "id": 33,
+      "id": 34,
       "title": "Answer Me",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1344,6 +1379,174 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-02-07 17:12",
+      "type": "add",
+      "title": "First Fantasy",
+      "detail": "7위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "Answer Me",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 33위에서 34위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "Slow Challenge",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 32위에서 33위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "LT EP3",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 31위에서 32위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "Glide Festival",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 30위에서 31위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "LT EP5",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 29위에서 30위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "LT EP4",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 28위에서 29위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "LT EP6",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 27위에서 28위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "JPA EP6",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 26위에서 27위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "JPA EP9",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 25위에서 26위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "LT EP2",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 24위에서 25위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "LT EP7",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 23위에서 24위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "JPA EP2",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 22위에서 23위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "JPA EP3",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 21위에서 22위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "JPA EP7",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 20위에서 21위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "JPA EP1",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 19위에서 20위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "JPA EP5",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 18위에서 19위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "JPA EP4",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 17위에서 18위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "Trolled",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 16위에서 17위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "Egg Layout",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 15위에서 16위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "JPA EP8",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 14위에서 15위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "Endless Dreaming",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 13위에서 14위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "LT EP8",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 12위에서 13위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "PPPP",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 11위에서 12위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "Reaper Wave",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 10위에서 11위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "FlipBook",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 9위에서 10위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "Just Test Map",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 8위에서 9위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-07 17:12",
+      "type": "move",
+      "title": "BOOBAWAVEBA",
+      "detail": "'First Fantasy' 레벨 추가로 인해 순위가 7위에서 8위로 하락하였습니다."
+    },
     {
       "time": "2026-02-07 11:04",
       "type": "move",
