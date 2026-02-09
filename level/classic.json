@@ -1009,10 +1009,11 @@
       "id": 25,
       "title": "LT EP2",
       "creator": "Light",
-      "video": "-",
       "verifier": "Light",
+      "video": "-",
+      "rating": "",
       "map": {
-        "mapId": 84729138,
+        "mapId": "84729138",
         "length": "1m 2s",
         "objects": 2387,
         "uploadDate": "2022-10-17"
@@ -1020,24 +1021,14 @@
       "song": {
         "name": "At the Speed of Light",
         "artist": "Dimrain47",
-        "id": 467339
+        "id": "467339"
       },
       "gameplay": {
-        "mainMode": "Ship",
         "modeRatio": {
           "Cube": 100
         },
         "speedRatio": {
           "1x": 100
-        }
-      },
-      "framePerfect": {
-        "total": 0,
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
         }
       },
       "tags": [
@@ -1048,7 +1039,14 @@
         "None-Effect",
         "No-Clear"
       ],
-      "clears": []
+      "clears": [
+        {
+          "player": "Choco",
+          "percent": 100,
+          "date": "2026-02-09",
+          "link": "https://youtu.be/v0NtskyEGb8"
+        }
+      ]
     },
     {
       "id": 26,
