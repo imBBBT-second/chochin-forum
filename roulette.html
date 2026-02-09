@@ -336,6 +336,11 @@
           레거시 (11위~)
         </button>
       </div>
+      <div class="roulette-controls">
+        <button class="roulette-btn" onclick="toggleExcludeCleared(this)">
+          클리어 제외
+        </button>
+      </div>
       <div style="text-align: center; margin-bottom: 40px">
         <button class="roulette-btn spin-btn" onclick="startSpin()">
           룰렛 돌리기
@@ -358,6 +363,7 @@
       let allLevels = [];
       const selectedCategories = new Set();
       const selectedModes = new Set(['classic']);
+      let excludeCleared = false;
 
       let currentUser = localStorage.getItem('currentUser') || null;
 
@@ -465,6 +471,24 @@
         }
       }
 
+      function toggleExcludeCleared(btn) {
+        if (!currentUser) {
+          alert('로그인이 필요한 기능입니다.');
+          return;
+        }
+        excludeCleared = !excludeCleared;
+        if (excludeCleared) btn.classList.add('active');
+        else btn.classList.remove('active');
+      }
+
+      function checkIfLevelCleared(level) {
+        if (!currentUser) return false;
+        const name = currentUser.toLowerCase();
+        const isCleared = level.clears && level.clears.some(c => c.player.toLowerCase() === name && Number(c.percent) === 100);
+        const isVerifier = level.verifier && level.verifier.toLowerCase() === name;
+        return isCleared || isVerifier;
+      }
+
       function startSpin() {
         if (allLevels.length === 0) {
           alert(
@@ -484,18 +508,23 @@
         let pool = [];
 
         const addLevels = (levels, type) => {
+          let targetLevels = levels;
+          if (excludeCleared) {
+            targetLevels = levels.filter((l) => !checkIfLevelCleared(l));
+          }
+
           if (selectedCategories.has('main')) {
-            levels
+            targetLevels
               .filter((l) => l.id >= 1 && l.id <= 5)
               .forEach((l) => pool.push({ ...l, _type: type }));
           }
           if (selectedCategories.has('ext')) {
-            levels
+            targetLevels
               .filter((l) => l.id >= 6 && l.id <= 10)
               .forEach((l) => pool.push({ ...l, _type: type }));
           }
           if (selectedCategories.has('legacy')) {
-            levels
+            targetLevels
               .filter((l) => l.id >= 11)
               .forEach((l) => pool.push({ ...l, _type: type }));
           }
