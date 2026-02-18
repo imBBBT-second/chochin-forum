@@ -184,45 +184,6 @@
     },
     {
       "id": 6,
-      "title": "nullscube",
-      "creator": "Timo",
-      "verifier": "Timo",
-      "video": "https://www.youtube.com/embed/rqmKAdj5gPI",
-      "rating": "Mythic",
-      "map": {
-        "mapId": "126915240",
-        "length": "25s",
-        "objects": 33111,
-        "uploadDate": "2025-10-11"
-      },
-      "song": {
-        "name": "Flow",
-        "artist": "Creo",
-        "id": "1132447"
-      },
-      "gameplay": {
-        "modeRatio": {
-          "Cube": 100
-        },
-        "speedRatio": {
-          "0.5x": 7.6,
-          "1x": 92.4
-        }
-      },
-      "tags": [
-        "Cube",
-        "1x",
-        "Short",
-        "Physical",
-        "Slow",
-        "One-Mode",
-        "Full-Effect",
-        "No-Clear"
-      ],
-      "clears": []
-    },
-    {
-      "id": 7,
       "title": "chocubed",
       "creator": "Light",
       "verifier": "Light",
@@ -270,6 +231,52 @@
           "percent": 55,
           "date": "2026-02-07",
           "link": ""
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "nullscube",
+      "creator": "Timo",
+      "verifier": "Timo",
+      "video": "https://www.youtube.com/embed/rqmKAdj5gPI",
+      "rating": "Mythic",
+      "map": {
+        "mapId": "126915240",
+        "length": "25s",
+        "objects": 33111,
+        "uploadDate": "2025-10-11"
+      },
+      "song": {
+        "name": "Flow",
+        "artist": "Creo",
+        "id": "1132447"
+      },
+      "gameplay": {
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "0.5x": 7.6,
+          "1x": 92.4
+        }
+      },
+      "tags": [
+        "Cube",
+        "1x",
+        "Short",
+        "Physical",
+        "Slow",
+        "One-Mode",
+        "Full-Effect",
+        "No-Clear"
+      ],
+      "clears": [
+        {
+          "player": "Light",
+          "percent": 100,
+          "date": "2026-02-18",
+          "link": "https://youtu.be/1IEtMmpC6qo"
         }
       ]
     },
@@ -1414,6 +1421,18 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-02-18 20:00",
+      "type": "move",
+      "title": "nullscube",
+      "detail": "'chocubed' 레벨의 순위 변동으로 인해 순위가 6위에서 7위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-18 20:00",
+      "type": "reeval",
+      "title": "chocubed",
+      "detail": "'chocubed' 레벨의 재평가로 인해 순위가 7위에서 6위로 상승하였습니다."
+    },
     {
       "time": "2026-02-14 00:29",
       "type": "move",
