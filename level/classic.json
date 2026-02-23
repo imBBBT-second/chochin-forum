@@ -282,41 +282,6 @@
     },
     {
       "id": 8,
-      "title": "First Fantasy",
-      "creator": "Choco",
-      "verifier": "Choco",
-      "video": "https://www.youtube.com/embed/GhHEGWOnv3c",
-      "rating": "Featured",
-      "map": {
-        "mapId": "132859666",
-        "length": "52s",
-        "objects": 11645,
-        "uploadDate": "2026-02-06"
-      },
-      "song": {
-        "name": "Her Name Is Yubin Lady",
-        "artist": "Tree Palm",
-        "id": "NONG"
-      },
-      "gameplay": {
-        "modeRatio": {},
-        "speedRatio": {}
-      },
-      "tags": [
-        "Cube",
-        "Long",
-        "Memory",
-        "Sync",
-        "Physical",
-        "Low-Effect",
-        "One-Mode",
-        "No-Clear",
-        "NONG"
-      ],
-      "clears": []
-    },
-    {
-      "id": 9,
       "title": "BOOBAWAVEBA",
       "creator": "Choco",
       "verifier": "Choco",
@@ -351,6 +316,41 @@
         "Low-Effect",
         "One-Mode",
         "No-Clear"
+      ],
+      "clears": []
+    },
+    {
+      "id": 9,
+      "title": "First Fantasy",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/GhHEGWOnv3c",
+      "rating": "Featured",
+      "map": {
+        "mapId": "132859666",
+        "length": "52s",
+        "objects": 11645,
+        "uploadDate": "2026-02-06"
+      },
+      "song": {
+        "name": "Her Name Is Yubin Lady",
+        "artist": "Tree Palm",
+        "id": "NONG"
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "tags": [
+        "Cube",
+        "Long",
+        "Memory",
+        "Sync",
+        "Physical",
+        "Low-Effect",
+        "One-Mode",
+        "No-Clear",
+        "NONG"
       ],
       "clears": []
     },
@@ -647,6 +647,251 @@
     },
     {
       "id": 17,
+      "title": "JPA EP7",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/Ki59EogWXq0",
+      "rating": "",
+      "map": {
+        "mapId": "86204427",
+        "length": "2m 35s",
+        "objects": 5115,
+        "uploadDate": "2022-11-29"
+      },
+      "song": {
+        "name": "Thundaga (FL Core)",
+        "artist": "Garlagan",
+        "id": "465848"
+      },
+      "gameplay": {
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "tags": [
+        "Any-Mode",
+        "2x",
+        "XL",
+        "XXL",
+        "Physical",
+        "None-Effect",
+        "No-Clear"
+      ],
+      "clears": []
+    },
+    {
+      "id": 18,
+      "title": "JPA EP4",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "-",
+      "rating": "",
+      "map": {
+        "mapId": "84951046",
+        "length": "1m 28s",
+        "objects": 2064,
+        "uploadDate": "2022-10-24"
+      },
+      "song": {
+        "name": "Hexagon Force",
+        "artist": "Waterflame",
+        "id": "15"
+      },
+      "gameplay": {
+        "modeRatio": {
+          "Cube": 32.6,
+          "Ship": 38.5,
+          "Wave": 13.2,
+          "Robot": 6.9,
+          "Spider": 8.9
+        },
+        "speedRatio": {
+          "0.5x": 12.9,
+          "1x": 40.3,
+          "2x": 40.4,
+          "3x": 6.45
+        }
+      },
+      "tags": [
+        "Cube",
+        "Dual",
+        "2x",
+        "Long",
+        "Memory",
+        "Physical",
+        "None-Effect",
+        "No-Clear"
+      ],
+      "clears": []
+    },
+    {
+      "id": 19,
+      "title": "JPA EP5",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/0ArqVh7ttEo",
+      "rating": "",
+      "map": {
+        "mapId": "85596521",
+        "length": "1m 36s",
+        "objects": 9344,
+        "uploadDate": "2022-11-12"
+      },
+      "song": {
+        "name": "-Final Battle-",
+        "artist": "Waterflame",
+        "id": "598349"
+      },
+      "gameplay": {
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "tags": [
+        "Any-Mode",
+        "4x",
+        "Long",
+        "Physical",
+        "Low-Effect",
+        "No-Clear"
+      ],
+      "clears": []
+    },
+    {
+      "id": 20,
+      "title": "JPA EP2",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/q2uQM2yz4K4",
+      "rating": "",
+      "map": {
+        "mapId": "84536046",
+        "length": "1m 33s",
+        "objects": 3025,
+        "uploadDate": "2022-10-11"
+      },
+      "song": {
+        "name": "Theory of Everthing 2",
+        "artist": "DJ-Nate",
+        "id": "17"
+      },
+      "gameplay": {
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "tags": [
+        "Any-Mode",
+        "1x",
+        "2x",
+        "Long",
+        "Physical",
+        "None-Effect",
+        "No-Clear"
+      ],
+      "clears": []
+    },
+    {
+      "id": 21,
+      "title": "JPA EP1",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/TzGBCHnXtAE",
+      "rating": "",
+      "map": {
+        "mapId": "84244031",
+        "length": "1m 39s",
+        "objects": 3054,
+        "uploadDate": "2022-10-02"
+      },
+      "song": {
+        "name": "Theory of Everthing",
+        "artist": "DJ-Nate",
+        "id": "11"
+      },
+      "gameplay": {
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "tags": [
+        "Any-Mode",
+        "Dual",
+        "1x",
+        "Long",
+        "Physical",
+        "None-Effect",
+        "No-Clear"
+      ],
+      "clears": []
+    },
+    {
+      "id": 22,
+      "title": "Trolled",
+      "creator": "Light",
+      "verifier": "Light",
+      "video": "-",
+      "rating": "",
+      "map": {
+        "mapId": "85646626",
+        "length": "36s",
+        "objects": 553,
+        "uploadDate": "2022-11-13"
+      },
+      "song": {
+        "name": "Youve been Trolled",
+        "artist": "AntonyC",
+        "id": "477402"
+      },
+      "gameplay": {
+        "modeRatio": {
+          "Cube": 44,
+          "Ship": 9.7,
+          "Ball": 8.6,
+          "UFO": 6.7,
+          "Wave": 25.5,
+          "Robot": 5.4
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "tags": [
+        "Any-Mode",
+        "1x",
+        "Medium",
+        "Memory",
+        "Low-Effect"
+      ],
+      "clears": [
+        {
+          "player": "imBBBT",
+          "percent": 100,
+          "date": "2026-01-16",
+          "link": ""
+        },
+        {
+          "player": "Choco",
+          "percent": 100,
+          "date": "2026-01-19",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "id": 23,
       "title": "Egg Layout",
       "creator": "Light",
       "verifier": "Light",
@@ -705,229 +950,7 @@
       ]
     },
     {
-      "id": 18,
-      "title": "Trolled",
-      "creator": "Light",
-      "verifier": "Light",
-      "video": "-",
-      "map": {
-        "mapId": "85646626",
-        "length": "36s",
-        "objects": 553,
-        "uploadDate": "2022-11-13"
-      },
-      "song": {
-        "name": "Youve been Trolled",
-        "artist": "AntonyC",
-        "id": "477402"
-      },
-      "gameplay": {
-        "modeRatio": {
-          "Cube": 44,
-          "Ship": 9.7,
-          "Ball": 8.6,
-          "UFO": 6.7,
-          "Wave": 25.5,
-          "Robot": 5.4
-        },
-        "speedRatio": {
-          "1x": 100
-        }
-      },
-      "framePerfect": {
-        "fps": {
-          "30": 0,
-          "60": 1,
-          "120": 0,
-          "240": 0
-        },
-        "total": 1
-      },
-      "tags": [
-        "Any-Mode",
-        "1x",
-        "Medium",
-        "Memory",
-        "Low-Effect"
-      ],
-      "clears": [
-        {
-          "player": "imBBBT",
-          "percent": 100,
-          "date": "2026-01-16"
-        },
-        {
-          "player": "Choco",
-          "percent": 100,
-          "date": "2026-01-19"
-        }
-      ]
-    },
-    {
-      "id": 19,
-      "title": "JPA EP4",
-      "creator": "Choco",
-      "verifier": "Choco",
-      "video": "-",
-      "map": {
-        "mapId": "84951046",
-        "length": "1m 28s",
-        "objects": 2064,
-        "uploadDate": "2022-10-24"
-      },
-      "song": {
-        "name": "Hexagon Force",
-        "artist": "Waterflame",
-        "id": "15"
-      },
-      "gameplay": {
-        "modeRatio": {
-          "Cube": 32.6,
-          "Ship": 38.5,
-          "Wave": 13.2,
-          "Robot": 6.9,
-          "Spider": 8.9
-        },
-        "speedRatio": {
-          "0.5x": 12.9,
-          "1x": 40.3,
-          "2x": 40.4,
-          "3x": 6.45
-        }
-      },
-      "framePerfect": {
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        },
-        "total": 0
-      },
-      "tags": [
-        "Cube",
-        "Dual",
-        "2x",
-        "Long",
-        "Memory",
-        "Physical",
-        "None-Effect",
-        "No-Clear"
-      ],
-      "clears": []
-    },
-    {
-      "id": 20,
-      "title": "JPA EP5",
-      "creator": "Choco",
-      "verifier": "Choco",
-      "video": "https://www.youtube.com/embed/0ArqVh7ttEo",
-      "rating": "",
-      "map": {
-        "mapId": "85596521",
-        "length": "1m 36s",
-        "objects": 9344,
-        "uploadDate": "2022-11-12"
-      },
-      "song": {
-        "name": "-Final Battle-",
-        "artist": "Waterflame",
-        "id": "598349"
-      },
-      "gameplay": {
-        "modeRatio": {
-          "Cube": 100
-        },
-        "speedRatio": {
-          "1x": 100
-        }
-      },
-      "tags": [
-        "Any-Mode",
-        "4x",
-        "Long",
-        "Physical",
-        "Low-Effect",
-        "No-Clear"
-      ],
-      "clears": []
-    },
-    {
-      "id": 21,
-      "title": "JPA EP1",
-      "creator": "Choco",
-      "verifier": "Choco",
-      "video": "https://www.youtube.com/embed/TzGBCHnXtAE",
-      "rating": "",
-      "map": {
-        "mapId": "84244031",
-        "length": "1m 39s",
-        "objects": 3054,
-        "uploadDate": "2022-10-02"
-      },
-      "song": {
-        "name": "Theory of Everthing",
-        "artist": "DJ-Nate",
-        "id": "11"
-      },
-      "gameplay": {
-        "modeRatio": {
-          "Cube": 100
-        },
-        "speedRatio": {
-          "1x": 100
-        }
-      },
-      "tags": [
-        "Any-Mode",
-        "Dual",
-        "1x",
-        "Long",
-        "Physical",
-        "None-Effect",
-        "No-Clear"
-      ],
-      "clears": []
-    },
-    {
-      "id": 22,
-      "title": "JPA EP7",
-      "creator": "Choco",
-      "verifier": "Choco",
-      "video": "https://www.youtube.com/embed/Ki59EogWXq0",
-      "rating": "",
-      "map": {
-        "mapId": "86204427",
-        "length": "2m 35s",
-        "objects": 5115,
-        "uploadDate": "2022-11-29"
-      },
-      "song": {
-        "name": "Thundaga (FL Core)",
-        "artist": "Garlagan",
-        "id": "465848"
-      },
-      "gameplay": {
-        "modeRatio": {
-          "Cube": 100
-        },
-        "speedRatio": {
-          "1x": 100
-        }
-      },
-      "tags": [
-        "Any-Mode",
-        "2x",
-        "XL",
-        "XXL",
-        "Physical",
-        "None-Effect",
-        "No-Clear"
-      ],
-      "clears": []
-    },
-    {
-      "id": 23,
+      "id": 24,
       "title": "JPA EP3",
       "creator": "Choco",
       "verifier": "Choco",
@@ -957,43 +980,6 @@
         "3x",
         "Long",
         "Fast",
-        "Physical",
-        "None-Effect",
-        "No-Clear"
-      ],
-      "clears": []
-    },
-    {
-      "id": 24,
-      "title": "JPA EP2",
-      "creator": "Choco",
-      "verifier": "Choco",
-      "video": "https://www.youtube.com/embed/q2uQM2yz4K4",
-      "rating": "",
-      "map": {
-        "mapId": "84536046",
-        "length": "1m 33s",
-        "objects": 3025,
-        "uploadDate": "2022-10-11"
-      },
-      "song": {
-        "name": "Theory of Everthing 2",
-        "artist": "DJ-Nate",
-        "id": "17"
-      },
-      "gameplay": {
-        "modeRatio": {
-          "Cube": 100
-        },
-        "speedRatio": {
-          "1x": 100
-        }
-      },
-      "tags": [
-        "Any-Mode",
-        "1x",
-        "2x",
-        "Long",
         "Physical",
         "None-Effect",
         "No-Clear"
@@ -1315,6 +1301,39 @@
     },
     {
       "id": 33,
+      "title": "Slow Challenge",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "-",
+      "rating": "",
+      "map": {
+        "mapId": "101683550",
+        "length": "2m 55s",
+        "objects": 1718,
+        "uploadDate": "2024-02-29"
+      },
+      "song": {
+        "name": "Stereo Madness",
+        "artist": "ForeverBound",
+        "id": "0"
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "tags": [
+        "Wave",
+        "4x",
+        "XXL",
+        "Gimmick",
+        "Physical",
+        "Slow",
+        "None-Effect"
+      ],
+      "clears": []
+    },
+    {
+      "id": 34,
       "title": "LT EP3",
       "creator": "Light",
       "verifier": "Light",
@@ -1355,38 +1374,6 @@
       ]
     },
     {
-      "id": 34,
-      "title": "Slow Challenge",
-      "creator": "Choco",
-      "verifier": "Choco",
-      "video": "-",
-      "map": {
-        "mapId": "101683550",
-        "length": "2m 55s",
-        "objects": 1718,
-        "uploadDate": "2024-02-29"
-      },
-      "song": {
-        "name": "Stereo Madness",
-        "artist": "ForeverBound",
-        "id": "0"
-      },
-      "gameplay": {
-        "modeRatio": {},
-        "speedRatio": {}
-      },
-      "tags": [
-        "Wave",
-        "4x",
-        "XXL",
-        "Gimmick",
-        "Physical",
-        "Slow",
-        "None-Effect"
-      ],
-      "clears": []
-    },
-    {
       "id": 35,
       "title": "Answer Me",
       "creator": "Choco",
@@ -1421,6 +1408,162 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-02-23 23:32",
+      "type": "move",
+      "title": "LT EP3",
+      "detail": "'Slow Challenge' 레벨의 순위 변동으로 인해 순위가 33위에서 34위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-23 23:32",
+      "type": "reeval",
+      "title": "Slow Challenge",
+      "detail": "'Slow Challenge' 레벨의 재평가로 인해 순위가 34위에서 33위로 상승하였습니다."
+    },
+    {
+      "time": "2026-02-23 23:27",
+      "type": "move",
+      "title": "Egg Layout",
+      "detail": "'Trolled' 레벨의 순위 변동으로 인해 순위가 22위에서 23위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-23 23:27",
+      "type": "reeval",
+      "title": "Trolled",
+      "detail": "'Trolled' 레벨의 재평가로 인해 순위가 23위에서 22위로 상승하였습니다."
+    },
+    {
+      "time": "2026-02-23 23:25",
+      "type": "move",
+      "title": "JPA EP3",
+      "detail": "'JPA EP2' 레벨의 순위 변동으로 인해 순위가 23위에서 24위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-23 23:25",
+      "type": "move",
+      "title": "Trolled",
+      "detail": "'JPA EP2' 레벨의 순위 변동으로 인해 순위가 22위에서 23위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-23 23:25",
+      "type": "move",
+      "title": "Egg Layout",
+      "detail": "'JPA EP2' 레벨의 순위 변동으로 인해 순위가 21위에서 22위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-23 23:25",
+      "type": "move",
+      "title": "JPA EP1",
+      "detail": "'JPA EP2' 레벨의 순위 변동으로 인해 순위가 20위에서 21위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-23 23:25",
+      "type": "reeval",
+      "title": "JPA EP2",
+      "detail": "'JPA EP2' 레벨의 재평가로 인해 순위가 24위에서 20위로 상승하였습니다."
+    },
+    {
+      "time": "2026-02-23 23:23",
+      "type": "move",
+      "title": "Trolled",
+      "detail": "'JPA EP7' 레벨의 순위 변동으로 인해 순위가 21위에서 22위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-23 23:23",
+      "type": "move",
+      "title": "Egg Layout",
+      "detail": "'JPA EP7' 레벨의 순위 변동으로 인해 순위가 20위에서 21위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-23 23:23",
+      "type": "move",
+      "title": "JPA EP1",
+      "detail": "'JPA EP7' 레벨의 순위 변동으로 인해 순위가 19위에서 20위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-23 23:23",
+      "type": "move",
+      "title": "JPA EP5",
+      "detail": "'JPA EP7' 레벨의 순위 변동으로 인해 순위가 18위에서 19위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-23 23:23",
+      "type": "move",
+      "title": "JPA EP4",
+      "detail": "'JPA EP7' 레벨의 순위 변동으로 인해 순위가 17위에서 18위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-23 23:23",
+      "type": "reeval",
+      "title": "JPA EP7",
+      "detail": "'JPA EP7' 레벨의 재평가로 인해 순위가 22위에서 17위로 상승하였습니다."
+    },
+    {
+      "time": "2026-02-23 23:23",
+      "type": "move",
+      "title": "Trolled",
+      "detail": "'JPA EP1' 레벨의 순위 변동으로 인해 순위가 20위에서 21위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-23 23:23",
+      "type": "move",
+      "title": "Egg Layout",
+      "detail": "'JPA EP1' 레벨의 순위 변동으로 인해 순위가 19위에서 20위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-23 23:23",
+      "type": "reeval",
+      "title": "JPA EP1",
+      "detail": "'JPA EP1' 레벨의 재평가로 인해 순위가 21위에서 19위로 상승하였습니다."
+    },
+    {
+      "time": "2026-02-23 23:22",
+      "type": "move",
+      "title": "Trolled",
+      "detail": "'JPA EP5' 레벨의 순위 변동으로 인해 순위가 19위에서 20위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-23 23:22",
+      "type": "move",
+      "title": "Egg Layout",
+      "detail": "'JPA EP5' 레벨의 순위 변동으로 인해 순위가 18위에서 19위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-23 23:22",
+      "type": "reeval",
+      "title": "JPA EP5",
+      "detail": "'JPA EP5' 레벨의 재평가로 인해 순위가 20위에서 18위로 상승하였습니다."
+    },
+    {
+      "time": "2026-02-23 23:22",
+      "type": "move",
+      "title": "Trolled",
+      "detail": "'JPA EP4' 레벨의 순위 변동으로 인해 순위가 18위에서 19위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-23 23:22",
+      "type": "move",
+      "title": "Egg Layout",
+      "detail": "'JPA EP4' 레벨의 순위 변동으로 인해 순위가 17위에서 18위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-23 23:22",
+      "type": "reeval",
+      "title": "JPA EP4",
+      "detail": "'JPA EP4' 레벨의 재평가로 인해 순위가 19위에서 17위로 상승하였습니다."
+    },
+    {
+      "time": "2026-02-23 23:15",
+      "type": "move",
+      "title": "First Fantasy",
+      "detail": "'BOOBAWAVEBA' 레벨의 순위 변동으로 인해 순위가 8위에서 9위로 하락하였습니다."
+    },
+    {
+      "time": "2026-02-23 23:15",
+      "type": "reeval",
+      "title": "BOOBAWAVEBA",
+      "detail": "'BOOBAWAVEBA' 레벨의 재평가로 인해 순위가 9위에서 8위로 상승하였습니다."
+    },
     {
       "time": "2026-02-18 20:00",
       "type": "move",
