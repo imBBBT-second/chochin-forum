@@ -182,20 +182,20 @@
       "description": "다른 맵들을 모티브로 만들어진 맵들을 해보세요!",
       "levels": [
         {
-          "name": "chocubed",
-          "author": "Light"
-        },
-        {
           "name": "Stereo MadnesS EX",
           "author": "Choco & Timo"
         },
         {
-          "name": "BOOBAWAVEBA",
-          "author": "Choco"
+          "name": "chocubed",
+          "author": "Light"
         },
         {
           "name": "nullscube",
           "author": "Timo"
+        },
+        {
+          "name": "BOOBAWAVEBA",
+          "author": "Choco"
         }
       ],
       "clears": []
@@ -290,6 +290,11 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-02-28",
+      "type": "팩 수정",
+      "detail": "Inspired Pack 팩 정보가 수정되었습니다."
+    },
     {
       "time": "2026-02-07",
       "type": "팩 추가",
