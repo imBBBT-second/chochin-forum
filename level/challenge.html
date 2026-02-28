@@ -461,6 +461,20 @@
         color: #c8c8c8;
         margin-top: 4px;
       }
+      .detail-header-desc {
+        font-family: Paperlogy3;
+        font-size: clamp(0.9rem, 1.4vw, 1.2rem);
+        color: #aaa;
+        margin-top: 8px;
+        white-space: pre-wrap;
+        max-width: 90%;
+      }
+      .detail-desc-text {
+        font-family: Paperlogy3;
+        color: #ddd;
+        white-space: pre-wrap;
+        line-height: 1.5;
+      }
       .detail-title {
         font-family: Paperlogy9;
         font-size: clamp(2.4rem, 4.8vw, 4.8rem);
@@ -1003,6 +1017,82 @@
           margin-top: auto !important;
         }
       }
+
+      /* --- 정보 모달 스타일 --- */
+      .info-floating-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        background: #5e68ef;
+        color: white;
+        border-radius: 50%;
+        border: none;
+        font-family: 'Paperlogy7';
+        font-size: 1.8rem;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        z-index: 900;
+        transition: transform 0.2s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .info-floating-btn:hover {
+        transform: scale(1.1);
+        background: #4b55d6;
+      }
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.8);
+        z-index: 2000;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(3px);
+      }
+      .modal-overlay.show { display: flex; }
+      .modal-content {
+        background: #333;
+        padding: 30px;
+        border-radius: 15px;
+        width: 90%;
+        max-width: 600px;
+        border: 2px solid #555;
+        position: relative;
+        max-height: 85vh;
+        overflow-y: auto;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      }
+      .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 2rem;
+        color: #aaa;
+        cursor: pointer;
+        line-height: 1;
+      }
+      .close-btn:hover { color: #fff; }
+      .modal-section { margin-bottom: 25px; }
+      .modal-section h3 {
+        font-family: 'Paperlogy7';
+        color: #4f9;
+        margin-bottom: 10px;
+        font-size: 1.4rem;
+        border-bottom: 1px solid #555;
+        padding-bottom: 5px;
+      }
+      .modal-section ul {
+        list-style-type: disc;
+        padding-left: 20px;
+        font-family: 'Paperlogy3';
+        color: #ddd;
+        line-height: 1.6;
+      }
+      .modal-section li { margin-bottom: 8px; }
     </style>
   </head>
 
@@ -1107,6 +1197,7 @@
         <div class="detail-header">
           <div id="detailTitle" class="detail-title"></div>
           <div id="detailCreator" class="detail-creator"></div>
+          <div id="detailHeaderDesc" class="detail-header-desc"></div>
         </div>
         <div class="video-wrapper">
           <iframe id="detailVideo" allowfullscreen></iframe>
@@ -1171,6 +1262,41 @@
         <div id="devContent" class="dev-content"></div>
       </div>
     </div>
+
+    <!-- 정보 모달 -->
+    <div id="infoModal" class="modal-overlay" onclick="toggleInfoModal()">
+      <div class="modal-content" onclick="event.stopPropagation()">
+        <span class="close-btn" onclick="toggleInfoModal()">&times;</span>
+        <h2 style="font-family: Paperlogy9; text-align: center; color: white; margin-bottom: 20px;">등재 및 클리어 조건</h2>
+        
+        <div class="modal-section">
+          <h3>📜 등재 조건</h3>
+          <ul>
+            <li>별도의 규칙이 없습니다.</li>
+            <li>맵에 관한 규칙은 지오메트리 대쉬 정책을 따릅니다.</li>
+            <li>별도의 발언이 명확치 않거나 존재하지 않을 시, <b>베리파이 즉시 등재</b>됩니다.</li>
+            <li>등재를 희망치 않는다면, 따로 <b>등재 불허</b>를 관련해 관리자에게 전하면 등재되지 않습니다.</li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <h3>🏆 클리어 조건</h3>
+          <ul>
+            <li>베리파이를 하지 않으면, <b>언베파</b>에 등재되고 '당초못'에 다뤄지지 않습니다.</li>
+            <li>순위 등재는 클리어 유저와 베리파이어, 에디터의 의견을 따르지만 별도의 조정이 이뤄질 수 있습니다.</li>
+            <li>
+              <b>[필수]</b> 클릭 사운드, 안전 모드(Safe Mode) 활성화<br>
+              <b>[추천]</b> OBS 화면 포함, 키뷰어<br>
+              <span style="color:#ff6b6b; font-size:0.9em;">※ 필수 항목이 한 가지라도 이뤄지지 않을 시 인정되지 않습니다.</span>
+            </li>
+            <li>밀길 혹은 핵으로 인한 베리파이는 용납되지 않습니다.</li>
+            <li>클리어는 베리파이 때 요구되는 세팅을 따릅니다.</li>
+            <li>예기치 못하고 고의성이 없는 밀길이 발견되었을 때는 그 길을 통해 클리어하지 않는 것을 권장합니다. (클리어 인정 X)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <button class="info-floating-btn" onclick="toggleInfoModal()">i</button>
 
     <script>
       // 페이지별 설정
@@ -1435,6 +1561,11 @@
         document.getElementById('detailCreator').innerHTML =
           `${creatorText} <span style="color:#aaa; font-size:0.8rem; margin-left:5px;">(${basePts}pt)</span>${userPtsDisplay}`;
 
+        const headerDesc = document.getElementById('detailHeaderDesc');
+        if (headerDesc) {
+          headerDesc.innerText = item.description || '';
+        }
+
         const videoFrame = document.getElementById('detailVideo');
         if (videoFrame) {
           videoFrame.src = item.video ? item.video : 'about:blank';
@@ -1458,6 +1589,17 @@
                 <span style="color: #888;">(ID: ${item.song?.id || '-'})</span>
               </div>
             </div>
+            ${item.enjoyment ? `<div style="margin-bottom: 10px; font-family: Paperlogy5; color: #eee;"><b>Enjoyment:</b> ${item.enjoyment}/10</div>` : ''}
+            ${item.framePerfect ? `
+            <div class="fp-info" style="background: #333; padding: 10px; border-radius: 5px;">
+              <div style="font-family: Paperlogy7; color: #fff; margin-bottom:5px;">Frame Perfects</div>
+              <div style="display:flex; gap:10px; flex-wrap:wrap; font-size: 0.9rem; color: #eee; font-family: Paperlogy5;">
+                <span><b>30Hz:</b> ${item.framePerfect.fps?.["30"] || 0}</span>
+                <span><b>60Hz:</b> ${item.framePerfect.fps?.["60"] || 0}</span>
+                <span><b>120Hz:</b> ${item.framePerfect.fps?.["120"] || 0}</span>
+                <span><b>240Hz:</b> ${item.framePerfect.fps?.["240"] || 0}</span>
+              </div>
+            </div>` : ''}
           `;
           }
         }
@@ -1480,6 +1622,9 @@
         const description = document.getElementById('detailDescription');
         if (description) {
           description.innerHTML = '';
+          if (item.description) {
+            description.innerHTML += `<div class="section"><div class="section-title">설명</div><div class="detail-desc-text">${item.description}</div></div>`;
+          }
           if (item.tags?.length) {
             const tagsHtml = item.tags
               .map(
@@ -1642,6 +1787,9 @@
               song: { name: '', artist: '', id: '' },
               gameplay: { modeRatio: {}, speedRatio: {} },
               tags: [],
+              description: '',
+              enjoyment: '',
+              framePerfect: { fps: { "30": 0, "60": 0, "120": 0, "240": 0 } },
               rating: '',
             };
 
@@ -1685,6 +1833,20 @@
             ${mkInput('f-sname', '노래 제목', lv.song?.name)}
             ${mkInput('f-sauth', '작곡가', lv.song?.artist)}
             ${mkInput('f-sid', '노래 ID', lv.song?.id)}
+
+            <label>설명 (Description)</label>
+            <textarea id="f-desc" class="dev-input" placeholder="맵 설명..." style="min-height:80px;">${lv.description || ''}</textarea>
+
+            <label>Enjoyment (0-10)</label>
+            ${mkInput('f-enjoyment', 'Enjoyment', lv.enjoyment, 'number')}
+
+            <label>Frame Perfects (30, 60, 120, 240)</label>
+            <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:5px;">
+              ${mkInput('f-fp30', '30Hz', lv.framePerfect?.fps?.["30"] || 0, 'number')}
+              ${mkInput('f-fp60', '60Hz', lv.framePerfect?.fps?.["60"] || 0, 'number')}
+              ${mkInput('f-fp120', '120Hz', lv.framePerfect?.fps?.["120"] || 0, 'number')}
+              ${mkInput('f-fp240', '240Hz', lv.framePerfect?.fps?.["240"] || 0, 'number')}
+            </div>
 
             <label>비율(JSON): 모드, 속도</label>
             <textarea id="f-mode" class="dev-input" placeholder='모드 비율 {"Cube":50...}' style="min-height:60px;">${JSON.stringify(
@@ -1774,6 +1936,16 @@
               name: getValue('f-sname'),
               artist: getValue('f-sauth'),
               id: getValue('f-sid'),
+            },
+            description: getValue('f-desc'),
+            enjoyment: getValue('f-enjoyment'),
+            framePerfect: {
+                fps: {
+                    "30": parseInt(getValue('f-fp30')) || 0,
+                    "60": parseInt(getValue('f-fp60')) || 0,
+                    "120": parseInt(getValue('f-fp120')) || 0,
+                    "240": parseInt(getValue('f-fp240')) || 0
+                }
             },
             gameplay: {
               modeRatio: JSON.parse(getValue('f-mode') || '{}'),
@@ -2115,6 +2287,11 @@
       function toggleMenu() {
         const header = document.querySelector('.header-container');
         header.classList.toggle('open');
+      }
+
+      function toggleInfoModal() {
+        const modal = document.getElementById('infoModal');
+        modal.classList.toggle('show');
       }
     </script>
   </body>

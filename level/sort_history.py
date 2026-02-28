@@ -21,12 +21,12 @@ def sort_history():
 
             if "history" in data and isinstance(data["history"], list):
                 # 시간 순서대로 정렬 (문자열 비교: ISO 8601 형식은 사전순 정렬이 시간순과 일치함)
-                data["history"].sort(key=lambda x: x.get("time", ""))
+                data["history"].sort(key=lambda x: x.get("time", ""), reverse=True)
                 
                 with open(file_path, 'w', encoding='utf-8') as f:
                     json.dump(data, f, indent=2, ensure_ascii=False)
                 
-                print(f"{filename}의 history가 시간 순서대로 정렬되었습니다.")
+                print(f"{filename}의 history가 최신순으로 정렬되었습니다.")
             else:
                 print(f"{filename}에 history 항목이 없습니다.")
 

@@ -129,6 +129,11 @@ function showDetail(item, element) {
       ? `by ${item.creator}`
       : `by ${item.creator} / Verified by ${item.verifier}`;
 
+  const headerDesc = document.getElementById('detailHeaderDesc');
+  if (headerDesc) {
+    headerDesc.innerText = item.description || '';
+  }
+
   const videoFrame = document.getElementById('detailVideo');
   if (videoFrame) {
     videoFrame.src = item.video ? item.video : 'about:blank';
@@ -177,15 +182,24 @@ function showDetail(item, element) {
 
   const description = document.getElementById('detailDescription');
   if (description) {
-    description.innerHTML = '';
+    let html = '';
+
+    if (item.rating) {
+      html += `<div class="section">
+        <div class="section-title">등급</div>
+        <p style="font-family: Paperlogy5; color: #eee; text-align: left;">${item.rating || 'N/A'}</p>
+        </div>`;
+    }
+
     if (item.tags?.length) {
       const tagsHtml = item.tags
         .map(
           (t) => `<span class="tag" onclick="searchByTag('${t}')">#${t}</span>`,
         )
         .join('');
-      description.innerHTML = `<div class="section"><div class="section-title">태그</div><div class="tag-group-container">${tagsHtml}</div></div>`;
+      html += `<div class="section"><div class="section-title">태그</div><div class="tag-group-container">${tagsHtml}</div></div>`;
     }
+    description.innerHTML = html;
   }
 
   clearBox.innerHTML = '';
