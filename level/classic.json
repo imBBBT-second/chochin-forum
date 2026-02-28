@@ -69,6 +69,40 @@
     },
     {
       "id": 3,
+      "title": "Hand Dance MK I",
+      "creator": "Timo",
+      "verifier": "Timo",
+      "video": "https://www.youtube.com/embed/mnd9ZJSdSlM",
+      "rating": "Legendary",
+      "map": {
+        "mapId": "133348817",
+        "length": "44s",
+        "objects": 7090,
+        "uploadDate": "2026-02-13"
+      },
+      "song": {
+        "name": "Local Forecast",
+        "artist": "Kevin MacLeod",
+        "id": "10003093"
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "tags": [
+        "Any-Mode",
+        "Medium",
+        "Sync",
+        "Physical",
+        "Learny",
+        "High-CPS",
+        "Low-Effect",
+        "No-Clear"
+      ],
+      "clears": []
+    },
+    {
+      "id": 4,
       "title": "Heart 8",
       "creator": "Choco",
       "verifier": "Choco",
@@ -104,7 +138,7 @@
       "clears": []
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "Stereo MadnesS EX",
       "creator": "Choco & Timo",
       "verifier": "Timo",
@@ -144,45 +178,6 @@
         "Physical",
         "Full-Effect",
         "Slow",
-        "No-Clear"
-      ],
-      "clears": []
-    },
-    {
-      "id": 5,
-      "title": "nullscube",
-      "creator": "Timo",
-      "verifier": "Timo",
-      "video": "https://www.youtube.com/embed/rqmKAdj5gPI",
-      "rating": "Mythic",
-      "map": {
-        "mapId": "126915240",
-        "length": "25s",
-        "objects": 33111,
-        "uploadDate": "2025-10-11"
-      },
-      "song": {
-        "name": "Flow",
-        "artist": "Creo",
-        "id": "1132447"
-      },
-      "gameplay": {
-        "modeRatio": {
-          "Cube": 100
-        },
-        "speedRatio": {
-          "0.5x": 7.6,
-          "1x": 92.4
-        }
-      },
-      "tags": [
-        "Cube",
-        "1x",
-        "Short",
-        "Physical",
-        "Slow",
-        "One-Mode",
-        "Full-Effect",
         "No-Clear"
       ],
       "clears": []
@@ -241,38 +236,49 @@
     },
     {
       "id": 7,
-      "title": "First Fantasy",
-      "creator": "Choco",
-      "verifier": "Choco",
-      "video": "https://www.youtube.com/embed/GhHEGWOnv3c",
-      "rating": "Featured",
+      "title": "nullscube",
+      "creator": "Timo",
+      "verifier": "Timo",
+      "video": "https://www.youtube.com/embed/rqmKAdj5gPI",
+      "rating": "Mythic",
       "map": {
-        "mapId": "132859666",
-        "length": "52s",
-        "objects": 11645,
-        "uploadDate": "2026-02-06"
+        "mapId": "126915240",
+        "length": "25s",
+        "objects": 33111,
+        "uploadDate": "2025-10-11"
       },
       "song": {
-        "name": "Her Name Is Yubin Lady",
-        "artist": "Tree Palm",
-        "id": "NONG"
+        "name": "Flow",
+        "artist": "Creo",
+        "id": "1132447"
       },
       "gameplay": {
-        "modeRatio": {},
-        "speedRatio": {}
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "0.5x": 7.6,
+          "1x": 92.4
+        }
       },
       "tags": [
         "Cube",
-        "Long",
-        "Memory",
-        "Sync",
+        "1x",
+        "Short",
         "Physical",
-        "Low-Effect",
+        "Slow",
         "One-Mode",
-        "No-Clear",
-        "NONG"
+        "Full-Effect",
+        "No-Clear"
       ],
-      "clears": []
+      "clears": [
+        {
+          "player": "Light",
+          "percent": 100,
+          "date": "2026-02-18",
+          "link": "https://youtu.be/1IEtMmpC6qo"
+        }
+      ]
     },
     {
       "id": 8,
@@ -315,6 +321,41 @@
     },
     {
       "id": 9,
+      "title": "First Fantasy",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/GhHEGWOnv3c",
+      "rating": "Featured",
+      "map": {
+        "mapId": "132859666",
+        "length": "52s",
+        "objects": 11645,
+        "uploadDate": "2026-02-06"
+      },
+      "song": {
+        "name": "Her Name Is Yubin Lady",
+        "artist": "Tree Palm",
+        "id": "NONG"
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "tags": [
+        "Cube",
+        "Long",
+        "Memory",
+        "Sync",
+        "Physical",
+        "Low-Effect",
+        "One-Mode",
+        "No-Clear",
+        "NONG"
+      ],
+      "clears": []
+    },
+    {
+      "id": 10,
       "title": "Just Test Map",
       "creator": "Choco",
       "verifier": "Light",
@@ -344,7 +385,7 @@
       "clears": []
     },
     {
-      "id": 10,
+      "id": 11,
       "title": "FlipBook",
       "creator": "Choco",
       "verifier": "Choco",
@@ -384,7 +425,7 @@
       ]
     },
     {
-      "id": 11,
+      "id": 12,
       "title": "Reaper Wave",
       "creator": "Timo",
       "verifier": "Timo",
@@ -435,7 +476,7 @@
       ]
     },
     {
-      "id": 12,
+      "id": 13,
       "title": "PPPP",
       "creator": "Choco",
       "verifier": "Choco",
@@ -481,7 +522,7 @@
       "clears": []
     },
     {
-      "id": 13,
+      "id": 14,
       "title": "LT EP8",
       "creator": "Light",
       "verifier": "Choco",
@@ -513,7 +554,7 @@
       "clears": []
     },
     {
-      "id": 14,
+      "id": 15,
       "title": "Endless Dreaming",
       "creator": "Light",
       "verifier": "Light",
@@ -551,7 +592,7 @@
       ]
     },
     {
-      "id": 15,
+      "id": 16,
       "title": "JPA EP8",
       "creator": "Choco",
       "verifier": "Choco",
@@ -605,7 +646,252 @@
       "clears": []
     },
     {
-      "id": 16,
+      "id": 17,
+      "title": "JPA EP7",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/Ki59EogWXq0",
+      "rating": "",
+      "map": {
+        "mapId": "86204427",
+        "length": "2m 35s",
+        "objects": 5115,
+        "uploadDate": "2022-11-29"
+      },
+      "song": {
+        "name": "Thundaga (FL Core)",
+        "artist": "Garlagan",
+        "id": "465848"
+      },
+      "gameplay": {
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "tags": [
+        "Any-Mode",
+        "2x",
+        "XL",
+        "XXL",
+        "Physical",
+        "None-Effect",
+        "No-Clear"
+      ],
+      "clears": []
+    },
+    {
+      "id": 18,
+      "title": "JPA EP4",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "-",
+      "rating": "",
+      "map": {
+        "mapId": "84951046",
+        "length": "1m 28s",
+        "objects": 2064,
+        "uploadDate": "2022-10-24"
+      },
+      "song": {
+        "name": "Hexagon Force",
+        "artist": "Waterflame",
+        "id": "15"
+      },
+      "gameplay": {
+        "modeRatio": {
+          "Cube": 32.6,
+          "Ship": 38.5,
+          "Wave": 13.2,
+          "Robot": 6.9,
+          "Spider": 8.9
+        },
+        "speedRatio": {
+          "0.5x": 12.9,
+          "1x": 40.3,
+          "2x": 40.4,
+          "3x": 6.45
+        }
+      },
+      "tags": [
+        "Cube",
+        "Dual",
+        "2x",
+        "Long",
+        "Memory",
+        "Physical",
+        "None-Effect",
+        "No-Clear"
+      ],
+      "clears": []
+    },
+    {
+      "id": 19,
+      "title": "JPA EP5",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/0ArqVh7ttEo",
+      "rating": "",
+      "map": {
+        "mapId": "85596521",
+        "length": "1m 36s",
+        "objects": 9344,
+        "uploadDate": "2022-11-12"
+      },
+      "song": {
+        "name": "-Final Battle-",
+        "artist": "Waterflame",
+        "id": "598349"
+      },
+      "gameplay": {
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "tags": [
+        "Any-Mode",
+        "4x",
+        "Long",
+        "Physical",
+        "Low-Effect",
+        "No-Clear"
+      ],
+      "clears": []
+    },
+    {
+      "id": 20,
+      "title": "JPA EP2",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/q2uQM2yz4K4",
+      "rating": "",
+      "map": {
+        "mapId": "84536046",
+        "length": "1m 33s",
+        "objects": 3025,
+        "uploadDate": "2022-10-11"
+      },
+      "song": {
+        "name": "Theory of Everthing 2",
+        "artist": "DJ-Nate",
+        "id": "17"
+      },
+      "gameplay": {
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "tags": [
+        "Any-Mode",
+        "1x",
+        "2x",
+        "Long",
+        "Physical",
+        "None-Effect",
+        "No-Clear"
+      ],
+      "clears": []
+    },
+    {
+      "id": 21,
+      "title": "JPA EP1",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/TzGBCHnXtAE",
+      "rating": "",
+      "map": {
+        "mapId": "84244031",
+        "length": "1m 39s",
+        "objects": 3054,
+        "uploadDate": "2022-10-02"
+      },
+      "song": {
+        "name": "Theory of Everthing",
+        "artist": "DJ-Nate",
+        "id": "11"
+      },
+      "gameplay": {
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "tags": [
+        "Any-Mode",
+        "Dual",
+        "1x",
+        "Long",
+        "Physical",
+        "None-Effect",
+        "No-Clear"
+      ],
+      "clears": []
+    },
+    {
+      "id": 22,
+      "title": "Trolled",
+      "creator": "Light",
+      "verifier": "Light",
+      "video": "-",
+      "rating": "",
+      "map": {
+        "mapId": "85646626",
+        "length": "36s",
+        "objects": 553,
+        "uploadDate": "2022-11-13"
+      },
+      "song": {
+        "name": "Youve been Trolled",
+        "artist": "AntonyC",
+        "id": "477402"
+      },
+      "gameplay": {
+        "modeRatio": {
+          "Cube": 44,
+          "Ship": 9.7,
+          "Ball": 8.6,
+          "UFO": 6.7,
+          "Wave": 25.5,
+          "Robot": 5.4
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "tags": [
+        "Any-Mode",
+        "1x",
+        "Medium",
+        "Memory",
+        "Low-Effect"
+      ],
+      "clears": [
+        {
+          "player": "imBBBT",
+          "percent": 100,
+          "date": "2026-01-16",
+          "link": ""
+        },
+        {
+          "player": "Choco",
+          "percent": 100,
+          "date": "2026-01-19",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "id": 23,
       "title": "Egg Layout",
       "creator": "Light",
       "verifier": "Light",
@@ -664,229 +950,7 @@
       ]
     },
     {
-      "id": 17,
-      "title": "Trolled",
-      "creator": "Light",
-      "verifier": "Light",
-      "video": "-",
-      "map": {
-        "mapId": "85646626",
-        "length": "36s",
-        "objects": 553,
-        "uploadDate": "2022-11-13"
-      },
-      "song": {
-        "name": "Youve been Trolled",
-        "artist": "AntonyC",
-        "id": "477402"
-      },
-      "gameplay": {
-        "modeRatio": {
-          "Cube": 44,
-          "Ship": 9.7,
-          "Ball": 8.6,
-          "UFO": 6.7,
-          "Wave": 25.5,
-          "Robot": 5.4
-        },
-        "speedRatio": {
-          "1x": 100
-        }
-      },
-      "framePerfect": {
-        "fps": {
-          "30": 0,
-          "60": 1,
-          "120": 0,
-          "240": 0
-        },
-        "total": 1
-      },
-      "tags": [
-        "Any-Mode",
-        "1x",
-        "Medium",
-        "Memory",
-        "Low-Effect"
-      ],
-      "clears": [
-        {
-          "player": "imBBBT",
-          "percent": 100,
-          "date": "2026-01-16"
-        },
-        {
-          "player": "Choco",
-          "percent": 100,
-          "date": "2026-01-19"
-        }
-      ]
-    },
-    {
-      "id": 18,
-      "title": "JPA EP4",
-      "creator": "Choco",
-      "verifier": "Choco",
-      "video": "-",
-      "map": {
-        "mapId": "84951046",
-        "length": "1m 28s",
-        "objects": 2064,
-        "uploadDate": "2022-10-24"
-      },
-      "song": {
-        "name": "Hexagon Force",
-        "artist": "Waterflame",
-        "id": "15"
-      },
-      "gameplay": {
-        "modeRatio": {
-          "Cube": 32.6,
-          "Ship": 38.5,
-          "Wave": 13.2,
-          "Robot": 6.9,
-          "Spider": 8.9
-        },
-        "speedRatio": {
-          "0.5x": 12.9,
-          "1x": 40.3,
-          "2x": 40.4,
-          "3x": 6.45
-        }
-      },
-      "framePerfect": {
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        },
-        "total": 0
-      },
-      "tags": [
-        "Cube",
-        "Dual",
-        "2x",
-        "Long",
-        "Memory",
-        "Physical",
-        "None-Effect",
-        "No-Clear"
-      ],
-      "clears": []
-    },
-    {
-      "id": 19,
-      "title": "JPA EP5",
-      "creator": "Choco",
-      "verifier": "Choco",
-      "video": "https://www.youtube.com/embed/0ArqVh7ttEo",
-      "rating": "",
-      "map": {
-        "mapId": "85596521",
-        "length": "1m 36s",
-        "objects": 9344,
-        "uploadDate": "2022-11-12"
-      },
-      "song": {
-        "name": "-Final Battle-",
-        "artist": "Waterflame",
-        "id": "598349"
-      },
-      "gameplay": {
-        "modeRatio": {
-          "Cube": 100
-        },
-        "speedRatio": {
-          "1x": 100
-        }
-      },
-      "tags": [
-        "Any-Mode",
-        "4x",
-        "Long",
-        "Physical",
-        "Low-Effect",
-        "No-Clear"
-      ],
-      "clears": []
-    },
-    {
-      "id": 20,
-      "title": "JPA EP1",
-      "creator": "Choco",
-      "verifier": "Choco",
-      "video": "https://www.youtube.com/embed/TzGBCHnXtAE",
-      "rating": "",
-      "map": {
-        "mapId": "84244031",
-        "length": "1m 39s",
-        "objects": 3054,
-        "uploadDate": "2022-10-02"
-      },
-      "song": {
-        "name": "Theory of Everthing",
-        "artist": "DJ-Nate",
-        "id": "11"
-      },
-      "gameplay": {
-        "modeRatio": {
-          "Cube": 100
-        },
-        "speedRatio": {
-          "1x": 100
-        }
-      },
-      "tags": [
-        "Any-Mode",
-        "Dual",
-        "1x",
-        "Long",
-        "Physical",
-        "None-Effect",
-        "No-Clear"
-      ],
-      "clears": []
-    },
-    {
-      "id": 21,
-      "title": "JPA EP7",
-      "creator": "Choco",
-      "verifier": "Choco",
-      "video": "https://www.youtube.com/embed/Ki59EogWXq0",
-      "rating": "",
-      "map": {
-        "mapId": "86204427",
-        "length": "2m 35s",
-        "objects": 5115,
-        "uploadDate": "2022-11-29"
-      },
-      "song": {
-        "name": "Thundaga (FL Core)",
-        "artist": "Garlagan",
-        "id": "465848"
-      },
-      "gameplay": {
-        "modeRatio": {
-          "Cube": 100
-        },
-        "speedRatio": {
-          "1x": 100
-        }
-      },
-      "tags": [
-        "Any-Mode",
-        "2x",
-        "XL",
-        "XXL",
-        "Physical",
-        "None-Effect",
-        "No-Clear"
-      ],
-      "clears": []
-    },
-    {
-      "id": 22,
+      "id": 24,
       "title": "JPA EP3",
       "creator": "Choco",
       "verifier": "Choco",
@@ -923,44 +987,7 @@
       "clears": []
     },
     {
-      "id": 23,
-      "title": "JPA EP2",
-      "creator": "Choco",
-      "verifier": "Choco",
-      "video": "https://www.youtube.com/embed/q2uQM2yz4K4",
-      "rating": "",
-      "map": {
-        "mapId": "84536046",
-        "length": "1m 33s",
-        "objects": 3025,
-        "uploadDate": "2022-10-11"
-      },
-      "song": {
-        "name": "Theory of Everthing 2",
-        "artist": "DJ-Nate",
-        "id": "17"
-      },
-      "gameplay": {
-        "modeRatio": {
-          "Cube": 100
-        },
-        "speedRatio": {
-          "1x": 100
-        }
-      },
-      "tags": [
-        "Any-Mode",
-        "1x",
-        "2x",
-        "Long",
-        "Physical",
-        "None-Effect",
-        "No-Clear"
-      ],
-      "clears": []
-    },
-    {
-      "id": 24,
+      "id": 25,
       "title": "LT EP7",
       "creator": "Light",
       "verifier": "Light",
@@ -1006,13 +1033,14 @@
       ]
     },
     {
-      "id": 25,
+      "id": 26,
       "title": "LT EP2",
       "creator": "Light",
-      "video": "-",
       "verifier": "Light",
+      "video": "-",
+      "rating": "",
       "map": {
-        "mapId": 84729138,
+        "mapId": "84729138",
         "length": "1m 2s",
         "objects": 2387,
         "uploadDate": "2022-10-17"
@@ -1020,24 +1048,14 @@
       "song": {
         "name": "At the Speed of Light",
         "artist": "Dimrain47",
-        "id": 467339
+        "id": "467339"
       },
       "gameplay": {
-        "mainMode": "Ship",
         "modeRatio": {
           "Cube": 100
         },
         "speedRatio": {
           "1x": 100
-        }
-      },
-      "framePerfect": {
-        "total": 0,
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
         }
       },
       "tags": [
@@ -1048,10 +1066,17 @@
         "None-Effect",
         "No-Clear"
       ],
-      "clears": []
+      "clears": [
+        {
+          "player": "Choco",
+          "percent": 100,
+          "date": "2026-02-09",
+          "link": "https://youtu.be/v0NtskyEGb8"
+        }
+      ]
     },
     {
-      "id": 26,
+      "id": 27,
       "title": "JPA EP9",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1084,7 +1109,7 @@
       "clears": []
     },
     {
-      "id": 27,
+      "id": 28,
       "title": "JPA EP6",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1115,7 +1140,7 @@
       "clears": []
     },
     {
-      "id": 28,
+      "id": 29,
       "title": "LT EP6",
       "creator": "Light",
       "verifier": "Light",
@@ -1163,7 +1188,7 @@
       ]
     },
     {
-      "id": 29,
+      "id": 30,
       "title": "LT EP4",
       "creator": "Light",
       "verifier": "Light",
@@ -1202,7 +1227,7 @@
       ]
     },
     {
-      "id": 30,
+      "id": 31,
       "title": "LT EP5",
       "creator": "Light",
       "verifier": "Light",
@@ -1241,7 +1266,7 @@
       ]
     },
     {
-      "id": 31,
+      "id": 32,
       "title": "Glide Festival",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1275,7 +1300,40 @@
       "clears": []
     },
     {
-      "id": 32,
+      "id": 33,
+      "title": "Slow Challenge",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "-",
+      "rating": "",
+      "map": {
+        "mapId": "101683550",
+        "length": "2m 55s",
+        "objects": 1718,
+        "uploadDate": "2024-02-29"
+      },
+      "song": {
+        "name": "Stereo Madness",
+        "artist": "ForeverBound",
+        "id": "0"
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "tags": [
+        "Wave",
+        "4x",
+        "XXL",
+        "Gimmick",
+        "Physical",
+        "Slow",
+        "None-Effect"
+      ],
+      "clears": []
+    },
+    {
+      "id": 34,
       "title": "LT EP3",
       "creator": "Light",
       "verifier": "Light",
@@ -1316,39 +1374,7 @@
       ]
     },
     {
-      "id": 33,
-      "title": "Slow Challenge",
-      "creator": "Choco",
-      "verifier": "Choco",
-      "video": "-",
-      "map": {
-        "mapId": "101683550",
-        "length": "2m 55s",
-        "objects": 1718,
-        "uploadDate": "2024-02-29"
-      },
-      "song": {
-        "name": "Stereo Madness",
-        "artist": "ForeverBound",
-        "id": "0"
-      },
-      "gameplay": {
-        "modeRatio": {},
-        "speedRatio": {}
-      },
-      "tags": [
-        "Wave",
-        "4x",
-        "XXL",
-        "Gimmick",
-        "Physical",
-        "Slow",
-        "None-Effect"
-      ],
-      "clears": []
-    },
-    {
-      "id": 34,
+      "id": 35,
       "title": "Answer Me",
       "creator": "Choco",
       "verifier": "Choco",
