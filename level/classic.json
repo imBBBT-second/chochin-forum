@@ -446,6 +446,51 @@
     },
     {
       "id": 10,
+      "title": "Which One?",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/BFGHAEY52J4",
+      "rating": "",
+      "map": {
+        "mapId": "130261964",
+        "length": "26s",
+        "objects": 3483,
+        "uploadDate": "2025-12-28"
+      },
+      "song": {
+        "name": "Which One?",
+        "artist": "Hiroki.",
+        "id": "NONG"
+      },
+      "description": "[ 파동을 믿기 ]        [ 기계를 믿기 ]",
+      "enjoyment": "",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "tags": [
+        "Wave",
+        "Robot",
+        "Short",
+        "Sync",
+        "Physical",
+        "Fast",
+        "None-Effect",
+        "No-Clear",
+        "NONG"
+      ],
+      "clears": []
+    },
+    {
+      "id": 11,
       "title": "Just Test Map",
       "creator": "Choco",
       "verifier": "Light",
@@ -485,7 +530,7 @@
       "clears": []
     },
     {
-      "id": 11,
+      "id": 12,
       "title": "FlipBook",
       "creator": "Choco",
       "verifier": "Choco",
@@ -535,7 +580,7 @@
       ]
     },
     {
-      "id": 12,
+      "id": 13,
       "title": "Reaper Wave",
       "creator": "Timo",
       "verifier": "Timo",
@@ -596,7 +641,7 @@
       ]
     },
     {
-      "id": 13,
+      "id": 14,
       "title": "PPPP",
       "creator": "Choco",
       "verifier": "Choco",
@@ -652,7 +697,7 @@
       "clears": []
     },
     {
-      "id": 14,
+      "id": 15,
       "title": "LT EP8",
       "creator": "Light",
       "verifier": "Choco",
@@ -694,7 +739,7 @@
       "clears": []
     },
     {
-      "id": 15,
+      "id": 16,
       "title": "Endless Dreaming",
       "creator": "Light",
       "verifier": "Light",
@@ -742,7 +787,7 @@
       ]
     },
     {
-      "id": 16,
+      "id": 17,
       "title": "JPA EP8",
       "creator": "Choco",
       "verifier": "Choco",
@@ -796,7 +841,7 @@
       "clears": []
     },
     {
-      "id": 17,
+      "id": 18,
       "title": "JPA EP7",
       "creator": "Choco",
       "verifier": "Choco",
@@ -833,7 +878,7 @@
       "clears": []
     },
     {
-      "id": 18,
+      "id": 19,
       "title": "JPA EP4",
       "creator": "Choco",
       "verifier": "Choco",
@@ -878,7 +923,7 @@
       "clears": []
     },
     {
-      "id": 19,
+      "id": 20,
       "title": "JPA EP5",
       "creator": "Choco",
       "verifier": "Choco",
@@ -914,7 +959,7 @@
       "clears": []
     },
     {
-      "id": 20,
+      "id": 21,
       "title": "JPA EP2",
       "creator": "Choco",
       "verifier": "Choco",
@@ -951,7 +996,7 @@
       "clears": []
     },
     {
-      "id": 21,
+      "id": 22,
       "title": "JPA EP1",
       "creator": "Choco",
       "verifier": "Choco",
@@ -988,7 +1033,7 @@
       "clears": []
     },
     {
-      "id": 22,
+      "id": 23,
       "title": "Trolled",
       "creator": "Light",
       "verifier": "Light",
@@ -1041,7 +1086,7 @@
       ]
     },
     {
-      "id": 23,
+      "id": 24,
       "title": "Egg Layout",
       "creator": "Light",
       "verifier": "Light",
@@ -1100,7 +1145,7 @@
       ]
     },
     {
-      "id": 24,
+      "id": 25,
       "title": "JPA EP3",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1137,7 +1182,7 @@
       "clears": []
     },
     {
-      "id": 25,
+      "id": 26,
       "title": "LT EP7",
       "creator": "Light",
       "verifier": "Light",
@@ -1183,7 +1228,7 @@
       ]
     },
     {
-      "id": 26,
+      "id": 27,
       "title": "LT EP2",
       "creator": "Light",
       "verifier": "Light",
@@ -1226,7 +1271,7 @@
       ]
     },
     {
-      "id": 27,
+      "id": 28,
       "title": "JPA EP9",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1259,7 +1304,7 @@
       "clears": []
     },
     {
-      "id": 28,
+      "id": 29,
       "title": "JPA EP6",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1290,7 +1335,7 @@
       "clears": []
     },
     {
-      "id": 29,
+      "id": 30,
       "title": "LT EP6",
       "creator": "Light",
       "verifier": "Light",
@@ -1338,7 +1383,7 @@
       ]
     },
     {
-      "id": 30,
+      "id": 31,
       "title": "LT EP4",
       "creator": "Light",
       "verifier": "Light",
@@ -1377,7 +1422,7 @@
       ]
     },
     {
-      "id": 31,
+      "id": 32,
       "title": "LT EP5",
       "creator": "Light",
       "verifier": "Light",
@@ -1416,7 +1461,7 @@
       ]
     },
     {
-      "id": 32,
+      "id": 33,
       "title": "Glide Festival",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1450,7 +1495,7 @@
       "clears": []
     },
     {
-      "id": 33,
+      "id": 34,
       "title": "Slow Challenge",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1483,7 +1528,7 @@
       "clears": []
     },
     {
-      "id": 34,
+      "id": 35,
       "title": "LT EP3",
       "creator": "Light",
       "verifier": "Light",
@@ -1524,7 +1569,7 @@
       ]
     },
     {
-      "id": 35,
+      "id": 36,
       "title": "Answer Me",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1558,6 +1603,168 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-03-13 21:01",
+      "type": "add",
+      "title": "Which One?",
+      "detail": "10위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2026-03-13 21:01",
+      "type": "move",
+      "title": "Answer Me",
+      "detail": "'Which One?' 레벨 추가로 인해 순위가 35위에서 36위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-13 21:01",
+      "type": "move",
+      "title": "LT EP3",
+      "detail": "'Which One?' 레벨 추가로 인해 순위가 34위에서 35위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-13 21:01",
+      "type": "move",
+      "title": "Slow Challenge",
+      "detail": "'Which One?' 레벨 추가로 인해 순위가 33위에서 34위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-13 21:01",
+      "type": "move",
+      "title": "Glide Festival",
+      "detail": "'Which One?' 레벨 추가로 인해 순위가 32위에서 33위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-13 21:01",
+      "type": "move",
+      "title": "LT EP5",
+      "detail": "'Which One?' 레벨 추가로 인해 순위가 31위에서 32위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-13 21:01",
+      "type": "move",
+      "title": "LT EP4",
+      "detail": "'Which One?' 레벨 추가로 인해 순위가 30위에서 31위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-13 21:01",
+      "type": "move",
+      "title": "LT EP6",
+      "detail": "'Which One?' 레벨 추가로 인해 순위가 29위에서 30위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-13 21:01",
+      "type": "move",
+      "title": "JPA EP6",
+      "detail": "'Which One?' 레벨 추가로 인해 순위가 28위에서 29위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-13 21:01",
+      "type": "move",
+      "title": "JPA EP9",
+      "detail": "'Which One?' 레벨 추가로 인해 순위가 27위에서 28위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-13 21:01",
+      "type": "move",
+      "title": "LT EP2",
+      "detail": "'Which One?' 레벨 추가로 인해 순위가 26위에서 27위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-13 21:01",
+      "type": "move",
+      "title": "LT EP7",
+      "detail": "'Which One?' 레벨 추가로 인해 순위가 25위에서 26위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-13 21:01",
+      "type": "move",
+      "title": "JPA EP3",
+      "detail": "'Which One?' 레벨 추가로 인해 순위가 24위에서 25위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-13 21:01",
+      "type": "move",
+      "title": "Egg Layout",
+      "detail": "'Which One?' 레벨 추가로 인해 순위가 23위에서 24위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-13 21:01",
+      "type": "move",
+      "title": "Trolled",
+      "detail": "'Which One?' 레벨 추가로 인해 순위가 22위에서 23위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-13 21:01",
+      "type": "move",
+      "title": "JPA EP1",
+      "detail": "'Which One?' 레벨 추가로 인해 순위가 21위에서 22위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-13 21:01",
+      "type": "move",
+      "title": "JPA EP2",
+      "detail": "'Which One?' 레벨 추가로 인해 순위가 20위에서 21위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-13 21:01",
+      "type": "move",
+      "title": "JPA EP5",
+      "detail": "'Which One?' 레벨 추가로 인해 순위가 19위에서 20위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-13 21:01",
+      "type": "move",
+      "title": "JPA EP4",
+      "detail": "'Which One?' 레벨 추가로 인해 순위가 18위에서 19위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-13 21:01",
+      "type": "move",
+      "title": "JPA EP7",
+      "detail": "'Which One?' 레벨 추가로 인해 순위가 17위에서 18위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-13 21:01",
+      "type": "move",
+      "title": "JPA EP8",
+      "detail": "'Which One?' 레벨 추가로 인해 순위가 16위에서 17위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-13 21:01",
+      "type": "move",
+      "title": "Endless Dreaming",
+      "detail": "'Which One?' 레벨 추가로 인해 순위가 15위에서 16위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-13 21:01",
+      "type": "move",
+      "title": "LT EP8",
+      "detail": "'Which One?' 레벨 추가로 인해 순위가 14위에서 15위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-13 21:01",
+      "type": "move",
+      "title": "PPPP",
+      "detail": "'Which One?' 레벨 추가로 인해 순위가 13위에서 14위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-13 21:01",
+      "type": "move",
+      "title": "Reaper Wave",
+      "detail": "'Which One?' 레벨 추가로 인해 순위가 12위에서 13위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-13 21:01",
+      "type": "move",
+      "title": "FlipBook",
+      "detail": "'Which One?' 레벨 추가로 인해 순위가 11위에서 12위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-13 21:01",
+      "type": "move",
+      "title": "Just Test Map",
+      "detail": "'Which One?' 레벨 추가로 인해 순위가 10위에서 11위로 하락하였습니다."
+    },
     {
       "time": "2026-12-14 22:04",
       "type": "move",
