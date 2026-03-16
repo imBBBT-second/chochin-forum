@@ -527,7 +527,14 @@
         "Physical",
         "High-CPS"
       ],
-      "clears": []
+      "clears": [
+        {
+          "player": "Choco",
+          "percent": 62,
+          "date": "2026-02-16",
+          "link": ""
+        }
+      ]
     },
     {
       "id": 12,
