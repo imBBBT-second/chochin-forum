@@ -47,6 +47,49 @@
     },
     {
       "id": 2,
+      "title": "B1ack 0ut",
+      "creator": "Timo",
+      "verifier": "Timo",
+      "video": "https://www.youtube.com/embed/BsDTHVVrTmI",
+      "rating": "Legendary",
+      "map": {
+        "mapId": "135590009",
+        "length": "22s",
+        "objects": 35142,
+        "uploadDate": "2026-03-14"
+      },
+      "song": {
+        "name": "Apricot Special",
+        "artist": "Velvetomo",
+        "id": "1091340"
+      },
+      "description": "",
+      "enjoyment": "6",
+      "framePerfect": {
+        "fps": {
+          "30": 9,
+          "60": 3,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "tags": [
+        "Robot",
+        "Medium",
+        "Physical",
+        "Slow",
+        "Full-Effect",
+        "One-Mode",
+        "No-Clear"
+      ],
+      "clears": []
+    },
+    {
+      "id": 3,
       "title": "Desuwa",
       "creator": "Choco & Timo",
       "verifier": "Timo",
@@ -88,7 +131,7 @@
       "clears": []
     },
     {
-      "id": 3,
+      "id": 4,
       "title": "Hand Dance MK I",
       "creator": "Timo",
       "verifier": "Timo",
@@ -132,7 +175,7 @@
       "clears": []
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "Heart 8",
       "creator": "Choco",
       "verifier": "Choco",
@@ -178,7 +221,7 @@
       "clears": []
     },
     {
-      "id": 5,
+      "id": 6,
       "title": "Stereo MadnesS EX",
       "creator": "Choco & Timo",
       "verifier": "Timo",
@@ -233,7 +276,7 @@
       "clears": []
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "chocubed",
       "creator": "Light",
       "verifier": "Light",
@@ -295,7 +338,7 @@
       ]
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "nullscube",
       "creator": "Timo",
       "verifier": "Timo",
@@ -351,7 +394,7 @@
       ]
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "BOOBAWAVEBA",
       "creator": "Choco",
       "verifier": "Choco",
@@ -400,7 +443,7 @@
       "clears": []
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "First Fantasy",
       "creator": "Choco",
       "verifier": "Choco",
@@ -445,7 +488,7 @@
       "clears": []
     },
     {
-      "id": 10,
+      "id": 11,
       "title": "Which One?",
       "creator": "Choco",
       "verifier": "Choco",
@@ -490,7 +533,7 @@
       "clears": []
     },
     {
-      "id": 11,
+      "id": 12,
       "title": "Just Test Map",
       "creator": "Choco",
       "verifier": "Light",
@@ -537,7 +580,7 @@
       ]
     },
     {
-      "id": 12,
+      "id": 13,
       "title": "FlipBook",
       "creator": "Choco",
       "verifier": "Choco",
@@ -587,7 +630,7 @@
       ]
     },
     {
-      "id": 13,
+      "id": 14,
       "title": "Reaper Wave",
       "creator": "Timo",
       "verifier": "Timo",
@@ -648,7 +691,7 @@
       ]
     },
     {
-      "id": 14,
+      "id": 15,
       "title": "PPPP",
       "creator": "Choco",
       "verifier": "Choco",
@@ -704,7 +747,7 @@
       "clears": []
     },
     {
-      "id": 15,
+      "id": 16,
       "title": "LT EP8",
       "creator": "Light",
       "verifier": "Choco",
@@ -746,7 +789,7 @@
       "clears": []
     },
     {
-      "id": 16,
+      "id": 17,
       "title": "Endless Dreaming",
       "creator": "Light",
       "verifier": "Light",
@@ -794,7 +837,7 @@
       ]
     },
     {
-      "id": 17,
+      "id": 18,
       "title": "JPA EP8",
       "creator": "Choco",
       "verifier": "Choco",
@@ -848,7 +891,7 @@
       "clears": []
     },
     {
-      "id": 18,
+      "id": 19,
       "title": "JPA EP7",
       "creator": "Choco",
       "verifier": "Choco",
@@ -885,7 +928,7 @@
       "clears": []
     },
     {
-      "id": 19,
+      "id": 20,
       "title": "JPA EP4",
       "creator": "Choco",
       "verifier": "Choco",
@@ -930,7 +973,7 @@
       "clears": []
     },
     {
-      "id": 20,
+      "id": 21,
       "title": "JPA EP5",
       "creator": "Choco",
       "verifier": "Choco",
@@ -966,7 +1009,7 @@
       "clears": []
     },
     {
-      "id": 21,
+      "id": 22,
       "title": "JPA EP2",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1003,7 +1046,7 @@
       "clears": []
     },
     {
-      "id": 22,
+      "id": 23,
       "title": "JPA EP1",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1040,7 +1083,7 @@
       "clears": []
     },
     {
-      "id": 23,
+      "id": 24,
       "title": "Trolled",
       "creator": "Light",
       "verifier": "Light",
@@ -1093,7 +1136,7 @@
       ]
     },
     {
-      "id": 24,
+      "id": 25,
       "title": "Egg Layout",
       "creator": "Light",
       "verifier": "Light",
@@ -1152,7 +1195,7 @@
       ]
     },
     {
-      "id": 25,
+      "id": 26,
       "title": "JPA EP3",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1189,7 +1232,7 @@
       "clears": []
     },
     {
-      "id": 26,
+      "id": 27,
       "title": "LT EP7",
       "creator": "Light",
       "verifier": "Light",
@@ -1235,7 +1278,7 @@
       ]
     },
     {
-      "id": 27,
+      "id": 28,
       "title": "LT EP2",
       "creator": "Light",
       "verifier": "Light",
@@ -1278,7 +1321,7 @@
       ]
     },
     {
-      "id": 28,
+      "id": 29,
       "title": "JPA EP9",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1311,7 +1354,7 @@
       "clears": []
     },
     {
-      "id": 29,
+      "id": 30,
       "title": "JPA EP6",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1342,7 +1385,7 @@
       "clears": []
     },
     {
-      "id": 30,
+      "id": 31,
       "title": "LT EP6",
       "creator": "Light",
       "verifier": "Light",
@@ -1390,7 +1433,7 @@
       ]
     },
     {
-      "id": 31,
+      "id": 32,
       "title": "LT EP4",
       "creator": "Light",
       "verifier": "Light",
@@ -1429,7 +1472,7 @@
       ]
     },
     {
-      "id": 32,
+      "id": 33,
       "title": "LT EP5",
       "creator": "Light",
       "verifier": "Light",
@@ -1468,7 +1511,7 @@
       ]
     },
     {
-      "id": 33,
+      "id": 34,
       "title": "Glide Festival",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1502,7 +1545,7 @@
       "clears": []
     },
     {
-      "id": 34,
+      "id": 35,
       "title": "Slow Challenge",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1535,7 +1578,7 @@
       "clears": []
     },
     {
-      "id": 35,
+      "id": 36,
       "title": "LT EP3",
       "creator": "Light",
       "verifier": "Light",
@@ -1576,7 +1619,7 @@
       ]
     },
     {
-      "id": 36,
+      "id": 37,
       "title": "Answer Me",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1610,6 +1653,222 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-03-18 18:06",
+      "type": "add",
+      "title": "B1ack 0ut",
+      "detail": "2위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "Answer Me",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 36위에서 37위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "LT EP3",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 35위에서 36위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "Slow Challenge",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 34위에서 35위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "Glide Festival",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 33위에서 34위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "LT EP5",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 32위에서 33위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "LT EP4",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 31위에서 32위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "LT EP6",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 30위에서 31위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "JPA EP6",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 29위에서 30위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "JPA EP9",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 28위에서 29위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "LT EP2",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 27위에서 28위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "LT EP7",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 26위에서 27위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "JPA EP3",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 25위에서 26위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "Egg Layout",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 24위에서 25위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "Trolled",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 23위에서 24위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "JPA EP1",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 22위에서 23위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "JPA EP2",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 21위에서 22위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "JPA EP5",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 20위에서 21위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "JPA EP4",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 19위에서 20위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "JPA EP7",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 18위에서 19위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "JPA EP8",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 17위에서 18위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "Endless Dreaming",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 16위에서 17위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "LT EP8",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 15위에서 16위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "PPPP",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 14위에서 15위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "Reaper Wave",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 13위에서 14위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "FlipBook",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 12위에서 13위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "Just Test Map",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 11위에서 12위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "Which One?",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 10위에서 11위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "First Fantasy",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 9위에서 10위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "BOOBAWAVEBA",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 8위에서 9위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "nullscube",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 7위에서 8위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "chocubed",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 6위에서 7위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "Stereo MadnesS EX",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 5위에서 6위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "Heart 8",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 4위에서 5위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "Hand Dance MK I",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 3위에서 4위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-18 18:06",
+      "type": "move",
+      "title": "Desuwa",
+      "detail": "'B1ack 0ut' 레벨 추가로 인해 순위가 2위에서 3위로 하락하였습니다."
+    },
     {
       "time": "2026-03-13 21:01",
       "type": "add",
