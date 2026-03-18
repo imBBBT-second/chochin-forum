@@ -278,6 +278,10 @@
       "description": "모드가 단 하나인 맵들을 해보세요!",
       "levels": [
         {
+          "name": "B1lack 0ut",
+          "author": "Timo"
+        },
+        {
           "name": "nullscube",
           "author": "Timo"
         },
@@ -294,6 +298,11 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-03-18",
+      "type": "팩 수정",
+      "detail": "One Mode Pack 팩 정보가 수정되었습니다."
+    },
     {
       "time": "2026-03-13",
       "type": "팩 수정",
