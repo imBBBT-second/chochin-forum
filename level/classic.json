@@ -748,48 +748,6 @@
     },
     {
       "id": 16,
-      "title": "LT EP8",
-      "creator": "Light",
-      "verifier": "Choco",
-      "video": "https://www.youtube.com/embed/nJX7Hs3PBEs",
-      "rating": "Featured",
-      "map": {
-        "mapId": "126044291",
-        "length": "1m 24s",
-        "objects": 7525,
-        "uploadDate": "2025-09-16"
-      },
-      "song": {
-        "name": "Golden Haze (Prev)",
-        "artist": "DeadRewind",
-        "id": "557117"
-      },
-      "description": "LT 시리즈 역대 최고의 난이도이자 과거 불가능 맵으로 자리잡았던 LT EP8이 끝내 초코의 손으로 베리파이되었습니다. 꽤나 잘 구성된 겜플과 극후반 매우 어려워지는 언밸런싱의 맵입니다.",
-      "enjoyment": "",
-      "framePerfect": {
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        }
-      },
-      "gameplay": {
-        "modeRatio": {},
-        "speedRatio": {}
-      },
-      "tags": [
-        "Ship",
-        "Long",
-        "Memory",
-        "Physical",
-        "Full-Effect",
-        "No-Clear"
-      ],
-      "clears": []
-    },
-    {
-      "id": 17,
       "title": "Endless Dreaming",
       "creator": "Light",
       "verifier": "Light",
@@ -837,11 +795,12 @@
       ]
     },
     {
-      "id": 18,
+      "id": 17,
       "title": "JPA EP8",
       "creator": "Choco",
       "verifier": "Choco",
       "video": "-",
+      "rating": "",
       "map": {
         "mapId": "86335155",
         "length": "2m 11s",
@@ -852,6 +811,16 @@
         "name": "Stardust",
         "artist": "Geoxor",
         "id": "864327"
+      },
+      "description": "",
+      "enjoyment": "",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
       },
       "gameplay": {
         "modeRatio": {
@@ -869,15 +838,6 @@
           "3x": 16.8
         }
       },
-      "framePerfect": {
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        },
-        "total": 0
-      },
       "tags": [
         "Cube",
         "3x",
@@ -886,6 +846,48 @@
         "Physical",
         "Luck",
         "Low-Effect",
+        "No-Clear"
+      ],
+      "clears": []
+    },
+    {
+      "id": 18,
+      "title": "LT EP8",
+      "creator": "Light",
+      "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/nJX7Hs3PBEs",
+      "rating": "Featured",
+      "map": {
+        "mapId": "126044291",
+        "length": "1m 24s",
+        "objects": 7525,
+        "uploadDate": "2025-09-16"
+      },
+      "song": {
+        "name": "Golden Haze (Prev)",
+        "artist": "DeadRewind",
+        "id": "557117"
+      },
+      "description": "LT 시리즈 역대 최고의 난이도이자 과거 불가능 맵으로 자리잡았던 LT EP8이 끝내 초코의 손으로 베리파이되었습니다. 꽤나 잘 구성된 겜플과 극후반 매우 어려워지는 언밸런싱의 맵입니다.",
+      "enjoyment": "",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "tags": [
+        "Ship",
+        "Long",
+        "Memory",
+        "Physical",
+        "Full-Effect",
         "No-Clear"
       ],
       "clears": []
@@ -1137,65 +1139,6 @@
     },
     {
       "id": 25,
-      "title": "Egg Layout",
-      "creator": "Light",
-      "verifier": "Light",
-      "video": "https://www.youtube.com/embed/Enf5QGaAPyI",
-      "rating": "",
-      "map": {
-        "mapId": "123940130",
-        "length": "1m 20s",
-        "objects": 1734,
-        "uploadDate": "2025-08-01"
-      },
-      "song": {
-        "name": "Egg",
-        "artist": "Exyl",
-        "id": "1021674"
-      },
-      "gameplay": {
-        "modeRatio": {
-          "Cube": 38.8,
-          "Ship": 13.4,
-          "Ball": 8.1,
-          "UFO": 5.7,
-          "Wave": 8.1,
-          "Robot": 9.6,
-          "Spider": 12.4,
-          "Swing": 3.9
-        },
-        "speedRatio": {
-          "1x": 34.2,
-          "2x": 17.4,
-          "3x": 45.8,
-          "4x": 2.7
-        }
-      },
-      "tags": [
-        "Any-Mode",
-        "3x",
-        "Long",
-        "Sync",
-        "Learny",
-        "None-Effect"
-      ],
-      "clears": [
-        {
-          "player": "Choco",
-          "percent": 100,
-          "date": "2026-01-19",
-          "link": ""
-        },
-        {
-          "player": "imBBBT",
-          "percent": 100,
-          "date": "2026-01-24",
-          "link": "https://youtu.be/qgcbQj3DYaQ"
-        }
-      ]
-    },
-    {
-      "id": 26,
       "title": "JPA EP3",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1232,7 +1175,7 @@
       "clears": []
     },
     {
-      "id": 27,
+      "id": 26,
       "title": "LT EP7",
       "creator": "Light",
       "verifier": "Light",
@@ -1278,7 +1221,7 @@
       ]
     },
     {
-      "id": 28,
+      "id": 27,
       "title": "LT EP2",
       "creator": "Light",
       "verifier": "Light",
@@ -1321,7 +1264,7 @@
       ]
     },
     {
-      "id": 29,
+      "id": 28,
       "title": "JPA EP9",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1354,7 +1297,7 @@
       "clears": []
     },
     {
-      "id": 30,
+      "id": 29,
       "title": "JPA EP6",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1385,7 +1328,7 @@
       "clears": []
     },
     {
-      "id": 31,
+      "id": 30,
       "title": "LT EP6",
       "creator": "Light",
       "verifier": "Light",
@@ -1433,7 +1376,7 @@
       ]
     },
     {
-      "id": 32,
+      "id": 31,
       "title": "LT EP4",
       "creator": "Light",
       "verifier": "Light",
@@ -1472,7 +1415,7 @@
       ]
     },
     {
-      "id": 33,
+      "id": 32,
       "title": "LT EP5",
       "creator": "Light",
       "verifier": "Light",
@@ -1511,7 +1454,7 @@
       ]
     },
     {
-      "id": 34,
+      "id": 33,
       "title": "Glide Festival",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1543,6 +1486,75 @@
         "None-Effect"
       ],
       "clears": []
+    },
+    {
+      "id": 34,
+      "title": "Egg Layout",
+      "creator": "Light",
+      "verifier": "Light",
+      "video": "https://www.youtube.com/embed/Enf5QGaAPyI",
+      "rating": "",
+      "map": {
+        "mapId": "123940130",
+        "length": "1m 20s",
+        "objects": 1734,
+        "uploadDate": "2025-08-01"
+      },
+      "song": {
+        "name": "Egg",
+        "artist": "Exyl",
+        "id": "1021674"
+      },
+      "description": "",
+      "enjoyment": "",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "gameplay": {
+        "modeRatio": {
+          "Cube": 38.8,
+          "Ship": 13.4,
+          "Ball": 8.1,
+          "UFO": 5.7,
+          "Wave": 8.1,
+          "Robot": 9.6,
+          "Spider": 12.4,
+          "Swing": 3.9
+        },
+        "speedRatio": {
+          "1x": 34.2,
+          "2x": 17.4,
+          "3x": 45.8,
+          "4x": 2.7
+        }
+      },
+      "tags": [
+        "Any-Mode",
+        "3x",
+        "Long",
+        "Sync",
+        "Learny",
+        "None-Effect"
+      ],
+      "clears": [
+        {
+          "player": "Choco",
+          "percent": 100,
+          "date": "2026-01-19",
+          "link": ""
+        },
+        {
+          "player": "imBBBT",
+          "percent": 100,
+          "date": "2026-01-24",
+          "link": "https://youtu.be/qgcbQj3DYaQ"
+        }
+      ]
     },
     {
       "id": 35,
@@ -1653,6 +1665,90 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-03-20 22:52",
+      "type": "move",
+      "title": "Glide Festival",
+      "detail": "'Egg Layout' 레벨의 순위 변동으로 인해 순위가 34위에서 33위로 상승하였습니다."
+    },
+    {
+      "time": "2026-03-20 22:52",
+      "type": "move",
+      "title": "LT EP5",
+      "detail": "'Egg Layout' 레벨의 순위 변동으로 인해 순위가 33위에서 32위로 상승하였습니다."
+    },
+    {
+      "time": "2026-03-20 22:52",
+      "type": "move",
+      "title": "LT EP4",
+      "detail": "'Egg Layout' 레벨의 순위 변동으로 인해 순위가 32위에서 31위로 상승하였습니다."
+    },
+    {
+      "time": "2026-03-20 22:52",
+      "type": "move",
+      "title": "LT EP6",
+      "detail": "'Egg Layout' 레벨의 순위 변동으로 인해 순위가 31위에서 30위로 상승하였습니다."
+    },
+    {
+      "time": "2026-03-20 22:52",
+      "type": "move",
+      "title": "JPA EP6",
+      "detail": "'Egg Layout' 레벨의 순위 변동으로 인해 순위가 30위에서 29위로 상승하였습니다."
+    },
+    {
+      "time": "2026-03-20 22:52",
+      "type": "move",
+      "title": "JPA EP9",
+      "detail": "'Egg Layout' 레벨의 순위 변동으로 인해 순위가 29위에서 28위로 상승하였습니다."
+    },
+    {
+      "time": "2026-03-20 22:52",
+      "type": "move",
+      "title": "LT EP2",
+      "detail": "'Egg Layout' 레벨의 순위 변동으로 인해 순위가 28위에서 27위로 상승하였습니다."
+    },
+    {
+      "time": "2026-03-20 22:52",
+      "type": "move",
+      "title": "LT EP7",
+      "detail": "'Egg Layout' 레벨의 순위 변동으로 인해 순위가 27위에서 26위로 상승하였습니다."
+    },
+    {
+      "time": "2026-03-20 22:52",
+      "type": "move",
+      "title": "JPA EP3",
+      "detail": "'Egg Layout' 레벨의 순위 변동으로 인해 순위가 26위에서 25위로 상승하였습니다."
+    },
+    {
+      "time": "2026-03-20 22:52",
+      "type": "reeval",
+      "title": "Egg Layout",
+      "detail": "'Egg Layout' 레벨의 재평가로 인해 순위가 25위에서 34위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-20 22:48",
+      "type": "move",
+      "title": "LT EP8",
+      "detail": "'JPA EP8' 레벨의 순위 변동으로 인해 순위가 17위에서 18위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-20 22:48",
+      "type": "reeval",
+      "title": "JPA EP8",
+      "detail": "'JPA EP8' 레벨의 재평가로 인해 순위가 18위에서 17위로 상승하였습니다."
+    },
+    {
+      "time": "2026-03-20 22:48",
+      "type": "move",
+      "title": "LT EP8",
+      "detail": "'Endless Dreaming' 레벨의 순위 변동으로 인해 순위가 16위에서 17위로 하락하였습니다."
+    },
+    {
+      "time": "2026-03-20 22:48",
+      "type": "reeval",
+      "title": "Endless Dreaming",
+      "detail": "'Endless Dreaming' 레벨의 재평가로 인해 순위가 17위에서 16위로 상승하였습니다."
+    },
     {
       "time": "2026-03-18 18:06",
       "type": "add",
