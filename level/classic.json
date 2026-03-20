@@ -63,7 +63,7 @@
         "artist": "Velvetomo",
         "id": "1091340"
       },
-      "description": "",
+      "description": "미안, 너의 존재를 잊어버려서. 다만, 이 일은 누구의 잘못도 아니란 걸 알아줘. 그만, 이제 안녕히.",
       "enjoyment": "6",
       "framePerfect": {
         "fps": {
@@ -812,7 +812,7 @@
         "artist": "Geoxor",
         "id": "864327"
       },
-      "description": "",
+      "description": "JPA 시리즈 중 가히 최고 난이도로 손꼽히는 맵입니다. 2.1이던 당시 2.2의 카메라를 구현한 것이 특징입니다.",
       "enjoyment": "",
       "framePerfect": {
         "fps": {
@@ -910,6 +910,16 @@
         "artist": "Garlagan",
         "id": "465848"
       },
+      "description": "어쩌면 당신이 바라보고 있는 길이 진짜가 아닐 수도 있고, 하나가 아닐 수도 있습니다.",
+      "enjoyment": "",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
       "gameplay": {
         "modeRatio": {
           "Cube": 100
@@ -946,6 +956,16 @@
         "name": "Hexagon Force",
         "artist": "Waterflame",
         "id": "15"
+      },
+      "description": "듀얼 좋아하시나요? 듀얼 위주의 맵이지만 당신이 아무리 듀얼이 재밌다고 하건들 이 맵은 재밌게 할 수 없을 것 같네요.",
+      "enjoyment": "",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
       },
       "gameplay": {
         "modeRatio": {
@@ -992,6 +1012,16 @@
         "artist": "Waterflame",
         "id": "598349"
       },
+      "description": "JPA 시리즈 중 처음으로 이펙트를 시도한 맵입니다. 이 맵으로 인해 LT EP7이 생겨나게 되었죠.",
+      "enjoyment": "",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
       "gameplay": {
         "modeRatio": {
           "Cube": 100
@@ -1027,6 +1057,16 @@
         "name": "Theory of Everthing 2",
         "artist": "DJ-Nate",
         "id": "17"
+      },
+      "description": "JPA 2번째 작이자 처음으로 무브 트리거를 사용한 맵입니다. 미숙한 모습을 가리기엔 역부족으로 보이네요.",
+      "enjoyment": "",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
       },
       "gameplay": {
         "modeRatio": {
@@ -1065,6 +1105,16 @@
         "artist": "DJ-Nate",
         "id": "11"
       },
+      "description": "최초의 JPA이자 현재까지 남아있는 초코의 첫 자작맵입니다.",
+      "enjoyment": "",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
       "gameplay": {
         "modeRatio": {
           "Cube": 100
@@ -1101,6 +1151,16 @@
         "name": "Youve been Trolled",
         "artist": "AntonyC",
         "id": "477402"
+      },
+      "description": "유감이구나, 또 속았구나!",
+      "enjoyment": "",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
       },
       "gameplay": {
         "modeRatio": {
@@ -1155,6 +1215,16 @@
         "artist": "DJ-Nate",
         "id": "14"
       },
+      "description": "노래가 노래인지라 빠른 겜플이 주된 JPA 3번재 맵입니다. 하얀색의 밝은 배경과 검은색의 어두운 배경이 수시로 전환되며 대조되는 연출을 보여줍니다.",
+      "enjoyment": "",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
       "gameplay": {
         "modeRatio": {
           "Cube": 100
@@ -1191,6 +1261,16 @@
         "name": "-Final Battle-",
         "artist": "Waterflame",
         "id": "598349"
+      },
+      "description": "JPA EP5의 파생작입니다.",
+      "enjoyment": "",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
       },
       "gameplay": {
         "modeRatio": {
@@ -1238,6 +1318,16 @@
         "artist": "Dimrain47",
         "id": "467339"
       },
+      "description": "정말 초급자용 비행기 챌린지와도 같은 LT 2번째 맵입니다.",
+      "enjoyment": "",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
       "gameplay": {
         "modeRatio": {
           "Cube": 100
@@ -1269,6 +1359,7 @@
       "creator": "Choco",
       "verifier": "Choco",
       "video": "https://www.youtube.com/embed/WFhj0H3_IBo",
+      "rating": "",
       "map": {
         "mapId": "87116363",
         "length": "1m 22s",
@@ -1279,6 +1370,16 @@
         "name": "Rockin That Bass",
         "artist": "MrKoolTrix",
         "id": "781195"
+      },
+      "description": "JPA 시리즈 중 마지막 맵입니다. 당시 초코의 최고점 이펙 및 레이아웃을 보여주는 맵이기도 하죠.",
+      "enjoyment": "",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
       },
       "gameplay": {
         "modeRatio": {},
@@ -1302,6 +1403,7 @@
       "creator": "Choco",
       "verifier": "Choco",
       "video": "https://www.youtube.com/embed/x1_DooaskKc",
+      "rating": "",
       "map": {
         "mapId": "85797010",
         "length": "2m 55s",
@@ -1312,6 +1414,16 @@
         "name": "Solyton - Cave",
         "artist": "TheArcadium",
         "id": "912637"
+      },
+      "description": "초코가 본격적으로 무브 트리거를 활용해본 맵입니다.",
+      "enjoyment": "",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
       },
       "gameplay": {
         "modeRatio": {},
@@ -1344,6 +1456,16 @@
         "name": "Ocean of Stars",
         "artist": "Geoplex",
         "id": "537202"
+      },
+      "description": "과거 챌린지의 길이를 지녔던 LT EP6이 더욱 길어진 맵 구성으로 다시 돌아왔습니다. 라이트가 처음으로 무브 트리거를 사용한 맵이기도 합니다.",
+      "enjoyment": "",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
       },
       "gameplay": {
         "modeRatio": {},
@@ -1393,6 +1515,16 @@
         "artist": "ThisIsTheFatRat",
         "id": "621136"
       },
+      "description": "힐링을 원하시나요? 완전한 안식을 남겨줄 순 없어도, 잠시 이곳에 와 쉬어보세요.",
+      "enjoyment": "",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
       "gameplay": {
         "modeRatio": {},
         "speedRatio": {}
@@ -1431,6 +1563,16 @@
         "name": "Okiba Crackdown",
         "artist": "Bossfightofficial",
         "id": "638737"
+      },
+      "description": "LT 시리즈 중 5번째 맵입니다.",
+      "enjoyment": "",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
       },
       "gameplay": {
         "modeRatio": {},
@@ -1471,6 +1613,16 @@
         "artist": "Exyl",
         "id": "1021674"
       },
+      "description": "달걀 콘테스트 중 초코의 작품입니다. 넓고 광활한 곳을 탐험하는 듯한 느낌을 줍니다. 콘테스트에서 2위를 수상했습니다.",
+      "enjoyment": "",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
       "gameplay": {
         "modeRatio": {},
         "speedRatio": {}
@@ -1505,7 +1657,7 @@
         "artist": "Exyl",
         "id": "1021674"
       },
-      "description": "",
+      "description": "달걀 콘테스트 중 라이트의 작품입니다. 라이트 특유의 옛날 겜플이 극치를 달하는 맵이기도 합니다. 콘테스트에서 1위에 올랐습니다.",
       "enjoyment": "",
       "framePerfect": {
         "fps": {
@@ -1574,6 +1726,16 @@
         "artist": "ForeverBound",
         "id": "0"
       },
+      "description": "너어어어어어어어무우우우우우우우느으으으으으으으으으리이이이이이이이네에에에에에에에에에요오오오오오오오오오",
+      "enjoyment": "",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
       "gameplay": {
         "modeRatio": {},
         "speedRatio": {}
@@ -1606,6 +1768,16 @@
         "name": "Arcana",
         "artist": "Xtrullor",
         "id": "803223"
+      },
+      "description": "초친 포럼 최초의 보스전 맵입니다.",
+      "enjoyment": "",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
       },
       "gameplay": {
         "modeRatio": {},
@@ -1647,6 +1819,16 @@
         "name": "Infinite Power",
         "artist": "ThisIsTheFatRat",
         "id": "621144"
+      },
+      "description": "Answer Me VS Infinite",
+      "enjoyment": "",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
       },
       "gameplay": {
         "modeRatio": {},
