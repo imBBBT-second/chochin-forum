@@ -236,6 +236,10 @@
       "description": "Do you like kissing boys don't you?  (보이 키서가 나오는 맵을 쳐 해보세요!)",
       "levels": [
         {
+          "name": "B1ack 0ut",
+          "author": "Timo"
+        },
+        {
           "name": "Desuwa",
           "author": "Choco & Timo"
         },
@@ -298,6 +302,11 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-03-25",
+      "type": "팩 수정",
+      "detail": "Boykisser Pack 팩 정보가 수정되었습니다."
+    },
     {
       "time": "2026-03-18",
       "type": "팩 수정",
