@@ -90,48 +90,6 @@
     },
     {
       "id": 3,
-      "title": "Desuwa",
-      "creator": "Choco & Timo",
-      "verifier": "Timo",
-      "video": "https://www.youtube.com/embed/A3f76rVH-ZM",
-      "rating": "Featured",
-      "map": {
-        "mapId": "132194145",
-        "length": "36s",
-        "objects": 3588,
-        "uploadDate": "2026-01-26"
-      },
-      "song": {
-        "name": "Glory",
-        "artist": "FyremanMusic",
-        "id": "714579"
-      },
-      "description": "과거 불가능 맵으로 자리잡았던 Desuwa가 리메이크를 거치며 베리파이되었습니다. 극초반 매우 어려운 웨이브 뒤로 같은 맵이 맞나 싶은 겜플이 이어지는 것이 포인트인 맵입니다. 이 맵이 베리파이되며 1달 반이 넘는 기간동안 1위에 위치했던 chocubed의 1위 타이틀을 빼앗은 맵이기도 합니다.",
-      "enjoyment": "",
-      "framePerfect": {
-        "fps": {
-          "30": 3,
-          "60": 4,
-          "120": 2,
-          "240": 0
-        }
-      },
-      "gameplay": {
-        "modeRatio": {},
-        "speedRatio": {}
-      },
-      "tags": [
-        "Wave",
-        "Medium",
-        "Physical",
-        "Learny",
-        "Fast",
-        "Full-Effect"
-      ],
-      "clears": []
-    },
-    {
-      "id": 4,
       "title": "Hand Dance MK I",
       "creator": "Timo",
       "verifier": "Timo",
@@ -171,6 +129,48 @@
         "High-CPS",
         "Low-Effect",
         "No-Clear"
+      ],
+      "clears": []
+    },
+    {
+      "id": 4,
+      "title": "Desuwa",
+      "creator": "Choco & Timo",
+      "verifier": "Timo",
+      "video": "https://www.youtube.com/embed/A3f76rVH-ZM",
+      "rating": "Featured",
+      "map": {
+        "mapId": "132194145",
+        "length": "36s",
+        "objects": 3588,
+        "uploadDate": "2026-01-26"
+      },
+      "song": {
+        "name": "Glory",
+        "artist": "FyremanMusic",
+        "id": "714579"
+      },
+      "description": "과거 불가능 맵으로 자리잡았던 Desuwa가 리메이크를 거치며 베리파이되었습니다. 극초반 매우 어려운 웨이브 뒤로 같은 맵이 맞나 싶은 겜플이 이어지는 것이 포인트인 맵입니다. 이 맵이 베리파이되며 1달 반이 넘는 기간동안 1위에 위치했던 chocubed의 1위 타이틀을 빼앗은 맵이기도 합니다.",
+      "enjoyment": "",
+      "framePerfect": {
+        "fps": {
+          "30": 3,
+          "60": 4,
+          "120": 2,
+          "240": 0
+        }
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "tags": [
+        "Wave",
+        "Medium",
+        "Physical",
+        "Learny",
+        "Fast",
+        "Full-Effect"
       ],
       "clears": []
     },
@@ -1302,59 +1302,6 @@
     },
     {
       "id": 27,
-      "title": "LT EP2",
-      "creator": "Light",
-      "verifier": "Light",
-      "video": "-",
-      "rating": "",
-      "map": {
-        "mapId": "84729138",
-        "length": "1m 2s",
-        "objects": 2387,
-        "uploadDate": "2022-10-17"
-      },
-      "song": {
-        "name": "At the Speed of Light",
-        "artist": "Dimrain47",
-        "id": "467339"
-      },
-      "description": "정말 초급자용 비행기 챌린지와도 같은 LT 2번째 맵입니다.",
-      "enjoyment": "",
-      "framePerfect": {
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        }
-      },
-      "gameplay": {
-        "modeRatio": {
-          "Cube": 100
-        },
-        "speedRatio": {
-          "1x": 100
-        }
-      },
-      "tags": [
-        "Ship",
-        "1x",
-        "Long",
-        "Physical",
-        "None-Effect",
-        "No-Clear"
-      ],
-      "clears": [
-        {
-          "player": "Choco",
-          "percent": 100,
-          "date": "2026-02-09",
-          "link": "https://youtu.be/v0NtskyEGb8"
-        }
-      ]
-    },
-    {
-      "id": 28,
       "title": "JPA EP9",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1398,7 +1345,7 @@
       "clears": []
     },
     {
-      "id": 29,
+      "id": 28,
       "title": "JPA EP6",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1436,6 +1383,49 @@
         "Low-Effect",
         "XL",
         "Ship"
+      ],
+      "clears": []
+    },
+    {
+      "id": 29,
+      "title": "Slow Challenge",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "-",
+      "rating": "",
+      "map": {
+        "mapId": "101683550",
+        "length": "2m 55s",
+        "objects": 1718,
+        "uploadDate": "2024-02-29"
+      },
+      "song": {
+        "name": "Stereo Madness",
+        "artist": "ForeverBound",
+        "id": "0"
+      },
+      "description": "너어어어어어어어무우우우우우우우느으으으으으으으으으리이이이이이이이네에에에에에에에에에요오오오오오오오오오",
+      "enjoyment": "",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "tags": [
+        "Wave",
+        "4x",
+        "XXL",
+        "Gimmick",
+        "Physical",
+        "Slow",
+        "None-Effect"
       ],
       "clears": []
     },
@@ -1710,49 +1700,6 @@
     },
     {
       "id": 35,
-      "title": "Slow Challenge",
-      "creator": "Choco",
-      "verifier": "Choco",
-      "video": "-",
-      "rating": "",
-      "map": {
-        "mapId": "101683550",
-        "length": "2m 55s",
-        "objects": 1718,
-        "uploadDate": "2024-02-29"
-      },
-      "song": {
-        "name": "Stereo Madness",
-        "artist": "ForeverBound",
-        "id": "0"
-      },
-      "description": "너어어어어어어어무우우우우우우우느으으으으으으으으으리이이이이이이이네에에에에에에에에에요오오오오오오오오오",
-      "enjoyment": "",
-      "framePerfect": {
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        }
-      },
-      "gameplay": {
-        "modeRatio": {},
-        "speedRatio": {}
-      },
-      "tags": [
-        "Wave",
-        "4x",
-        "XXL",
-        "Gimmick",
-        "Physical",
-        "Slow",
-        "None-Effect"
-      ],
-      "clears": []
-    },
-    {
-      "id": 36,
       "title": "LT EP3",
       "creator": "Light",
       "verifier": "Light",
@@ -1803,6 +1750,59 @@
       ]
     },
     {
+      "id": 36,
+      "title": "LT EP2",
+      "creator": "Light",
+      "verifier": "Light",
+      "video": "-",
+      "rating": "",
+      "map": {
+        "mapId": "84729138",
+        "length": "1m 2s",
+        "objects": 2387,
+        "uploadDate": "2022-10-17"
+      },
+      "song": {
+        "name": "At the Speed of Light",
+        "artist": "Dimrain47",
+        "id": "467339"
+      },
+      "description": "정말 초급자용 비행기 챌린지와도 같은 LT 2번째 맵입니다.",
+      "enjoyment": "",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "gameplay": {
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "tags": [
+        "Ship",
+        "1x",
+        "Long",
+        "Physical",
+        "None-Effect",
+        "No-Clear"
+      ],
+      "clears": [
+        {
+          "player": "Choco",
+          "percent": 100,
+          "date": "2026-02-09",
+          "link": "https://youtu.be/v0NtskyEGb8"
+        }
+      ]
+    },
+    {
       "id": 37,
       "title": "Answer Me",
       "creator": "Choco",
@@ -1847,6 +1847,114 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-04-04 14:55",
+      "type": "move",
+      "title": "Desuwa",
+      "detail": "'Hand Dance MK I' 레벨의 순위 변동으로 인해 순위가 3위에서 4위로 하락하였습니다."
+    },
+    {
+      "time": "2026-04-04 14:55",
+      "type": "reeval",
+      "title": "Hand Dance MK I",
+      "detail": "'Hand Dance MK I' 레벨의 재평가로 인해 순위가 4위에서 3위로 상승하였습니다."
+    },
+    {
+      "time": "2026-04-04 14:54",
+      "type": "move",
+      "title": "LT EP3",
+      "detail": "'LT EP2' 레벨의 순위 변동으로 인해 순위가 36위에서 35위로 상승하였습니다."
+    },
+    {
+      "time": "2026-04-04 14:54",
+      "type": "move",
+      "title": "Egg Layout",
+      "detail": "'LT EP2' 레벨의 순위 변동으로 인해 순위가 35위에서 34위로 상승하였습니다."
+    },
+    {
+      "time": "2026-04-04 14:54",
+      "type": "move",
+      "title": "Glide Festival",
+      "detail": "'LT EP2' 레벨의 순위 변동으로 인해 순위가 34위에서 33위로 상승하였습니다."
+    },
+    {
+      "time": "2026-04-04 14:54",
+      "type": "move",
+      "title": "LT EP5",
+      "detail": "'LT EP2' 레벨의 순위 변동으로 인해 순위가 33위에서 32위로 상승하였습니다."
+    },
+    {
+      "time": "2026-04-04 14:54",
+      "type": "move",
+      "title": "LT EP4",
+      "detail": "'LT EP2' 레벨의 순위 변동으로 인해 순위가 32위에서 31위로 상승하였습니다."
+    },
+    {
+      "time": "2026-04-04 14:54",
+      "type": "move",
+      "title": "LT EP6",
+      "detail": "'LT EP2' 레벨의 순위 변동으로 인해 순위가 31위에서 30위로 상승하였습니다."
+    },
+    {
+      "time": "2026-04-04 14:54",
+      "type": "move",
+      "title": "Slow Challenge",
+      "detail": "'LT EP2' 레벨의 순위 변동으로 인해 순위가 30위에서 29위로 상승하였습니다."
+    },
+    {
+      "time": "2026-04-04 14:54",
+      "type": "move",
+      "title": "JPA EP6",
+      "detail": "'LT EP2' 레벨의 순위 변동으로 인해 순위가 29위에서 28위로 상승하였습니다."
+    },
+    {
+      "time": "2026-04-04 14:54",
+      "type": "move",
+      "title": "JPA EP9",
+      "detail": "'LT EP2' 레벨의 순위 변동으로 인해 순위가 28위에서 27위로 상승하였습니다."
+    },
+    {
+      "time": "2026-04-04 14:54",
+      "type": "reeval",
+      "title": "LT EP2",
+      "detail": "'LT EP2' 레벨의 재평가로 인해 순위가 27위에서 36위로 하락하였습니다."
+    },
+    {
+      "time": "2026-04-04 14:54",
+      "type": "move",
+      "title": "Egg Layout",
+      "detail": "'Slow Challenge' 레벨의 순위 변동으로 인해 순위가 34위에서 35위로 하락하였습니다."
+    },
+    {
+      "time": "2026-04-04 14:54",
+      "type": "move",
+      "title": "Glide Festival",
+      "detail": "'Slow Challenge' 레벨의 순위 변동으로 인해 순위가 33위에서 34위로 하락하였습니다."
+    },
+    {
+      "time": "2026-04-04 14:54",
+      "type": "move",
+      "title": "LT EP5",
+      "detail": "'Slow Challenge' 레벨의 순위 변동으로 인해 순위가 32위에서 33위로 하락하였습니다."
+    },
+    {
+      "time": "2026-04-04 14:54",
+      "type": "move",
+      "title": "LT EP4",
+      "detail": "'Slow Challenge' 레벨의 순위 변동으로 인해 순위가 31위에서 32위로 하락하였습니다."
+    },
+    {
+      "time": "2026-04-04 14:54",
+      "type": "move",
+      "title": "LT EP6",
+      "detail": "'Slow Challenge' 레벨의 순위 변동으로 인해 순위가 30위에서 31위로 하락하였습니다."
+    },
+    {
+      "time": "2026-04-04 14:54",
+      "type": "reeval",
+      "title": "Slow Challenge",
+      "detail": "'Slow Challenge' 레벨의 재평가로 인해 순위가 35위에서 30위로 상승하였습니다."
+    },
     {
       "time": "2026-03-20 22:52",
       "type": "move",
