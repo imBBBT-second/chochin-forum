@@ -1356,6 +1356,42 @@
             <li>예기치 못하고 고의성이 없는 밀길이 발견되었을 때는 그 길을 통해 클리어하지 않는 것을 권장합니다. (클리어 인정 X)</li>
           </ul>
         </div>
+
+        <div class="modal-section">
+          <h3>🎞️ 프퍼펙 (Frame Perfect)에 관해</h3>
+          <ul>
+            <li><b>240 TPS</b>에서 <b>몇 번 지나가지는 지</b>를 판단합니다.</li>
+            <li>지나가지는 프레임 수에 대한 프레임 퍼펙트 표기 방식은 다음과 같습니다.</li>
+            <ul>
+              <li>1 fps : 240</li>
+              <li>2~3 fps : 120</li>
+              <li>4~6 fps : 60</li>
+              <li>7~9 fps : 30</li>
+            </ul>
+            <li>프레임 퍼펙트 측정은 <b>관리자만</b> 할 수 있습니다.</li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <h3>📊 포인트 시스템에 관해</h3>
+          <ul>
+            <li>포인트는 맵 순위에 <b>실시간으로</b> 영향을 받습니다.</li>
+            <li>순위에 따른 포인트 분배 방식은 다음과 같습니다.</li>
+            <ul>
+              <li>1위 : 250</li>
+              <li>2위 : 225</li>
+              <li>3위 : 200</li>
+              <li>4위 : 175</li>
+              <li>5~7위 : 150</li>
+              <li>8~10위 : 125</li>
+              <li>11~15위 : 100</li>
+              <li>16~20위 : 80</li>
+              <li>그 외 : 10</li>
+            </ul>
+            <li>베리파이한 레벨은 <b>1.5배</b>의 포인트를 받습니다.</li>
+            <li>최초로 클리어한 레벨은 <b>1.3배</b>의 포인트를 받습니다.</li>
+          </ul>
+        </div>
       </div>
     </div>
     <button class="info-floating-btn" onclick="toggleInfoModal()">i</button>
@@ -1498,12 +1534,14 @@
       /* ================= 포인트 시스템 ================= */
       function getRankPoints(rank) {
         if (typeof rank !== 'number') return 0;
-        if (rank === 1) return 200;
-        if (rank === 2) return 180;
-        if (rank >= 3 && rank <= 5) return 150;
-        if (rank >= 6 && rank <= 10) return 120;
-        if (rank >= 11 && rank <= 15) return 50;
-        if (rank >= 16 && rank <= 20) return 20;
+        if (rank === 1) return 250;
+        if (rank === 2) return 225;
+        if (rank === 3) return 200;
+        if (rank === 4) return 175;
+        if (rank >= 5 && rank <= 7) return 150;
+        if (rank >= 8 && rank <= 10) return 125;
+        if (rank >= 11 && rank <= 15) return 100;
+        if (rank >= 16 && rank <= 20) return 80;
         if (rank >= 21) return 10;
         return 0;
       }

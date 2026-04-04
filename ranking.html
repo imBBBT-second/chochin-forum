@@ -555,12 +555,14 @@
 
       function getRankPoints(rank) {
         if (typeof rank !== 'number') return 0;
-        if (rank === 1) return 200;
-        if (rank === 2) return 180;
-        if (rank >= 3 && rank <= 5) return 150;
-        if (rank >= 6 && rank <= 10) return 120;
-        if (rank >= 11 && rank <= 15) return 50;
-        if (rank >= 16 && rank <= 20) return 20;
+        if (rank === 1) return 250;
+        if (rank === 2) return 225;
+        if (rank === 3) return 200;
+        if (rank === 4) return 175;
+        if (rank >= 5 && rank <= 7) return 150;
+        if (rank >= 8 && rank <= 10) return 125;
+        if (rank >= 11 && rank <= 15) return 100;
+        if (rank >= 16 && rank <= 20) return 80;
         if (rank >= 21) return 10;
         return 0;
       }
@@ -771,7 +773,7 @@
         let html =
           '<h3>수정할 유저 선택</h3><div style="max-height:300px; overflow-y:auto; background:#333; border-radius:5px;">';
         hardestData.forEach((user, idx) => {
-          html += `<div class="item" onclick="renderUserForm()">
+          html += `<div class="item" onclick="renderUserForm(${idx})">
                     ${idx + 1}. ${user.name} (${user.hardest || ''})
                   </div>`;
         });
@@ -789,7 +791,7 @@
         document.getElementById('devContent').innerHTML = `
           <h3>${isEdit ? '유저 수정' : '새 유저 등록'}</h3>
           <label>순위 (1 ~ ${hardestData.length + (isEdit ? 0 : 1)})</label>
-          <input id="u-rank" class="dev-input" type="number" value="">
+          <input id="u-rank" class="dev-input" type="number" value="${currentRank}">
           
           <label>이름</label>
           <input id="u-name" class="dev-input" value="${user.name || ''}">
@@ -797,8 +799,8 @@
           <label>하디스트 레벨</label>
           <input id="u-hardest" class="dev-input" value="${user.hardest || ''}">
           
-          <button class="dev-btn dev-btn-save" onclick="saveUserForm()">${isEdit ? '수정 완료' : '등록 완료'}</button>
-          ${isEdit ? `<button class="dev-btn" onclick="deleteUser()" style="background:#e74c3c;">삭제</button>` : ''}
+          <button class="dev-btn dev-btn-save" onclick="saveUserForm(${idx})">${isEdit ? '수정 완료' : '등록 완료'}</button>
+          ${isEdit ? `<button class="dev-btn" onclick="deleteUser(${idx})" style="background:#e74c3c;">삭제</button>` : ''}
           <button class="dev-btn" onclick="renderDevHome()">취소</button>
         `;
       }
@@ -824,7 +826,7 @@
 
         const newUser = { name, hardest };
 
-        if (idx !== null) {
+        if (idx !== null && idx !== undefined) {
           // Edit existing
           hardestData.splice(idx, 1); // Remove old
           hardestData.splice(targetRank - 1, 0, newUser); // Insert new at target

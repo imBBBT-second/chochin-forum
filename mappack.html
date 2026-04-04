@@ -738,12 +738,14 @@
       // 포인트 계산 함수
       function getRankPoints(rank) {
         if (typeof rank !== 'number') return 0;
-        if (rank === 1) return 200;
-        if (rank === 2) return 180;
-        if (rank >= 3 && rank <= 5) return 150;
-        if (rank >= 6 && rank <= 10) return 120;
-        if (rank >= 11 && rank <= 15) return 50;
-        if (rank >= 16 && rank <= 20) return 20;
+        if (rank === 1) return 250;
+        if (rank === 2) return 225;
+        if (rank === 3) return 200;
+        if (rank === 4) return 175;
+        if (rank >= 5 && rank <= 7) return 150;
+        if (rank >= 8 && rank <= 10) return 125;
+        if (rank >= 11 && rank <= 15) return 100;
+        if (rank >= 16 && rank <= 20) return 80;
         if (rank >= 21) return 10;
         return 0;
       }

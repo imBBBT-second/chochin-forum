@@ -366,7 +366,7 @@
       <div class="cards-container">
         <a href="level/classic.html">
           <div class="card">
-            <img src="image/classic.png" alt="Classic" />
+            <img id="img-classic" src="image/classic.png" alt="Classic" />
             <h2 class="card-title">Classic</h2>
             <h4 class="card-subtitle">기본적인 맵</h4>
           </div>
@@ -374,7 +374,7 @@
 
         <a href="level/challenge.html">
           <div class="card">
-            <img src="image/끼양.png" alt="Challenge" />
+            <img id="img-challenge" src="image/끼양.png" alt="Challenge" />
             <h2 class="card-title">Challenge</h2>
             <h4 class="card-subtitle">20초 이내의 맵</h4>
           </div>
@@ -382,7 +382,7 @@
 
         <a href="level/platformer.html">
           <div class="card">
-            <img src="image/새해복.png" alt="Platformer" />
+            <img id="img-platformer" src="image/새해복.png" alt="Platformer" />
             <h2 class="card-title">Platformer</h2>
             <h4 class="card-subtitle">플랫포머 맵</h4>
           </div>
@@ -413,9 +413,32 @@
             ...challengeLevels,
             ...platformerLevels,
           ];
+
+          // 각 카테고리의 1위 맵 썸네일로 카드 이미지 업데이트
+          updateCardThumbnail('img-classic', classicLevels);
+          updateCardThumbnail('img-challenge', challengeLevels);
+          updateCardThumbnail('img-platformer', platformerLevels);
+
           if (currentUser) updateUserStatus();
         })
         .catch((err) => console.error('포인트 데이터 로드 실패', err));
+
+      function getYoutubeId(url) {
+        if (!url) return null;
+        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+        const match = url.match(regExp);
+        return (match && match[2].length === 11) ? match[2] : null;
+      }
+
+      function updateCardThumbnail(imgId, levels) {
+        const firstLevel = levels.find(l => l.id === 1) || levels[0];
+        if (firstLevel && firstLevel.video) {
+          const videoId = getYoutubeId(firstLevel.video);
+          if (videoId) {
+            document.getElementById(imgId).src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+          }
+        }
+      }
 
       function login() {
         const name = prompt('닉네임을 입력해주세요.');
@@ -428,12 +451,14 @@
 
       function getRankPoints(rank) {
         if (typeof rank !== 'number') return 0;
-        if (rank === 1) return 200;
-        if (rank === 2) return 180;
-        if (rank >= 3 && rank <= 5) return 150;
-        if (rank >= 6 && rank <= 10) return 120;
-        if (rank >= 11 && rank <= 15) return 50;
-        if (rank >= 16 && rank <= 20) return 20;
+        if (rank === 1) return 250;
+        if (rank === 2) return 225;
+        if (rank === 3) return 200;
+        if (rank === 4) return 175;
+        if (rank >= 5 && rank <= 7) return 150;
+        if (rank >= 8 && rank <= 10) return 125;
+        if (rank >= 11 && rank <= 15) return 100;
+        if (rank >= 16 && rank <= 20) return 80;
         if (rank >= 21) return 10;
         return 0;
       }

@@ -327,13 +327,13 @@
       </div>
       <div class="roulette-controls">
         <button class="roulette-btn" onclick="toggleCategory('main', this)">
-          메인 (1-5위)
+          메인 (1-10위)
         </button>
         <button class="roulette-btn" onclick="toggleCategory('ext', this)">
-          익텐 (6-10위)
+          익텐 (11-20위)
         </button>
         <button class="roulette-btn" onclick="toggleCategory('legacy', this)">
-          레거시 (11위~)
+          레거시 (21위~)
         </button>
       </div>
       <div class="roulette-controls">
@@ -398,12 +398,14 @@
 
       function getRankPoints(rank) {
         if (typeof rank !== 'number') return 0;
-        if (rank === 1) return 200;
-        if (rank === 2) return 180;
-        if (rank >= 3 && rank <= 5) return 150;
-        if (rank >= 6 && rank <= 10) return 120;
-        if (rank >= 11 && rank <= 15) return 50;
-        if (rank >= 16 && rank <= 20) return 20;
+        if (rank === 1) return 250;
+        if (rank === 2) return 225;
+        if (rank === 3) return 200;
+        if (rank === 4) return 175;
+        if (rank >= 5 && rank <= 7) return 150;
+        if (rank >= 8 && rank <= 10) return 125;
+        if (rank >= 11 && rank <= 15) return 100;
+        if (rank >= 16 && rank <= 20) return 80;
         if (rank >= 21) return 10;
         return 0;
       }
@@ -515,17 +517,17 @@
 
           if (selectedCategories.has('main')) {
             targetLevels
-              .filter((l) => l.id >= 1 && l.id <= 5)
+              .filter((l) => l.id >= 1 && l.id <= 10)
               .forEach((l) => pool.push({ ...l, _type: type }));
           }
           if (selectedCategories.has('ext')) {
             targetLevels
-              .filter((l) => l.id >= 6 && l.id <= 10)
+              .filter((l) => l.id >= 11 && l.id <= 20)
               .forEach((l) => pool.push({ ...l, _type: type }));
           }
           if (selectedCategories.has('legacy')) {
             targetLevels
-              .filter((l) => l.id >= 11)
+              .filter((l) => l.id >= 21)
               .forEach((l) => pool.push({ ...l, _type: type }));
           }
         };
