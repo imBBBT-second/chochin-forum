@@ -127,6 +127,10 @@
           "author": "Choco"
         },
         {
+          "name": "FlipBook",
+          "author": "Choco"
+        },
+        {
           "name": "PPPP",
           "author": "Choco"
         },
@@ -269,7 +273,7 @@
           "author": "Choco"
         },
         {
-          "name": "FlipBook",
+          "name": "Override",
           "author": "Choco"
         }
       ],
@@ -302,6 +306,16 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-04-10",
+      "type": "팩 수정",
+      "detail": "Japanese Pack I 팩 정보가 수정되었습니다."
+    },
+    {
+      "time": "2026-04-10",
+      "type": "팩 수정",
+      "detail": "Japanese Pack II 팩 정보가 수정되었습니다."
+    },
     {
       "time": "2026-03-25",
       "type": "팩 수정",
