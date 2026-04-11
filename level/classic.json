@@ -795,7 +795,14 @@
         "Full-Effect",
         "No-Clear"
       ],
-      "clears": []
+      "clears": [
+        {
+          "player": "Timo",
+          "percent": 100,
+          "date": "2026-04-11",
+          "link": "https://youtu.be/aFk-hpYtuF4"
+        }
+      ]
     },
     {
       "id": 17,
