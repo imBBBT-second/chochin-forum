@@ -212,12 +212,8 @@
       "id": "pack 9",
       "title": "TOP 1 Pack",
       "tier": "Tier 3",
-      "description": "현재와 과거의 TOP 1 자리를 지키는(던) 맵들을 즐길... 수 있어요?",
+      "description": "현재와 과거의 TOP 1 자리를 지키던 맵들을 즐길 수 있으면 즐겨 보든가",
       "levels": [
-        {
-          "name": "GOAT!",
-          "author": "Choco"
-        },
         {
           "name": "Desuwa",
           "author": "Choco & Timo"
@@ -306,6 +302,21 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-04-11",
+      "type": "팩 수정",
+      "detail": "TOP 1 Pack 팩 정보가 수정되었습니다."
+    },
+    {
+      "time": "2026-04-11",
+      "type": "팩 수정",
+      "detail": "TOP 1 Pack 팩 정보가 수정되었습니다."
+    },
+    {
+      "time": "2026-04-11",
+      "type": "팩 수정",
+      "detail": "TOP 1 Pack 팩 정보가 수정되었습니다."
+    },
     {
       "time": "2026-04-10",
       "type": "팩 수정",
