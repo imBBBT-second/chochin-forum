@@ -19,7 +19,12 @@
           "author": "Light"
         }
       ],
-      "clears": []
+      "clears": [
+        {
+          "player": "Choco",
+          "date": "2026-02-09"
+        }
+      ]
     },
     {
       "id": "pack 2",
@@ -102,7 +107,7 @@
       "description": "옛날 라이트가 만든 레벨을 해보세요! (2)",
       "levels": [
         {
-          "name": "LT EP2",
+          "name": "LT EP8",
           "author": "Light"
         },
         {
@@ -114,7 +119,12 @@
           "author": "Light"
         }
       ],
-      "clears": []
+      "clears": [
+        {
+          "player": "Choco",
+          "date": "2026-02-05"
+        }
+      ]
     },
     {
       "id": "pack 5",
@@ -273,7 +283,12 @@
           "author": "Choco"
         }
       ],
-      "clears": []
+      "clears": [
+        {
+          "player": "Choco",
+          "date": "2026-04-02"
+        }
+      ]
     },
     {
       "id": "pack 13",
@@ -299,9 +314,85 @@
         }
       ],
       "clears": []
+    },
+    {
+      "id": "pack 14",
+      "title": "Beginner Pack",
+      "tier": "Tier 2",
+      "description": "이 맵들을 클리어함으로서 실력 상승을 느껴보세요! (장담은 못함)",
+      "levels": [
+        {
+          "name": "FlipBook",
+          "author": "Choco"
+        },
+        {
+          "name": "Reaper Wave",
+          "author": "Timo"
+        },
+        {
+          "name": "PPPP",
+          "author": "Choco"
+        }
+      ],
+      "clears": [
+        {
+          "player": "Choco",
+          "date": "2026-04-07"
+        }
+      ]
     }
   ],
   "history": [
+    {
+      "time": "2026-04-17",
+      "type": "팩 수정",
+      "detail": "Treasure Pack II 팩 정보가 수정되었습니다."
+    },
+    {
+      "time": "2026-04-17",
+      "type": "팩 수정",
+      "detail": "Treasure Pack I 팩 정보가 수정되었습니다."
+    },
+    {
+      "time": "2026-04-17",
+      "type": "팩 수정",
+      "detail": "Treasure Pack II 팩 정보가 수정되었습니다."
+    },
+    {
+      "time": "2026-04-17",
+      "type": "팩 수정",
+      "detail": "Treasure Pack II 팩 정보가 수정되었습니다."
+    },
+    {
+      "time": "2026-04-17",
+      "type": "팩 수정",
+      "detail": "Treasure Pack II 팩 정보가 수정되었습니다."
+    },
+    {
+      "time": "2026-04-17",
+      "type": "팩 수정",
+      "detail": "Egg Pack 팩 정보가 수정되었습니다."
+    },
+    {
+      "time": "2026-04-17",
+      "type": "팩 수정",
+      "detail": "Treasure Pack II 팩 정보가 수정되었습니다."
+    },
+    {
+      "time": "2026-04-17",
+      "type": "팩 수정",
+      "detail": "Japanese Pack II 팩 정보가 수정되었습니다."
+    },
+    {
+      "time": "2026-04-17",
+      "type": "팩 수정",
+      "detail": "Beginner Pack 팩 정보가 수정되었습니다."
+    },
+    {
+      "time": "2026-04-17",
+      "type": "팩 추가",
+      "detail": "Beginner Pack 팩이 추가되었습니다."
+    },
     {
       "time": "2026-04-11",
       "type": "팩 수정",
