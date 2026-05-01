@@ -47,6 +47,46 @@
     },
     {
       "id": 2,
+      "title": "404",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/W_y4Ewh-yNs",
+      "rating": "",
+      "map": {
+        "mapId": "139256339",
+        "length": "10s",
+        "objects": 1060,
+        "uploadDate": "2026-04-29"
+      },
+      "song": {
+        "name": "Glitch Out",
+        "artist": "Camellia",
+        "id": "NONG"
+      },
+      "description": "양손 연타 좋아하시나요? 혹은 양손 연타를 잘하고 싶은데 입문을 무슨 맵으로 해야하나 고민이신가요? 뭐하십니까! 얼른 플레이하러 가세요!",
+      "enjoyment": "9",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "tags": [
+        "Wave",
+        "Short",
+        "Spam",
+        "None-Effect"
+      ],
+      "clears": []
+    },
+    {
+      "id": 3,
       "title": "B1TCH",
       "creator": "Choco",
       "verifier": "Choco",
@@ -82,7 +122,7 @@
       "clears": []
     },
     {
-      "id": 3,
+      "id": 4,
       "title": "Blink",
       "creator": "Choco",
       "video": "https://www.youtube.com/embed/xa4XmXWQfZY",
@@ -127,7 +167,7 @@
       "clears": []
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "NABI",
       "creator": "Choco",
       "verifier": "Choco",
@@ -161,7 +201,7 @@
       "clears": []
     },
     {
-      "id": 5,
+      "id": 6,
       "title": "Jiter Click 2",
       "creator": "Timo",
       "verifier": "Timo",
@@ -211,7 +251,7 @@
       ]
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "Furry Wave",
       "creator": "Timo",
       "video": "-",
@@ -256,7 +296,7 @@
       "clears": []
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "Funny Duel",
       "creator": "Timo",
       "video": "-",
@@ -303,7 +343,7 @@
       "clears": []
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "Cube Cafe",
       "creator": "Timo",
       "video": "-",
@@ -351,7 +391,7 @@
       "clears": []
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "JP Challenge 1",
       "creator": "Choco",
       "video": "-",
@@ -396,7 +436,7 @@
       "clears": []
     },
     {
-      "id": 10,
+      "id": 11,
       "title": "JP Challenge 4",
       "creator": "Choco",
       "video": "-",
@@ -442,7 +482,7 @@
       "clears": []
     },
     {
-      "id": 11,
+      "id": 12,
       "title": "Swimming Wave",
       "creator": "Choco",
       "video": "-",
@@ -487,7 +527,7 @@
       "clears": []
     },
     {
-      "id": 12,
+      "id": 13,
       "title": "JP Challenge 5",
       "creator": "Choco",
       "video": "-",
@@ -533,7 +573,7 @@
       "clears": []
     },
     {
-      "id": 13,
+      "id": 14,
       "title": "LT Tresure",
       "creator": "Light",
       "video": "-",
@@ -579,6 +619,84 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-05-01 23:22",
+      "type": "add",
+      "title": "404",
+      "detail": "2위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2026-05-01 23:22",
+      "type": "move",
+      "title": "LT Tresure",
+      "detail": "'404' 레벨 추가로 인해 순위가 13위에서 14위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-01 23:22",
+      "type": "move",
+      "title": "JP Challenge 5",
+      "detail": "'404' 레벨 추가로 인해 순위가 12위에서 13위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-01 23:22",
+      "type": "move",
+      "title": "Swimming Wave",
+      "detail": "'404' 레벨 추가로 인해 순위가 11위에서 12위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-01 23:22",
+      "type": "move",
+      "title": "JP Challenge 4",
+      "detail": "'404' 레벨 추가로 인해 순위가 10위에서 11위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-01 23:22",
+      "type": "move",
+      "title": "JP Challenge 1",
+      "detail": "'404' 레벨 추가로 인해 순위가 9위에서 10위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-01 23:22",
+      "type": "move",
+      "title": "Cube Cafe",
+      "detail": "'404' 레벨 추가로 인해 순위가 8위에서 9위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-01 23:22",
+      "type": "move",
+      "title": "Funny Duel",
+      "detail": "'404' 레벨 추가로 인해 순위가 7위에서 8위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-01 23:22",
+      "type": "move",
+      "title": "Furry Wave",
+      "detail": "'404' 레벨 추가로 인해 순위가 6위에서 7위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-01 23:22",
+      "type": "move",
+      "title": "Jiter Click 2",
+      "detail": "'404' 레벨 추가로 인해 순위가 5위에서 6위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-01 23:22",
+      "type": "move",
+      "title": "NABI",
+      "detail": "'404' 레벨 추가로 인해 순위가 4위에서 5위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-01 23:22",
+      "type": "move",
+      "title": "Blink",
+      "detail": "'404' 레벨 추가로 인해 순위가 3위에서 4위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-01 23:22",
+      "type": "move",
+      "title": "B1TCH",
+      "detail": "'404' 레벨 추가로 인해 순위가 2위에서 3위로 하락하였습니다."
+    },
     {
       "time": "2026-01-17 22:14",
       "type": "add",
