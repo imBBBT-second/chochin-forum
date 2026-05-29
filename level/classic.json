@@ -432,47 +432,6 @@
     },
     {
       "id": 10,
-      "title": "every end by temu",
-      "creator": "Choco & Timo",
-      "verifier": "Timo",
-      "video": "https://youtu.be/K7--2sZF7os",
-      "rating": "",
-      "map": {
-        "mapId": "141436829",
-        "length": "29s",
-        "objects": 5050,
-        "uploadDate": "2026-05-29"
-      },
-      "song": {
-        "name": "Every End...",
-        "artist": "Dimrain47",
-        "id": "99477"
-      },
-      "description": "999원으로 최고의 에엔을 즐기세요!",
-      "enjoyment": "",
-      "framePerfect": {
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        }
-      },
-      "gameplay": {
-        "modeRatio": {},
-        "speedRatio": {}
-      },
-      "tags": [
-        "Cube",
-        "Short",
-        "Physical",
-        "Low-Effect",
-        "No-Clear"
-      ],
-      "clears": []
-    },
-    {
-      "id": 11,
       "title": "nullscube",
       "creator": "Timo",
       "verifier": "Timo",
@@ -528,51 +487,7 @@
       ]
     },
     {
-      "id": 12,
-      "title": "First Fantasy",
-      "creator": "Choco",
-      "verifier": "Choco",
-      "video": "https://www.youtube.com/embed/GhHEGWOnv3c",
-      "rating": "Featured",
-      "map": {
-        "mapId": "132859666",
-        "length": "52s",
-        "objects": 11645,
-        "uploadDate": "2026-02-06"
-      },
-      "song": {
-        "name": "Her Name Is Yubin Lady",
-        "artist": "Tree Palm",
-        "id": "NONG"
-      },
-      "description": "프퍼펙이 맵의 전부는 아닙니다. 그리고 이 맵이 그걸 설명하고 있는 중이죠. 총합 43개의 프퍼펙이 등장하는 First Fantasy는 처음부터 끝까지 큐브 점프 뿐이지만 중력반전이 되고 속도가 계속 변하는 등으로 당신의 집중력을 방해합니다. 가시를 피하는 것에 집중해야한다고 말하는 당신의 뇌를 이 맵이 뒤죽박죽으로 만들어 줄 것입니다.",
-      "enjoyment": "7",
-      "framePerfect": {
-        "fps": {
-          "30": 42,
-          "60": 0,
-          "120": 1,
-          "240": 0
-        }
-      },
-      "gameplay": {
-        "modeRatio": {},
-        "speedRatio": {}
-      },
-      "tags": [
-        "Cube",
-        "Long",
-        "Sync",
-        "Physical",
-        "Low-Effect",
-        "One-Mode",
-        "No-Clear",
-        "NONG"
-      ],
-      "clears": []
-    },
-    {
-      "id": 13,
+      "id": 11,
       "title": "Which One?",
       "creator": "Choco",
       "verifier": "Choco",
@@ -611,6 +526,91 @@
         "Physical",
         "Fast",
         "None-Effect",
+        "No-Clear",
+        "NONG"
+      ],
+      "clears": []
+    },
+    {
+      "id": 12,
+      "title": "every end by temu",
+      "creator": "Choco & Timo",
+      "verifier": "Timo",
+      "video": "https://youtu.be/K7--2sZF7os",
+      "rating": "",
+      "map": {
+        "mapId": "141436829",
+        "length": "29s",
+        "objects": 5050,
+        "uploadDate": "2026-05-29"
+      },
+      "song": {
+        "name": "Every End...",
+        "artist": "Dimrain47",
+        "id": "99477"
+      },
+      "description": "999원으로 최고의 에엔을 즐기세요!",
+      "enjoyment": "",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "tags": [
+        "Cube",
+        "Short",
+        "Physical",
+        "Low-Effect",
+        "No-Clear"
+      ],
+      "clears": []
+    },
+    {
+      "id": 13,
+      "title": "First Fantasy",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/GhHEGWOnv3c",
+      "rating": "Featured",
+      "map": {
+        "mapId": "132859666",
+        "length": "52s",
+        "objects": 11645,
+        "uploadDate": "2026-02-06"
+      },
+      "song": {
+        "name": "Her Name Is Yubin Lady",
+        "artist": "Tree Palm",
+        "id": "NONG"
+      },
+      "description": "프퍼펙이 맵의 전부는 아닙니다. 그리고 이 맵이 그걸 설명하고 있는 중이죠. 총합 43개의 프퍼펙이 등장하는 First Fantasy는 처음부터 끝까지 큐브 점프 뿐이지만 중력반전이 되고 속도가 계속 변하는 등으로 당신의 집중력을 방해합니다. 가시를 피하는 것에 집중해야한다고 말하는 당신의 뇌를 이 맵이 뒤죽박죽으로 만들어 줄 것입니다.",
+      "enjoyment": "7",
+      "framePerfect": {
+        "fps": {
+          "30": 42,
+          "60": 0,
+          "120": 1,
+          "240": 0
+        }
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "tags": [
+        "Cube",
+        "Long",
+        "Sync",
+        "Physical",
+        "Low-Effect",
+        "One-Mode",
         "No-Clear",
         "NONG"
       ],
@@ -1987,6 +1987,54 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-05-29 21:31",
+      "type": "move",
+      "title": "First Fantasy",
+      "detail": "'every end by temu' 레벨의 순위 변동으로 인해 순위가 12위에서 13위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-29 21:31",
+      "type": "reeval",
+      "title": "every end by temu",
+      "detail": "'every end by temu' 레벨의 재평가로 인해 순위가 13위에서 12위로 상승하였습니다."
+    },
+    {
+      "time": "2026-05-29 21:31",
+      "type": "move",
+      "title": "First Fantasy",
+      "detail": "'every end by temu' 레벨의 순위 변동으로 인해 순위가 13위에서 12위로 상승하였습니다."
+    },
+    {
+      "time": "2026-05-29 21:31",
+      "type": "move",
+      "title": "Which One?",
+      "detail": "'every end by temu' 레벨의 순위 변동으로 인해 순위가 12위에서 11위로 상승하였습니다."
+    },
+    {
+      "time": "2026-05-29 21:31",
+      "type": "move",
+      "title": "nullscube",
+      "detail": "'every end by temu' 레벨의 순위 변동으로 인해 순위가 11위에서 10위로 상승하였습니다."
+    },
+    {
+      "time": "2026-05-29 21:31",
+      "type": "reeval",
+      "title": "every end by temu",
+      "detail": "'every end by temu' 레벨의 재평가로 인해 순위가 10위에서 13위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-29 21:31",
+      "type": "move",
+      "title": "First Fantasy",
+      "detail": "'Which One?' 레벨의 순위 변동으로 인해 순위가 12위에서 13위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-29 21:31",
+      "type": "reeval",
+      "title": "Which One?",
+      "detail": "'Which One?' 레벨의 재평가로 인해 순위가 13위에서 12위로 상승하였습니다."
+    },
     {
       "time": "2026-05-29 21:07",
       "type": "add",
