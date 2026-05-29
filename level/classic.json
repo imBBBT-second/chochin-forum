@@ -140,7 +140,7 @@
       "rating": "Legendary",
       "map": {
         "mapId": "135590009",
-        "length": "22s",
+        "length": "22s (19s)",
         "objects": 35142,
         "uploadDate": "2026-03-14"
       },
@@ -229,7 +229,7 @@
       "rating": "Legendary",
       "map": {
         "mapId": "138434402",
-        "length": "26s",
+        "length": "26s (17s)",
         "objects": 9340,
         "uploadDate": "2026-04-19"
       },
@@ -238,7 +238,7 @@
         "artist": "CoolKid720",
         "id": "1161090"
       },
-      "description": "",
+      "description": "'남자' 존재하지 않는 항목입니다.",
       "enjoyment": "4",
       "framePerfect": {
         "fps": {
@@ -326,7 +326,7 @@
       "rating": "",
       "map": {
         "mapId": "137159307",
-        "length": "30s",
+        "length": "30s (20s)",
         "objects": 3141,
         "uploadDate": "2026-04-02"
       },
@@ -439,7 +439,7 @@
       "rating": "Mythic",
       "map": {
         "mapId": "126915240",
-        "length": "25s",
+        "length": "25s (17s)",
         "objects": 33111,
         "uploadDate": "2025-10-11"
       },
@@ -521,7 +521,6 @@
       "tags": [
         "Cube",
         "Long",
-        "Memory",
         "Sync",
         "Physical",
         "Low-Effect",
@@ -540,7 +539,7 @@
       "rating": "Featured",
       "map": {
         "mapId": "129453627",
-        "length": "28s",
+        "length": "28s (19s)",
         "objects": 1431,
         "uploadDate": "2025-12-14"
       },
