@@ -532,6 +532,51 @@
     },
     {
       "id": 12,
+      "title": "Which One?",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/BFGHAEY52J4",
+      "rating": "",
+      "map": {
+        "mapId": "130261964",
+        "length": "26s",
+        "objects": 3483,
+        "uploadDate": "2025-12-28"
+      },
+      "song": {
+        "name": "Which One?",
+        "artist": "Hiroki.",
+        "id": "NONG"
+      },
+      "description": "[ 파동을 믿기 ]        [ 기계를 믿기 ]",
+      "enjoyment": "10",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "tags": [
+        "Wave",
+        "Robot",
+        "Short",
+        "Sync",
+        "Physical",
+        "Fast",
+        "None-Effect",
+        "No-Clear",
+        "NONG"
+      ],
+      "clears": []
+    },
+    {
+      "id": 13,
       "title": "BOOBAWAVEBA",
       "creator": "Choco",
       "verifier": "Choco",
@@ -576,51 +621,6 @@
         "Low-Effect",
         "One-Mode",
         "No-Clear"
-      ],
-      "clears": []
-    },
-    {
-      "id": 13,
-      "title": "Which One?",
-      "creator": "Choco",
-      "verifier": "Choco",
-      "video": "https://www.youtube.com/embed/BFGHAEY52J4",
-      "rating": "",
-      "map": {
-        "mapId": "130261964",
-        "length": "26s",
-        "objects": 3483,
-        "uploadDate": "2025-12-28"
-      },
-      "song": {
-        "name": "Which One?",
-        "artist": "Hiroki.",
-        "id": "NONG"
-      },
-      "description": "[ 파동을 믿기 ]        [ 기계를 믿기 ]",
-      "enjoyment": "10",
-      "framePerfect": {
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        }
-      },
-      "gameplay": {
-        "modeRatio": {},
-        "speedRatio": {}
-      },
-      "tags": [
-        "Wave",
-        "Robot",
-        "Short",
-        "Sync",
-        "Physical",
-        "Fast",
-        "None-Effect",
-        "No-Clear",
-        "NONG"
       ],
       "clears": []
     },
@@ -1946,6 +1946,18 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-05-29 16:48",
+      "type": "move",
+      "title": "BOOBAWAVEBA",
+      "detail": "'Which One?' 레벨의 순위 변동으로 인해 순위가 12위에서 13위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-29 16:48",
+      "type": "reeval",
+      "title": "Which One?",
+      "detail": "'Which One?' 레벨의 재평가로 인해 순위가 13위에서 12위로 상승하였습니다."
+    },
     {
       "time": "2026-05-02 11:42",
       "type": "move",
