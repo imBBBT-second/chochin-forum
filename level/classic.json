@@ -533,6 +533,49 @@
     },
     {
       "id": 12,
+      "title": "Sa Sip IL",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/DvpxAqt2Ysk",
+      "rating": "",
+      "map": {
+        "mapId": "141503715",
+        "length": "22s",
+        "objects": 2066,
+        "uploadDate": "2026-05-30"
+      },
+      "song": {
+        "name": "The Road To China Town",
+        "artist": "Xmusical",
+        "id": "414141"
+      },
+      "description": "41st",
+      "enjoyment": "10",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "tags": [
+        "Wave",
+        "Short",
+        "Physical",
+        "High-CPS",
+        "Low-Effect",
+        "One-Mode",
+        "No-Clear"
+      ],
+      "clears": []
+    },
+    {
+      "id": 13,
       "title": "every end by temu",
       "creator": "Choco & Timo",
       "verifier": "Timo",
@@ -573,7 +616,7 @@
       "clears": []
     },
     {
-      "id": 13,
+      "id": 14,
       "title": "First Fantasy",
       "creator": "Choco",
       "verifier": "Choco",
@@ -617,7 +660,7 @@
       "clears": []
     },
     {
-      "id": 14,
+      "id": 15,
       "title": "BOOBAWAVEBA",
       "creator": "Choco",
       "verifier": "Choco",
@@ -666,7 +709,7 @@
       "clears": []
     },
     {
-      "id": 15,
+      "id": 16,
       "title": "Just Test Map",
       "creator": "Choco",
       "verifier": "Light",
@@ -713,7 +756,7 @@
       ]
     },
     {
-      "id": 16,
+      "id": 17,
       "title": "FlipBook",
       "creator": "Choco",
       "verifier": "Choco",
@@ -763,7 +806,7 @@
       ]
     },
     {
-      "id": 17,
+      "id": 18,
       "title": "Reaper Wave",
       "creator": "Timo",
       "verifier": "Timo",
@@ -824,7 +867,7 @@
       ]
     },
     {
-      "id": 18,
+      "id": 19,
       "title": "PPPP",
       "creator": "Choco",
       "verifier": "Choco",
@@ -887,7 +930,7 @@
       ]
     },
     {
-      "id": 19,
+      "id": 20,
       "title": "Endless Dreaming",
       "creator": "Light",
       "verifier": "Light",
@@ -935,7 +978,7 @@
       ]
     },
     {
-      "id": 20,
+      "id": 21,
       "title": "JPA EP8",
       "creator": "Choco",
       "verifier": "Choco",
@@ -991,7 +1034,7 @@
       "clears": []
     },
     {
-      "id": 21,
+      "id": 22,
       "title": "LT EP8",
       "creator": "Light",
       "verifier": "Choco",
@@ -1033,7 +1076,7 @@
       "clears": []
     },
     {
-      "id": 22,
+      "id": 23,
       "title": "JPA EP7",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1080,7 +1123,7 @@
       "clears": []
     },
     {
-      "id": 23,
+      "id": 24,
       "title": "JPA EP4",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1135,7 +1178,7 @@
       "clears": []
     },
     {
-      "id": 24,
+      "id": 25,
       "title": "JPA EP5",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1181,7 +1224,7 @@
       "clears": []
     },
     {
-      "id": 25,
+      "id": 26,
       "title": "JPA EP2",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1228,7 +1271,7 @@
       "clears": []
     },
     {
-      "id": 26,
+      "id": 27,
       "title": "JPA EP1",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1275,7 +1318,7 @@
       "clears": []
     },
     {
-      "id": 27,
+      "id": 28,
       "title": "Trolled",
       "creator": "Light",
       "verifier": "Light",
@@ -1338,7 +1381,7 @@
       ]
     },
     {
-      "id": 28,
+      "id": 29,
       "title": "JPA EP3",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1385,7 +1428,7 @@
       "clears": []
     },
     {
-      "id": 29,
+      "id": 30,
       "title": "LT EP7",
       "creator": "Light",
       "verifier": "Light",
@@ -1441,7 +1484,7 @@
       ]
     },
     {
-      "id": 30,
+      "id": 31,
       "title": "JPA EP9",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1485,7 +1528,7 @@
       "clears": []
     },
     {
-      "id": 31,
+      "id": 32,
       "title": "JPA EP6",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1527,7 +1570,7 @@
       "clears": []
     },
     {
-      "id": 32,
+      "id": 33,
       "title": "Slow Challenge",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1570,7 +1613,7 @@
       "clears": []
     },
     {
-      "id": 33,
+      "id": 34,
       "title": "LT EP6",
       "creator": "Light",
       "verifier": "Light",
@@ -1628,7 +1671,7 @@
       ]
     },
     {
-      "id": 34,
+      "id": 35,
       "title": "LT EP4",
       "creator": "Light",
       "verifier": "Light",
@@ -1677,7 +1720,7 @@
       ]
     },
     {
-      "id": 35,
+      "id": 36,
       "title": "LT EP5",
       "creator": "Light",
       "verifier": "Light",
@@ -1726,7 +1769,7 @@
       ]
     },
     {
-      "id": 36,
+      "id": 37,
       "title": "Glide Festival",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1770,7 +1813,7 @@
       "clears": []
     },
     {
-      "id": 37,
+      "id": 38,
       "title": "Egg Layout",
       "creator": "Light",
       "verifier": "Light",
@@ -1839,7 +1882,7 @@
       ]
     },
     {
-      "id": 38,
+      "id": 39,
       "title": "LT EP3",
       "creator": "Light",
       "verifier": "Light",
@@ -1890,7 +1933,7 @@
       ]
     },
     {
-      "id": 39,
+      "id": 40,
       "title": "LT EP2",
       "creator": "Light",
       "verifier": "Light",
@@ -1943,7 +1986,7 @@
       ]
     },
     {
-      "id": 40,
+      "id": 41,
       "title": "Answer Me",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1987,6 +2030,204 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-05-30 12:29",
+      "type": "move",
+      "title": "Which One?",
+      "detail": "'Sa Sip IL' 레벨의 순위 변동으로 인해 순위가 12위에서 11위로 상승하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:29",
+      "type": "reeval",
+      "title": "Sa Sip IL",
+      "detail": "'Sa Sip IL' 레벨의 재평가로 인해 순위가 11위에서 12위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "add",
+      "title": "Sa Sip IL",
+      "detail": "11위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "Answer Me",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 40위에서 41위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "LT EP2",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 39위에서 40위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "LT EP3",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 38위에서 39위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "Egg Layout",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 37위에서 38위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "Glide Festival",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 36위에서 37위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "LT EP5",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 35위에서 36위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "LT EP4",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 34위에서 35위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "LT EP6",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 33위에서 34위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "Slow Challenge",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 32위에서 33위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "JPA EP6",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 31위에서 32위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "JPA EP9",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 30위에서 31위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "LT EP7",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 29위에서 30위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "JPA EP3",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 28위에서 29위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "Trolled",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 27위에서 28위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "JPA EP1",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 26위에서 27위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "JPA EP2",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 25위에서 26위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "JPA EP5",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 24위에서 25위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "JPA EP4",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 23위에서 24위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "JPA EP7",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 22위에서 23위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "LT EP8",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 21위에서 22위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "JPA EP8",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 20위에서 21위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "Endless Dreaming",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 19위에서 20위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "PPPP",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 18위에서 19위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "Reaper Wave",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 17위에서 18위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "FlipBook",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 16위에서 17위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "Just Test Map",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 15위에서 16위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "BOOBAWAVEBA",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 14위에서 15위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "First Fantasy",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 13위에서 14위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "every end by temu",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 12위에서 13위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-30 12:27",
+      "type": "move",
+      "title": "Which One?",
+      "detail": "'Sa Sip IL' 레벨 추가로 인해 순위가 11위에서 12위로 하락하였습니다."
+    },
     {
       "time": "2026-05-29 21:31",
       "type": "move",
