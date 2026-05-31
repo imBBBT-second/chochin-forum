@@ -613,7 +613,14 @@
         "Low-Effect",
         "No-Clear"
       ],
-      "clears": []
+      "clears": [
+        {
+          "player": "Choco",
+          "percent": 100,
+          "date": "2026-05-31",
+          "link": "https://youtu.be/-Z4vpVr49wM"
+        }
+      ]
     },
     {
       "id": 14,
