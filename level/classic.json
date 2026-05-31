@@ -576,6 +576,53 @@
     },
     {
       "id": 13,
+      "title": "Just Test Map",
+      "creator": "Choco",
+      "verifier": "Light",
+      "video": "https://www.youtube.com/embed/7aEjbZTmCVY?si=wmk75qXVpbFmkulD",
+      "rating": "",
+      "map": {
+        "mapId": "132707428",
+        "length": "32s",
+        "objects": 47735,
+        "uploadDate": "2026-01-31"
+      },
+      "song": {
+        "name": "Let's Make A Plan Everyone",
+        "artist": "Brooklyn Game Audio",
+        "id": "10005684"
+      },
+      "description": "이 텍스트는 Just Test Map을 설명하려는 텍스트가 아닌, 그저 테스트 용 텍스트라는 점을 알립니다.",
+      "enjoyment": "",
+      "framePerfect": {
+        "fps": {
+          "30": 3,
+          "60": 2,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "tags": [
+        "Any-Mode",
+        "Medium",
+        "Physical",
+        "High-CPS"
+      ],
+      "clears": [
+        {
+          "player": "Choco",
+          "percent": 62,
+          "date": "2026-02-16",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "id": 14,
       "title": "every end by temu",
       "creator": "Choco & Timo",
       "verifier": "Timo",
@@ -623,7 +670,7 @@
       ]
     },
     {
-      "id": 14,
+      "id": 15,
       "title": "First Fantasy",
       "creator": "Choco",
       "verifier": "Choco",
@@ -667,7 +714,7 @@
       "clears": []
     },
     {
-      "id": 15,
+      "id": 16,
       "title": "BOOBAWAVEBA",
       "creator": "Choco",
       "verifier": "Choco",
@@ -714,53 +761,6 @@
         "No-Clear"
       ],
       "clears": []
-    },
-    {
-      "id": 16,
-      "title": "Just Test Map",
-      "creator": "Choco",
-      "verifier": "Light",
-      "video": "https://www.youtube.com/embed/7aEjbZTmCVY?si=wmk75qXVpbFmkulD",
-      "rating": "",
-      "map": {
-        "mapId": "132707428",
-        "length": "32s",
-        "objects": 47735,
-        "uploadDate": "2026-01-31"
-      },
-      "song": {
-        "name": "Let's Make A Plan Everyone",
-        "artist": "Brooklyn Game Audio",
-        "id": "10005684"
-      },
-      "description": "이 텍스트는 Just Test Map을 설명하려는 텍스트가 아닌, 그저 테스트 용 텍스트라는 점을 알립니다.",
-      "enjoyment": "",
-      "framePerfect": {
-        "fps": {
-          "30": 3,
-          "60": 2,
-          "120": 0,
-          "240": 0
-        }
-      },
-      "gameplay": {
-        "modeRatio": {},
-        "speedRatio": {}
-      },
-      "tags": [
-        "Any-Mode",
-        "Medium",
-        "Physical",
-        "High-CPS"
-      ],
-      "clears": [
-        {
-          "player": "Choco",
-          "percent": 62,
-          "date": "2026-02-16",
-          "link": ""
-        }
-      ]
     },
     {
       "id": 17,
@@ -2037,6 +2037,30 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-05-31 14:02",
+      "type": "move",
+      "title": "BOOBAWAVEBA",
+      "detail": "'Just Test Map' 레벨의 순위 변동으로 인해 순위가 15위에서 16위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-31 14:02",
+      "type": "move",
+      "title": "First Fantasy",
+      "detail": "'Just Test Map' 레벨의 순위 변동으로 인해 순위가 14위에서 15위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-31 14:02",
+      "type": "move",
+      "title": "every end by temu",
+      "detail": "'Just Test Map' 레벨의 순위 변동으로 인해 순위가 13위에서 14위로 하락하였습니다."
+    },
+    {
+      "time": "2026-05-31 14:02",
+      "type": "reeval",
+      "title": "Just Test Map",
+      "detail": "'Just Test Map' 레벨의 재평가로 인해 순위가 16위에서 13위로 상승하였습니다."
+    },
     {
       "time": "2026-05-30 12:29",
       "type": "move",
