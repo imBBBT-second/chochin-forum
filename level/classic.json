@@ -127,7 +127,7 @@
         "Physical",
         "Learny",
         "Fast",
-        "Full-Effect"
+        "Low-Effect"
       ],
       "clears": []
     },
@@ -214,7 +214,7 @@
         "Physical",
         "Flow",
         "Fast",
-        "Full-Effect",
+        "Low-Effect",
         "No-Clear",
         "NONG"
       ],
@@ -410,7 +410,7 @@
       },
       "tags": [
         "Wave",
-        "4x",
+        "Fast",
         "Short",
         "Physical",
         "None-Effect"
@@ -469,7 +469,7 @@
       },
       "tags": [
         "Cube",
-        "1x",
+        "Slow",
         "Short",
         "Physical",
         "Slow",
@@ -568,7 +568,7 @@
         "Short",
         "Physical",
         "High-CPS",
-        "Low-Effect",
+        "None-Effect",
         "One-Mode",
         "No-Clear"
       ],
@@ -610,7 +610,9 @@
         "Any-Mode",
         "Medium",
         "Physical",
-        "High-CPS"
+        "High-CPS",
+        "None-Effect",
+        "No-Clear"
       ],
       "clears": [
         {
@@ -706,7 +708,7 @@
         "Long",
         "Sync",
         "Physical",
-        "Low-Effect",
+        "Full-Effect",
         "One-Mode",
         "No-Clear",
         "NONG"
@@ -924,7 +926,7 @@
         "Physical",
         "Flow",
         "High-CPS",
-        "Full-Effect",
+        "Low-Effect",
         "No-Clear"
       ],
       "clears": [
