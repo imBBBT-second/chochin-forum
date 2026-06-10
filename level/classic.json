@@ -570,7 +570,14 @@
         "No-Clear",
         "NONG"
       ],
-      "clears": []
+      "clears": [
+        {
+          "player": "Timo",
+          "percent": 100,
+          "date": "2026-06-10",
+          "link": "https://youtu.be/9DNXtX6RX_A"
+        }
+      ]
     },
     {
       "id": 13,
