@@ -220,6 +220,27 @@
       ]
     },
     {
+      "id": "pack 15",
+      "title": "Joke Pack",
+      "tier": "Tier 2",
+      "description": "예능용 맵들을 해보세요!",
+      "levels": [
+        {
+          "name": "Stereo MadnesS EX",
+          "author": "Choco & Timo"
+        },
+        {
+          "name": "Sa Sip IL",
+          "author": "Choco"
+        },
+        {
+          "name": "Just Test Map",
+          "author": "Choco"
+        }
+      ],
+      "clears": []
+    },
+    {
       "id": "pack 8",
       "title": "Inspired Pack",
       "tier": "Tier 3",
@@ -266,34 +287,9 @@
       "clears": []
     },
     {
-      "id": "pack 10",
-      "title": "Boykisser Pack",
-      "tier": "Tier 4",
-      "description": "Do you like kissing boys don't you?  (보이 키서가 나오는 맵을 쳐 해보세요!)",
-      "levels": [
-        {
-          "name": "Desuwa",
-          "author": "Choco & Timo"
-        },
-        {
-          "name": "B1ack 0ut",
-          "author": "Timo"
-        },
-        {
-          "name": "Stereo MadnesS EX",
-          "author": "Choco & Timo"
-        },
-        {
-          "name": "nullscube",
-          "author": "Timo"
-        }
-      ],
-      "clears": []
-    },
-    {
       "id": "pack 11",
       "title": "Japanese Pack II",
-      "tier": "Tier 3",
+      "tier": "Tier 4",
       "description": "일본 노래로 구성된 맵을 해보세요! (2)",
       "levels": [
         {
@@ -342,27 +338,6 @@
       "clears": []
     },
     {
-      "id": "pack 15",
-      "title": "Joke Pack",
-      "tier": "Tier 2",
-      "description": "예능용 맵들을 해보세요!",
-      "levels": [
-        {
-          "name": "Stereo MadnesS EX",
-          "author": "Choco & Timo"
-        },
-        {
-          "name": "Sa Sip IL",
-          "author": "Choco"
-        },
-        {
-          "name": "Just Test Map",
-          "author": "Choco"
-        }
-      ],
-      "clears": []
-    },
-    {
       "id": "pack 16",
       "title": "WTF Pack",
       "tier": "Tier 3",
@@ -378,9 +353,39 @@
         }
       ],
       "clears": []
+    },
+    {
+      "id": "pack 10",
+      "title": "Boykisser Pack",
+      "tier": "Tier 4",
+      "description": "Do you like kissing boys don't you?  (보이 키서가 나오는 맵을 쳐 해보세요!)",
+      "levels": [
+        {
+          "name": "Desuwa",
+          "author": "Choco & Timo"
+        },
+        {
+          "name": "B1ack 0ut",
+          "author": "Timo"
+        },
+        {
+          "name": "Stereo MadnesS EX",
+          "author": "Choco & Timo"
+        },
+        {
+          "name": "nullscube",
+          "author": "Timo"
+        }
+      ],
+      "clears": []
     }
   ],
   "history": [
+    {
+      "time": "2026-06-14",
+      "type": "팩 수정",
+      "detail": "Japanese Pack II 팩 정보가 수정되었습니다."
+    },
     {
       "time": "2026-06-14",
       "type": "팩 수정",
