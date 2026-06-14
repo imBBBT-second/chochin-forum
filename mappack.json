@@ -194,6 +194,32 @@
       "clears": []
     },
     {
+      "id": "pack 14",
+      "title": "Beginner Pack",
+      "tier": "Tier 2",
+      "description": "이 맵들을 클리어함으로서 실력 상승을 느껴보세요! (장담은 못함)",
+      "levels": [
+        {
+          "name": "FlipBook",
+          "author": "Choco"
+        },
+        {
+          "name": "Reaper Wave",
+          "author": "Timo"
+        },
+        {
+          "name": "PPPP",
+          "author": "Choco"
+        }
+      ],
+      "clears": [
+        {
+          "player": "Choco",
+          "date": "2026-04-07"
+        }
+      ]
+    },
+    {
       "id": "pack 8",
       "title": "Inspired Pack",
       "tier": "Tier 3",
@@ -316,33 +342,60 @@
       "clears": []
     },
     {
-      "id": "pack 14",
-      "title": "Beginner Pack",
+      "id": "pack 15",
+      "title": "Joke Pack",
       "tier": "Tier 2",
-      "description": "이 맵들을 클리어함으로서 실력 상승을 느껴보세요! (장담은 못함)",
+      "description": "예능용 맵들을 해보세요!",
       "levels": [
         {
-          "name": "FlipBook",
+          "name": "Stereo MadnesS EX",
+          "author": "Choco & Timo"
+        },
+        {
+          "name": "Sa Sip IL",
           "author": "Choco"
         },
         {
-          "name": "Reaper Wave",
-          "author": "Timo"
-        },
-        {
-          "name": "PPPP",
+          "name": "Just Test Map",
           "author": "Choco"
         }
       ],
-      "clears": [
+      "clears": []
+    },
+    {
+      "id": "pack 16",
+      "title": "WTF Pack",
+      "tier": "Tier 3",
+      "description": "아니 이게 뭐야",
+      "levels": [
         {
-          "player": "Choco",
-          "date": "2026-04-07"
+          "name": "Desuwa",
+          "author": "Choco & Timo"
+        },
+        {
+          "name": "chocubedchocubed",
+          "author": "Light & Choco"
         }
-      ]
+      ],
+      "clears": []
     }
   ],
   "history": [
+    {
+      "time": "2026-06-14",
+      "type": "팩 추가",
+      "detail": "WTF Pack 팩이 추가되었습니다."
+    },
+    {
+      "time": "2026-06-14",
+      "type": "팩 수정",
+      "detail": "Joke Pack 팩 정보가 수정되었습니다."
+    },
+    {
+      "time": "2026-06-14",
+      "type": "팩 추가",
+      "detail": "Joke Pack 팩이 추가되었습니다."
+    },
     {
       "time": "2026-04-17",
       "type": "팩 수정",
