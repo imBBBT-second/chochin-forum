@@ -814,6 +814,48 @@
     },
     {
       "id": 18,
+      "title": "wA Ve step",
+      "creator": "Timo",
+      "verifier": "Timo",
+      "video": "https://www.youtube.com/embed/oKtPfKOCP_M?si=oBtW04aBPaE_MIQm",
+      "rating": "Featured",
+      "map": {
+        "mapId": "143271726",
+        "length": "32s",
+        "objects": 6347,
+        "uploadDate": "2026-06-22"
+      },
+      "song": {
+        "name": "Clubstep",
+        "artist": "DJ-Nate",
+        "id": "13"
+      },
+      "description": "이걸 깨면 사클텝을 클리어할 수 있습니다 (아마)",
+      "enjoyment": "9",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "tags": [
+        "Wave",
+        "Medium",
+        "Physical",
+        "High-CPS",
+        "Low-Effect",
+        "No-Clear"
+      ],
+      "clears": []
+    },
+    {
+      "id": 19,
       "title": "FlipBook",
       "creator": "Choco",
       "verifier": "Choco",
@@ -863,7 +905,7 @@
       ]
     },
     {
-      "id": 19,
+      "id": 20,
       "title": "Reaper Wave",
       "creator": "Timo",
       "verifier": "Timo",
@@ -924,7 +966,7 @@
       ]
     },
     {
-      "id": 20,
+      "id": 21,
       "title": "PPPP",
       "creator": "Choco",
       "verifier": "Choco",
@@ -987,7 +1029,7 @@
       ]
     },
     {
-      "id": 21,
+      "id": 22,
       "title": "Endless Dreaming",
       "creator": "Light",
       "verifier": "Light",
@@ -1035,7 +1077,7 @@
       ]
     },
     {
-      "id": 22,
+      "id": 23,
       "title": "JPA EP8",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1091,7 +1133,7 @@
       "clears": []
     },
     {
-      "id": 23,
+      "id": 24,
       "title": "LT EP8",
       "creator": "Light",
       "verifier": "Choco",
@@ -1133,7 +1175,7 @@
       "clears": []
     },
     {
-      "id": 24,
+      "id": 25,
       "title": "JPA EP7",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1180,7 +1222,7 @@
       "clears": []
     },
     {
-      "id": 25,
+      "id": 26,
       "title": "JPA EP4",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1235,7 +1277,7 @@
       "clears": []
     },
     {
-      "id": 26,
+      "id": 27,
       "title": "JPA EP5",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1281,7 +1323,7 @@
       "clears": []
     },
     {
-      "id": 27,
+      "id": 28,
       "title": "JPA EP2",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1328,7 +1370,7 @@
       "clears": []
     },
     {
-      "id": 28,
+      "id": 29,
       "title": "JPA EP1",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1375,7 +1417,7 @@
       "clears": []
     },
     {
-      "id": 29,
+      "id": 30,
       "title": "Trolled",
       "creator": "Light",
       "verifier": "Light",
@@ -1438,7 +1480,7 @@
       ]
     },
     {
-      "id": 30,
+      "id": 31,
       "title": "JPA EP3",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1485,7 +1527,7 @@
       "clears": []
     },
     {
-      "id": 31,
+      "id": 32,
       "title": "LT EP7",
       "creator": "Light",
       "verifier": "Light",
@@ -1541,7 +1583,7 @@
       ]
     },
     {
-      "id": 32,
+      "id": 33,
       "title": "JPA EP9",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1585,7 +1627,7 @@
       "clears": []
     },
     {
-      "id": 33,
+      "id": 34,
       "title": "JPA EP6",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1627,7 +1669,7 @@
       "clears": []
     },
     {
-      "id": 34,
+      "id": 35,
       "title": "Slow Challenge",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1670,7 +1712,7 @@
       "clears": []
     },
     {
-      "id": 35,
+      "id": 36,
       "title": "LT EP6",
       "creator": "Light",
       "verifier": "Light",
@@ -1728,7 +1770,7 @@
       ]
     },
     {
-      "id": 36,
+      "id": 37,
       "title": "LT EP4",
       "creator": "Light",
       "verifier": "Light",
@@ -1777,7 +1819,7 @@
       ]
     },
     {
-      "id": 37,
+      "id": 38,
       "title": "LT EP5",
       "creator": "Light",
       "verifier": "Light",
@@ -1826,7 +1868,7 @@
       ]
     },
     {
-      "id": 38,
+      "id": 39,
       "title": "Glide Festival",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1870,7 +1912,7 @@
       "clears": []
     },
     {
-      "id": 39,
+      "id": 40,
       "title": "Egg Layout",
       "creator": "Light",
       "verifier": "Light",
@@ -1939,7 +1981,7 @@
       ]
     },
     {
-      "id": 40,
+      "id": 41,
       "title": "LT EP3",
       "creator": "Light",
       "verifier": "Light",
@@ -1990,7 +2032,7 @@
       ]
     },
     {
-      "id": 41,
+      "id": 42,
       "title": "LT EP2",
       "creator": "Light",
       "verifier": "Light",
@@ -2043,7 +2085,7 @@
       ]
     },
     {
-      "id": 42,
+      "id": 43,
       "title": "Answer Me",
       "creator": "Choco",
       "verifier": "Choco",
@@ -2087,6 +2129,162 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-06-23 21:35",
+      "type": "add",
+      "title": "wA Ve step",
+      "detail": "18위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2026-06-23 21:35",
+      "type": "move",
+      "title": "Answer Me",
+      "detail": "'wA Ve step' 레벨 추가로 인해 순위가 42위에서 43위로 하락하였습니다."
+    },
+    {
+      "time": "2026-06-23 21:35",
+      "type": "move",
+      "title": "LT EP2",
+      "detail": "'wA Ve step' 레벨 추가로 인해 순위가 41위에서 42위로 하락하였습니다."
+    },
+    {
+      "time": "2026-06-23 21:35",
+      "type": "move",
+      "title": "LT EP3",
+      "detail": "'wA Ve step' 레벨 추가로 인해 순위가 40위에서 41위로 하락하였습니다."
+    },
+    {
+      "time": "2026-06-23 21:35",
+      "type": "move",
+      "title": "Egg Layout",
+      "detail": "'wA Ve step' 레벨 추가로 인해 순위가 39위에서 40위로 하락하였습니다."
+    },
+    {
+      "time": "2026-06-23 21:35",
+      "type": "move",
+      "title": "Glide Festival",
+      "detail": "'wA Ve step' 레벨 추가로 인해 순위가 38위에서 39위로 하락하였습니다."
+    },
+    {
+      "time": "2026-06-23 21:35",
+      "type": "move",
+      "title": "LT EP5",
+      "detail": "'wA Ve step' 레벨 추가로 인해 순위가 37위에서 38위로 하락하였습니다."
+    },
+    {
+      "time": "2026-06-23 21:35",
+      "type": "move",
+      "title": "LT EP4",
+      "detail": "'wA Ve step' 레벨 추가로 인해 순위가 36위에서 37위로 하락하였습니다."
+    },
+    {
+      "time": "2026-06-23 21:35",
+      "type": "move",
+      "title": "LT EP6",
+      "detail": "'wA Ve step' 레벨 추가로 인해 순위가 35위에서 36위로 하락하였습니다."
+    },
+    {
+      "time": "2026-06-23 21:35",
+      "type": "move",
+      "title": "Slow Challenge",
+      "detail": "'wA Ve step' 레벨 추가로 인해 순위가 34위에서 35위로 하락하였습니다."
+    },
+    {
+      "time": "2026-06-23 21:35",
+      "type": "move",
+      "title": "JPA EP6",
+      "detail": "'wA Ve step' 레벨 추가로 인해 순위가 33위에서 34위로 하락하였습니다."
+    },
+    {
+      "time": "2026-06-23 21:35",
+      "type": "move",
+      "title": "JPA EP9",
+      "detail": "'wA Ve step' 레벨 추가로 인해 순위가 32위에서 33위로 하락하였습니다."
+    },
+    {
+      "time": "2026-06-23 21:35",
+      "type": "move",
+      "title": "LT EP7",
+      "detail": "'wA Ve step' 레벨 추가로 인해 순위가 31위에서 32위로 하락하였습니다."
+    },
+    {
+      "time": "2026-06-23 21:35",
+      "type": "move",
+      "title": "JPA EP3",
+      "detail": "'wA Ve step' 레벨 추가로 인해 순위가 30위에서 31위로 하락하였습니다."
+    },
+    {
+      "time": "2026-06-23 21:35",
+      "type": "move",
+      "title": "Trolled",
+      "detail": "'wA Ve step' 레벨 추가로 인해 순위가 29위에서 30위로 하락하였습니다."
+    },
+    {
+      "time": "2026-06-23 21:35",
+      "type": "move",
+      "title": "JPA EP1",
+      "detail": "'wA Ve step' 레벨 추가로 인해 순위가 28위에서 29위로 하락하였습니다."
+    },
+    {
+      "time": "2026-06-23 21:35",
+      "type": "move",
+      "title": "JPA EP2",
+      "detail": "'wA Ve step' 레벨 추가로 인해 순위가 27위에서 28위로 하락하였습니다."
+    },
+    {
+      "time": "2026-06-23 21:35",
+      "type": "move",
+      "title": "JPA EP5",
+      "detail": "'wA Ve step' 레벨 추가로 인해 순위가 26위에서 27위로 하락하였습니다."
+    },
+    {
+      "time": "2026-06-23 21:35",
+      "type": "move",
+      "title": "JPA EP4",
+      "detail": "'wA Ve step' 레벨 추가로 인해 순위가 25위에서 26위로 하락하였습니다."
+    },
+    {
+      "time": "2026-06-23 21:35",
+      "type": "move",
+      "title": "JPA EP7",
+      "detail": "'wA Ve step' 레벨 추가로 인해 순위가 24위에서 25위로 하락하였습니다."
+    },
+    {
+      "time": "2026-06-23 21:35",
+      "type": "move",
+      "title": "LT EP8",
+      "detail": "'wA Ve step' 레벨 추가로 인해 순위가 23위에서 24위로 하락하였습니다."
+    },
+    {
+      "time": "2026-06-23 21:35",
+      "type": "move",
+      "title": "JPA EP8",
+      "detail": "'wA Ve step' 레벨 추가로 인해 순위가 22위에서 23위로 하락하였습니다."
+    },
+    {
+      "time": "2026-06-23 21:35",
+      "type": "move",
+      "title": "Endless Dreaming",
+      "detail": "'wA Ve step' 레벨 추가로 인해 순위가 21위에서 22위로 하락하였습니다."
+    },
+    {
+      "time": "2026-06-23 21:35",
+      "type": "move",
+      "title": "PPPP",
+      "detail": "'wA Ve step' 레벨 추가로 인해 순위가 20위에서 21위로 하락하였습니다."
+    },
+    {
+      "time": "2026-06-23 21:35",
+      "type": "move",
+      "title": "Reaper Wave",
+      "detail": "'wA Ve step' 레벨 추가로 인해 순위가 19위에서 20위로 하락하였습니다."
+    },
+    {
+      "time": "2026-06-23 21:35",
+      "type": "move",
+      "title": "FlipBook",
+      "detail": "'wA Ve step' 레벨 추가로 인해 순위가 18위에서 19위로 하락하였습니다."
+    },
     {
       "time": "2026-06-10 22:10",
       "type": "add",
