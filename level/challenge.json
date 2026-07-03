@@ -4,10 +4,11 @@
       "id": 1,
       "title": "Jam With Wave",
       "creator": "Timo",
-      "video": "-",
       "verifier": "Timo",
+      "video": "-",
+      "rating": "Featured",
       "map": {
-        "mapId": 123869094,
+        "mapId": "123869094",
         "length": "12s",
         "objects": 2832,
         "uploadDate": "2025-07-31"
@@ -15,24 +16,24 @@
       "song": {
         "name": "Jam with Wave",
         "artist": "Frums",
-        "id": 10009548
+        "id": "10009548"
       },
-      "gameplay": {
-        "mainMode": "Wave",
-        "modeRatio": {
-          "Cube": 100
-        },
-        "speedRatio": {
-          "1x": 100
-        }
-      },
+      "description": "",
+      "enjoyment": "",
       "framePerfect": {
-        "total": 0,
         "fps": {
           "30": 0,
           "60": 0,
           "120": 0,
           "240": 0
+        }
+      },
+      "gameplay": {
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
         }
       },
       "tags": [
@@ -91,7 +92,7 @@
       "creator": "Choco",
       "verifier": "Choco",
       "video": "https://www.youtube.com/embed/aoWhyy5VhAo",
-      "rating": "",
+      "rating": "Featured",
       "map": {
         "mapId": "129446657",
         "length": "11s",
@@ -102,6 +103,16 @@
         "name": "B!tchcrush",
         "artist": "ImCold",
         "id": "1221726"
+      },
+      "description": "",
+      "enjoyment": "",
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
       },
       "gameplay": {
         "modeRatio": {
@@ -125,10 +136,11 @@
       "id": 4,
       "title": "Blink",
       "creator": "Choco",
-      "video": "https://www.youtube.com/embed/xa4XmXWQfZY",
       "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/xa4XmXWQfZY",
+      "rating": "Featured",
       "map": {
-        "mapId": 129210712,
+        "mapId": "129210712",
         "length": "8s",
         "objects": 1583,
         "uploadDate": "2025-12-09"
@@ -136,24 +148,24 @@
       "song": {
         "name": "-Invaders-",
         "artist": "Waterflame",
-        "id": 108415
+        "id": "108415"
       },
-      "gameplay": {
-        "mainMode": "Wave",
-        "modeRatio": {
-          "Cube": 100
-        },
-        "speedRatio": {
-          "1x": 100
-        }
-      },
+      "description": "",
+      "enjoyment": "",
       "framePerfect": {
-        "total": 0,
         "fps": {
           "30": 0,
           "60": 0,
           "120": 0,
           "240": 0
+        }
+      },
+      "gameplay": {
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
         }
       },
       "tags": [
@@ -346,10 +358,11 @@
       "id": 9,
       "title": "Cube Cafe",
       "creator": "Timo",
-      "video": "-",
       "verifier": "Timo",
+      "video": "-",
+      "rating": "Featured",
       "map": {
-        "mapId": 121632308,
+        "mapId": "121632308",
         "length": "11s",
         "objects": 505,
         "uploadDate": "2025-06-24"
@@ -357,24 +370,24 @@
       "song": {
         "name": "My Ordinart Life",
         "artist": "The Living Tombstone",
-        "id": 815245
+        "id": "815245"
       },
-      "gameplay": {
-        "mainMode": "Cube",
-        "modeRatio": {
-          "Cube": 100
-        },
-        "speedRatio": {
-          "1x": 100
-        }
-      },
+      "description": "",
+      "enjoyment": "",
       "framePerfect": {
-        "total": 0,
         "fps": {
           "30": 0,
           "60": 0,
           "120": 0,
           "240": 0
+        }
+      },
+      "gameplay": {
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
         }
       },
       "tags": [
